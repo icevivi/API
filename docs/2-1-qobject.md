@@ -22,10 +22,14 @@ biForm中的控件都继承自 Qt 中的 QObject，QObject 提供的接口的帮
 
 返回控件的类名，比如一个标签控件，返回的结果就是'labelDelegate'。
 
+### connect
 
-connect
-customEvent
-delete
+连接信号和槽，具体参考关于信号和槽的章节。
+
+### customEvent
+
+
+### delete
 disconnect
 dumpObjectInfo
 dumpObjectTree
