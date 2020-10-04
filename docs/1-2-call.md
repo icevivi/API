@@ -20,7 +20,7 @@ biForm 主要是为图形化应用程序设计的，biForm提供了多种标准�
 
 ```
 
-?> **BILIVE_FORM_NEWFORM_11** 是当前表单运行时状态下所在的模块名，也即 __name__ 的值。
+?> **BILIVE_FORM_NEWFORM_11** 是当前表单运行时状态下所在的模块名，也即 “__name__” 的值。
 
 dir()返回的结果中有我们之前的例子中定义的类 Animal 和 Dog ，还有我们在表单上添加的两个控件 button 和 lineedit，还有一个对象 this ，我们用下面的命令看一下它的属性和方法有些什么：
 
