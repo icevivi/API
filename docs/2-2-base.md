@@ -8,37 +8,42 @@ biForm 中的标准控件都继承自 widgetDelegateBase，有共同的一些属
 
 控件相对于它的上级控件（父对象）的几何尺寸
 
-|调用|语法|
+| |调用方法|
 | - | - |
 |读取|const QRect & geometry()|
-|修改| void setGeometry(const QRect& rect)|
+|修改|void setGeometry(const QRect& rect)|
 |	   |void setGeometry(int x,int y ,int w,int h)|
 
-###  属性：x （类型：int 可读 可写）
+- ### 属性：x （类型：int 可读 可写）
+
+| |调用方法|
+| - | - |
+|读取|int x()|
+|修改|void setX(int x)|
 
 控件相对于上级控件的位置坐标的 x 值。
 
-###  属性：y （类型：int 可读 可写）
+- ### 属性：y （类型：int 可读 可写）
 
 控件相对于上级控件的位置坐标的 y 值。
 
-###  属性：width （类型：int 可读 可写）
+- ### 属性：width （类型：int 可读 可写）
 
 控件的宽度。
 
-###  属性：height （类型：int 可读 可写）
+- ### 属性：height （类型：int 可读 可写）
 
 控件的高度。
 
-###  属性：pos （类型：QPoint 可读 可写）
+- ### 属性：pos （类型：QPoint 可读 可写）
 
 控件左上角相对于上级控件的位置。
 
-###  属性：size （类型：QSize 可读 可写）
+- ### 属性：size （类型：QSize 可读 可写）
 
 控件的尺寸。
 
-### 属性：rect （类型：QRect 只读）
+- ### 属性：rect （类型：QRect 只读）
 
 控件相对于上级控件的矩形区域，等于 QRect(0,0,width(),height())。
 
@@ -54,15 +59,15 @@ biForm 中的标准控件都继承自 widgetDelegateBase，有共同的一些属
 	Q_PROPERTY(QRect rect READ rect) 
 
 
-###  属性：vAlign （类型：int 可读 可写）
+- ### 属性：vAlign （类型：int 可读 可写）
 
 垂直方向的对齐方式。
 
-###  属性：hAlign （类型：int 可读 可写）
+- ### 属性：hAlign （类型：int 可读 可写）
 
 水平方向的对齐方式。
 
-###  属性：showType （类型：int 可读 可写）
+- ### 属性：showType （类型：int 可读 可写）
 
 显示方式。
 
