@@ -1,0 +1,180 @@
+# 共同的接口
+
+biForm 中的标准控件都继承自 widgetDelegateBase，有共同的一些属性和方法。
+
+## 属性
+
+### 外观相关的属性
+
+#### geometry 属性（QRect 类型，可读、可写）
+
+控件相对于它的上级控件（父对象）的几何尺寸。
+
+|读取|const QRect & geometry()|
+|修改| void setGeometry(const QRect& rect)|
+|	   |void setGeometry(int x,int y ,int w,int h)|
+
+QRect
+
+	Q_PROPERTY(int x READ x WRITE setX)
+	Q_PROPERTY(int y READ y WRITE setY)
+	Q_PROPERTY(QPoint pos READ pos WRITE setPos)
+	Q_PROPERTY(QSize size READ size WRITE setSize)
+	Q_PROPERTY(int width READ width WRITE setWidth)
+	Q_PROPERTY(int height READ height WRITE setHeight)
+	Q_PROPERTY(QRect rect READ rect) 
+	Q_PROPERTY(int vAlign READ vAlign WRITE setVAlign)
+	Q_PROPERTY(int hAlign READ hAlign WRITE setHAlign)	
+	Q_PROPERTY(int showType READ showType WRITE setShowType)
+	Q_PROPERTY(bool visible READ visible WRITE setVisible)
+	Q_PROPERTY(bool showInForm READ showInForm WRITE setShowInForm)
+	Q_PROPERTY(bool showInPDF READ showInPDF WRITE setShowInPDF)
+	Q_PROPERTY(bool showInPrinter READ showInPrinter WRITE setShowInPrinter)
+	Q_PROPERTY(int maxwidth READ maxwidth WRITE setMaxWidth)
+	Q_PROPERTY(int maxheight READ maxheight WRITE setMaxHeight)
+	Q_PROPERTY(int minwidth READ minwidth WRITE setMinWidth)
+	Q_PROPERTY(int minheight READ minheight WRITE setMinHeight)
+
+### 其它属性
+
+	Q_PROPERTY(int tabOrder READ tabOrder)
+	Q_PROPERTY(bool focus READ hasFocus WRITE setFocus)
+	Q_PROPERTY(QString toolTip READ toolTip WRITE setToolTip)
+	Q_PROPERTY(QString statusTip READ statusTip WRITE setStatusTip)
+	Q_PROPERTY(QString whatsThis READ whatsThis WRITE setWhatsThis)	
+	Q_PROPERTY(bool acceptDrops READ acceptDrops WRITE setAcceptDrops)
+	Q_PROPERTY(bool dragEnabled READ dragEnabled WRITE setDragEnabled)
+	Q_PROPERTY(bool reloadWhenCreateNew READ reloadWhenCreateNew WRITE setReloadWhenCreateNew)
+	Q_PROPERTY(QString tag READ tag WRITE setTag)	
+	Q_PROPERTY(bool updatesEnabled READ updatesEnabled WRITE setUpdatesEnabled)
+
+public:
+	
+	virtual QString valuePropertyName () const ;
+
+	QFont font() const;
+	QColor foreground() const;
+	QColor background() const;
+	QColor borderColor() const;
+	bool showBorder() const;
+	int borderWidth() const	;
+	int fillStyle() const;
+	int showType() const;
+	int borderStyle() const;
+
+	int maxwidth() const;
+	int maxheight() const ;
+	int minwidth() const;
+	int minheight() const ;
+
+	bool acceptDrops() const;
+	bool dragEnabled() const;
+	
+	int vAlign() const;
+	int hAlign() const;
+	int tabOrder() const;
+	bool visible() const;
+	bool enabled() const;
+	QRect geometry() const	;
+	int x() const;
+	int y() const;
+	QPoint pos() const;
+	QSize size() const	;
+	int width() const;
+	int height() const	;
+	QRect rect() const;
+	bool hasFocus() const	;
+	QString toolTip() const;
+	QString statusTip() const;
+	QString whatsThis() const;
+
+	QString tag() const;
+	void setTag(const QString v);
+	bool reloadWhenCreateNew() const	;
+	bool showInForm() const;
+	bool showInPDF() const	;
+	bool showInPrinter() const;
+	bool updatesEnabled() const;
+
+private:
+	QString _tag;
+public slots:	
+	QPixmap grab();
+
+	virtual void setStyleSheet(const QString& style);
+
+	void setFullScreen();
+	void quitFullScreen();
+
+	void setSizePolicy(QSizePolicy policy);
+	void showBalloon(const QString& msg);
+	void showValidBalloon();
+	void hideBalloon();
+	void setShowInForm(bool v);
+	void setShowInPDF(bool v);
+	void setShowInPrinter(bool v);
+	void setReloadWhenCreateNew(bool v);
+	bool isNull();
+	void toTop();
+    void toBottom();
+	void raise();
+	void lower();
+	void repaint()	;
+	void show();
+    void hide()	;
+
+	void setMaxWidth ( int v );
+	void setMaxHeight ( int v );
+	void setMinWidth ( int v );
+	void setMinHeight ( int v );
+
+	void setAcceptDrops(bool v);
+	void setDragEnabled(bool v);
+
+	void setUpdatesEnabled(bool v);
+
+	int startTimer ( int interval )		;
+	bool killTimer ( int id )		;
+
+	void killAllTimer();
+
+	QStringList timers();
+
+	void startSingleShot ( int interval )		;
+
+	void setFocus(const bool v) const;
+
+	void setEnabled(bool v)	;
+	void setDisabled(bool v)	;
+	void setVisible(bool v)	;
+	void setFont(const QFont &v)		;
+
+	void setGeometry(const QRect v) const;
+	void setX(const int v) const;
+	void setY(const int v) const		;
+	void setPos(const QPoint v) const;
+	void setSize(const QSize v) const	;
+	void setWidth(const int v) const		;
+	void setHeight(const int v) const		;
+		
+	void setToolTip(const QString v) const;
+	void setStatusTip(const QString v) const;
+	void setWhatsThis(const QString v) const;
+	void setHAlign(int v)	;
+	void setVAlign(int v)	;
+
+	void setBorderStyle(int v)	;
+
+	void setFillStyle(int v)	;
+
+	void setShowType(int v)	;
+
+	void setBorderWidth(int v)	;
+
+	void setShowBorder(bool v)	;
+
+	void setBorderColor(const QColor v)	;
+	void setBackground(const QColor v)	;
+	void setForeground(const QColor v)	;
+
+
