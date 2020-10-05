@@ -11,6 +11,6 @@
 
 ### [一、继承自 QObjet 的接口](2-1-qobject)
 
-### [二、共同的接口](2-1-qobject)
+### [二、基类widgetDelegateBase](2-2-base)
 
 ### [三、标签控件](2-2-label)

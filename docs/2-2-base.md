@@ -1,6 +1,25 @@
-# 共同的接口
+# 基类widgetDelegateBase
 
 biForm 中的标准控件都继承自 widgetDelegateBase，有共同的一些属性和方法。
+
+## Python 脚本调用接口时的注意事项
+
+本文中属性的调用方法采用 C++ 的语法，但在 biForm 中用 Python 脚本调用时，需要注意语法格式。
+
+读取属性时，如```const QRect & geometry()```，在 Python 脚本调用时就应该是```obj.geometry```。注意不要带“()”。
+
+修改属性时，如```void setGeometry(const QRect& rect)```，在 Python 脚本调用时，需要先导入 QRect ：
+
+``` python
+
+#先导入 QRect
+from PythonQt.Qt import QRect
+#可以调用函数对属性赋值
+this.label.setGeometry(QRect(10,10,100,30))
+#也可以直接对属性赋值
+this.label.geometry=QRect(10,10,100,30)
+
+```
 
 ## 外观相关的属性
 
@@ -117,7 +136,7 @@ biForm 中的标准控件都继承自 widgetDelegateBase，有共同的一些属
 | |调用方法|
 | - | - |
 |读取|int maxheight()|
-|修改|void setMaxHeight(const int w)|
+|修改|void setMaxHeight(const int h)|
 
 - ### 属性：minwidth （类型：int 可读 可写）
 
@@ -135,174 +154,304 @@ biForm 中的标准控件都继承自 widgetDelegateBase，有共同的一些属
 | |调用方法|
 | - | - |
 |读取|int minheight()|
-|修改|void setMinHeight(const int w)|
+|修改|void setMinHeight(const int h)|
 
 - ### 属性：visible （类型：bool 可读 可写）
 
 是否可见。
 
+| |调用方法|
+| - | - |
+|读取|bool visible()|
+|修改|void setVisible(bool visible)|
+
 - ### 属性：showInForm （类型：bool 可读 可写）
 
 表单上是否显示。
+
+| |调用方法|
+| - | - |
+|读取|bool showInForm()|
+|修改|void setShowInForm(bool show)|
 
 - ### 属性：showInPDF （类型：bool 可读 可写）
 
 PDF打印时是否显示。
 
+| |调用方法|
+| - | - |
+|读取|bool showInPDF()|
+|修改|void setShowInPDF(bool show)|
+
 - ### 属性：showInPrinter （类型：bool 可读 可写）
 
 打印机打印时是否显示。
 
+| |调用方法|
+| - | - |
+|读取|bool showInPrinter()|
+|修改|void setShowInPrinter(bool showInPrinter)|
 
-	Q_PROPERTY(bool visible READ visible WRITE setVisible)
-	Q_PROPERTY(bool showInForm READ showInForm WRITE setShowInForm)
-	Q_PROPERTY(bool showInPDF READ showInPDF WRITE setShowInPDF)
-	Q_PROPERTY(bool showInPrinter READ showInPrinter WRITE setShowInPrinter)
-	Q_PROPERTY(int maxwidth READ maxwidth WRITE setMaxWidth)
-	Q_PROPERTY(int maxheight READ maxheight WRITE setMaxHeight)
-	Q_PROPERTY(int minwidth READ minwidth WRITE setMinWidth)
-	Q_PROPERTY(int minheight READ minheight WRITE setMinHeight)
+## 其它属性
 
-### 其它属性
+- ### 属性：focus （类型：bool 可读 可写）
 
-	Q_PROPERTY(int tabOrder READ tabOrder)
-	Q_PROPERTY(bool focus READ hasFocus WRITE setFocus)
-	Q_PROPERTY(QString toolTip READ toolTip WRITE setToolTip)
-	Q_PROPERTY(QString statusTip READ statusTip WRITE setStatusTip)
-	Q_PROPERTY(QString whatsThis READ whatsThis WRITE setWhatsThis)	
-	Q_PROPERTY(bool acceptDrops READ acceptDrops WRITE setAcceptDrops)
-	Q_PROPERTY(bool dragEnabled READ dragEnabled WRITE setDragEnabled)
-	Q_PROPERTY(bool reloadWhenCreateNew READ reloadWhenCreateNew WRITE setReloadWhenCreateNew)
-	Q_PROPERTY(QString tag READ tag WRITE setTag)	
-	Q_PROPERTY(bool updatesEnabled READ updatesEnabled WRITE setUpdatesEnabled)
+当前是否获得了输入焦点。
 
-public:
-	
-	virtual QString valuePropertyName () const ;
+| |调用方法|
+| - | - |
+|读取|bool hasFocus()|
+|修改|void setFocus(bool hasFocus)|
 
-	QFont font() const;
-	QColor foreground() const;
-	QColor background() const;
-	QColor borderColor() const;
-	bool showBorder() const;
-	int borderWidth() const	;
-	int fillStyle() const;
-	int showType() const;
-	int borderStyle() const;
+- ### 属性：acceptDrops （类型：bool 可读 可写）
 
-	int maxwidth() const;
-	int maxheight() const ;
-	int minwidth() const;
-	int minheight() const ;
+是否接受DropDown事件。
 
-	bool acceptDrops() const;
-	bool dragEnabled() const;
-	
-	int vAlign() const;
-	int hAlign() const;
-	int tabOrder() const;
-	bool visible() const;
-	bool enabled() const;
-	QRect geometry() const	;
-	int x() const;
-	int y() const;
-	QPoint pos() const;
-	QSize size() const	;
-	int width() const;
-	int height() const	;
-	QRect rect() const;
-	bool hasFocus() const	;
-	QString toolTip() const;
-	QString statusTip() const;
-	QString whatsThis() const;
+| |调用方法|
+| - | - |
+|读取|bool acceptDrops()|
+|修改|void setAcceptDrops(bool acceptDrops)|
 
-	QString tag() const;
-	void setTag(const QString v);
-	bool reloadWhenCreateNew() const	;
-	bool showInForm() const;
-	bool showInPDF() const	;
-	bool showInPrinter() const;
-	bool updatesEnabled() const;
+- ### 属性：dragEnabled （类型：bool 可读 可写）
 
-private:
-	QString _tag;
-public slots:	
-	QPixmap grab();
+是否接受拖动。
 
-	virtual void setStyleSheet(const QString& style);
+| |调用方法|
+| - | - |
+|读取|bool dragEnabled()|
+|修改|void setDragEnabled(bool enabled)|
 
-	void setFullScreen();
-	void quitFullScreen();
+- ### 属性：reloadWhenCreateNew （类型：bool 可读 可写）
 
-	void setSizePolicy(QSizePolicy policy);
-	void showBalloon(const QString& msg);
-	void showValidBalloon();
-	void hideBalloon();
-	void setShowInForm(bool v);
-	void setShowInPDF(bool v);
-	void setShowInPrinter(bool v);
-	void setReloadWhenCreateNew(bool v);
-	bool isNull();
-	void toTop();
-    void toBottom();
-	void raise();
-	void lower();
-	void repaint()	;
-	void show();
-    void hide()	;
+在表单执行动作“新建”时，是否重新加载此控件的各项属性值。不同控件对重新加载的处理不一样，一般是恢复设计时的缺省状态。通常这个属性改为 False 时，可以在新建空白表单记录时，控件保持以前的状态或值减少输入的工作量。
 
-	void setMaxWidth ( int v );
-	void setMaxHeight ( int v );
-	void setMinWidth ( int v );
-	void setMinHeight ( int v );
+| |调用方法|
+| - | - |
+|读取|bool reloadWhenCreateNew()|
+|修改|void setReloadWhenCreateNew(bool reload)|
 
-	void setAcceptDrops(bool v);
-	void setDragEnabled(bool v);
+- ### 属性：updatesEnabled （类型：bool 可读 可写）
 
-	void setUpdatesEnabled(bool v);
+是否允许更新显示。通常用于要对控件进行较大影响外观的修改之前，将此值置为 False，在完成修改后再改为 True，以避免中途频繁刷新显示占用过多的系统资源或引起屏幕闪烁。
 
-	int startTimer ( int interval )		;
-	bool killTimer ( int id )		;
+| |调用方法|
+| - | - |
+|读取|bool updatesEnabled()|
+|修改|void setUpdatesEnabled(bool enabled)|
 
-	void killAllTimer();
+- ### 属性：tabOrder （类型：int 只读）
 
-	QStringList timers();
+按 tab 键在控件间切换焦点时这个控件的顺序。
 
-	void startSingleShot ( int interval )		;
+| |调用方法|
+| - | - |
+|读取|int tabOrder()|
 
-	void setFocus(const bool v) const;
+- ### 属性：toolTip （类型：QString 可读 可写）
 
-	void setEnabled(bool v)	;
-	void setDisabled(bool v)	;
-	void setVisible(bool v)	;
-	void setFont(const QFont &v)		;
+鼠标悬停在控件上时显示的工具提示。
 
-	void setGeometry(const QRect v) const;
-	void setX(const int v) const;
-	void setY(const int v) const		;
-	void setPos(const QPoint v) const;
-	void setSize(const QSize v) const	;
-	void setWidth(const int v) const		;
-	void setHeight(const int v) const		;
-		
-	void setToolTip(const QString v) const;
-	void setStatusTip(const QString v) const;
-	void setWhatsThis(const QString v) const;
-	void setHAlign(int v)	;
-	void setVAlign(int v)	;
+| |调用方法|
+| - | - |
+|读取|QString toolTip()|
+|修改|void setToolTip(const QString &text)|
 
-	void setBorderStyle(int v)	;
+- ### 属性：statusTip （类型：QString 可读 可写）
 
-	void setFillStyle(int v)	;
+鼠标移动到主窗口状态栏显示的控件提示内容。
 
-	void setShowType(int v)	;
+| |调用方法|
+| - | - |
+|读取|QString statusTip()|
+|修改|void setStatusTip(const QString &text)|
 
-	void setBorderWidth(int v)	;
+- ### 属性：whatsThis （类型：QString 可读 可写）
 
-	void setShowBorder(bool v)	;
+使用 “what's this” 功能点击这个控件时，显示的“这是什么？”的内容。
 
-	void setBorderColor(const QColor v)	;
-	void setBackground(const QColor v)	;
-	void setForeground(const QColor v)	;
+| |调用方法|
+| - | - |
+|读取|QString whatsThis()|
+|修改|void setWhatsThis(const QString &text)|
 
+- ### 属性：tag （类型：QString 可读 可写）
+
+备用的临时存放值的一个属性，可以按需要灵活使用。
+
+| |调用方法|
+| - | - |
+|读取|QString tag()|
+|修改|void setTag(const QString &text)|
+
+- ### 属性：font （类型：QFont 可读 可写）
+
+控件的字体。
+
+| |调用方法|
+| - | - |
+|读取|QFont font()|
+|修改|void setFont(const QFont &font)|
+
+- ### 属性：foreground （类型：QColor 可读 可写）
+
+控件的前景色。
+
+| |调用方法|
+| - | - |
+|读取|QColor foreground()|
+|修改|void setForeground(const QColor &color)|
+
+- ### 属性：background （类型：QColor 可读 可写）
+
+控件的背景色。
+
+| |调用方法|
+| - | - |
+|读取|QColor background()|
+|修改|void setBackground(const QColor &color)|
+
+
+- ### 属性：borderColor （类型：QColor 可读 可写）
+
+控件的边框颜色。
+
+| |调用方法|
+| - | - |
+|读取|QColor borderColor()|
+|修改|void setBorderColor(const QColor &color)|
+
+- ### 属性：borderWidth （类型：int 可读 可写）
+
+边框宽度。
+
+| |调用方法|
+| - | - |
+|读取|int borderWidth()|
+|修改|void setBorderWidth(const int w)|
+
+- ### 属性：fillStyle （类型：int 可读 可写）
+
+背景填充方式。
+
+| |调用方法|
+| - | - |
+|读取|int fillStyle()|
+|修改|void setFillStyle(const int style)|
+
+- ### 属性：borderStyle （类型：int 可读 可写）
+
+边框样式。
+
+| |调用方法|
+| - | - |
+|读取|int borderStyle()|
+|修改|void setBorderStyle(const int style)|
+
+- ### 属性：enabled （类型：bool 可读 可写）
+
+边框样式。
+
+| |调用方法|
+| - | - |
+|读取|int enabled()|
+|修改|void setEnabled(const int enabled)|
+
+- ### 属性：showBorder （类型：bool 可读 可写）
+
+是否显示边框。
+
+| |调用方法|
+| - | - |
+|读取|int showBorder()|
+|修改|void setShowBorder(const int enabled)|
+
+## 槽函数（方法）
+
+- ### QPixmap grab()
+
+截取控件的图像，如果控件有子控件，子控件的图像也会被截取。
+
+- ### setStyleSheet(const QString& style)
+
+设置控件的外观样式，style 的格式，请参考Qt文档。
+
+- ### void setFullScreen()
+
+将控件全屏显示。
+
+- ### void quitFullScreen()
+
+退出全屏显示。
+
+- ### void setSizePolicy(QSizePolicy policy)
+
+设置尺寸规则，请参考 Qt 文档。
+
+- ### void showBalloon(const QString& msg)
+
+在控件上显示一个消息汽泡，msg指定要显示的文字。
+
+- ### void showValidBalloon()
+
+在控件上显示一个消息汽泡，显示控件的“合法性检查文本提示”的内容。
+
+- ### void hideBalloon()
+
+隐藏消息汽泡。
+
+- ### bool isNull()
+
+返回这个控件是否是一个空的 widgetDelegateBase 对象，空的表示没有绑定实际的控件。
+
+- ### void toTop()
+
+将这个控件提升到同一级控件中最前端，它会显示在最前端。同 raise() 是一样的效果。
+
+- ### void toBottom()
+
+将这个控件置于同一级控件中最底层，它会显示在其它控件最后面。同 lower() 是一样的效果。
+
+- ### void raise()
+
+将这个控件提升到同一级控件中最前端，它会显示在最前端。同 toTop() 是一样的效果。
+
+- ### void lower()
+
+将这个控件置于同一级控件中最底层，它会显示在其它控件最后面。同 toBottom() 是一样的效果。
+
+- ### void repaint()	
+
+重画这个控件，除非控件设置了 updatesEnabled 为 False 或控件处于隐藏状态。
+
+- ### void show()
+
+显示控件。
+
+- ### void hide()
+
+隐藏控件。
+
+- ### int startTimer ( int interval )
+
+启动一个定时器，interval 是时间间隔，单位是毫秒，返回定时器的标识号。
+
+- ### bool killTimer ( int id )
+
+停止一个定时器，id是定时器的标识号。
+
+- ### void killAllTimer()
+
+停止这个控件内部通过 startTimer 启动的所有定时器。
+
+- ### QStringList timers()
+
+返回这个控件所有定时器的标识号。
+
+- ### void startSingleShot ( int interval )
+
+启动一个单次定时器，interval 是时间间隔，单位是毫秒。单次定时器在触发一次超时事件后，就会停止。
+
+- ### void setDisabled(bool disabled)
+
+设置控件是否可用，如果 disabled 值为 True ，则不可用 ,enabled 属性值为 False , 否则为可用，enabled 属性值为 True。
 
