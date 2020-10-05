@@ -12,69 +12,148 @@ biForm 中的标准控件都继承自 widgetDelegateBase，有共同的一些属
 | - | - |
 |读取|const QRect & geometry()|
 |修改|void setGeometry(const QRect& rect)|
-|	   |void setGeometry(int x,int y ,int w,int h)|
 
 - ### 属性：x （类型：int 可读 可写）
+
+控件相对于上级控件的位置坐标的 x 值。
 
 | |调用方法|
 | - | - |
 |读取|int x()|
-|修改|void setX(int x)|
-
-控件相对于上级控件的位置坐标的 x 值。
+|修改|void setX(const int x)|
 
 - ### 属性：y （类型：int 可读 可写）
 
 控件相对于上级控件的位置坐标的 y 值。
 
+| |调用方法|
+| - | - |
+|读取|int y()|
+|修改|void setY(const int y)|
+
 - ### 属性：width （类型：int 可读 可写）
 
 控件的宽度。
+
+| |调用方法|
+| - | - |
+|读取|int width()|
+|修改|void setWidth(const int w)|
 
 - ### 属性：height （类型：int 可读 可写）
 
 控件的高度。
 
+| |调用方法|
+| - | - |
+|读取|int height()|
+|修改|void setHeight(const int h)|
+
 - ### 属性：pos （类型：QPoint 可读 可写）
 
 控件左上角相对于上级控件的位置。
+
+| |调用方法|
+| - | - |
+|读取|QPoint pos()|
+|修改|void setPos(const QPoint h)|
 
 - ### 属性：size （类型：QSize 可读 可写）
 
 控件的尺寸。
 
+| |调用方法|
+| - | - |
+|读取|QSize size()|
+|修改|void setSize(const QSize size)|
+
 - ### 属性：rect （类型：QRect 只读）
 
 控件相对于上级控件的矩形区域，等于 QRect(0,0,width(),height())。
 
-
-
-	Q_PROPERTY(int x READ x WRITE setX)
-	Q_PROPERTY(int y READ y WRITE setY)
-	Q_PROPERTY(QPoint pos READ pos WRITE setPos)
-	Q_PROPERTY(QSize size READ size WRITE setSize)
-	Q_PROPERTY(int width READ width WRITE setWidth)
-	Q_PROPERTY(int height READ height WRITE setHeight)
-
-	Q_PROPERTY(QRect rect READ rect) 
-
+| |调用方法|
+| - | - |
+|读取|const QRect rect()|
+|修改|void setRect(const QSize& rect)|
 
 - ### 属性：vAlign （类型：int 可读 可写）
 
 垂直方向的对齐方式。
 
+| |调用方法|
+| - | - |
+|读取|int vAlign()|
+|修改|void setVAlign(int align)|
+| |align取值：pub.ALIGNTOP 向上对齐|
+| |                 pub.ALIGNBOTTOM 向下对齐|
+| |                 pub.ALIGNVCENTER 垂直居中对齐|
+
 - ### 属性：hAlign （类型：int 可读 可写）
 
 水平方向的对齐方式。
 
-- ### 属性：showType （类型：int 可读 可写）
+| |调用方法|
+| - | - |
+|读取|int hAlign()|
+|修改|void setHAlign(int align)|
+| |align取值：pub.ALIGNLEFT 向左对齐|
+| |                 pub.ALIGNRIGHT 向右对齐|
+| |                 pub.ALIGNHCENTER 水平居中对齐|
+| |                 pub.ALIGNJUSTIFY 水平分散对齐|
 
-显示方式。
+- ### 属性：maxwidth （类型：int 可读 可写）
+
+最大宽度。
+
+| |调用方法|
+| - | - |
+|读取|int maxwidth()|
+|修改|void setMaxWidth(const int w)|
+
+- ### 属性：maxheight （类型：int 可读 可写）
+
+最大高度。
+
+| |调用方法|
+| - | - |
+|读取|int maxheight()|
+|修改|void setMaxHeight(const int w)|
+
+- ### 属性：minwidth （类型：int 可读 可写）
+
+最小宽度。
+
+| |调用方法|
+| - | - |
+|读取|int minwidth()|
+|修改|void setMinWidth(const int w)|
+
+- ### 属性：minheight （类型：int 可读 可写）
+
+最小高度。
+
+| |调用方法|
+| - | - |
+|读取|int minheight()|
+|修改|void setMinHeight(const int w)|
+
+- ### 属性：visible （类型：bool 可读 可写）
+
+是否可见。
+
+- ### 属性：showInForm （类型：bool 可读 可写）
+
+表单上是否显示。
+
+- ### 属性：showInPDF （类型：bool 可读 可写）
+
+PDF打印时是否显示。
+
+- ### 属性：showInPrinter （类型：bool 可读 可写）
+
+打印机打印时是否显示。
 
 
-	Q_PROPERTY(int vAlign READ vAlign WRITE setVAlign)
-	Q_PROPERTY(int hAlign READ hAlign WRITE setHAlign)	
-	Q_PROPERTY(int showType READ showType WRITE setShowType)
 	Q_PROPERTY(bool visible READ visible WRITE setVisible)
 	Q_PROPERTY(bool showInForm READ showInForm WRITE setShowInForm)
 	Q_PROPERTY(bool showInPDF READ showInPDF WRITE setShowInPDF)
