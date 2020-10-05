@@ -4,7 +4,7 @@ biForm 中的标准控件都继承自 widgetDelegateBase，有共同的一些属
 
 ## 外观相关的属性
 
-### - 属性：geometry （类型：QRect 可读 可写）
+- ### 属性：geometry （类型：QRect 可读 可写）
 
 控件相对于它的上级控件（父对象）的几何尺寸
 
