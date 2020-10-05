@@ -2,19 +2,43 @@
 
 biForm 中的标准控件都继承自 widgetDelegateBase，有共同的一些属性和方法。
 
-## 属性
+## 外观相关的属性
 
-### 外观相关的属性
+### 属性：geometry （类型：QRect 可读 可写）
 
-#### geometry 属性（QRect 类型，可读、可写）
-
-控件相对于它的上级控件（父对象）的几何尺寸。
+控件相对于它的上级控件（父对象）的几何尺寸
 
 |读取|const QRect & geometry()|
 |修改| void setGeometry(const QRect& rect)|
 |	   |void setGeometry(int x,int y ,int w,int h)|
 
-QRect
+###  属性：x （类型：int 可读 可写）
+
+控件相对于上级控件的位置坐标的 x 值。
+
+###  属性：y （类型：int 可读 可写）
+
+控件相对于上级控件的位置坐标的 y 值。
+
+###  属性：width （类型：int 可读 可写）
+
+控件的宽度
+
+###  属性：height （类型：int 可读 可写）
+
+控件的高度
+
+###  属性：pos （类型：QPoint 可读 可写）
+
+控件左上角相对于上级控件的位置
+
+###  属性：size （类型：QSize 可读 可写）
+
+控件的尺寸
+
+### 属性：rect （类型：QRect 只读）
+
+控件相对于上级控件的矩形区域，等于 QRect(0,0,width(),height())。
 
 	Q_PROPERTY(int x READ x WRITE setX)
 	Q_PROPERTY(int y READ y WRITE setY)
@@ -22,7 +46,9 @@ QRect
 	Q_PROPERTY(QSize size READ size WRITE setSize)
 	Q_PROPERTY(int width READ width WRITE setWidth)
 	Q_PROPERTY(int height READ height WRITE setHeight)
+
 	Q_PROPERTY(QRect rect READ rect) 
+
 	Q_PROPERTY(int vAlign READ vAlign WRITE setVAlign)
 	Q_PROPERTY(int hAlign READ hAlign WRITE setHAlign)	
 	Q_PROPERTY(int showType READ showType WRITE setShowType)
