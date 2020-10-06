@@ -191,9 +191,9 @@ this.label.geometry=QRect(10,10,100,30)
 | - | - |
 |读取|int fillStyle()|
 |修改|void setFillStyle(const int style)|
-| | style的值：|
-| | - pub.FILLED_BACKGROUND 填充|
-| | - pub.TRANSPARENT_BACKGROUND 透明|
+| | **style的值：**|
+| | &nbsp;- pub.FILLED_BACKGROUND 填充|
+| | &nbsp;- pub.TRANSPARENT_BACKGROUND 透明|
 
 - ### 属性：showBorder （类型：bool 可读 可写）
 
@@ -202,7 +202,7 @@ this.label.geometry=QRect(10,10,100,30)
 | |调用方法|
 | - | - |
 |读取|int showBorder()|
-|修改|void setShowBorder(const int enabled)|
+|修改|void setShowBorder(const int show)|
 
 - ### 属性：borderColor （类型：QColor 可读 可写）
 
