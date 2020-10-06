@@ -156,6 +156,85 @@ this.label.geometry=QRect(10,10,100,30)
 |读取|int minheight()|
 |修改|void setMinHeight(const int h)|
 
+- ### 属性：font （类型：QFont 可读 可写）
+
+控件的字体。
+
+| |调用方法|
+| - | - |
+|读取|QFont font()|
+|修改|void setFont(const QFont &font)|
+
+- ### 属性：foreground （类型：QColor 可读 可写）
+
+控件的前景色。
+
+| |调用方法|
+| - | - |
+|读取|QColor foreground()|
+|修改|void setForeground(const QColor &color)|
+
+- ### 属性：background （类型：QColor 可读 可写）
+
+控件的背景色。
+
+| |调用方法|
+| - | - |
+|读取|QColor background()|
+|修改|void setBackground(const QColor &color)|
+
+- ### 属性：fillStyle （类型：int 可读 可写）
+
+背景填充方式。如果设置为“填充”，则背景色有效，设置为“透明”，背景色的设置不起作用。
+
+| |调用方法|
+| - | - |
+|读取|int fillStyle()|
+|修改|void setFillStyle(const int style)|
+| | style的值：|
+| | - pub.FILLED_BACKGROUND 填充|
+| | - pub.TRANSPARENT_BACKGROUND 透明|
+
+- ### 属性：showBorder （类型：bool 可读 可写）
+
+是否显示边框。
+
+| |调用方法|
+| - | - |
+|读取|int showBorder()|
+|修改|void setShowBorder(const int enabled)|
+
+- ### 属性：borderColor （类型：QColor 可读 可写）
+
+控件的边框颜色。
+
+| |调用方法|
+| - | - |
+|读取|QColor borderColor()|
+|修改|void setBorderColor(const QColor &color)|
+
+- ### 属性：borderWidth （类型：int 可读 可写）
+
+边框宽度。
+
+| |调用方法|
+| - | - |
+|读取|int borderWidth()|
+|修改|void setBorderWidth(const int w)|
+
+- ### 属性：borderStyle （类型：int 可读 可写）
+
+边框样式。
+
+| |调用方法|
+| - | - |
+|读取|int borderStyle()|
+|修改|void setBorderStyle(const int style)|
+
+
+
+## 其它属性
+
 - ### 属性：visible （类型：bool 可读 可写）
 
 是否可见。
@@ -191,8 +270,6 @@ PDF打印时是否显示。
 | - | - |
 |读取|bool showInPrinter()|
 |修改|void setShowInPrinter(bool showInPrinter)|
-
-## 其它属性
 
 - ### 属性：focus （类型：bool 可读 可写）
 
@@ -283,87 +360,14 @@ PDF打印时是否显示。
 |读取|QString tag()|
 |修改|void setTag(const QString &text)|
 
-- ### 属性：font （类型：QFont 可读 可写）
-
-控件的字体。
-
-| |调用方法|
-| - | - |
-|读取|QFont font()|
-|修改|void setFont(const QFont &font)|
-
-- ### 属性：foreground （类型：QColor 可读 可写）
-
-控件的前景色。
-
-| |调用方法|
-| - | - |
-|读取|QColor foreground()|
-|修改|void setForeground(const QColor &color)|
-
-- ### 属性：background （类型：QColor 可读 可写）
-
-控件的背景色。
-
-| |调用方法|
-| - | - |
-|读取|QColor background()|
-|修改|void setBackground(const QColor &color)|
-
-
-- ### 属性：borderColor （类型：QColor 可读 可写）
-
-控件的边框颜色。
-
-| |调用方法|
-| - | - |
-|读取|QColor borderColor()|
-|修改|void setBorderColor(const QColor &color)|
-
-- ### 属性：borderWidth （类型：int 可读 可写）
-
-边框宽度。
-
-| |调用方法|
-| - | - |
-|读取|int borderWidth()|
-|修改|void setBorderWidth(const int w)|
-
-- ### 属性：fillStyle （类型：int 可读 可写）
-
-背景填充方式。
-
-| |调用方法|
-| - | - |
-|读取|int fillStyle()|
-|修改|void setFillStyle(const int style)|
-
-- ### 属性：borderStyle （类型：int 可读 可写）
-
-边框样式。
-
-| |调用方法|
-| - | - |
-|读取|int borderStyle()|
-|修改|void setBorderStyle(const int style)|
-
 - ### 属性：enabled （类型：bool 可读 可写）
 
-边框样式。
+是否可用。
 
 | |调用方法|
 | - | - |
 |读取|int enabled()|
 |修改|void setEnabled(const int enabled)|
-
-- ### 属性：showBorder （类型：bool 可读 可写）
-
-是否显示边框。
-
-| |调用方法|
-| - | - |
-|读取|int showBorder()|
-|修改|void setShowBorder(const int enabled)|
 
 ## 槽函数（方法）
 
