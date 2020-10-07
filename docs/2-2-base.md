@@ -1,6 +1,6 @@
 # 基类widgetDelegateBase
 
-biForm 中的标准控件都继承自 widgetDelegateBase，有共同的一些属性和方法。
+biForm 中的标准控件都继承自 widgetDelegateBase，有共同的一些属性和成员函数。
 
 ## Python 脚本调用接口时的注意事项
 
@@ -8,16 +8,24 @@ biForm 中的标准控件都继承自 widgetDelegateBase，有共同的一些属
 
 读取属性时，如```const QRect & geometry()```，在 Python 脚本调用时就应该是```obj.geometry```。注意不要带“()”。
 
-修改属性时，如```void setGeometry(const QRect& rect)```，在 Python 脚本调用时，需要先导入 QRect ：
+修改属性时，如```void setGeometry(const QRect& rect)```，在 Python 脚本调用时，需要先导入 QRect 。
+
+各类调用参考以下示例：
 
 ``` python
 
 #先导入 QRect
 from PythonQt.Qt import QRect
-#可以调用函数对属性赋值
+#label是表单上一个名称为 label 的标签控件
+#调用成员函数对属性赋值
 this.label.setGeometry(QRect(10,10,100,30))
 #也可以直接对属性赋值
 this.label.geometry=QRect(10,10,100,30)
+#读取属性值
+print(this.label.width)
+#调用成员函数
+this.label.setWidth(10)
+this.label.showBalloon('这是一个标签控件')
 
 ```
 
@@ -29,8 +37,8 @@ this.label.geometry=QRect(10,10,100,30)
 
 | |调用方法|
 | - | - |
-|读取|const QRect & geometry()|
-|修改|void setGeometry(const QRect& rect)|
+|读取|QRect geometry() const|
+|修改|void setGeometry(const QRect& rect) const|
 
 - ### 属性：x （类型：int 可读 可写）
 
@@ -38,8 +46,8 @@ this.label.geometry=QRect(10,10,100,30)
 
 | |调用方法|
 | - | - |
-|读取|int x()|
-|修改|void setX(const int x)|
+|读取|int x() const|
+|修改|void setX(int x) const|
 
 - ### 属性：y （类型：int 可读 可写）
 
@@ -47,8 +55,8 @@ this.label.geometry=QRect(10,10,100,30)
 
 | |调用方法|
 | - | - |
-|读取|int y()|
-|修改|void setY(const int y)|
+|读取|int y() const|
+|修改|void setY(int y) const|
 
 - ### 属性：width （类型：int 可读 可写）
 
@@ -56,8 +64,8 @@ this.label.geometry=QRect(10,10,100,30)
 
 | |调用方法|
 | - | - |
-|读取|int width()|
-|修改|void setWidth(const int w)|
+|读取|int width() const|
+|修改|void setWidth(int w) const|
 
 - ### 属性：height （类型：int 可读 可写）
 
@@ -65,8 +73,8 @@ this.label.geometry=QRect(10,10,100,30)
 
 | |调用方法|
 | - | - |
-|读取|int height()|
-|修改|void setHeight(const int h)|
+|读取|int height() const|
+|修改|void setHeight(int h) const|
 
 - ### 属性：pos （类型：QPoint 可读 可写）
 
@@ -74,8 +82,8 @@ this.label.geometry=QRect(10,10,100,30)
 
 | |调用方法|
 | - | - |
-|读取|QPoint pos()|
-|修改|void setPos(const QPoint h)|
+|读取|QPoint pos() const|
+|修改|void setPos(const QPoint& pos) const |
 
 - ### 属性：size （类型：QSize 可读 可写）
 
@@ -83,8 +91,8 @@ this.label.geometry=QRect(10,10,100,30)
 
 | |调用方法|
 | - | - |
-|读取|QSize size()|
-|修改|void setSize(const QSize size)|
+|读取|QSize size() const|
+|修改|void setSize(const QSize& size) const|
 
 - ### 属性：rect （类型：QRect 只读）
 
@@ -92,8 +100,7 @@ this.label.geometry=QRect(10,10,100,30)
 
 | |调用方法|
 | - | - |
-|读取|const QRect rect()|
-|修改|void setRect(const QSize& rect)|
+|读取|QRect rect() const|
 
 - ### 属性：vAlign （类型：int 可读 可写）
 
@@ -101,11 +108,12 @@ this.label.geometry=QRect(10,10,100,30)
 
 | |调用方法|
 | - | - |
-|读取|int vAlign()|
-|修改|void setVAlign(int align)|
-| |align取值：pub.ALIGNTOP 向上对齐|
-| |                 pub.ALIGNBOTTOM 向下对齐|
-| |                 pub.ALIGNVCENTER 垂直居中对齐|
+|读取|int vAlign() const|
+|修改|void setVAlign(int align) const|
+| |**align取值：**|
+| |pub.ALIGNTOP 向上对齐|
+| |pub.ALIGNBOTTOM 向下对齐|
+| |pub.ALIGNVCENTER 垂直居中对齐|
 
 - ### 属性：hAlign （类型：int 可读 可写）
 
@@ -113,12 +121,13 @@ this.label.geometry=QRect(10,10,100,30)
 
 | |调用方法|
 | - | - |
-|读取|int hAlign()|
-|修改|void setHAlign(int align)|
-| |align取值：pub.ALIGNLEFT 向左对齐|
-| |                 pub.ALIGNRIGHT 向右对齐|
-| |                 pub.ALIGNHCENTER 水平居中对齐|
-| |                 pub.ALIGNJUSTIFY 水平分散对齐|
+|读取|int hAlign() const|
+|修改|void setHAlign(int align) const|
+| |**align取值：**|
+| |pub.ALIGNLEFT 向左对齐|
+| |pub.ALIGNRIGHT 向右对齐|
+| |pub.ALIGNHCENTER 水平居中对齐|
+| |pub.ALIGNJUSTIFY 水平分散对齐|
 
 - ### 属性：maxwidth （类型：int 可读 可写）
 
@@ -126,8 +135,8 @@ this.label.geometry=QRect(10,10,100,30)
 
 | |调用方法|
 | - | - |
-|读取|int maxwidth()|
-|修改|void setMaxWidth(const int w)|
+|读取|int maxwidth() const|
+|修改|void setMaxWidth(int w) const|
 
 - ### 属性：maxheight （类型：int 可读 可写）
 
@@ -135,8 +144,8 @@ this.label.geometry=QRect(10,10,100,30)
 
 | |调用方法|
 | - | - |
-|读取|int maxheight()|
-|修改|void setMaxHeight(const int h)|
+|读取|int maxheight() const|
+|修改|void setMaxHeight(int h) const|
 
 - ### 属性：minwidth （类型：int 可读 可写）
 
@@ -145,7 +154,7 @@ this.label.geometry=QRect(10,10,100,30)
 | |调用方法|
 | - | - |
 |读取|int minwidth()|
-|修改|void setMinWidth(const int w)|
+|修改|void setMinWidth(int w) const|
 
 - ### 属性：minheight （类型：int 可读 可写）
 
@@ -153,8 +162,8 @@ this.label.geometry=QRect(10,10,100,30)
 
 | |调用方法|
 | - | - |
-|读取|int minheight()|
-|修改|void setMinHeight(const int h)|
+|读取|int minheight() const|
+|修改|void setMinHeight(int h) const|
 
 - ### 属性：font （类型：QFont 可读 可写）
 
@@ -162,8 +171,8 @@ this.label.geometry=QRect(10,10,100,30)
 
 | |调用方法|
 | - | - |
-|读取|QFont font()|
-|修改|void setFont(const QFont &font)|
+|读取|QFont font() const|
+|修改|void setFont(const QFont &font) const|
 
 - ### 属性：foreground （类型：QColor 可读 可写）
 
@@ -171,17 +180,17 @@ this.label.geometry=QRect(10,10,100,30)
 
 | |调用方法|
 | - | - |
-|读取|QColor foreground()|
-|修改|void setForeground(const QColor &color)|
+|读取|QColor& foreground() const|
+|修改|void setForeground(const QColor &color) const|
 
 - ### 属性：background （类型：QColor 可读 可写）
 
-控件的背景色。
+控件的背景色。如果 fillStyle 设置为“填充”，则背景色有效，设置为“透明”，背景色的设置不起作用。
 
 | |调用方法|
 | - | - |
-|读取|QColor background()|
-|修改|void setBackground(const QColor &color)|
+|读取|QColor background() const|
+|修改|void setBackground(const QColor &color) const|
 
 - ### 属性：fillStyle （类型：int 可读 可写）
 
@@ -189,11 +198,11 @@ this.label.geometry=QRect(10,10,100,30)
 
 | |调用方法|
 | - | - |
-|读取|int fillStyle()|
-|修改|void setFillStyle(const int style)|
-| | **style的值：**|
-| | &nbsp;- pub.FILLED_BACKGROUND 填充|
-| | &nbsp;- pub.TRANSPARENT_BACKGROUND 透明|
+|读取|int fillStyle() const|
+|修改|void setFillStyle(int style) const|
+| |**style的值：**|
+| |- pub.FILLED_BACKGROUND 填充|
+| |- pub.TRANSPARENT_BACKGROUND 透明|
 
 - ### 属性：showBorder （类型：bool 可读 可写）
 
@@ -201,17 +210,17 @@ this.label.geometry=QRect(10,10,100,30)
 
 | |调用方法|
 | - | - |
-|读取|int showBorder()|
-|修改|void setShowBorder(const int show)|
+|读取|bool showBorder() const|
+|修改|void setShowBorder(bool show) const|
 
 - ### 属性：borderColor （类型：QColor 可读 可写）
 
-控件的边框颜色。
+边框颜色。
 
 | |调用方法|
 | - | - |
-|读取|QColor borderColor()|
-|修改|void setBorderColor(const QColor &color)|
+|读取|QColor borderColor() const|
+|修改|void setBorderColor(const QColor &color) const|
 
 - ### 属性：borderWidth （类型：int 可读 可写）
 
@@ -219,8 +228,8 @@ this.label.geometry=QRect(10,10,100,30)
 
 | |调用方法|
 | - | - |
-|读取|int borderWidth()|
-|修改|void setBorderWidth(const int w)|
+|读取|int borderWidth() const|
+|修改|void setBorderWidth(int w) const|
 
 - ### 属性：borderStyle （类型：int 可读 可写）
 
@@ -228,8 +237,8 @@ this.label.geometry=QRect(10,10,100,30)
 
 | |调用方法|
 | - | - |
-|读取|int borderStyle()|
-|修改|void setBorderStyle(const int style)|
+|读取|int borderStyle() const|
+|修改|void setBorderStyle(int style) const|
 
 
 
@@ -241,8 +250,8 @@ this.label.geometry=QRect(10,10,100,30)
 
 | |调用方法|
 | - | - |
-|读取|bool visible()|
-|修改|void setVisible(bool visible)|
+|读取|bool visible() const|
+|修改|void setVisible(bool visible) const|
 
 - ### 属性：showInForm （类型：bool 可读 可写）
 
@@ -250,8 +259,8 @@ this.label.geometry=QRect(10,10,100,30)
 
 | |调用方法|
 | - | - |
-|读取|bool showInForm()|
-|修改|void setShowInForm(bool show)|
+|读取|bool showInForm() const|
+|修改|void setShowInForm(bool show) const|
 
 - ### 属性：showInPDF （类型：bool 可读 可写）
 
@@ -259,8 +268,8 @@ PDF打印时是否显示。
 
 | |调用方法|
 | - | - |
-|读取|bool showInPDF()|
-|修改|void setShowInPDF(bool show)|
+|读取|bool showInPDF() const|
+|修改|void setShowInPDF(bool show) const|
 
 - ### 属性：showInPrinter （类型：bool 可读 可写）
 
@@ -268,8 +277,8 @@ PDF打印时是否显示。
 
 | |调用方法|
 | - | - |
-|读取|bool showInPrinter()|
-|修改|void setShowInPrinter(bool showInPrinter)|
+|读取|bool showInPrinter() const|
+|修改|void setShowInPrinter(bool showInPrinter) const|
 
 - ### 属性：focus （类型：bool 可读 可写）
 
@@ -277,17 +286,17 @@ PDF打印时是否显示。
 
 | |调用方法|
 | - | - |
-|读取|bool hasFocus()|
-|修改|void setFocus(bool hasFocus)|
+|读取|bool hasFocus() const|
+|修改|void setFocus(bool hasFocus) const|
 
 - ### 属性：acceptDrops （类型：bool 可读 可写）
 
-是否接受DropDown事件。
+是否接受鼠标拖入事件。
 
 | |调用方法|
 | - | - |
-|读取|bool acceptDrops()|
-|修改|void setAcceptDrops(bool acceptDrops)|
+|读取|bool acceptDrops() const|
+|修改|void setAcceptDrops(bool acceptDrops) const|
 
 - ### 属性：dragEnabled （类型：bool 可读 可写）
 
@@ -295,8 +304,8 @@ PDF打印时是否显示。
 
 | |调用方法|
 | - | - |
-|读取|bool dragEnabled()|
-|修改|void setDragEnabled(bool enabled)|
+|读取|bool dragEnabled() const|
+|修改|void setDragEnabled(bool enabled) const|
 
 - ### 属性：reloadWhenCreateNew （类型：bool 可读 可写）
 
@@ -304,8 +313,8 @@ PDF打印时是否显示。
 
 | |调用方法|
 | - | - |
-|读取|bool reloadWhenCreateNew()|
-|修改|void setReloadWhenCreateNew(bool reload)|
+|读取|bool reloadWhenCreateNew() const|
+|修改|void setReloadWhenCreateNew(bool reload) const|
 
 - ### 属性：updatesEnabled （类型：bool 可读 可写）
 
@@ -313,8 +322,8 @@ PDF打印时是否显示。
 
 | |调用方法|
 | - | - |
-|读取|bool updatesEnabled()|
-|修改|void setUpdatesEnabled(bool enabled)|
+|读取|bool updatesEnabled() const|
+|修改|void setUpdatesEnabled(bool enabled) const|
 
 - ### 属性：tabOrder （类型：int 只读）
 
@@ -322,7 +331,7 @@ PDF打印时是否显示。
 
 | |调用方法|
 | - | - |
-|读取|int tabOrder()|
+|读取|int tabOrder() const|
 
 - ### 属性：toolTip （类型：QString 可读 可写）
 
@@ -330,8 +339,8 @@ PDF打印时是否显示。
 
 | |调用方法|
 | - | - |
-|读取|QString toolTip()|
-|修改|void setToolTip(const QString &text)|
+|读取|QString toolTip() const|
+|修改|void setToolTip(const QString &text) const|
 
 - ### 属性：statusTip （类型：QString 可读 可写）
 
@@ -339,8 +348,8 @@ PDF打印时是否显示。
 
 | |调用方法|
 | - | - |
-|读取|QString statusTip()|
-|修改|void setStatusTip(const QString &text)|
+|读取|QString statusTip() const|
+|修改|void setStatusTip(const QString &text) const|
 
 - ### 属性：whatsThis （类型：QString 可读 可写）
 
@@ -348,17 +357,17 @@ PDF打印时是否显示。
 
 | |调用方法|
 | - | - |
-|读取|QString whatsThis()|
-|修改|void setWhatsThis(const QString &text)|
+|读取|QString whatsThis() const|
+|修改|void setWhatsThis(const QString &text) const|
 
-- ### 属性：tag （类型：QString 可读 可写）
+- ### 属性：tag （类型：QVariant 可读 可写）
 
 备用的临时存放值的一个属性，可以按需要灵活使用。
 
 | |调用方法|
 | - | - |
-|读取|QString tag()|
-|修改|void setTag(const QString &text)|
+|读取|QVariant tag() const|
+|修改|void setTag(const QVariant &text) |
 
 - ### 属性：enabled （类型：bool 可读 可写）
 
@@ -366,18 +375,18 @@ PDF打印时是否显示。
 
 | |调用方法|
 | - | - |
-|读取|int enabled()|
-|修改|void setEnabled(const int enabled)|
+|读取|bool enabled() const|
+|修改|void setEnabled(bool enabled) const|
 
-## 槽函数（方法）
+## 槽函数（成员函数）
 
-- ### QPixmap grab()
+- ### QPixmap grab() const
 
-截取控件的图像，如果控件有子控件，子控件的图像也会被截取。
+截取控件的图像。如果控件有子控件，子控件的图像也会被截取。
 
-- ### setStyleSheet(const QString& style)
+- ### setStyleSheet(const QString& styleSheet) const
 
-设置控件的外观样式，style 的格式，请参考Qt文档。
+设置控件的外观样式。styleSheet有类似于CSS的语法，请参考Qt文档。
 
 - ### void setFullScreen()
 
@@ -387,75 +396,75 @@ PDF打印时是否显示。
 
 退出全屏显示。
 
-- ### void setSizePolicy(QSizePolicy policy)
+- ### void setSizePolicy(QSizePolicy policy) const
 
 设置尺寸规则，请参考 Qt 文档。
 
-- ### void showBalloon(const QString& msg)
+- ### void showBalloon(const QString& msg) const
 
 在控件上显示一个消息汽泡，msg指定要显示的文字。
 
-- ### void showValidBalloon()
+- ### void showValidBalloon() const
 
 在控件上显示一个消息汽泡，显示控件的“合法性检查文本提示”的内容。
 
-- ### void hideBalloon()
+- ### void hideBalloon() const
 
 隐藏消息汽泡。
 
-- ### bool isNull()
+- ### bool isNull() const
 
 返回这个控件是否是一个空的 widgetDelegateBase 对象，空的表示没有绑定实际的控件。
 
-- ### void toTop()
+- ### void toTop() const
 
 将这个控件提升到同一级控件中最前端，它会显示在最前端。同 raise() 是一样的效果。
 
-- ### void toBottom()
+- ### void toBottom() const
 
 将这个控件置于同一级控件中最底层，它会显示在其它控件最后面。同 lower() 是一样的效果。
 
-- ### void raise()
+- ### void raise() const
 
 将这个控件提升到同一级控件中最前端，它会显示在最前端。同 toTop() 是一样的效果。
 
-- ### void lower()
+- ### void lower() const
 
 将这个控件置于同一级控件中最底层，它会显示在其它控件最后面。同 toBottom() 是一样的效果。
 
-- ### void repaint()	
+- ### void repaint()	 const
 
 重画这个控件，除非控件设置了 updatesEnabled 为 False 或控件处于隐藏状态。
 
-- ### void show()
+- ### void show() const
 
 显示控件。
 
-- ### void hide()
+- ### void hide() const
 
 隐藏控件。
 
-- ### int startTimer ( int interval )
+- ### int startTimer ( int interval ) const
 
 启动一个定时器，interval 是时间间隔，单位是毫秒，返回定时器的标识号。
 
-- ### bool killTimer ( int id )
+- ### bool killTimer ( int id ) const
 
 停止一个定时器，id是定时器的标识号。
 
-- ### void killAllTimer()
+- ### void killAllTimer() const
 
 停止这个控件内部通过 startTimer 启动的所有定时器。
 
-- ### QStringList timers()
+- ### QStringList timers() const
 
 返回这个控件所有定时器的标识号。
 
-- ### void startSingleShot ( int interval )
+- ### void startSingleShot ( int interval ) const
 
 启动一个单次定时器，interval 是时间间隔，单位是毫秒。单次定时器在触发一次超时事件后，就会停止。
 
-- ### void setDisabled(bool disabled)
+- ### void setDisabled(bool disabled) const
 
 设置控件是否可用，如果 disabled 值为 True ，则不可用 ,enabled 属性值为 False , 否则为可用，enabled 属性值为 True。
 
