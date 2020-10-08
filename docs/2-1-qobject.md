@@ -4,6 +4,16 @@ biForm中的标准控件都继承自 Qt 中的 QObject，QObject 接口的详细
 
 biForm中标准控件的接口继承自QObject的部分与 Qt 中的 QObject 的接口并不完全一样，有些接口也不推荐在使用标准控件时使用。
 
+## 属性
+
+### objectName
+
+接口：QString objectName() const
+
+返回对象名称。调用方式：obj.objectName。
+
+## 成员函数
+
 ### bool blockSignals(bool block)
 
 如果 block 为 true，这个对象发出的信号会被阻止，即不会调用任何连接。如果 block 为 false，不会进行阻止。返回的值是之前 signalsBlocked() 返回的值。
