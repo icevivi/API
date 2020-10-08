@@ -354,7 +354,7 @@
 |setDefaultVal|void setDefaultVal(const QString &text) const|设置缺省值|
 |setInputMask|void setInputMask(const QString &mask) const|设置输入掩码|
 |setEditorVAlign|void setEditorVAlign(int valign) const|设置编辑器垂直方向对齐方式（valign取值：pub.ALIGNTOP 向上对齐；pub.ALIGNBOTTOM 向下对齐；pub.ALIGNVCENTER 垂直居中对齐）|
-|setEditorHAlign|void setEditorHAlign(int halign) const|设置编辑器水平方向对齐方式（halign取值：pub.ALIGNLEFT 向左对齐；|pub.ALIGNRIGHT 向右对齐；pub.ALIGNHCENTER 水平居中对齐；pub.ALIGNJUSTIFY 水平分散对齐）|
+|setEditorHAlign|void setEditorHAlign(int halign) const|设置编辑器水平方向对齐方式（halign取值：pub.ALIGNLEFT 向左对齐；pub.ALIGNRIGHT 向右对齐；pub.ALIGNHCENTER 水平居中对齐；pub.ALIGNJUSTIFY 水平分散对齐）|
 |setReadOnly|void setReadOnly(bool readonly) const|设置是否只读|
 |setIntValidator|void setIntValidator(intValidatorDelegate* validator) const|设置整数输入校验器|
 |setDoubleValidator|void setDoubleValidator(doubleValidatorDelegate* validator) const|设置双精度小数输入校验器|
