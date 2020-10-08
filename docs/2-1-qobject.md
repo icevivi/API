@@ -2,7 +2,7 @@
 
 biForm中的标准控件都继承自 Qt 中的 QObject，QObject 接口的详细说明都可以从 Qt 的官方文档中找到。
 
-biForm中标准控件的接口继承自QObject的部分与 Qt 中的 QObject 的接口并不完全一样，有些接口也不推荐在使用标准控件时使用。
+biForm中标准控件的接口继承自QObject的部分与 Qt 中的 QObject 的接口并不完全一样，开放的接口以本文档为准。
 
 ## 属性
 
