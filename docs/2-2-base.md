@@ -29,7 +29,9 @@ this.label.showBalloon('这是一个标签控件')
 
 ```
 
-## 外观相关的属性
+## 属性
+
+### 外观相关属性
 
 - ### 属性：geometry （类型：QRect 可读 可写）
 
@@ -240,9 +242,7 @@ this.label.showBalloon('这是一个标签控件')
 |读取|int borderStyle() const|
 |修改|void setBorderStyle(int style) const|
 
-
-
-## 其它属性
+### 其它属性
 
 - ### 属性：visible （类型：bool 可读 可写）
 
@@ -378,7 +378,9 @@ PDF打印时是否显示。
 |读取|bool enabled() const|
 |修改|void setEnabled(bool enabled) const|
 
-## 槽函数（成员函数）
+## 成员函数
+
+成员函数在 biForm 中都可以当做槽函数使用。
 
 - ### QPixmap grab() const
 
