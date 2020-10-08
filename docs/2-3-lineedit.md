@@ -4,7 +4,7 @@
 
 ![example](2-3-01.png)
 
-## 继承
+## 继承的属性和函数
 
 - [继承自QObject 的属性](2-1-qobject?id=属性)
 
@@ -100,7 +100,54 @@
 
 - [继承自widgetDelegateBase的成员函数](2-2-base?id=成员函数)
 
-## 单行文本输入控件自有的属性
+|函数|接口|说明|
+| - | - | - |
+|grab|QPixmap grab() const|截取控件图像|
+|hide|void hide() const|隐藏|
+|hideBalloon|void hideBalloon() const|隐藏汽泡控件|
+|isNull|bool isNull() const|是否为空|
+|killAllTimer|void killAllTimer() const|关闭所有定时器|
+|killTimer|bool killTimer ( int id ) const|关闭写时器|
+|lower|void lower() const|置于底层|
+|quitFullScreen|void quitFullScreen()|退出全屏|
+|raise|void raise() const|置于顶层|
+|repaint|void repaint()|重画画|
+|setDisabled|void setDisabled(bool disabled) const|设置可用状态|
+|setFullScreen|void setFullScreen()|全屏|
+|setSizePolicy|void setSizePolicy(QSizePolicy policy) const|设置尺寸缩放规则|
+|setStyleSheet|setStyleSheet(const QString& styleSheet) const|设置样式表|
+|show|void show() const|显示|
+|showBalloon|void showBalloon(const QString& msg) const|显示汽泡提示文本|
+|showValidBalloon|void showValidBalloon() const|显示有效性汽泡提示|
+|startSingleShot|void startSingleShot ( int interval ) const|启动单次定时器|
+|startTimer|int startTimer ( int interval ) const|启动定时器|
+|timers|QStringList timers() const|所有定时器的标识号清单|
+|toBottom|void toBottom() const|置于底层|
+|toTop|void toTop() const|置于顶层|
+
+## 单行文本输入控件自有属性
+
+|属性|值类型|读写类型|说明|
+| - | - | - | - |
+|caption|QString|可读 可写|标题文本|
+|captionPosition|int|可读 |标题位置|
+|defaultVal|QString|可读 可写|缺省值|
+|displaytext|QString|可读 |显示文本|
+|editorBackColor|QColor|可读 可写|编辑器背景色|
+|editorBorderColor|QColor|可读 可写|编辑器边框颜色|
+|editorBorderStyle|int|可读 可写|编辑器边框样式|
+|editorFillStyle|int|可读 可写|编辑器填充样式|
+|editorFont|QFont|可读 可写|编辑器字体|
+|editorForeColor|QColor|可读 可写|编辑器前景色|
+|editorHAlign|int|可读 可写|编辑器水平对齐方式|
+|editorVAlign|int|可读 可写|编辑器垂直对齐方式|
+|inputMask|QString|可读 可写|输入掩码|
+|isPWD|bool|可读 可写|是否显示密码格式|
+|margin|int|可读 可写|边界宽度|
+|maxLength|int|可读 可写|输入文字最大长度|
+|readOnly|bool|可读 可写|是否只读|
+|shadow|int|可读 可写|边框特效样式|
+|text|QString|可读 可写|输入的文本|
 
 - ### 属性：caption （类型：QString 可读 可写）
 
@@ -290,4 +337,36 @@
 | - | - |
 |读取|bool readOnly const|
 |修改|void setReadOnly( bool readOnly ) const|
+
+## 单行文本输入控件自有成员函数
+
+|函数|接口|说明|
+| - | - | - |
+|clear|void clear()  const|清除输入的文本|
+|copy|void copy() const|复制选中的文本|
+|cut|void cut()  const|剪切选中的文本|
+|paste|void paste()  const|从剪切板粘贴文本|
+|redo|void redo()  const|重复上一步撤消的操作|
+|undo|void undo()  const|撤消上一步操作|
+|selectAll|void selectAll() const|选择所有文本|
+|setText |void setText ( const QString & text ) const|设置输入框内的文本|
+|setIsPWD|void setIsPWD(bool isPWD) const|设置是否显示密码|
+|setDefaultVal|void setDefaultVal(const QString &text) const|设置缺省值|
+|setInputMask|void setInputMask(const QString &mask) const|设置输入掩码|
+|setEditorVAlign|void setEditorVAlign(int valign) const|设置编辑器垂直方向对齐方式（valign取值：pub.ALIGNTOP 向上对齐；pub.ALIGNBOTTOM 向下对齐；pub.ALIGNVCENTER 垂直居中对齐）|
+|setEditorHAlign|void setEditorHAlign(int halign) const|设置编辑器水平方向对齐方式（halign取值：pub.ALIGNLEFT 向左对齐；|pub.ALIGNRIGHT 向右对齐；pub.ALIGNHCENTER 水平居中对齐；pub.ALIGNJUSTIFY 水平分散对齐）|
+|setReadOnly|void setReadOnly(bool readonly) const|设置是否只读|
+|setIntValidator|void setIntValidator(intValidatorDelegate* validator) const|设置整数输入校验器|
+|setDoubleValidator|void setDoubleValidator(doubleValidatorDelegate* validator) const|设置双精度小数输入校验器|
+
+## 单行文本输入控件的信号
+
+|信号|接口|说明|
+| - | - | - |
+|cursorPositionChanged|void cursorPositionChanged ( int oldp, int newp ) |输入光标位置改变时发出此信号。|
+|editingFinished|void editingFinished () |编辑完成时，在按下回车键或控件失去焦点时发出此信号。如果设置了校验器或输入掩码，只在符合输入规范（返回QValidator::Acceptable）时才会触发此信号。|
+|returnPressed|void returnPressed ()	 |输入回车键时发出此信号。如果设置了校验器或输入掩码，只在符合输入规范（返回QValidator::Acceptable）时才会触发此信号。|
+|selectionChanged|void selectionChanged () 	 |所选文本范围变更时发出此信号。|
+|textChanged|void textChanged ( const QString & text ) |文本被修改时，与textEdited不同，通过程序修改文本也会发出此信号。|
+|textEdited|void textEdited ( const QString & text )  |文本被编辑修改时，通过程序修改不会发出此信号。|
 
