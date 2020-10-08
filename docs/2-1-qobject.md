@@ -65,7 +65,7 @@ biForm中标准控件的接口继承自QObject的部分与 Qt 中的 QObject 的
 
 列出所有通过 setProperty() 动态添加的属性名称。
 
-### [virtual] bool QObject::event(QEvent *e)
+### [virtual] bool event(QEvent *e)
 
 这个虚函数用于接收一个对象的所有事件并进行处理。如果事件在此处被处理了返回 True。对于在此处不进行处理的事件，需要调用上级控件的事件处理以确保所有事件都会被处理。
 
@@ -137,7 +137,7 @@ biForm 的标准控件调用这个函数都是返回 False，不推荐使用。
 
 比如可以通过 obj.metaObject().className() 返回这个对象的类名。
 
-### void QObject::moveToThread(QThread *targetThread)
+### void moveToThread(QThread *targetThread)
 
 改变这个对象和其子对象的所属线程关系。如果这个对象有父对象，就不能被移到其它线程。
 
