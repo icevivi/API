@@ -7,7 +7,7 @@
 ---
 ## 目录
 
-- [继承的属性和函数](?id=继承的属性和函数)
+- [继承的属性和函数][继承的属性和函数]
 
 - [自有属性](?id=单行文本输入控件自有属性)
 
@@ -138,6 +138,8 @@
 |timers|QStringList timers() const|所有定时器的标识号清单|
 |toBottom|void toBottom() const|置于底层|
 |toTop|void toTop() const|置于顶层|
+
+---
 
 ## 单行文本输入控件自有属性
 
@@ -352,6 +354,8 @@
 |读取|bool readOnly const|
 |修改|void setReadOnly( bool readOnly ) const|
 
+---
+
 ## 单行文本输入控件自有成员函数
 
 |函数|接口|说明|
@@ -373,6 +377,8 @@
 |setIntValidator|void setIntValidator(intValidatorDelegate* validator) const|设置整数输入校验器|
 |setDoubleValidator|void setDoubleValidator(doubleValidatorDelegate* validator) const|设置双精度小数输入校验器|
 
+---
+
 ## 单行文本输入控件的信号
 
 |信号|接口|说明|
@@ -383,6 +389,8 @@
 |selectionChanged|void selectionChanged () 	 |选择的文本范围发生变化时发出此信号。|
 |textChanged|void textChanged ( const QString & text ) |文本被修改时发出此信号。与textEdited不同，通过程序修改文本内容也会发出此信号。|
 |textEdited|void textEdited ( const QString & text )  |文本被操作者编辑修改时发出此信号。通过程序修改文本内容不会发出此信号。|
+
+---
 
 ## 可编程函数
 
