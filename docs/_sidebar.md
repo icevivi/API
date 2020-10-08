@@ -1,6 +1,3 @@
-- [**bilive.com**](https://www.bilive.com)
-- [biForm 快速入门](http://docs.bilive.com/#/guides/biform_quickstart)
-
 - [**目录**](/)
 
 - 第一章 biForm开发基础
