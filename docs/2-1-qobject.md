@@ -1,4 +1,4 @@
-# 继承自 QObject 的接口
+# QObject 接口
 
 biForm中的标准控件都继承自 Qt 中的 QObject，QObject 接口的详细说明都可以从 Qt 的官方文档中找到。
 
