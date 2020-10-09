@@ -10,7 +10,7 @@
 
 - [继承的属性和函数](2-4-multilineedit?id=继承的属性和函数)
 
-- [自有属性](2-4-multilineedit?id=多行文本输入控件自有属性)
+- [自有属性](2-4-multilineedit?id=多行文本输入控件的自有属性)
 
 - [自有成员函数](2-4-multilineedit?id=多行文本输入控件自有成员函数)
 
