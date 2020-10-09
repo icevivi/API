@@ -31,6 +31,45 @@ this.label.showBalloon('这是一个标签控件')
 
 ## 属性
 
+|属性|值类型|读写类型|说明|
+| - | - | - | - |
+|background|QColor|可读 可写|背景色|
+|borderColor|QColor|可读 可写|边框颜色|
+|borderStyle|int|可读 可写|边框样式|
+|borderWidth|int|可读 可写|边框宽度|
+|dragEnabled|bool|可读 可写|是否允许拖动内容|
+|enabled|bool|可读 可写|是否可用|
+|fillStyle|int|可读 可写|填充类型|
+|focus|bool|可读 可写|是否获得输入焦点|
+|font|QFont|可读 可写|字体|
+|foreground|QColor|可读 可写|前景色|
+|geometry|QRect|可读 可写|位置尺寸|
+|hAlign|int|可读 可写|水平方向对齐方式|
+|height|int|可读 可写|高度|
+|maxheight|int|可读 可写|最大高度|
+|maxwidth|int|可读 可写|最大宽度|
+|minheight|int|可读 可写|最小高度|
+|minwidth|int|可读 可写|最小宽度|
+|pos|QPoint|可读 可写|位置|
+|rect|QRect|只读 |边框矩形尺寸|
+|reloadWhenCreateNew|bool|可读 可写|表单新建时是否重新加载|
+|showBorder|bool|可读 可写|是否显示边框|
+|showOnForm|bool|可读 可写|表单上是否可见|
+|showOnPDF|bool|可读 可写|PDF输出时是否可见|
+|showWhenPrint|bool|可读 可写|打印时是否可见|
+|size|QSize|可读 可写|尺寸|
+|statusTip|QString|可读 可写|状态栏提示文本|
+|tabOrder|int|只读 |tab键顺序|
+|tag|QVariant|可读 可写|备用属性|
+|toolTip|QString|可读 可写|工具提示|
+|updatesEnabled|bool|可读 可写|是否允许刷新|
+|vAlign|int|可读 可写|垂直方向对齐方式|
+|visible|bool|可读 可写|是否可见|
+|whatsThis|QString|可读 可写|“这是什么”提示文本|
+|width|int|可读 可写|宽度|
+|x|int|可读 可写|x方向位置|
+|y|int|可读 可写|y方向位置|
+
 ### 外观相关属性
 
 - ### 属性：geometry （类型：QRect 可读 可写）
@@ -381,6 +420,31 @@ PDF打印时是否显示。
 ## 成员函数
 
 成员函数在 biForm 中都可以当做槽函数使用。
+
+|函数|接口|说明|
+| - | - | - |
+|grab|QPixmap grab() const|截取控件图像|
+|hide|void hide() const|隐藏|
+|hideBalloon|void hideBalloon() const|隐藏汽泡控件|
+|isNull|bool isNull() const|是否为空|
+|killAllTimer|void killAllTimer() const|关闭所有定时器|
+|killTimer|bool killTimer ( int id ) const|关闭写时器|
+|lower|void lower() const|置于底层|
+|quitFullScreen|void quitFullScreen()|退出全屏|
+|raise|void raise() const|置于顶层|
+|repaint|void repaint()|重画画|
+|setDisabled|void setDisabled(bool disabled) const|设置可用状态|
+|setFullScreen|void setFullScreen()|全屏|
+|setSizePolicy|void setSizePolicy(QSizePolicy policy) const|设置尺寸缩放规则|
+|setStyleSheet|setStyleSheet(const QString& styleSheet) const|设置样式表|
+|show|void show() const|显示|
+|showBalloon|void showBalloon(const QString& msg) const|显示汽泡提示文本|
+|showValidBalloon|void showValidBalloon() const|显示有效性汽泡提示|
+|startSingleShot|void startSingleShot ( int interval ) const|启动单次定时器|
+|startTimer|int startTimer ( int interval ) const|启动定时器|
+|timers|QStringList timers() const|所有定时器的标识号清单|
+|toBottom|void toBottom() const|置于底层|
+|toTop|void toTop() const|置于顶层|
 
 - ### QPixmap grab() const
 

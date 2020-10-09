@@ -6,7 +6,7 @@
 
 ---
 
-## 目录
+## 索引
 
 - [继承的属性和函数](2-3-lineedit?id=继承的属性和函数)
 
@@ -16,7 +16,7 @@
 
 - [信号](2-3-lineedit?id=单行文本输入控件的信号)
 
-- [可编辑函数](2-3-lineedit?id=可编辑函数)
+- [可编程函数](2-3-lineedit?id=可编程函数)
 
 ---
 
@@ -24,122 +24,11 @@
 
 - [继承自QObject 的属性](2-1-qobject?id=属性)
 
-|属性|值类型|读写类型|说明|
-| - | - | - | - |
-|objectName|QString|可读 可写|对象名称|
-
 - [继承自QObject 的 成员函数](2-1-qobject?id=成员函数)
-
-|函数|接口|说明|
-| - | - | - |
-|blockSignals|bool blockSignals(bool block)|阻止发送信号|
-|childEvent|[virtual protected] void childEvent(QChildEvent *event)|下级对象的事件|
-|children|const QObjectList & children() const|所有下级对象|
-|className|const char * className() const|类名称|
-|connect|bool connect( const QByteArray& signal, PyObject* callable)|连接信号和Python函数|
-|connect|bool connect(const QByteArray& signal, QObject* receiver, const QByteArray& slot,  Qt::ConnectionType type = Qt::AutoConnection)|连接信号和槽|
-|connect|bool connect(QObject* sender, const QByteArray& signal, const QByteArray& slot,  Qt::ConnectionType type = Qt::AutoConnection)|连接信号和槽|
-|customEvent|[virtual protected] void customEvent(QEvent *event)|自定义事件|
-|delete|delete()|删除|
-|disconnect|bool disconnect(const QByteArray& signal, PyObject* callable = NULL)|断开连接信号和Python函数|
-|disconnect|bool disconnect(const QByteArray& signal, QObject* receiver, const QByteArray& slot) |断开连接信号和槽|
-|dumpObjectInfo|void dumpObjectInfo()|输出对象信息|
-|dumpObjectTree|void dumpObjectTree()|输出对象信息树|
-|dynamicPropertyNames|QList<QByteArray> dynamicPropertyNames()|动态属性的名称清单|
-|event|[virtual] bool event(QEvent *e)|事件|
-|eventFilter|[virtual] bool eventFilter(QObject *watched, QEvent *event)|事件过滤器|
-|findChild|T findChild(const QString &name = QString(), Qt::FindChildOptions options = Qt::FindChildrenRecursively) const|查找子对象|
-|findChildren|QList<T> findChildren(const QRegExp &regExp, Qt::FindChildOptions options = Qt::FindChildrenRecursively) const|查找子对象清单|
-|findChildren|QList<T> findChildren(const QString &name = QString(), Qt::FindChildOptions options = Qt::FindChildrenRecursively) const|查找子对象清单|
-|help|QString help()|打印帮助信息|
-|inherits|bool inherits(const char *className)|判断是否继承自某个类|
-|installEventFilter|void installEventFilter(QObject *filterObj)|设置事件过滤器对象|
-|isSignalConnected|[protected] bool isSignalConnected(const QMetaMethod &signal) const|判断信号是否已连接|
-|isWidgetType|bool isWidgetType()|是否是控件类型|
-|isWindowType|bool isWindowType()|是否是窗体类型|
-|killTimer|void killTimer(int  id)|停止定时器|
-|metaObject|[virtual] QMetaObject * metaObject() const|元对象|
-|moveToThread|void moveToThread(QThread *targetThread)|移到其它线程|
-|parent|QObject * parent() const|找上级对象|
-|property|QVariant property(const char *name) |按名称返回对应的属性|
-|removeEventFilter|void removeEventFilter(QObject *obj)|移除事件过滤器的设置|
-|sender|[protected] QObject * sender() const|接收到信号时返回发送信号的对象|
-|senderSignalIndex|[protected] int senderSignalIndex() const|发送信号的属性索引|
-|setParent|void setParent(QObject *parent)|设置上级对象|
-|setProperty|bool setProperty(const char *name, const QVariant &value)|设置属性值|
-|signalsBlocked|bool signalsBlocked() const|信号是否被阻止|
-|startTimer|int  startTimer(int  interval, Qt::TimerType  timerType = Qt::CoarseTimer)|启动定时器|
-|thread|QThread * thread() const|返回线程对象的指针|
-|timerEvent|[virtual protected] void timerEvent(QTimerEvent *event)|定时器超时事件|
-|tr|QString tr(const char *sourceText, const char *disambiguation = Q_OBJECT, int n = Q_OBJECT)|翻译文本|
 
 - [继承自widgetDelegateBase的属性](2-2-base?id=属性)
 
-|属性|值类型|读写类型|说明|
-| - | - | - | - |
-|background|QColor|可读 可写|背景色|
-|borderColor|QColor|可读 可写|边框颜色|
-|borderStyle|int|可读 可写|边框样式|
-|borderWidth|int|可读 可写|边框宽度|
-|dragEnabled|bool|可读 可写|是否允许拖动内容|
-|enabled|bool|可读 可写|是否可用|
-|fillStyle|int|可读 可写|填充类型|
-|focus|bool|可读 可写|是否获得输入焦点|
-|font|QFont|可读 可写|字体|
-|foreground|QColor|可读 可写|前景色|
-|geometry|QRect|可读 可写|位置尺寸|
-|hAlign|int|可读 可写|水平方向对齐方式|
-|height|int|可读 可写|高度|
-|maxheight|int|可读 可写|最大高度|
-|maxwidth|int|可读 可写|最大宽度|
-|minheight|int|可读 可写|最小高度|
-|minwidth|int|可读 可写|最小宽度|
-|pos|QPoint|可读 可写|位置|
-|rect|QRect|只读 |边框矩形尺寸|
-|reloadWhenCreateNew|bool|可读 可写|表单新建时是否重新加载|
-|showBorder|bool|可读 可写|是否显示边框|
-|showOnForm|bool|可读 可写|表单上是否可见|
-|showOnPDF|bool|可读 可写|PDF输出时是否可见|
-|showWhenPrint|bool|可读 可写|打印时是否可见|
-|size|QSize|可读 可写|尺寸|
-|statusTip|QString|可读 可写|状态栏提示文本|
-|tabOrder|int|只读 |tab键顺序|
-|tag|QVariant|可读 可写|备用属性|
-|toolTip|QString|可读 可写|工具提示|
-|updatesEnabled|bool|可读 可写|是否允许刷新|
-|vAlign|int|可读 可写|垂直方向对齐方式|
-|visible|bool|可读 可写|是否可见|
-|whatsThis|QString|可读 可写|“这是什么”提示文本|
-|width|int|可读 可写|宽度|
-|x|int|可读 可写|x方向位置|
-|y|int|可读 可写|y方向位置|
-
 - [继承自widgetDelegateBase的成员函数](2-2-base?id=成员函数)
-
-|函数|接口|说明|
-| - | - | - |
-|grab|QPixmap grab() const|截取控件图像|
-|hide|void hide() const|隐藏|
-|hideBalloon|void hideBalloon() const|隐藏汽泡控件|
-|isNull|bool isNull() const|是否为空|
-|killAllTimer|void killAllTimer() const|关闭所有定时器|
-|killTimer|bool killTimer ( int id ) const|关闭写时器|
-|lower|void lower() const|置于底层|
-|quitFullScreen|void quitFullScreen()|退出全屏|
-|raise|void raise() const|置于顶层|
-|repaint|void repaint()|重画画|
-|setDisabled|void setDisabled(bool disabled) const|设置可用状态|
-|setFullScreen|void setFullScreen()|全屏|
-|setSizePolicy|void setSizePolicy(QSizePolicy policy) const|设置尺寸缩放规则|
-|setStyleSheet|setStyleSheet(const QString& styleSheet) const|设置样式表|
-|show|void show() const|显示|
-|showBalloon|void showBalloon(const QString& msg) const|显示汽泡提示文本|
-|showValidBalloon|void showValidBalloon() const|显示有效性汽泡提示|
-|startSingleShot|void startSingleShot ( int interval ) const|启动单次定时器|
-|startTimer|int startTimer ( int interval ) const|启动定时器|
-|timers|QStringList timers() const|所有定时器的标识号清单|
-|toBottom|void toBottom() const|置于底层|
-|toTop|void toTop() const|置于顶层|
 
 ---
 
@@ -396,149 +285,23 @@
 
 ## 可编程函数
 
-在 biForm 中，每个控件的属性编辑器里，有一个分类“脚本”，是开放给开发者的，可由开发者写入自己的 Python 代码，它们运行时都是以 Python 函数的形式存在。
+- [可编程函数的详细说明](1-4-openscript)
 
-?> PFF运行时引擎调用这些函数时，都是返回为可变数据类型（QVariant），然后再按使用的场合转换成相应的数据类型。比如“缺省值”的返回值会用于赋值给文本输入控件的字符串属性text，所以运行时引擎会尝试将返回值转换为字符串型，如果不能转换成功，会转换为空字符串。虽然运行时引擎支持这种转换，但建议尽量在程序中使用合适的数据类型，以避免转换出现不可预期的结果。
+单行文本编辑器所有可编程函数的清单：
 
-?> 这些函数可以直接在其它脚本处通过函数名进行调用，比如控件名为 lineedit，可以在其它地方使用 v=lineedit_validator() 调用其“校验规则”函数，从而可以复用这段程序。这种调用不会影响到 lineedit 控件的行为。但我们一般不建议开发者这样使用，因为函数名与控件名相关，如果需要修改控件名，相关的脚本都要进行修改。如果一定需要复用这部分程序，更好的做法是在表单的“公用模块”里定义表单级的公用函数后再在各处进行调用。
-
-单行文本输入控件开放了以下几个可编写 Python 脚本的函数：
-
-- ### 可编程函数：缺省值
-
-|内容|说明|
-| - | - |
-|函数名|控件名_default|
-|传入参数|无|
-|返回值|输入框中文本内容的初始值|
-|建议的返回值类型|字符串型|
-|使用规则|控件初始化后、新建空白表单后输入框中的文本会还原成初始值。|
-
-- ### 可编程函数：显示格式
-
-|内容|说明|
-| - | - |
-|函数名|控件名_format|
-|传入参数|输入框中的文本|
-|返回值|转换格式后要显示的文本|
-|建议的返回值类型|字符串型|
-|使用规则|单行文本输入框中输入的内容和显示的内容可以不一样，这个函数用来将输入的内容转换格式后显示，将在用户结束输入后调用此函数，通过程序修改文本内容也会调用此函数。|
-
-- ### 可编程函数：校验规则
-
-|内容|说明|
-| - | - |
-|函数名|控件名_validator|
-|传入参数|输入框中的文本|
-|返回值|输入值是否合法|
-|建议的返回值类型|布尔型|
-|使用规则|如果输入值满足要求，返回True，否则返回False。这个函数会在完成输入后被调用。手工输入和程序修改都会调用此函数。|
-
-- ### 可编程函数：鼠标进入时
-
-|内容|说明|
-| - | - |
-|函数名|控件名_enter|
-|传入参数|无|
-|返回值|无|
-|建议的返回值类型|无|
-|使用规则|鼠标光标进入到这个控件时调用此函数。|
-
-- ### 可编程函数：鼠标离开时
-
-|内容|说明|
-| - | - |
-|函数名|控件名_leaver|
-|传入参数|无|
-|返回值|无|
-|建议的返回值类型|无|
-|使用规则|鼠标光标离开这个控件时调用此函数。|
-
-- ### 可编程函数：大小改变时
-
-|内容|说明|
-| - | - |
-|函数名|控件名_resize|
-|传入参数|无|
-|返回值|无|
-|建议的返回值类型||
-|使用规则|控件大小改变时调用此函数。|
-
-- ### 可编程函数：拖曳进入时
-
-|内容|说明|
-| - | - |
-|函数名|控件名_dargEnter|
-|传入参数1|format:元数据的格式列表，以列表类型传入|
-|传入参数2|data:元数据的内容|
-|传入参数3|dx:鼠标位置x坐标值|
-|传入参数4|dy:鼠标位置y坐标值|
-|返回值|是否接受拖曳进入|
-|建议的返回值类型|布尔|
-|使用规则|当从外部拖曳一些内容进入到这个控件时，会调用此函数。不接受拖曳的控件不会调用此函数。通过脚本判断是否接受拖曳，如果接受，返回 True，否则返回False。返回 True 之后，程序将会调用“当拖曳放下时”函数。|
-
-
-- ### 可编程函数：拖曳放下时
-
-|内容|说明|
-| - | - |
-|函数名|控件名_drop|
-|传入参数1|format:元数据的格式列表，以列表类型传入|
-|传入参数2|data:元数据的内容|
-|传入参数3|dx:鼠标位置x坐标值|
-|传入参数4|dy:鼠标位置y坐标值|
-|返回值|是否接受拖曳进入|
-|建议的返回值类型|布尔|
-|使用规则|当从外部拖曳放下一些内容到这个控件时调用此函数。当接受拖曳放下时，返回 True，否则返回 False。|
-
-- ### 可编程函数：生成元数据
-
-|内容|说明|
-| - | - |
-|函数名|控件名_mimedata|
-|传入参数|无|
-|返回值|这个控件的元数据|
-|建议的返回值类型|列表|
-|使用规则|这个函数会在拖曳这个控件时调用。返回的值必须是一个列表，类似于 [['text/plain','the drag text']]，列表中每个元素有两个子元素，第一个是数据的格式，第二个是数据的内容。|
-
-- ### 可编程函数：获得焦点时
-
-|内容|说明|
-| - | - |
-|函数名|控件名_getfocus|
-|传入参数|无|
-|返回值|无|
-|建议的返回值类型|无|
-|使用规则|在控件获得输入焦点时调用此函数。|
-
-- ### 可编程函数：失去焦点时
-
-|内容|说明|
-| - | - |
-|函数名|控件名_lostfocus|
-|传入参数|无|
-|返回值|无|
-|建议的返回值类型|无|
-|使用规则|在控件失去输入焦点时调用这个函数。|
-
-- ### 可编程函数：单次定时器超时时
-
-|内容|说明|
-| - | - |
-|函数名|控件名_singleshot|
-|传入参数|无|
-|返回值|无|
-|建议的返回值类型|无|
-|使用规则|在调用 ```控件名.startSingleShot(毫秒值)``` 后，时间点到达后会调用此函数，单次定时器只会调用一次就会停止。|
-
-- ### 可编程函数：定时器超时时
-
-|内容|说明|
-| - | - |
-|函数名|控件名_timeout|
-|传入参数|timerid：定时器的ID值|
-|返回值|无|
-|建议的返回值类型|无|
-|使用规则|在调用 ```控件名.startTimer(毫秒值)``` 后，时间点到达后会调用此函数。定时器会重复超时，重复调用此函数，直到使用 killTimer 将定时器停止。|
-
+|函数|函数名|调用参数|返回值的含义|返回值类型|说明|
+| - | - | - | - | - |
+|缺省值 | 控件名_default | 无 | 输入框中文本内容的初始值|字符串| 控件初始化后、新建空白表单后输入框中的文本会还原成初始值。返回值可以使用多种数据类型，但建议使用字符串型。如果使用其它数据类型，程序会试图将它转换成字符串型，如果不能转换成功，会转换为空字符串。 |
+|显示格式|控件名_format|输入的文本|转换格式后要显示的文本|字符串|单行文本输入框中输入的内容和显示的内容可以不一样，这个函数用来将输入的内容转换格式后显示，将在用户结束输入后调用此函数，通过程序修改文本内容也会调用此函数。|
+|校验规则|控件名_validator|输入的文本|输入值是否合法|布尔|如果输入值满足要求，返回True，否则返回False。这个函数会在完成输入后被调用。手工输入和程序修改都会调用此函数。|
+|鼠标进入时|控件名_enter|无|无||鼠标光标进入到这个控件时调用此函数。|
+|鼠标离开时|控件名_leave|无|无||鼠标光标离开这个控件时调用此函数。|
+|大小改变时|控件名_resize|无|无||控件大小改变时调用此函数。|
+|当拖曳进入时|控件名_dragEnter|format:元数据的格式列表，以列表类型传入 data:元数据的内容，以列表类型传入 dx:拖入的位置X坐标 dy:拖入的位置Y坐标|是否接受拖曳进入|布尔|当从外部拖曳一些内容进入到这个控件时，会调用此函数。不接受拖曳的控件不会调用此函数。通过脚本判断是否接受拖曳，如果接受，返回 True，程序会转而调用“当拖曳放下时”函数，否则返回False，程序将不会调用“当拖曳放下时”函数。|
+|当拖曳放下时|控件名_drop|format:元数据的格式列表，以列表类型传入 data:元数据的内容，以列表类型传入 dx:拖入的位置X坐标 dy:拖入的位置Y坐标|是否接受拖曳进入|布尔||
+|生成元数据|控件名_mimedata|无|以列表形式生成控件的元数据|列表|拖曳时这个控件时生成元数据|
+|获得焦点|控件名_getfocus|无|无|无|这个控件获得输入焦点时调用此函数|
+|失去焦点|控件名_lostfocus|无|无|无|这个控件失去输入焦点时调用此函数|
+|单次定时器超时时|控件名_singleshot|无|无||这个控件的单次定时器超时时调用此函数|
+|定时器超时时|控件名_timeout|定时器的ID值|无|无|这个控件的内置定时器超时时调用此函数|
 
