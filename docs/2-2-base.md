@@ -33,16 +33,17 @@ this.label.showBalloon('这是一个标签控件')
 
 |属性|值类型|读写类型|说明|
 | - | - | - | - |
+|acceptDrops|bool|可读 可写|是否允许从外部拖曳放下|
 |background|QColor|可读 可写|背景色|
 |borderColor|QColor|可读 可写|边框颜色|
 |borderStyle|int|可读 可写|边框样式|
 |borderWidth|int|可读 可写|边框宽度|
 |dragEnabled|bool|可读 可写|是否允许拖动内容|
 |enabled|bool|可读 可写|是否可用|
-|fillStyle|int|可读 可写|填充类型|
-|focus|bool|可读 可写|是否获得输入焦点|
 |font|QFont|可读 可写|字体|
 |foreground|QColor|可读 可写|前景色|
+|fillStyle|int|可读 可写|填充类型|
+|focus|bool|可读 可写|是否获得输入焦点|
 |geometry|QRect|可读 可写|位置尺寸|
 |hAlign|int|可读 可写|水平方向对齐方式|
 |height|int|可读 可写|高度|
@@ -98,6 +99,24 @@ this.label.showBalloon('这是一个标签控件')
 | - | - |
 |读取|int y() const|
 |修改|void setY(int y) const|
+
+- ### 属性：font （类型：QFont 可读 可写）
+
+控件的字体。
+
+| |调用方法|
+| - | - |
+|读取|QFont font() const|
+|修改|void setFont(const QFont &font) const|
+
+- ### 属性：foreground （类型：QColor 可读 可写）
+
+控件的前景色。
+
+| |调用方法|
+| - | - |
+|读取|QColor& foreground() const|
+|修改|void setForeground(const QColor &color) const|
 
 - ### 属性：width （类型：int 可读 可写）
 
@@ -206,24 +225,6 @@ this.label.showBalloon('这是一个标签控件')
 |读取|int minheight() const|
 |修改|void setMinHeight(int h) const|
 
-- ### 属性：font （类型：QFont 可读 可写）
-
-控件的字体。
-
-| |调用方法|
-| - | - |
-|读取|QFont font() const|
-|修改|void setFont(const QFont &font) const|
-
-- ### 属性：foreground （类型：QColor 可读 可写）
-
-控件的前景色。
-
-| |调用方法|
-| - | - |
-|读取|QColor& foreground() const|
-|修改|void setForeground(const QColor &color) const|
-
 - ### 属性：background （类型：QColor 可读 可写）
 
 控件的背景色。如果 fillStyle 设置为“填充”，则背景色有效，设置为“透明”，背景色的设置不起作用。
@@ -283,6 +284,15 @@ this.label.showBalloon('这是一个标签控件')
 
 ### 其它属性
 
+- ### 属性：enabled （类型：bool 可读 可写）
+
+是否可用。
+
+| |调用方法|
+| - | - |
+|读取|bool enabled() const|
+|修改|void setEnabled(bool enabled) const|
+
 - ### 属性：visible （类型：bool 可读 可写）
 
 是否可见。
@@ -292,32 +302,32 @@ this.label.showBalloon('这是一个标签控件')
 |读取|bool visible() const|
 |修改|void setVisible(bool visible) const|
 
-- ### 属性：showInForm （类型：bool 可读 可写）
+- ### 属性：showOnForm （类型：bool 可读 可写）
 
 表单上是否显示。
 
 | |调用方法|
 | - | - |
-|读取|bool showInForm() const|
-|修改|void setShowInForm(bool show) const|
+|读取|bool showOnForm() const|
+|修改|void setShowOnForm(bool show) const|
 
-- ### 属性：showInPDF （类型：bool 可读 可写）
+- ### 属性：showOnPDF （类型：bool 可读 可写）
 
 PDF打印时是否显示。
 
 | |调用方法|
 | - | - |
-|读取|bool showInPDF() const|
-|修改|void setShowInPDF(bool show) const|
+|读取|bool showOnPDF() const|
+|修改|void setShowOnPDF(bool show) const|
 
-- ### 属性：showInPrinter （类型：bool 可读 可写）
+- ### 属性：showWhenPrint （类型：bool 可读 可写）
 
 打印机打印时是否显示。
 
 | |调用方法|
 | - | - |
-|读取|bool showInPrinter() const|
-|修改|void setShowInPrinter(bool showInPrinter) const|
+|读取|bool showWhenPrint() const|
+|修改|void setShowWhenPrint(bool show) const|
 
 - ### 属性：focus （类型：bool 可读 可写）
 
@@ -407,15 +417,6 @@ PDF打印时是否显示。
 | - | - |
 |读取|QVariant tag() const|
 |修改|void setTag(const QVariant &text) |
-
-- ### 属性：enabled （类型：bool 可读 可写）
-
-是否可用。
-
-| |调用方法|
-| - | - |
-|读取|bool enabled() const|
-|修改|void setEnabled(bool enabled) const|
 
 ## 成员函数
 
