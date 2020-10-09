@@ -8,7 +8,7 @@
 
  - [三、内置对象](1-3-objects)
 
- - [四、可编程函数](1-4-openscript)
+ - [四、控件的可编程函数](1-4-openscript)
 
  - [五、表单的可编程函数](1-5-formscript)
 
