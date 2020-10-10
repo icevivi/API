@@ -4,15 +4,47 @@
 
 ![example](2-8-01.png)
 
-## 继承自 widgetDelegateBase 的 属性和成员函数
+---
 
-参考： [基类widgetDelegateBase](2-2-base)
+<h2 id="category">目录</h2>
 
-## 标签控件的属性
+- [继承的属性和函数](#继承的属性和函数)
+
+- [自有属性](#标签控件的自有属性)
+
+- [自有成员函数](#标签控件自有成员函数)
+
+- [信号](#标签控件的信号)
+
+- [可编程函数](#可编程函数)
+
+---
+
+## 继承的属性和函数
+
+- [继承自QObject 的属性](2-1-qobject?id=属性)
+
+- [继承自QObject 的 成员函数](2-1-qobject?id=成员函数)
+
+- [继承自widgetDelegateBase的属性](2-2-base?id=属性)
+
+- [继承自widgetDelegateBase的成员函数](2-2-base?id=成员函数)
+
+---
+
+## 标签控件的自有属性
+
+[返回目录](#category)
+
+|属性|值类型|读写类型|说明|
+| - | - | - | - |
+|caption|QString|可读 可写|显示的文本|
+|URL|QString|可读 可写|超链接地址|
+|wordWrap|bool|可读 可写|是否自动换行|
 
 - ### 属性：caption （类型：QString 可读 可写）
 
-显示的文字。
+显示的文本。
 
 | |调用方法|
 | - | - |
@@ -37,5 +69,37 @@
 |读取|bool wordWrap const|
 |修改|void setwordWrap( bool wordWrap ) const|
 
+---
 
+## 标签控件自有成员函数
+
+[返回目录](#category)
+
+所有属性的设置函数（参考上一节中修改属性的接口），都属于此类，都可以当做槽使用。除此之处， 标签控件还有以下成员函数。 
+
+|函数|接口|说明|
+| - | - | - |
+|setNum|void setNum ( int num ) const	|设置数字，数字会转换成字符串后显示|
+|setNum|void setNum ( double num ) const|设置数字，数字会转换成字符串后显示|
+
+---
+
+## 标签控件的信号
+
+[返回目录](#category)
+
+|信号|接口|说明|
+| - | - | - | 
+|linkActivated|void linkActivated ( const QString & link ) |设置了URL之后，点击链接时发出此信号|
+|linkHovered|void linkHovered ( const QString & link )|设置了URL之后，鼠标悬停在控件上时发出此信号|
+
+---
+
+## 可编程函数
+
+[返回目录](#category)
+
+- [可编程函数的详细说明](1-4-openscript?id=控件的可编程函数)
+
+标签控件除了继承的 widgetDelegateBase 中的可编程函数外，没有其它可编程函数。
 
