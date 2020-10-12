@@ -70,11 +70,11 @@
 
 显示格式。
 
-比如格式设置为 “yyyy-MM-dd”，显示的格式就是“2020-06-08“，如果设置为“yyyy年M月d日”，显示的格式就是“20年5月8日”。
+比如格式设置为 “yyyy-MM-dd”，显示的格式就是“2020-06-08“，如果设置为“yy年M月d日”，显示的格式就是“20年5月8日”。
 
 关于格式的设置参考下表，更详细的资料请参考 Qt 文档。
 
-|Expression|Output|
+|格式|说明|
 | - | - |
 |d|日期数值，不补零 (1 到 31)|
 |dd|日期，两位，不足两位时在前面补零 (01 到 31)|
@@ -169,8 +169,8 @@ checkable为 True 时，是否是选中的状态。
 |setMaximumDate|void setMaximumDate(int year,int month,int day ) const	|设置最大日期|
 |clear|void clear ()		const|清除输入的内容|
 |selectAll|void selectAll () 	const|选择所有文本|
-|stepDown|void stepDown () 	const|向下调一天（减少）|
-|stepUp|void stepUp () 		const|向上调一天（增加）|
+|stepDown|void stepDown () 	const|向下调（减少）|
+|stepUp|void stepUp () 		const|向上调（增加）|
 |year|int year() const		|当前日期值对应的年份|
 |month|int month() const		|当前日期值对应的月份|
 |day|int day() const		|当前日期值对应的一个月中的第几天|
