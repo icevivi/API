@@ -1,0 +1,2 @@
+vnotex/vnote: A note-taking application that knows programmers and Markdown better.
+https://github.com/vnotex/vnote
