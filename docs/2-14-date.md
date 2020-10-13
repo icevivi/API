@@ -167,19 +167,19 @@ checkable为 True 时，是否是选中的状态。
 |maximumDate|QString maximumDate() const	|最大日期|
 |setMinimumDate|void setMinimumDate(int year,int month,int day ) const|设置最小日期|
 |setMaximumDate|void setMaximumDate(int year,int month,int day ) const	|设置最大日期|
-|clear|void clear ()		const|清除输入的内容|
-|selectAll|void selectAll () 	const|选择所有文本|
+|clear|void clear ()	const|清除输入的内容|
+|selectAll|void selectAll () const|选择所有文本|
 |stepDown|void stepDown () 	const|向下调（减少）|
-|stepUp|void stepUp () 		const|向上调（增加）|
-|year|int year() const		|当前日期值对应的年份|
-|month|int month() const		|当前日期值对应的月份|
-|day|int day() const		|当前日期值对应的一个月中的第几天|
+|stepUp|void stepUp ()	const|向上调（增加）|
+|year|int year() const	|当前日期值对应的年份|
+|month|int month() const	|当前日期值对应的月份|
+|day|int day() const|当前日期值对应的一个月中的第几天|
 |dayOfWeek|int dayOfWeek() const|当前日期值对应的一周中的周几|
-|daysTo|int daysTo(int year,int month,int day ) const		|当前日期值与另一个日期值之间相隔几天|
+|daysTo|int daysTo(int year,int month,int day ) const	|当前日期值与另一个日期值之间相隔几天|
 |dayOfYear|int dayOfYear () const 	|当前日期值在该年份中是第几天（值从1到365/366）|
-|daysInMonth|int daysInMonth () const 	|当前日期值对应的月份总共有几天|
-|daysInYear|int daysInYear () const 	|当前日期值对应的年份总共有几天|
-|isLeapYear|bool isLeapYear ( )	 const|是否是闰年|
+|daysInMonth|int daysInMonth () const |当前日期值对应的月份总共有几天|
+|daysInYear|int daysInYear () const |当前日期值对应的年份总共有几天|
+|isLeapYear|bool isLeapYear ( )	const|是否是闰年|
 |setDate|void setDate(int year,int month,int day) |设置日期值|
 |longDayName|QString longDayName (  )  const|周几的名称|
 |longMonthName|QString longMonthName (  )  const|月份的名称|
@@ -215,7 +215,8 @@ checkable为 True 时，是否是选中的状态。
 |函数|函数名|传入参数|返回值|说明|
 | - | - | - | - | - |
 |[缺省值](1-4-openscript?id=default) | 控件名_default | 无 |缺省的日期值<br>**数据类型：字符串**| 控件创建后，缺省显示的日期值|
-|[校验规则](1-4-openscript?id=validator)|控件名_validator|输入的文本|输入值是否合法<br>**数据类型：布尔**|如果输入值满足要求，返回True，否则返回False。<br>这个函数会在完成输入后被调用。<br>手工输入和程序修改都会调用此函数。||[鼠标进入时](1-4-openscript?id=enter)|控件名_enter|无|无|鼠标光标进入到这个控件时调用|
+|[校验规则](1-4-openscript?id=validator)|控件名_validator|输入的文本|输入值是否合法<br>**数据类型：布尔**|如果输入值满足要求，返回True，否则返回False。<br>这个函数会在完成输入后被调用。<br>手工输入和程序修改都会调用此函数。|
+|[鼠标进入时](1-4-openscript?id=enter)|控件名_enter|无|无|鼠标光标进入到这个控件时调用|
 |[鼠标离开时](1-4-openscript?id=leave)|控件名_leave|无|无|鼠标光标离开这个控件时调用|
 |[大小改变时](1-4-openscript?id=resize)|控件名_resize|无|无|控件大小改变时调用|
 |[当拖曳进入时](1-4-openscript?id=dragEnter)|控件名_dragEnter|拖曳进入的元数据|是否接受拖曳进入<br>**数据类型：布尔**|当从外部拖曳一些内容进入到这个控件时，会调用此函数。<br>不接受拖曳的控件不会调用此函数。<br>通过脚本判断是否接受拖曳，<br>如果接受，返回 True，如果在控件上放开鼠标，程序会转而调用“当拖曳放下时”函数。<br>如果不接受，返回False，程序将不会调用“当拖曳放下时”函数。<br><br>**传入参数：**<br>format:元数据的格式列表，以列表类型传入<br>data:元数据的内容，以列表类型传入<br>dx:拖入的位置X坐标<br>dy:拖入的位置Y坐标|

@@ -155,10 +155,10 @@
 |函数|接口|说明|
 | - | - | - | 
 |isValid|bool isValid()	const|是否是有效的时间值|
-|minimum|QString minimum() const|最小时间值|
-|maximum|QString maximum() const	|最大时间值|
-|setMinimum|void setMinimumDate(int h,int m,int s ) const|设置最小时间值|
-|setMaximum|void setMaximumDate(int h,int m,int s ) const	|设置最大时间值|
+|minimumTime|QString minimumTime() const|最小时间值|
+|maximumTime|QString maximumTime() const	|最大时间值|
+|setMinimumTime|void setMinimumTime(int h,int m,int s ) const|设置最小时间值|
+|setMaximumTime|void setMaximumTime(int h,int m,int s ) const	|设置最大时间值|
 |clear|void clear ()		const|清除输入的内容|
 |selectAll|void selectAll () 	const|选择所有文本|
 |stepDown|void stepDown () 	const|向下调(减少)|
@@ -193,7 +193,8 @@
 |函数|函数名|传入参数|返回值|说明|
 | - | - | - | - | - |
 |[缺省值](1-4-openscript?id=default) | 控件名_default | 无 |缺省的时间值<br>**数据类型：字符串**| 控件创建后，缺省显示的时间值|
-|[校验规则](1-4-openscript?id=validator)|控件名_validator|输入的文本|输入值是否合法<br>**数据类型：布尔**|如果输入值满足要求，返回True，否则返回False。<br>这个函数会在完成输入后被调用。<br>手工输入和程序修改都会调用此函数。||[鼠标进入时](1-4-openscript?id=enter)|控件名_enter|无|无|鼠标光标进入到这个控件时调用|
+|[校验规则](1-4-openscript?id=validator)|控件名_validator|输入的文本|输入值是否合法<br>**数据类型：布尔**|如果输入值满足要求，返回True，否则返回False。<br>这个函数会在完成输入后被调用。<br>手工输入和程序修改都会调用此函数。|
+|[鼠标进入时](1-4-openscript?id=enter)|控件名_enter|无|无|鼠标光标进入到这个控件时调用|
 |[鼠标离开时](1-4-openscript?id=leave)|控件名_leave|无|无|鼠标光标离开这个控件时调用|
 |[大小改变时](1-4-openscript?id=resize)|控件名_resize|无|无|控件大小改变时调用|
 |[当拖曳进入时](1-4-openscript?id=dragEnter)|控件名_dragEnter|拖曳进入的元数据|是否接受拖曳进入<br>**数据类型：布尔**|当从外部拖曳一些内容进入到这个控件时，会调用此函数。<br>不接受拖曳的控件不会调用此函数。<br>通过脚本判断是否接受拖曳，<br>如果接受，返回 True，如果在控件上放开鼠标，程序会转而调用“当拖曳放下时”函数。<br>如果不接受，返回False，程序将不会调用“当拖曳放下时”函数。<br><br>**传入参数：**<br>format:元数据的格式列表，以列表类型传入<br>data:元数据的内容，以列表类型传入<br>dx:拖入的位置X坐标<br>dy:拖入的位置Y坐标|
