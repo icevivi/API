@@ -38,20 +38,20 @@
 
 |属性|值类型|读写类型|说明|
 | - | - | - | - |
-|margin|int|可读 可写||
-|minimum|int|可读 可写||
-|maximum|int|可读 可写||
-|wrapping|bool|可读 可写||
-|singlestep|int|可读 可写||
-|prefix|QString|可读 可写||
-|suffix|QString|可读 可写||
-|defaultVal|int|可读 ||
-|alignment|int|可读 可写||
-|text|QString|可读 ||
-|cleanText|QString|可读 ||
-|value|int|可读 可写||
-|readOnly|bool|可读 可写||
-|showSeperator|bool|可读 可写||
+|margin|int|可读 可写|边界宽度|
+|minimum|int|可读 可写|最小值|
+|maximum|int|可读 可写|最大值|
+|wrapping|bool|可读 可写|是否值循环|
+|singlestep|int|可读 可写|步长|
+|prefix|QString|可读 可写|前缀|
+|suffix|QString|可读 可写|后缀|
+|defaultVal|int|可读 |缺省值|
+|alignment|int|可读 可写|水平对齐方式|
+|text|QString|可读 |显示的文本|
+|cleanText|QString|可读 |数值对应的文本|
+|value|int|可读 可写|当前值|
+|readOnly|bool|可读 可写|是否只读|
+|showSeperator|bool|可读 可写|是否显示千分位分隔符|
 
 - ### 属性：margin （类型：int 可读 可写）
 
