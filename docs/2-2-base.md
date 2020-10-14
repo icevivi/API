@@ -277,10 +277,16 @@ this.label.showBalloon('这是一个标签控件')
 
 边框样式。
 
-| |调用方法|
-| - | - |
-|读取|int borderStyle() const|
-|修改|void setBorderStyle(int style) const|
+|      |               调用方法                |
+| ---- | ------------------------------------ |
+| 读取 | int borderStyle() const              |
+| 修改 | void setBorderStyle(int style) const |
+|      | **style取值：**                      |
+|      | pub.SOLIDLINE 实线                   |
+|      | pub.DASHLINE 破折线                  |
+|      | pub.DOTLINE 点划线                   |
+|      | pub.DASHDOTLINE 破折-点线             |
+|      | pub.DASHDOTDOTLINE 破折-点-点线       |
 
 ### 其它属性
 
