@@ -40,7 +40,7 @@ item2=pub.treeItem(['天津','是'])
 this.tree.addTopLevelItem(item2)
 
 #如果传入参数是一个字符串，会被拆成一个一个字符分别填入每列
-item3=pub.treeItem(['天津'])
+item3=pub.treeItem('天津')
 #下面这句执行后，该行第一列是“天”，第二列是“津”。
 this.tree.addTopLevelItem(item3)
 
