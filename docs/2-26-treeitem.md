@@ -18,9 +18,24 @@
 
 [返回目录](#category)
 
-如果需要往树形控件里添加新的项目，需要先创建一个 QTreeWidgetItem 对象，再调用树形控件的接口添加到指定的位置。
+如果需要往树形控件里添加新的项目，需要先创建一个 treeItemDelegate 对象，再调用树形控件的接口添加到指定的位置。
 
-在 biForm 的标准控件中，并不能直接使用 QTreeWidgetItem ，需要通过以下接口来创建一个treeItemDelegate 指针指向一个新创建的 QTreeWidgetItem 对象。创建后就可以加以使用，如以下代码所示：
+调用接口：
+
+|                                         调用接口                                          |                                    示例代码                                     |                          说明                          |
+| ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------ |
+treeItemDelegate* treeItem(  )  const;
+	treeItemDelegate* treeItem ( const QStringList & strings )  const;
+	treeItemDelegate* treeItem ( treeWidgetDelegate * parent)  const;
+	treeItemDelegate* treeItem ( treeWidgetDelegate * parent, const QStringList & strings)  const;
+	treeItemDelegate* treeItem ( treeWidgetDelegate * parent, treeItemDelegate * preceding )  const;
+
+	treeItemDelegate* treeItem ( treeItemDelegate * parent ) const;
+	treeItemDelegate* treeItem ( treeItemDelegate * parent, const QStringList & strings)  const;
+	treeItemDelegate* treeItem ( treeItemDelegate * parent, treeItemDelegate * preceding )  const;
+
+
+如以下代码所示：
 
 ``` python 
 
