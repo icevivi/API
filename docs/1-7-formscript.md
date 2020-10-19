@@ -10,25 +10,25 @@ biForm 中每个表单都有开放几个可编程函数。用于处理表单加�
 | --------------- | ---------------------------------------------------------------- |
 | 公共模块        | 提供表单级的函数、变量、类定义等<br>参考[表单的公共模块](1-1-public) |
 | 加载前          | [form_beforeload](#beforeload)                                    |
-| 加载后          | [form_afterload](afterload)                                      |
-| 新建空白表单前   | [form_beforecreatenew](beforecreatenew)                          |
-| 新建空白表单后   | [form_aftercreatenew](aftercreatenew)                            |
-| 保存前          | [form_beforesave](beforesave)                                    |
-| 保存后          | [form_aftersave](aftersave)                                      |
-| 删除前          | [form_beforedelete](beforedelete)                                |
-| 删除后          | [form_afterdelete](afterdelete)                                  |
-| 加载数据时       | [form_loaddata](loaddata)                                        |
-| 打印前          | [form_before_print](before_print)                                |
-| 打印后          | [form_after_print](after_print)                                  |
-| 打印参数        | [form_print_args](print_args)                                    |
-| 记录别名        | [form_alias](alias)                                              |
-| 编号规则        | [form_number](number)                                            |
-| 关闭前          | [form_beforeclose](beforeclose)                                  |
-| 关闭后          | [form_afterclose](afterclose)                                    |
-| 单次定时器超时时 | [form_singleshot](singleshot)                                    |
-| 定时器超时时     | [form_timeout](timeout)                                          |
-| 全程过滤条件     | [form_filter](filter)                                            |
-| 关联记录        | [form_relativerecord](relativerecord)                            |
+| 加载后          | [form_afterload](#afterload)                                      |
+| 新建空白表单前   | [form_beforecreatenew](#beforecreatenew)                          |
+| 新建空白表单后   | [form_aftercreatenew](#aftercreatenew)                            |
+| 保存前          | [form_beforesave](#beforesave)                                    |
+| 保存后          | [form_aftersave](#aftersave)                                      |
+| 删除前          | [form_beforedelete](#beforedelete)                                |
+| 删除后          | [form_afterdelete](#afterdelete)                                  |
+| 加载数据时       | [form_loaddata](#loaddata)                                        |
+| 打印前          | [form_before_print](#before_print)                                |
+| 打印后          | [form_after_print](#after_print)                                  |
+| 打印参数        | [form_print_args](#print_args)                                    |
+| 记录别名        | [form_alias](#alias)                                              |
+| 编号规则        | [form_number](#number)                                            |
+| 关闭前          | [form_beforeclose](#beforeclose)                                  |
+| 关闭后          | [form_afterclose](#afterclose)                                    |
+| 单次定时器超时时 | [form_singleshot](#singleshot)                                    |
+| 定时器超时时     | [form_timeout](#timeout)                                          |
+| 全程过滤条件     | [form_filter](#filter)                                            |
+| 关联记录        | [form_relativerecord](#relativerecord)                            |
 
 - ### beforeload
 
@@ -212,7 +212,7 @@ biForm 中每个表单都有开放几个可编程函数。用于处理表单加�
 | data            | tuple类型的数据，每个元素对应主表 t_book 每个字段的值。                                                                                                    |
 |                 | 如: (1, '大河', '佚名', '小说', 2005, 'ISBN:165-699', '{292a97f5-c861-45a7-9c76-f8193162de18}', '2020-10-19 17:02:32')                                   |
 |                 | 其中最后两个字段是 biForm 中每个表都会自动添加的字段 UUID 和 lastUpdated                                                                                   |
-| db              | 表单的数据库连接对象，调用接口请参考[数据库](1-6-database)                                                                                                 |
+| db              | 表单的数据库连接对象，调用接口请参考[数据库](1-8-database)                                                                                                 |
 | fieldList       | tuple类型的数据，本例中的值就是：('ID', 'fname', 'fauthor', 'fclass', 'fyear', 'fISBN', 'UUID', 'lastUpdated')                                            |
 | isEmpty         | 是否是空记录                                                                                                                                             |
 | pkName          | 主表的主关键字段的名称，本例就是“ID”                                                                                                                      |
