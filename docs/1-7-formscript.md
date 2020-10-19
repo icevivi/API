@@ -17,7 +17,7 @@ biForm 中每个表单都有开放几个可编程函数。用于处理表单加�
 | 保存后          | [form_aftersave](#aftersave)                                      |
 | 删除前          | [form_beforedelete](#beforedelete)                                |
 | 删除后          | [form_afterdelete](#afterdelete)                                  |
-| 加载数据时       | [form_loaddata](#loaddata)                                        |
+| 加载数据时       | [form_loadrecord](#loadrecord)                                   |
 | 打印前          | [form_before_print](#before_print)                                |
 | 打印后          | [form_after_print](#after_print)                                  |
 | 打印参数        | [form_print_args](#print_args)                                    |
