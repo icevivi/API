@@ -30,6 +30,8 @@ biForm 中每个表单都有开放几个可编程函数。用于处理表单加�
 | 全程过滤条件     | [form_filter](#filter)                                            |
 | 关联记录        | [form_relativerecord](#relativerecord)                            |
 
+## 可编程函数
+
 - ### beforeload
 
 **可编程函数：加载前** 
