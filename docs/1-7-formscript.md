@@ -194,7 +194,11 @@ biForm 中每个表单都有开放几个可编程函数。用于处理表单加�
 ```print(dir(this.record))```将返回以下的结果：
 
 ```
-['ID', 'ID_updated', 'UUID', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'data', 'db', 'fISBN', 'fISBN_updated', 'fauthor', 'fauthor_updated', 'fclass', 'fclass_updated', 'fieldList', 'fname', 'fname_updated', 'fyear', 'fyear_updated', 'isEmpty', 'lastUpdated', 'pkName', 'pkValue', 'refresh', 'reset', 'subRecord', 'tableName']
+['ID', 'ID_updated', 'UUID', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', 
+'__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', 
+'__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'data', 'db', 'fISBN', 'fISBN_updated', 'fauthor', 
+'fauthor_updated', 'fclass', 'fclass_updated', 'fieldList', 'fname', 'fname_updated', 'fyear', 'fyear_updated', 'isEmpty', 'lastUpdated', 
+'pkName', 'pkValue', 'refresh', 'reset', 'subRecord', 'tableName']
 ```
 
 |  属性/函数/对象  |                                                                          说明                                                                           |
