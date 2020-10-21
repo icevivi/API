@@ -671,7 +671,7 @@ from RT_T_CASH_0_S t0
 
 ---
 
-## 定时器相关的成员函数
+## 与定时器相关的成员函数
 
 - ### killAllTimer
 
