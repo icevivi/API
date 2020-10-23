@@ -20,7 +20,7 @@ DatabaseConnection需要显式地调用 this.form.addDBConnect() 创建新的连
 - [FormDBDelegate的成员函数](#FormDBDelegate的成员函数)
 
 - [DatabaseConnection的属性](#DatabaseConnection的属性)
-- 
+
 - [DatabaseConnection的成员函数](#DatabaseConnection的成员函数)
 
 ---
@@ -1125,7 +1125,7 @@ Sybase 数据服务器名。
 | 传入参数 | password | QString | 登录的密码          |
 | 返回值   |          | bool    | 是否连接成功         |
 
-- ### <h3 id=execBatch2>execBatch</h3>
+- <h3 id=execBatch2>execBatch</h3>
 
 调用接口：bool execBatch(const QString &sql,QVariantList values, bool intransaction);
 
@@ -1153,7 +1153,7 @@ Sybase 数据服务器名。
 | 传入参数 | 无   |         |             |
 | 返回值   |      | bool    | 是否连接成功 |
 
-- ### <h3 id=lastErrorText2>lastErrorText</h3>
+- <h3 id=lastErrorText2>lastErrorText</h3>
 
 调用接口：QString lastErrorText() const;
 
@@ -1166,7 +1166,7 @@ Sybase 数据服务器名。
 | 传入参数 | 无   |         |         |
 | 返回值   |      | QString | 错误信息 |
 
-- ### <h3 id=lastSQL2>lastSQL</h3>
+- <h3 id=lastSQL2>lastSQL</h3>
 
 调用接口：QString lastSQL() const;
 
@@ -1179,7 +1179,7 @@ Sybase 数据服务器名。
 | 传入参数 | 无   |         |                        |
 | 返回值   |      | QString | 最后执行的SQL语句的内容 |
 
-- ### <h3 id=execute2>execute</h3>
+- <h3 id=execute2>execute</h3>
 
 调用接口：QVariantList execute(const QString & sql)
 
