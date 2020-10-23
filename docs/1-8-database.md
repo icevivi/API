@@ -1021,6 +1021,8 @@ Sybase 数据服务器名。
 
 ## DatabaseConnection的属性
 
+[返回目录](#category)
+
 |      属性      |  类型   | 读写状态  |             说明             |
 | -------------- | ------- | -------- | ---------------------------- |
 | objectName     | QString | 可读 可写 | 对象名称                     |
@@ -1037,7 +1039,11 @@ Sybase 数据服务器名。
 | name           | QString | 可读      | 连接的名称                   |
 | isOpen         | bool    | 可读      | 是否已连接                   |
 
+---
+
 ## DatabaseConnection的成员函数
+
+[返回目录](#category)
 
 |                  属性                   |             说明              |
 | --------------------------------------- | ----------------------------- |
@@ -1046,11 +1052,11 @@ Sybase 数据服务器名。
 | [connectMSSQL](#connectMSSQL)           | 连接到 MSSQL Server 数据库    |
 | [connectSqlite](#connectSqlite)         | 连接到 SQLite 数据库           |
 | [connectTDS](#connectTDS)               | 使用 TDS 连接到 Sybase 数据库  |
-| [execBatch](#execbatch_1)               | 批量执行 SQL 语句              |
+| [execBatch](#execbatch-1)               | 批量执行 SQL 语句              |
 | [open](#open)                           | 打开连接                      |
-| [lastErrorText](#lasterrortext_1)       | 最后执行的SQL语句的错误信息     |
-| [lastSQL](#lastsql_1)                   | 最后执行的SQL语句              |
-| [execute](#execute_1)                   | 执行SQL语句                   |
+| [lastErrorText](#lasterrortext-1)       | 最后执行的SQL语句的错误信息     |
+| [lastSQL](#lastsql-1)                   | 最后执行的SQL语句              |
+| [execute](#execute-1)                   | 执行SQL语句                   |
 
 - ### close
 
