@@ -1039,24 +1039,24 @@ Sybase 数据服务器名。
 
 ## DatabaseConnection的成员函数
 
-|                  属性                   |             说明              |
-| --------------------------------------- | ----------------------------- |
-| [close](#close)                         | 关闭连接                      |
-| [connectLocalMSSQL](#connectLocalMSSQL) | 连接到本地 MSSQL Server 数据库 |
-| [connectMSSQL](#connectMSSQL)           | 连接到 MSSQL Server 数据库    |
-| [connectSqlite](#connectSqlite)         | 连接到 SQLite 数据库           |
-| [connectTDS](#connectTDS)               | 使用 TDS 连接到 Sybase 数据库  |
-| [execBatch](#execbatch2)                | 批量执行 SQL 语句              |
-| [open](#open)                           | 打开连接                      |
-| [lastErrorText](#lasterrortext2)        | 最后执行的SQL语句的错误信息     |
-| [lastSQL](#lastsql2)                    | 最后执行的SQL语句              |
-| [execute](#execute2)                    | 执行SQL语句                   |
+|                        属性                         |             说明              |
+| --------------------------------------------------- | ----------------------------- |
+| [close](#close)                                     | 关闭连接                      |
+| [connectLocalMSSQL](#connectLocalMSSQL)             | 连接到本地 MSSQL Server 数据库 |
+| [connectMSSQL](#connectMSSQL)                       | 连接到 MSSQL Server 数据库    |
+| [connectSqlite](#connectSqlite)                     | 连接到 SQLite 数据库           |
+| [connectTDS](#connectTDS)                           | 使用 TDS 连接到 Sybase 数据库  |
+| [execBatch](#execbatch(DatabaseConnection))         | 批量执行 SQL 语句              |
+| [open](#open)                                       | 打开连接                      |
+| [lastErrorText](#lasterrortext(DatabaseConnection)) | 最后执行的SQL语句的错误信息     |
+| [lastSQL](#lastsql(DatabaseConnection))             | 最后执行的SQL语句              |
+| [execute](#execute(DatabaseConnection))             | 执行SQL语句                   |
 
 - ### close
 
 调用接口：bool close() 
 
-[返回目录](#category)
+[返回目录](#DatabaseConnection的成员函数)
 
 关闭这个数据库连接。
 
@@ -1069,9 +1069,9 @@ Sybase 数据服务器名。
 
 调用接口：bool connectLocalMSSQL(const QString& database,const QString& user="",const QString& password="");
 
-[返回目录](#category)
+[返回目录](#DatabaseConnection的成员函数)
 
-连接到本地的 MSSQL Server 数据库。
+连接到本地的 MSSQL Server 数据库。是否能连接取决于运行时环境是否有提供 MSSQL Server 的数据库驱动程序，比如 biReader 的 Linux 版本没有提供这个驱动，调用这个函数就不能连接成功。
 
 |   内容   |   名称   | 数据类型 |    说明     |
 | ------- | -------- | ------- | ----------- |
@@ -1084,9 +1084,9 @@ Sybase 数据服务器名。
 
 调用接口：bool connectMSSQL(const QString& server,const QString& database,const QString& user="",const QString& password="");
 
-[返回目录](#category)
+[返回目录](#DatabaseConnection的成员函数)
 
-连接到 MSSQL Server 数据库。
+连接到 MSSQL Server 数据库。是否能连接取决于运行时环境是否有提供 MSSQL Server 的数据库驱动程序，比如 biReader 的 Linux 版本没有提供这个驱动，调用这个函数就不能连接成功。
 
 |   内容   |   名称   | 数据类型 |        说明         |
 | ------- | -------- | ------- | ------------------- |
@@ -1100,7 +1100,7 @@ Sybase 数据服务器名。
 
 调用接口：bool connectSqlite(const QString& dbname);
 
-[返回目录](#category)
+[返回目录](#DatabaseConnection的成员函数)
 
 连接到 SQLite 数据库。
 
@@ -1113,9 +1113,9 @@ Sybase 数据服务器名。
 
 调用接口：bool connectTDS(const QString& server,const  QString& database,const QString& user="",const QString& password="");
 
-[返回目录](#category)
+[返回目录](#DatabaseConnection的成员函数)
 
-使用TDS连接到 Sybase 数据库。
+使用TDS连接到 Sybase 数据库。是否能连接取决于运行时环境是否有提供 TDS 的数据库驱动程序，比如 biReader 的 Linux 版本没有提供这个驱动，调用这个函数就不能连接成功。
 
 |   内容   |   名称   | 数据类型 |        说明         |
 | ------- | -------- | ------- | ------------------- |
@@ -1125,11 +1125,11 @@ Sybase 数据服务器名。
 | 传入参数 | password | QString | 登录的密码          |
 | 返回值   |          | bool    | 是否连接成功         |
 
-- <h3 id=execbatch2>execBatch</h3>
+- ### execBatch
 
 调用接口：bool execBatch(const QString &sql,QVariantList values, bool intransaction);
 
-[返回目录](#category)
+[返回目录](#DatabaseConnection的成员函数)
 
 批量执行SQL语句。用法参考 [execBatch](#execBatch)。
 
@@ -1144,7 +1144,7 @@ Sybase 数据服务器名。
 
 调用接口：bool open() ;
 
-[返回目录](#category)
+[返回目录](#DatabaseConnection的成员函数)
 
 连接数据库。
 
@@ -1153,11 +1153,11 @@ Sybase 数据服务器名。
 | 传入参数 | 无   |         |             |
 | 返回值   |      | bool    | 是否连接成功 |
 
-- <h3 id=lasterrortext2>lastErrorText</h3>
+- ### lasterrortext(DatabaseConnection)
 
 调用接口：QString lastErrorText() const;
 
-[返回目录](#category)
+[返回目录](#DatabaseConnection的成员函数)
 
 最后执行的SQL语句返回的错误信息。
 
@@ -1166,11 +1166,11 @@ Sybase 数据服务器名。
 | 传入参数 | 无   |         |         |
 | 返回值   |      | QString | 错误信息 |
 
-- <h3 id=lastsql2>lastSQL</h3>
+- ### lastSQL(DatabaseConnection)
 
 调用接口：QString lastSQL() const;
 
-[返回目录](#category)
+[返回目录](#DatabaseConnection的成员函数)
 
 这个函数返回最后执行的SQL语句的内容。只处理通过脚本接口执行的SQL语句，数据库引擎内部执行的SQL语句不能通过这个接口查询。
 
@@ -1179,11 +1179,11 @@ Sybase 数据服务器名。
 | 传入参数 | 无   |         |                        |
 | 返回值   |      | QString | 最后执行的SQL语句的内容 |
 
-- <h3 id=execute2>execute</h3>
+- ### execute(DatabaseConnection)
 
 调用接口：QVariantList execute(const QString & sql)
 
-[返回目录](#category)
+[返回目录](#DatabaseConnection的成员函数)
 
 执行SQL语句，可以是多条SQL语句，如果最后一条是 select 语句，会返回查询的结果，返回数据的格式参考 [FormDBDelegate::data()](#data)。
 
