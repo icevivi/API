@@ -1040,17 +1040,17 @@ Sybase 数据服务器名。
 ## DatabaseConnection的成员函数
 
 |                        属性                         |             说明              |
-| --------------------------------------------------- | ----------------------------- |
-| [close](#close)                                     | 关闭连接                      |
-| [connectLocalMSSQL](#connectLocalMSSQL)             | 连接到本地 MSSQL Server 数据库 |
-| [connectMSSQL](#connectMSSQL)                       | 连接到 MSSQL Server 数据库    |
-| [connectSqlite](#connectSqlite)                     | 连接到 SQLite 数据库           |
-| [connectTDS](#connectTDS)                           | 使用 TDS 连接到 Sybase 数据库  |
-| [execBatch](#execbatch(DatabaseConnection))         | 批量执行 SQL 语句              |
-| [open](#open)                                       | 打开连接                      |
-| [lastErrorText](#lasterrortext(DatabaseConnection)) | 最后执行的SQL语句的错误信息     |
-| [lastSQL](#lastsql(DatabaseConnection))             | 最后执行的SQL语句              |
-| [execute](#execute(DatabaseConnection))             | 执行SQL语句                   |
+| -------------------------------------------------- | ----------------------------- |
+| [close](#close)                                    | 关闭连接                      |
+| [connectLocalMSSQL](#connectLocalMSSQL)            | 连接到本地 MSSQL Server 数据库 |
+| [connectMSSQL](#connectMSSQL)                      | 连接到 MSSQL Server 数据库    |
+| [connectSqlite](#connectSqlite)                    | 连接到 SQLite 数据库           |
+| [connectTDS](#connectTDS)                          | 使用 TDS 连接到 Sybase 数据库  |
+| [execBatch](#execbatchDatabaseConnection)        | 批量执行 SQL 语句              |
+| [open](#open)                                      | 打开连接                      |
+| [lastErrorText](#lasterrortextDatabaseConnection) | 最后执行的SQL语句的错误信息     |
+| [lastSQL](#lastsqlDatabaseConnection)              | 最后执行的SQL语句              |
+| [execute](#executeDatabaseConnection)              | 执行SQL语句                   |
 
 - ### close
 
