@@ -1046,10 +1046,10 @@ Sybase 数据服务器名。
 | [connectMSSQL](#connectMSSQL)           | 连接到 MSSQL Server 数据库    |
 | [connectSqlite](#connectSqlite)         | 连接到 SQLite 数据库           |
 | [connectTDS](#connectTDS)               | 使用 TDS 连接到 Sybase 数据库  |
-| [execBatch](#execBatch2)                | 批量执行 SQL 语句              |
+| [execBatch](#execbatch2)                | 批量执行 SQL 语句              |
 | [open](#open)                           | 打开连接                      |
-| [lastErrorText](#lastErrorText2)        | 最后执行的SQL语句的错误信息     |
-| [lastSQL](#lastSQL2)                    | 最后执行的SQL语句              |
+| [lastErrorText](#lasterrortext2)        | 最后执行的SQL语句的错误信息     |
+| [lastSQL](#lastsql2)                    | 最后执行的SQL语句              |
 | [execute](#execute2)                    | 执行SQL语句                   |
 
 - ### close
@@ -1125,7 +1125,7 @@ Sybase 数据服务器名。
 | 传入参数 | password | QString | 登录的密码          |
 | 返回值   |          | bool    | 是否连接成功         |
 
-- <h3 id=execBatch2>execBatch</h3>
+- <h3 id=execbatch2>execBatch</h3>
 
 调用接口：bool execBatch(const QString &sql,QVariantList values, bool intransaction);
 
@@ -1153,7 +1153,7 @@ Sybase 数据服务器名。
 | 传入参数 | 无   |         |             |
 | 返回值   |      | bool    | 是否连接成功 |
 
-- <h3 id=lastErrorText2>lastErrorText</h3>
+- <h3 id=lasterrortext2>lastErrorText</h3>
 
 调用接口：QString lastErrorText() const;
 
@@ -1166,7 +1166,7 @@ Sybase 数据服务器名。
 | 传入参数 | 无   |         |         |
 | 返回值   |      | QString | 错误信息 |
 
-- <h3 id=lastSQL2>lastSQL</h3>
+- <h3 id=lastsql2>lastSQL</h3>
 
 调用接口：QString lastSQL() const;
 
