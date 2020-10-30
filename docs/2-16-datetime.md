@@ -36,35 +36,36 @@
 
 [返回目录](#category)
 
-|属性|值类型|读写类型|说明|
-| - | - | - | - |
-|wrapping|bool|可读 可写|是否使用值循环|
-|format|QString|可读 可写|显示格式|
-|calendarpopup|bool|可读 可写|是否弹出日期选择框|
-|text|QString|可读 可写|当前显示的文本|
-|defaultVal|QString|可读 可写|缺省值|
-|checkable|bool|可读 可写|是否可勾选|
-|checked|bool|可读 可写|是否被勾选|
-|datetime|QString|可读 可写|当前日期时间|
-|readonly|bool|可读 可写|是否只读|
+|     属性      | 值类型  | 读写类型  |       说明        |
+| ------------- | ------- | -------- | ----------------- |
+| wrapping      | bool    | 可读 可写 | 是否使用值循环     |
+| format        | QString | 可读 可写 | 显示格式          |
+| calendarpopup | bool    | 可读 可写 | 是否弹出日期选择框 |
+| text          | QString | 可读 可写 | 当前显示的文本     |
+| defaultVal    | QString | 可读 可写 | 缺省值            |
+| checkable     | bool    | 可读 可写 | 是否可勾选        |
+| checked       | bool    | 可读 可写 | 是否被勾选        |
+| datetime      | QString | 可读 可写 | 当前日期时间       |
+| readonly      | bool    | 可读 可写 | 是否只读          |
+| showButton    | bool    | 可读 可写 | 是否显示调节按钮   |
 
 - ### 属性：margin （类型：int 可读 可写）
 
 边界宽度。
 
-| |调用方法|
-| - | - |
-|读取|int margin const|
-|修改|void setMargin( int margin ) const|
+|      |              调用方法               |
+| ---- | ---------------------------------- |
+| 读取 | int margin() const                 |
+| 修改 | void setMargin( int margin ) const |
 
 - ### 属性：wrapping （类型：bool 可读 可写）
 
 是否使用值循环。值循环是指，当前值已到最大值时，若再向上调会转到最小值。只有设置了最大最小值时有效。
 
-| |调用方法|
-| - | - |
-|读取|bool wrapping const|
-|修改|void setWrapping( bool wrapping ) const|
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | bool wrapping() const                   |
+| 修改 | void setWrapping( bool wrapping ) const |
 
 - ### 属性：format （类型：QString 可读 可写）
 
@@ -101,70 +102,79 @@
 |AP|显示本地化的上午和下午，大写（中文不分大小写）|
 |ap|显示本地化的上午和下午，小写（中文不分大小写）|
 
-| |调用方法|
-| - | - |
-|读取|QString format const|
-|修改|void setFormat( const QString &format ) const|
+|      |                    调用方法                    |
+| ---- | --------------------------------------------- |
+| 读取 | QString format() const                        |
+| 修改 | void setFormat( const QString &format ) const |
 
 - ### 属性：calendarpopup （类型：bool 可读 可写）
 
 是否提供弹出日历做为日期期的辅助输入方式。在设为 True 时，设置边框的属性无效。
 
-| |调用方法|
-| - | - |
-|读取|bool calendarpopup const|
-|修改|void setCalendarpopup( bool calendarpopup ) const|
+|      |                      调用方法                      |
+| ---- | ------------------------------------------------- |
+| 读取 | bool calendarpopup() const                        |
+| 修改 | void setCalendarpopup( bool calendarpopup ) const |
 
 - ### 属性：defaultVal （类型：QString 可读 ）
 
 缺省值。控件创建之后默认设置为这个缺省值。
 
-| |调用方法|
-| - | - |
-|读取|QString defaultVal const|
+|      |          调用方法           |
+| ---- | -------------------------- |
+| 读取 | QString defaultVal() const |
 
 - ### 属性：text （类型：QString 可读 ）
 
 显示的文本。
 
-| |调用方法|
-| - | - |
-|读取|QString text const|
+|      |       调用方法        |
+| ---- | -------------------- |
+| 读取 | QString text() const |
 
 - ### 属性：checkable （类型：bool 可读 ）
 
 是否可勾选。如果是可勾选的状态，在未选中时，不允许输入日期。
 
-| |调用方法|
-| - | - |
-|读取|bool checkable const|
+|      |        调用方法         |
+| ---- | ---------------------- |
+| 读取 | bool checkable() const |
 
 - ### 属性：checked （类型：bool 可读 可写）
 
 checkable为 True 时，是否是选中的状态。
 
-| |调用方法|
-| - | - |
-|读取|bool checked const|
-|修改|void setChecked( bool checked ) const|
+|      |                调用方法                |
+| ---- | ------------------------------------- |
+| 读取 | bool checked() const                  |
+| 修改 | void setChecked( bool checked ) const |
 
 - ### 属性：datetime （类型：QString 可读 可写）
 
 当前日期值。返回值会被转换为字符串形式。如果以 obj.date 的方式调用，格式是"yyyy-MM-dd hh:mm:ss"。如果需要其它格式，使用 obj.dateToString(format) 形式调用。同理，修改属性值时，默认格式也是"yyyy-MM-dd"。
 
-| |调用方法|
-| - | - |
-|读取|QString datetime const|
-|修改|void setDatetime( const QString &datetime ) const|
+|      |                      调用方法                      |
+| ---- | ------------------------------------------------- |
+| 读取 | QString datetime() const                          |
+| 修改 | void setDatetime( const QString &datetime ) const |
 
 - ### 属性：readOnly （类型：bool 可读 可写）
 
-是否只读
+是否只读。
 
-| |调用方法|
-| - | - |
-|读取|bool readOnly const|
-|修改|void setReadOnly( bool readOnly ) const|
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | bool readOnly() const                   |
+| 修改 | void setReadOnly( bool readOnly ) const |
+
+- ### 属性：showButton（类型：bool 可读 可写）
+
+是否显示值调节（上下箭头）按钮。在 calendarpopup 为 True 时，这个属性无效，因为这种情况下会显示弹出日历的按钮，不会显示上下箭头。
+
+|      |                调用方法                |
+| ---- | ------------------------------------- |
+| 读取 | bool showButton() const               |
+| 修改 | void setShowButton( bool show ) const |
 
 ---
 

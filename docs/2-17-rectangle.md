@@ -48,37 +48,37 @@
 
 填充颜色。
 
-| |调用方法|
-| - | - |
-|读取|QColor fillColor const|
-|修改|void setFillColor( const QColor &fillColor ) const|
+|      |                      调用方法                       |
+| ---- | -------------------------------------------------- |
+| 读取 | QColor fillColor() const                           |
+| 修改 | void setFillColor( const QColor &fillColor ) const |
 
 - ### 属性：xCorner （类型：int 可读 可写）
 
 圆角x方向曲率。
 
-| |调用方法|
-| - | - |
-|读取|int xCorner const|
-|修改|void setXCorner( int xCorner ) const|
+|      |               调用方法                |
+| ---- | ------------------------------------ |
+| 读取 | int xCorner() const                  |
+| 修改 | void setXCorner( int xCorner ) const |
 
 - ### 属性：yCorner （类型：int 可读 可写）
 
 圆角y方向曲率。
 
-| |调用方法|
-| - | - |
-|读取|int yCorner const|
-|修改|void setYCorner( int yCorner ) const|
+|      |               调用方法                |
+| ---- | ------------------------------------ |
+| 读取 | int yCorner() const                  |
+| 修改 | void setYCorner( int yCorner ) const |
 
 - ### 属性：isRoundCorner （类型：bool 可读 可写）
 
 是否使用圆角。
 
-| |调用方法|
-| - | - |
-|读取|bool isRoundCorner const|
-|修改|void setIsRoundCorner( bool isRoundCorner ) const|
+|      |                      调用方法                      |
+| ---- | ------------------------------------------------- |
+| 读取 | bool isRoundCorner() const                        |
+| 修改 | void setIsRoundCorner( bool isRoundCorner ) const |
 
 ---
 

@@ -16,7 +16,7 @@ pub对象是 biForm/biReader 内置的一个特殊的对象，提供一些常用
  - [表单相关](#成员函数：表单相关)
  - [应用程序](#成员函数：应用程序)
  - [登录账号](#成员函数：登录账号)
- - [控件相关](成员函数：控件相关)
+ - [控件相关](#成员函数：控件相关)
  - [其它](#成员函数：其它)
 
 - [信号](#信号)
@@ -1552,7 +1552,7 @@ args 用来传递一些数据给需要打开的表单，在表单中可以通过
 
 ### wantOpenUUID
 
-void wantOpenUUID(const QString& uuid,const QString& owner,const QVariantList & args,bool& ignoreLastOpened)
+void wantOpenUUID(const QString& uuid,const QString& owner,const QVariantList & args,bool ignoreLastOpened)
 
 在调用 pub.openPFF  时会发出此信号 。
 
@@ -1565,7 +1565,7 @@ void wantOpenUUID(const QString& uuid,const QString& owner,const QVariantList & 
 
 ### wantOpenRecord
 
-void wantOpenRecord(const QString& uuid,const QString& recorduuid,const QString& owner,bool& ignoreLastOpened)
+void wantOpenRecord(const QString& uuid,const QString& recorduuid,const QString& owner,bool ignoreLastOpened)
 
 在调用 pub.openRecord  时会发出此信号 。
 
@@ -1578,7 +1578,7 @@ void wantOpenRecord(const QString& uuid,const QString& recorduuid,const QString&
 
 ### wantOpenFormList
 
-void wantOpenFormList(const QString& formuuid, const QString& filter, bool& ignoreLastOpend, bool& lockFilter, const QString& owner)
+void wantOpenFormList(const QString& formuuid, const QString& filter, bool ignoreLastOpend, bool lockFilter, const QString& owner)
 
 在调用 pub.openFormList  时会发出此信号 。
 

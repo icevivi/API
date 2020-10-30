@@ -10,11 +10,11 @@
 
 - [继承的属性和函数](#继承的属性和函数)
 
-- [自有属性](#树形控件的自有属性)
+- [自有属性](#时间编辑器的自有属性)
 
-- [自有成员函数](#树形控件自有成员函数)
+- [自有成员函数](#时间编辑器自有成员函数)
 
-- [信号](#树形控件的信号)
+- [信号](#时间编辑器的信号)
 
 - [可编程函数](#可编程函数)
 
@@ -32,38 +32,39 @@
 
 ---
 
-## 树形控件的属性
+## 时间编辑器的属性
 
 [返回目录](#category)
 
-|属性|值类型|读写类型|说明|
-| - | - | - | - |
-|wrapping|bool|可读 可写|是否使用值循环|
-|format|QString|可读 可写|显示格式|
-|text|QString|可读 可写|当前显示的文本|
-|defaultVal|QString|可读 可写|缺省值|
-|checkable|bool|可读 可写|是否可勾选|
-|checked|bool|可读 可写|是否被勾选|
-|time|QString|可读 可写|当前时间|
-|readonly|bool|可读 可写|是否只读|
+|    属性    | 值类型  | 读写类型  |      说明       |
+| ---------- | ------- | -------- | --------------- |
+| wrapping   | bool    | 可读 可写 | 是否使用值循环   |
+| format     | QString | 可读 可写 | 显示格式        |
+| text       | QString | 可读 可写 | 当前显示的文本   |
+| defaultVal | QString | 可读 可写 | 缺省值          |
+| checkable  | bool    | 可读 可写 | 是否可勾选       |
+| checked    | bool    | 可读 可写 | 是否被勾选       |
+| time       | QString | 可读 可写 | 当前时间        |
+| readonly   | bool    | 可读 可写 | 是否只读        |
+| showButton | bool    | 可读 可写 | 是否显示调节按钮 |
 
 - ### 属性：margin （类型：int 可读 可写）
 
 边界宽度（像素为单位）。
 
-| |调用方法|
-| - | - |
-|读取|int margin const|
-|修改|void setMargin( int margin ) const|
+|      |              调用方法               |
+| ---- | ---------------------------------- |
+| 读取 | int margin() const                 |
+| 修改 | void setMargin( int margin ) const |
 
 - ### 属性：wrapping （类型：bool 可读 可写）
 
 是否值循环。值循环是指，当前值已到最大值时，若再向上调会转到最小值。只有设置了最大最小值时有效。
 
-| |调用方法|
-| - | - |
-|读取|bool wrapping const|
-|修改|void setWrapping( bool wrapping ) const|
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | bool wrapping() const                   |
+| 修改 | void setWrapping( bool wrapping ) const |
 
 - ### 属性：format （类型：QString 可读 可写）
 
@@ -88,61 +89,70 @@
 |AP|显示本地化的上午和下午，大写（中文不分大小写）|
 |ap|显示本地化的上午和下午，小写（中文不分大小写）|
 
-| |调用方法|
-| - | - |
-|读取|QString format const|
-|修改|void setFormat( const QString &format ) const|
+|      |                    调用方法                    |
+| ---- | --------------------------------------------- |
+| 读取 | QString format() const                        |
+| 修改 | void setFormat( const QString &format ) const |
 
 - ### 属性：defaultVal （类型：QString 可读 ）
 
 缺省的时间值。
 
-| |调用方法|
-| - | - |
-|读取|QString defaultVal const|
+|      |          调用方法           |
+| ---- | -------------------------- |
+| 读取 | QString defaultVal() const |
 
 - ### 属性：text （类型：QString 可读 ）
 
 当前显示的文本。
 
-| |调用方法|
-| - | - |
-|读取|QString text const|
+|      |       调用方法        |
+| ---- | -------------------- |
+| 读取 | QString text() const |
 
 - ### 属性：checkable （类型：bool 可读 ）
 
 是否可勾选。
 
-| |调用方法|
-| - | - |
-|读取|bool checkable const|
+|      |        调用方法         |
+| ---- | ---------------------- |
+| 读取 | bool checkable() const |
 
 - ### 属性：checked （类型：bool 可读 可写）
 
 是否被勾选。
 
-| |调用方法|
-| - | - |
-|读取|bool checked const|
-|修改|void setChecked( bool checked ) const|
+|      |                调用方法                |
+| ---- | ------------------------------------- |
+| 读取 | bool checked() const                  |
+| 修改 | void setChecked( bool checked ) const |
 
 - ### 属性：time （类型：QString 可读 可写）
 
 当前时间值。
 
-| |调用方法|
-| - | - |
-|读取|QString timeToString const|
-|修改|void setTimeFromString( const QString &time ) const|
+|      |                       调用方法                       |
+| ---- | --------------------------------------------------- |
+| 读取 | QString timeToString() const                        |
+| 修改 | void setTimeFromString( const QString &time ) const |
 
 - ### 属性：readOnly （类型：bool 可读 可写）
 
 是否只读。
 
-| |调用方法|
-| - | - |
-|读取|bool readOnly const|
-|修改|void setReadOnly( bool readOnly ) const|
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | bool readOnly() const                   |
+| 修改 | void setReadOnly( bool readOnly ) const |
+
+- ### 属性：showButton（类型：bool 可读 可写）
+
+是否显示值调节按钮。
+
+|      |                调用方法                |
+| ---- | ------------------------------------- |
+| 读取 | bool showButton() const               |
+| 修改 | void setShowButton( bool show ) const |
 
 ---
 

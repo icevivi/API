@@ -20,6 +20,7 @@
 | isModified           | bool    | 可读 可写 | 是否被修改过                     |
 | locationbarEnabled   | bool    | 可读 可写 | 是否显示记录定位器               |
 | mainTable            | QString | 可读      | 主表的表名                       |
+| margin               | int     | 可读 可写 | 边界宽度                        |
 | name                 | QString | 可读      | 表单的名称                       |
 | objectName           | QString | 可读 可写 | 表单控件的对象名称               |
 | printEnabled         | bool    | 可读 可写 | 是否允许打印/打印预览            |
@@ -60,17 +61,17 @@ this.form.setCaption('新标题')
 
 |      |                       调用方法                        |
 | ---- | ---------------------------------------------------- |
-| 读取 | QColor background const                              |
+| 读取 | QColor background() const                            |
 | 修改 | void setBackground( const QColor &background ) const |
 
 - ### 属性：caption （类型：QString 可读 可写）
 
 表单的标题，在运行时会做为对话框标题、子文档的标题、菜单项等显示。
 
-| |调用方法|
-| - | - |
-|读取|QString caption const|
-|修改|void setCaption( const QString &caption ) const|
+|      |                     调用方法                     |
+| ---- | ----------------------------------------------- |
+| 读取 | QString caption() const                         |
+| 修改 | void setCaption( const QString &caption ) const |
 
 - ### 属性：createNewEnabled （类型：bool 可读 可写）
 
@@ -80,17 +81,17 @@ this.form.setCaption('新标题')
 
 |      |                         调用方法                         |
 | ---- | ------------------------------------------------------- |
-| 读取 | bool createNewEnabled const                             |
+| 读取 | bool createNewEnabled() const                           |
 | 修改 | void setCreateNewEnabled( bool createNewEnabled ) const |
 
 - ### 属性：dropEnabled （类型：bool 可读 可写）
 
 是否允许使用“删除”按钮。
 
-| |调用方法|
-| - | - |
-|读取|bool dropEnabled const|
-|修改|void setDropEnabled( bool dropEnabled ) const|
+|      |                    调用方法                    |
+| ---- | --------------------------------------------- |
+| 读取 | bool dropEnabled() const                      |
+| 修改 | void setDropEnabled( bool dropEnabled ) const |
 
 - ### 属性：exportEnabled （类型：bool 可读 可写）
 
@@ -98,26 +99,26 @@ this.form.setCaption('新标题')
 
 导出PFD文件的功能只为有“主表”属性的表单设计，会将当前记录导出为PFD文件。非此类表单，这个属性没有什么影响。
 
-| |调用方法|
-| - | - |
-|读取|bool exportEnabled const|
-|修改|void setExportEnabled( bool exportEnabled ) const|
+|      |                      调用方法                      |
+| ---- | ------------------------------------------------- |
+| 读取 | bool exportEnabled() const                        |
+| 修改 | void setExportEnabled( bool exportEnabled ) const |
 
 - ### 属性：font （类型：QFont 可读 ）
 
 默认字体。这个属性在设计阶段，往表单上添加新控件时，会继承这个属性为新控件设置缺省字体。在运行时阶段，这个属性只读。
 
-|      |     调用方法      |
-| ---- | ---------------- |
-| 读取 | QFont font const |
+|      |      调用方法       |
+| ---- | ------------------ |
+| 读取 | QFont font() const |
 
 - ### 属性：foreground （类型：QColor 可读 可写）
 
 默认前景色。这个属性在设计阶段，往表单上添加新控件时，会继承这个属性为新控件设置缺省前景色。在运行时阶段，这个属性只读。
 
-|      |         调用方法         |
-| ---- | ----------------------- |
-| 读取 | QColor foreground const |
+|      |          调用方法          |
+| ---- | ------------------------- |
+| 读取 | QColor foreground() const |
 
 - ### 属性：height （类型：int 可读 可写）
 
@@ -125,7 +126,7 @@ this.form.setCaption('新标题')
 
 |      |              调用方法               |
 | ---- | ---------------------------------- |
-| 读取 | int height const                   |
+| 读取 | int height() const                 |
 | 修改 | void setHeight( int height ) const |
 
 - ### 属性：imageFillType （类型：int 可读 可写）
@@ -134,7 +135,7 @@ this.form.setCaption('新标题')
 
 |      |                     调用方法                      |
 | ---- | ------------------------------------------------ |
-| 读取 | int imageFillType const                          |
+| 读取 | int imageFillType() const                        |
 | 修改 | void setImageFillType( int imageFillType ) const |
 |      | **imageFillType 取值:**                          |
 |      | pub.TEXTURE_BACKGROUND 连续填充                   |
@@ -152,7 +153,7 @@ this.form.setCaption('新标题')
 
 |      |                       调用方法                       |
 | ---- | --------------------------------------------------- |
-| 读取 | QString imageName const                             |
+| 读取 | QString imageName() const                           |
 | 修改 | void setImageName( const QString &imageName ) const |
 
 - ### 属性：importEnabled （类型：bool 可读 可写）
@@ -161,7 +162,7 @@ this.form.setCaption('新标题')
 
 |      |                      调用方法                      |
 | ---- | ------------------------------------------------- |
-| 读取 | bool importEnabled const                          |
+| 读取 | bool importEnabled() const                        |
 | 修改 | void setImportEnabled( bool importEnabled ) const |
 
 - ### 属性：isModified （类型：bool 可读 可写）
@@ -172,17 +173,17 @@ this.form.setCaption('新标题')
 
 |      |                   调用方法                   |
 | ---- | ------------------------------------------- |
-| 读取 | bool isModified const                       |
+| 读取 | bool isModified() const                     |
 | 修改 | void setIsModified( bool isModified ) const |
 
 - ### 属性：locationbarEnabled （类型：bool 可读 可写）
 
 是否显示记录定位器。
 
-| |调用方法|
-| - | - |
-|读取|bool locationbarEnabled const|
-|修改|void setLocationbarEnabled( bool locationbarEnabled ) const|
+|      |                           调用方法                           |
+| ---- | ----------------------------------------------------------- |
+| 读取 | bool locationbarEnabled() const                             |
+| 修改 | void setLocationbarEnabled( bool locationbarEnabled ) const |
 
 - ### 属性：mainTable （类型：QString 可读 ）
 
@@ -192,9 +193,18 @@ this.form.setCaption('新标题')
 
 这个属性是只读的，只能在设计阶段设置好，不允许在运行时状态下修改这个属性。
 
-|      |         调用方法         |
-| ---- | ----------------------- |
-| 读取 | QString mainTable const |
+|      |          调用方法          |
+| ---- | ------------------------- |
+| 读取 | QString mainTable() const |
+
+- ### 属性：margin（类型：int 可读 可写）
+
+表单的边界宽度。只在设置了背景图片时有效，背景图片绘制时，会在四周留出边界，这个属性指这个边界的宽度。
+
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | int margin() const                      |
+| 修改 | void setMargin( int width margin) const |
 
 - ### 属性：name （类型：QString 可读 ）
 
@@ -202,9 +212,9 @@ this.form.setCaption('新标题')
 
 不同的表单这个属性是允许重复的，所以它并不能唯一标识一个表单，只有UUID属性才能唯一地标识一个表单。表单名称会用于设置表单控件名称和设置表单对应的 Python 模块名称。给一个表单设置一个有意义的名字，会有助于进行程序调试。
 
-|      |      调用方法       |
-| ---- | ------------------ |
-| 读取 | QString name const |
+|      |       调用方法        |
+| ---- | -------------------- |
+| 读取 | QString name() const |
 
 - ### 属性：objectName （类型：QString 可读 可写）
 
@@ -212,17 +222,17 @@ this.form.setCaption('新标题')
 
 |      |                        调用方法                        |
 | ---- | ----------------------------------------------------- |
-| 读取 | QString objectName const                              |
+| 读取 | QString objectName() const                            |
 | 修改 | void setObjectName( const QString &objectName ) const |
 
 - ### 属性：printEnabled （类型：bool 可读 可写）
 
 是否允许打印、打印预览。
 
-| |调用方法|
-| - | - |
-|读取|bool printEnabled const|
-|修改|void setPrintEnabled( bool printEnabled ) const|
+|      |                     调用方法                     |
+| ---- | ----------------------------------------------- |
+| 读取 | bool printEnabled() const                       |
+| 修改 | void setPrintEnabled( bool printEnabled ) const |
 
 - ### 属性：printFormUUID （类型：QString 可读 可写）
 
@@ -230,10 +240,10 @@ this.form.setCaption('新标题')
 
 缺省情况下，使用表单上的“打印”和“打印预览”会直接将表单界面打印出来。但在很多应用场景下，需要以特定的格式进行打印，比如打印记账凭证，打印的格式与录入界面区别很大，因此需要另外设计一个表单用于打印，这个属性用于指定用于这种格式化打印的表单的UUID。运行时引擎会在打印时调出这个表单，按它设计好的格式进行打印。
 
-| |调用方法|
-| - | - |
-|读取|QString printFormUUID const|
-|修改|void setPrintFormUUID( const QString &printFormUUID ) const|
+|      |                           调用方法                           |
+| ---- | ----------------------------------------------------------- |
+| 读取 | QString printFormUUID() const                               |
+| 修改 | void setPrintFormUUID( const QString &printFormUUID ) const |
 
 - ### 属性：printPageNumber （类型：bool 可读 可写）
 
@@ -241,7 +251,7 @@ this.form.setCaption('新标题')
 
 |      |                        调用方法                        |
 | ---- | ----------------------------------------------------- |
-| 读取 | bool printPageNumber const                            |
+| 读取 | bool printPageNumber() const                          |
 | 修改 | void setPrintPageNumber( bool printPageNumber ) const |
 
 - ### 属性：publishUUID （类型：QString 可读 ）
@@ -252,9 +262,9 @@ this.form.setCaption('新标题')
 
 这个是只读属性，不允许修改，并且在一个数据库的实例中，经发布（注册）后的表单这个值是不变的。
 
-|      |          调用方法          |
-| ---- | ------------------------- |
-| 读取 | QString publishUUID const |
+|      |           调用方法           |
+| ---- | --------------------------- |
+| 读取 | QString publishUUID() const |
 
 - ### 属性：queryEnabled （类型：bool 可读 可写）
 
@@ -262,25 +272,25 @@ this.form.setCaption('新标题')
 
 |      |                     调用方法                     |
 | ---- | ----------------------------------------------- |
-| 读取 | bool queryEnabled const                         |
+| 读取 | bool queryEnabled() const                       |
 | 修改 | void setQueryEnabled( bool queryEnabled ) const |
 
 - ### 属性：remark （类型：QString 可读 ）
 
 表单的说明。这个属性的值在设计阶段就设置好了，为只读的，不允许在运行时进行修改。
 
-|      |       调用方法        |
-| ---- | -------------------- |
-| 读取 | QString remark const |
+|      |        调用方法         |
+| ---- | ---------------------- |
+| 读取 | QString remark() const |
 
 - ### 属性：saveEnabled （类型：bool 可读 可写）
 
 是否允许使用“保存”按钮。
 
-| |调用方法|
-| - | - |
-|读取|bool saveEnabled const|
-|修改|void setSaveEnabled( bool saveEnabled ) const|
+|      |                    调用方法                    |
+| ---- | --------------------------------------------- |
+| 读取 | bool saveEnabled() const                      |
+| 修改 | void setSaveEnabled( bool saveEnabled ) const |
 
 - ### 属性：showBKImageInPDF （类型：bool 可读 可写）
 
@@ -288,17 +298,17 @@ PDF输出时是否显示背景图片。
 
 |      |                         调用方法                         |
 | ---- | ------------------------------------------------------- |
-| 读取 | bool showBKImageInPDF const                             |
+| 读取 | bool showBKImageInPDF() const                           |
 | 修改 | void setShowBKImageInPDF( bool showBKImageInPDF ) const |
 
 - ### 属性：showBKImageInPrinter （类型：bool 可读 可写）
 
 打印/打印预览时是否显示背景图片。
 
-| |调用方法|
-| - | - |
-|读取|bool showBKImageInPrinter const|
-|修改|void setShowBKImageInPrinter( bool showBKImageInPrinter ) const|
+|      |                             调用方法                             |
+| ---- | --------------------------------------------------------------- |
+| 读取 | bool showBKImageInPrinter() const                               |
+| 修改 | void setShowBKImageInPrinter( bool showBKImageInPrinter ) const |
 
 - ### 属性：toolbarEnabled （类型：bool 可读 可写）
 
@@ -310,17 +320,17 @@ PDF输出时是否显示背景图片。
 
 |      |                       调用方法                       |
 | ---- | --------------------------------------------------- |
-| 读取 | bool toolbarEnabled const                           |
+| 读取 | bool toolbarEnabled() const                         |
 | 修改 | void setToolbarEnabled( bool toolbarEnabled ) const |
 
 - ### 属性：transBKInPDF （类型：bool 可读 可写）
 
 PDF输出时是否使用透明背景。透明背景表示忽略表单的背景色，只输出控件的图像。否则会按表单的背景色输出一个矩形背景图片。
 
-| |调用方法|
-| - | - |
-|读取|bool transBKInPDF const|
-|修改|void setTransBKInPDF( bool transBKInPDF ) const|
+|      |                     调用方法                     |
+| ---- | ----------------------------------------------- |
+| 读取 | bool transBKInPDF() const                       |
+| 修改 | void setTransBKInPDF( bool transBKInPDF ) const |
 
 - ### 属性：transBKInPrinter （类型：bool 可读 可写）
 
@@ -328,39 +338,39 @@ PDF输出时是否使用透明背景。透明背景表示忽略表单的背景�
 
 |      |                         调用方法                         |
 | ---- | ------------------------------------------------------- |
-| 读取 | bool transBKInPrinter const                             |
+| 读取 | bool transBKInPrinter() const                           |
 | 修改 | void setTransBKInPrinter( bool transBKInPrinter ) const |
 
 - ### 属性：userHelp （类型：QString 可读 ）
 
 关于这个表单的用户使用说明。这个属性在设计阶段就设置好了，是只读的，运行时不允许修改。
 
-|      |        调用方法         |
-| ---- | ---------------------- |
-| 读取 | QString userHelp const |
+|      |         调用方法          |
+| ---- | ------------------------ |
+| 读取 | QString userHelp() const |
 
 - ### 属性：UUID （类型：QString 可读 ）
 
 表单的全程唯一标识，用于区别不同的表单。这个是在设计阶段由 biForm 自动生成的，是只读的，不允许在运行时进行修改。
 
-|      |      调用方法       |
-| ---- | ------------------ |
-| 读取 | QString UUID const |
+|      |       调用方法        |
+| ---- | -------------------- |
+| 读取 | QString UUID() const |
 
 - ### 属性：version （类型：int 可读 ）
 
 表单的版本号。为整数，在 biForm 中每次打包时，会自动增长，但也允许手工修改（不建议）。这个是只读的，不允许在运行时进行修改。
 
-|      |      调用方法      |
-| ---- | ----------------- |
-| 读取 | int version const |
+|      |       调用方法       |
+| ---- | ------------------- |
+| 读取 | int version() const |
 
 - ### 属性：width （类型：int 可读 可写）
 
 表单的宽度。
 
-| |调用方法|
-| - | - |
-|读取|int width const|
-|修改|void setWidth( int width ) const|
+|      |             调用方法              |
+| ---- | -------------------------------- |
+| 读取 | int width() const                |
+| 修改 | void setWidth( int width ) const |
 

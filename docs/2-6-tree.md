@@ -57,91 +57,91 @@
 
 边界宽度（像素为单位）
 
-| |调用方法|
-| - | - |
-|读取|int margin const|
-|修改|void setMargin( int margin ) const|
+|      |              调用方法               |
+| ---- | ---------------------------------- |
+| 读取 | int margin() const                 |
+| 修改 | void setMargin( int margin ) const |
 
 - ### 属性：indentation （类型：int 可读 可写）
 
 缩进宽度（像素为单位）
 
-| |调用方法|
-| - | - |
-|读取|int indentation const|
-|修改|void setIndentation( int indentation ) const|
+|      |                   调用方法                    |
+| ---- | -------------------------------------------- |
+| 读取 | int indentation() const                      |
+| 修改 | void setIndentation( int indentation ) const |
 
 - ### 属性：columnCount （类型：int 可读 可写）
 
 列数。
 
-| |调用方法|
-| - | - |
-|读取|int columnCount const|
-|修改|void setColumnCount( int columnCount ) const|
+|      |                   调用方法                    |
+| ---- | -------------------------------------------- |
+| 读取 | int columnCount() const                      |
+| 修改 | void setColumnCount( int columnCount ) const |
 
 - ### 属性：sortingEnabled （类型：bool 可读 可写）
 
 是否允许排序。
 
-| |调用方法|
-| - | - |
-|读取|bool sortingEnabled const|
-|修改|void setSortingEnabled( bool sortingEnabled ) const|
+|      |                       调用方法                       |
+| ---- | --------------------------------------------------- |
+| 读取 | bool sortingEnabled() const                         |
+| 修改 | void setSortingEnabled( bool sortingEnabled ) const |
 
 - ### 属性：rootIsDecorated （类型：bool 可读 可写）
 
 根节点是否允许展开和折叠。如果设置为 False，将只显示顶层节点，不会列出所有下级节点，外观和列表控件类似。
 
-| |调用方法|
-| - | - |
-|读取|bool rootIsDecorated const|
-|修改|void setRootIsDecorated( bool rootIsDecorated ) const|
+|      |                        调用方法                        |
+| ---- | ----------------------------------------------------- |
+| 读取 | bool rootIsDecorated() const                          |
+| 修改 | void setRootIsDecorated( bool rootIsDecorated ) const |
 
 - ### 属性：uniformRowHeights （类型：bool 可读 可写）
 
 是否统一行高。
 
-| |调用方法|
-| - | - |
-|读取|bool uniformRowHeights const|
-|修改|void setUniformRowHeights( bool uniformRowHeights ) const|
+|      |                          调用方法                          |
+| ---- | --------------------------------------------------------- |
+| 读取 | bool uniformRowHeights() const                            |
+| 修改 | void setUniformRowHeights( bool uniformRowHeights ) const |
 
 - ### 属性：animated （类型：bool 可读 可写）
 
 是否动态显示展开和折叠过程
 
-| |调用方法|
-| - | - |
-|读取|bool animated const|
-|修改|void setAnimated( bool animated ) const|
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | bool animated() const                   |
+| 修改 | void setAnimated( bool animated ) const |
 
 - ### 属性：allColumnsShowFocus （类型：bool 可读 可写）
 
 是否所有列允许获得焦点
 
-| |调用方法|
-| - | - |
-|读取|bool allColumnsShowFocus const|
-|修改|void setAllColumnsShowFocus( bool allColumnsShowFocus ) const|
+|      |                            调用方法                            |
+| ---- | ------------------------------------------------------------- |
+| 读取 | bool allColumnsShowFocus() const                              |
+| 修改 | void setAllColumnsShowFocus( bool allColumnsShowFocus ) const |
 
 - ### 属性：wordwrap （类型：bool 可读 可写）
 
 是否自动换行。
 
-| |调用方法|
-| - | - |
-|读取|bool wordwrap const|
-|修改|void setWordwrap( bool wordwrap ) const|
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | bool wordwrap() const                   |
+| 修改 | void setWordwrap( bool wordwrap ) const |
 
 - ### 属性：itemsExpandable （类型：bool 可读 可写）
 
 项目是否允许展开。
 
-| |调用方法|
-| - | - |
-|读取|bool itemsExpandable const|
-|修改|void setItemsExpandable( bool itemsExpandable ) const|
+|      |                        调用方法                        |
+| ---- | ----------------------------------------------------- |
+| 读取 | bool itemsExpandable() const                          |
+| 修改 | void setItemsExpandable( bool itemsExpandable ) const |
 
 ---
 

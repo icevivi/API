@@ -56,7 +56,7 @@
 
 |      |              调用方法               |
 | ---- | ---------------------------------- |
-| 读取 | int margin const                   |
+| 读取 | int margin() const                 |
 | 修改 | void setMargin( int margin ) const |
 
 - ### 属性：wrapping （类型：bool 可读 可写）
@@ -65,17 +65,17 @@
 
 |      |                 调用方法                 |
 | ---- | --------------------------------------- |
-| 读取 | bool wrapping const                     |
+| 读取 | bool wrapping() const                   |
 | 修改 | void setWrapping( bool wrapping ) const |
 
 - ### 属性：spacing （类型：int 可读 可写）
 
 列表中项目周围的空白空间大小。
 
-| |调用方法|
-| - | - |
-|读取|int spacing const|
-|修改|void setSpacing( int spacing ) const|
+|      |               调用方法                |
+| ---- | ------------------------------------ |
+| 读取 | int spacing() const                  |
+| 修改 | void setSpacing( int spacing ) const |
 
 - ### 属性：gridWidth （类型：int 可读 可写）
 
@@ -83,26 +83,26 @@
 
 |      |                 调用方法                  |
 | ---- | ---------------------------------------- |
-| 读取 | int gridWidth const                      |
+| 读取 | int gridWidth() const                    |
 | 修改 | void setGridWidth( int gridWidth ) const |
 
 - ### 属性：gridHeight （类型：int 可读 可写）
 
 用于布置项目的网格的高度。
 
-| |调用方法|
-| - | - |
-|读取|int gridHeight const|
-|修改|void setGridHeight( int gridHeight ) const|
+|      |                  调用方法                   |
+| ---- | ------------------------------------------ |
+| 读取 | int gridHeight() const                     |
+| 修改 | void setGridHeight( int gridHeight ) const |
 
 - ### 属性：sortingEnabled （类型：bool 可读 可写）
 
 是否允许排序。
 
-| |调用方法|
-| - | - |
-|读取|bool sortingEnabled const|
-|修改|void setSortingEnabled( bool sortingEnabled ) const|
+|      |                       调用方法                       |
+| ---- | --------------------------------------------------- |
+| 读取 | bool sortingEnabled() const                         |
+| 修改 | void setSortingEnabled( bool sortingEnabled ) const |
 
 - ### 属性：allowSelectMulti （类型：bool 可读 可写）
 
@@ -110,24 +110,24 @@
 
 |      |                         调用方法                         |
 | ---- | ------------------------------------------------------- |
-| 读取 | bool allowSelectMulti const                             |
+| 读取 | bool allowSelectMulti() const                           |
 | 修改 | void setAllowSelectMulti( bool allowSelectMulti ) const |
 
 - ### 属性：listtext （类型：QStringList 可读 ）
 
 所有列表项目显示的文本的列表。
 
-| |调用方法|
-| - | - |
-|读取|QStringList listtext const|
+|      |           调用方法            |
+| ---- | ---------------------------- |
+| 读取 | QStringList listtext() const |
 
 - ### 属性：listvalue （类型：QStringList 可读 ）
 
 所有列表项目的值的列表。
 
-| |调用方法|
-| - | - |
-|读取|QStringList listvalue const|
+|      |            调用方法            |
+| ---- | ----------------------------- |
+| 读取 | QStringList listvalue() const |
 
 - ### 属性：currentRow （类型：int 可读 可写）
 
@@ -135,16 +135,16 @@
 
 |      |                  调用方法                   |
 | ---- | ------------------------------------------ |
-| 读取 | int currentRow const                       |
+| 读取 | int currentRow() const                     |
 | 修改 | void setCurrentRow( int currentRow ) const |
 
 - ### 属性：count （类型：int 可读 ）
 
 列表中项目的数量。
 
-| |调用方法|
-| - | - |
-|读取|int count const|
+|      |      调用方法      |
+| ---- | ----------------- |
+| 读取 | int count() const |
 
 ---
 

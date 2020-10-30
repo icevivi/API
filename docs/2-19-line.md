@@ -47,46 +47,46 @@
 
 线条颜色。
 
-| |调用方法|
-| - | - |
-|读取|QColor lineColor const|
-|修改|void setLineColor( const QColor &lineColor ) const|
+|      |                      调用方法                       |
+| ---- | -------------------------------------------------- |
+| 读取 | QColor lineColor() const                           |
+| 修改 | void setLineColor( const QColor &lineColor ) const |
 
 - ### 属性：lineWidth （类型：int 可读 可写）
 
 线宽（像素为单位）。
 
-| |调用方法|
-| - | - |
-|读取|int lineWidth const|
-|修改|void setLineWidth( int lineWidth ) const|
+|      |                 调用方法                  |
+| ---- | ---------------------------------------- |
+| 读取 | int lineWidth() const                    |
+| 修改 | void setLineWidth( int lineWidth ) const |
 
 - ### 属性：orientation （类型：int 可读 可写）
 
 方向。
 
-| |调用方法|
-| - | - |
-|读取|int orientation const|
-|修改|void setOrientation( int orientation ) const|
-||**orientation取值：**|
-||pub.VERTICAL 垂直方向|
-||pub.HORIZONTAL 水平方向|
+|      |                   调用方法                    |
+| ---- | -------------------------------------------- |
+| 读取 | int orientation() const                      |
+| 修改 | void setOrientation( int orientation ) const |
+|      | **orientation取值：**                        |
+|      | pub.VERTICAL 垂直方向                         |
+|      | pub.HORIZONTAL 水平方向                       |
 
 - ### 属性：lineStyle （类型：int 可读 可写）
 
 线型。
 
-| |调用方法|
-| - | - |
-|读取|int lineStyle const|
-|修改|void setLineStyle( int lineStyle ) const|
-||**lineStyle取值：**|
-||pub.SOLIDLINE 实线|
-||pub.DASHLINE 破折线|
-||pub.DOTLINE 点划线|
-||pub.DASHDOTLINE 破折-点线|
-||pub.DASHDOTDOTLINE 破折-点-点线|
+|      |                 调用方法                  |
+| ---- | ---------------------------------------- |
+| 读取 | int lineStyle() const                    |
+| 修改 | void setLineStyle( int lineStyle ) const |
+|      | **lineStyle取值：**                      |
+|      | pub.SOLIDLINE 实线                       |
+|      | pub.DASHLINE 破折线                      |
+|      | pub.DOTLINE 点划线                       |
+|      | pub.DASHDOTLINE 破折-点线                 |
+|      | pub.DASHDOTDOTLINE 破折-点-点线           |
 
 ---
 

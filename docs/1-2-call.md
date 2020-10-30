@@ -16,7 +16,7 @@ biForm 主要是为图形化应用程序设计的，biForm提供了多种标准�
 
 >>> #-*- 切换到上下文 BILIVE_FORM_NEWFORM_11 -*-
 >>> dir()
-['Animal', 'Dog', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'base64', 'button', 'button_clicked', 'codecs', 'form_beforeload', 'formclass_newform', 'gbk', 'gbkList', 'lineedit', 'log', 'logging', 'newform', 'pub', 'sys', 'this']
+['Animal', 'Dog', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'base64', 'button', 'button_clicked', 'codecs', 'form_beforeload', 'formclass_newform', 'lineedit', 'log', 'logging', 'newform', 'pub', 'sys', 'this']
 
 ```
 
@@ -132,7 +132,7 @@ def showTime():
 def clearTime():
 	this.lineedit.text = ''
 
-#连接信号和槽		
+#连接信号和槽
 this.button.connect('pressed()',showTime)
 this.button.connect('released()',clearTime)
 
@@ -147,6 +147,3 @@ biForm界面设计器中可用的标准控件，目前版本（V3.1）不支持�
 - 因为不支持创建，所以也不支持对已有控件进行克隆。
 
 - 虽然控件的接口中有delete函数，但这个只是从QObject继承来的通用的接口。虽然可以调用它，但这个并不能真的删除掉表单上这个控件。这个函数只是删除了 Python 中指向控件的指针，虽然删除这个指针不会造成程序崩溃，但删除之后就不能再恢复，因此会影响程序正常运行，所以不建议开发者调用这类接口。PFF的运行时引擎会自动处理这些对象的销毁和指针的清理，开发者不需要进行额外的处理。但通过 Qt 接口创建的控件，需要注意判断是否要进行销毁处理，如果需要，可以在表单的“关闭前”脚本中进行处理。
-
-
-

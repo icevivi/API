@@ -52,78 +52,78 @@
 
 下拉列表中项目的数量。
 
-| |调用方法|
-| - | - |
-|读取|int count const|
+|      |      调用方法      |
+| ---- | ----------------- |
+| 读取 | int count() const |
 
 - ### 属性：currentData （类型：QString 可读 可写）
 
 当前项的数据。“数据”与“文本”不同，是内部保存的数据，可以与“文本”有不一样的内容。需要注意的是，调用 setCurrentData 时，并不是影响下拉列表中当前项的数据，而是从下拉列表的项目中查找到相同的数据（第一个匹配的），并将该项设置为当前项。如果找不到，就忽略。
 
-| |调用方法|
-| - | - |
-|读取|QString currentData const|
-|修改|void setCurrentData( const QString &data ) const|
+|      |                     调用方法                      |
+| ---- | ------------------------------------------------ |
+| 读取 | QString currentData() const                      |
+| 修改 | void setCurrentData( const QString &data ) const |
 
 - ### 属性：currentIndex （类型：int 可读 可写）
 
 当前项的索引（从0开始编号）。
 
-| |调用方法|
-| - | - |
-|读取|int currentIndex const|
-|修改|void setCurrentIndex( int index ) const|
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | int currentIndex() const                |
+| 修改 | void setCurrentIndex( int index ) const |
 
 - ### 属性：currentText （类型：QString 可读 可写）
 
 当前项显示的文本。需要注意的是，调用 setCurrentText 时，并不是影响下拉列表中当前项显示的文本，而是从下拉列表的项目中查找到相同的文本（第一个匹配的），并将该项设置为当前项。如果找不到，就忽略。
 
-| |调用方法|
-| - | - |
-|读取|QString currentText const|
-|修改|void setCurrentText( const QString &text ) const|
+|      |                     调用方法                      |
+| ---- | ------------------------------------------------ |
+| 读取 | QString currentText() const                      |
+| 修改 | void setCurrentText( const QString &text ) const |
 
 - ### 属性：defaultVal （类型：QString 可读）
 
 下拉列表框创建之后，将第一个匹配这个初始值的项目做为当前项。
 
-| |调用方法|
-| - | - |
-|读取|QString defaultVal const|
+|      |          调用方法           |
+| ---- | -------------------------- |
+| 读取 | QString defaultVal() const |
 
 - ### 属性：editable （类型：bool 可读 可写）
 
 是否允许编辑。允许编辑的下拉列表可以直接输入文字。
 
-| |调用方法|
-| - | - |
-|读取|bool editable const|
-|修改|void setEditable( bool editable ) const|
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | bool editable() const                   |
+| 修改 | void setEditable( bool editable ) const |
 
 - ### 属性：reference （类型：QString 可读 可写）
 
 设置下拉列表对应的“引用列表”的名称。“引用列表”是一组“文本-数据”对，在表单设计阶段就可以进行设置。设置为“引用列表”的下拉列表框，会按其“文本-数据”的对应关系创建所有下拉列表中的项目。
 
-| |调用方法|
-| - | - |
-|读取|QString reference const|
-|修改|void setReference( const QString &text ) const|
+|      |                    调用方法                     |
+| ---- | ---------------------------------------------- |
+| 读取 | QString reference() const                      |
+| 修改 | void setReference( const QString &text ) const |
 
 - ### 属性：textList （类型：QStringList 可读 ）
 
 以字符串列表的形式返回所有项目的显示文本。
 
-| |调用方法|
-| - | - |
-|读取|QStringList textList const|
+|      |           调用方法            |
+| ---- | ---------------------------- |
+| 读取 | QStringList textList() const |
 
 - ### 属性：valueList （类型：QStringList 可读 ）
 
 以字符串列表的形式返回所有项目的数据。
 
-| |调用方法|
-| - | - |
-|读取|QStringList valueList const|
+|      |            调用方法            |
+| ---- | ----------------------------- |
+| 读取 | QStringList valueList() const |
 
 ---
 

@@ -52,89 +52,89 @@
 
 标题显示的文本。
 
-| |调用方法|
-| - | - |
-|读取|QString caption const|
-|修改|void setCaption( const QString &caption ) const|
+|      |                     调用方法                     |
+| ---- | ----------------------------------------------- |
+| 读取 | QString caption() const                         |
+| 修改 | void setCaption( const QString &caption ) const |
 
 - ### 属性：checked （类型：bool 可读 可写）
 
 设置勾选状态。这个属性只能设置两种状态。如果要设置为“部分选中”的状态，使用setCheckState。
 
-| |调用方法|
-| - | - |
-|读取|bool checked const|
-|修改|void setChecked( bool checked ) const|
+|      |                调用方法                |
+| ---- | ------------------------------------- |
+| 读取 | bool checked() const                  |
+| 修改 | void setChecked( bool checked ) const |
 
 - ### 属性：checkState （类型：int 可读 可写）
 
 设置勾选状态。
 
-| |调用方法|
-| - | - |
-|读取|int checkState const|
-|修改|void setCheckState( int checkState ) const|
-||**checkState取值：**|
-||pub.UNCHECKED 未选中|
-||pub.PARTIALLYCHECKED 部分选中|
-||pub.CHECKED 选中|
+|      |                  调用方法                   |
+| ---- | ------------------------------------------ |
+| 读取 | int checkState() const                     |
+| 修改 | void setCheckState( int checkState ) const |
+|      | **checkState取值：**                       |
+|      | pub.UNCHECKED 未选中                       |
+|      | pub.PARTIALLYCHECKED 部分选中               |
+|      | pub.CHECKED 选中                           |
 
 - ### 属性：triState （类型：bool 可读 可写）
 
 是否允许使用三种勾选状态。设为 True 时，可以为“部分选中”的状态，否则只有“选中”和“未选中”两种状态。
 
-| |调用方法|
-| - | - |
-|读取|bool triState const|
-|修改|void setTriState( bool triState ) const|
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | bool triState() const                   |
+| 修改 | void setTriState( bool triState ) const |
 
 - ### 属性：defaultVal （类型：QVariant 可读 ）
 
 缺省值。对应不同的勾选状态，在控件创建后，使用这个值做为初始状态。
 
-| |调用方法|
-| - | - |
-|读取|QVariant defaultVal const|
-||**defaultVal值的含义**|
-|| 0 : 未选中|
-|| 1 : 部分选中|
-|| 2 : 选中|
+|      |           调用方法           |
+| ---- | --------------------------- |
+| 读取 | QVariant defaultVal() const |
+|      | **defaultVal值的含义**      |
+|      | 0 : 未选中                  |
+|      | 1 : 部分选中                 |
+|      | 2 : 选中                    |
 
 - ### 属性：checkedText （类型：QString 可读 可写）
 
 选中时对应的文本内容。
 
-| |调用方法|
-| - | - |
-|读取|QString checkedText const|
-|修改|void setCheckedText( const QString &checkedText ) const|
+|      |                         调用方法                         |
+| ---- | ------------------------------------------------------- |
+| 读取 | QString checkedText() const                             |
+| 修改 | void setCheckedText( const QString &checkedText ) const |
 
 - ### 属性：uncheckedText （类型：QString 可读 可写）
 
 未勾选时对应的文本内容。
 
-| |调用方法|
-| - | - |
-|读取|QString uncheckedText const|
-|修改|void setUncheckedText( const QString &uncheckedText ) const|
+|      |                           调用方法                           |
+| ---- | ----------------------------------------------------------- |
+| 读取 | QString uncheckedText() const                               |
+| 修改 | void setUncheckedText( const QString &uncheckedText ) const |
 
 - ### 属性：partiallyCheckedText （类型：QString 可读 可写）
 
 部分勾选时对应的文本内容。
 
-| |调用方法|
-| - | - |
-|读取|QString partiallyCheckedText const|
-|修改|void setPartiallyCheckedText( const QString &partiallyCheckedText ) const|
+|      |                                  调用方法                                  |
+| ---- | ------------------------------------------------------------------------- |
+| 读取 | QString partiallyCheckedText() const                                      |
+| 修改 | void setPartiallyCheckedText( const QString &partiallyCheckedText ) const |
 
 - ### 属性：currentText （类型：QString 可读 可写）
 
 当前文本。文本按当前勾选的状态，返回不同的文本内容。
 
-| |调用方法|
-| - | - |
-|读取|QString currentText const|
-|修改|void setCurrentText( const QString &currentText ) const|
+|      |                         调用方法                         |
+| ---- | ------------------------------------------------------- |
+| 读取 | QString currentText() const                             |
+| 修改 | void setCurrentText( const QString &currentText ) const |
 
 ---
 

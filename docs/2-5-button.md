@@ -47,37 +47,37 @@
 
 按钮上显示的文字。
 
-| |调用方法|
-| - | - |
-|读取|QString caption const|
-|修改|void setCaption( const QString &caption ) const|
+|      |                     调用方法                     |
+| ---- | ----------------------------------------------- |
+| 读取 | QString caption() const                         |
+| 修改 | void setCaption( const QString &caption ) const |
 
 - ### 属性：icon （类型：QPixmap 可读 可写）
 
 设置按钮的图标。
 
-| |调用方法|
-| - | - |
-|读取|QPixmap icon const|
-|修改|void seticon( const QPixmap &icon ) const|
+|      |                  调用方法                  |
+| ---- | ----------------------------------------- |
+| 读取 | QPixmap icon() const                      |
+| 修改 | void seticon( const QPixmap &icon ) const |
 
 - ### 属性：iconSize （类型：int 可读 可写）
 
 设置图标的尺寸。比如置为24时，图标的尺寸就是 24X24 像素。
 
-| |调用方法|
-| - | - |
-|读取|int iconSize const|
-|修改|void setIconSize( int iconSize ) const|
+|      |                调用方法                 |
+| ---- | -------------------------------------- |
+| 读取 | int iconSize() const                   |
+| 修改 | void setIconSize( int iconSize ) const |
 
 - ### 属性：isFlat （类型：bool 可读 可写）
 
 是否不显示按钮边框。
 
-| |调用方法|
-| - | - |
-|读取|bool isFlat const|
-|修改|void setFlat( bool isFlat ) const|
+|      |              调用方法              |
+| ---- | --------------------------------- |
+| 读取 | bool isFlat() const               |
+| 修改 | void setFlat( bool isFlat ) const |
 
 ---
 

@@ -56,106 +56,106 @@
 
 边界宽度（像素值）。
 
-| |调用方法|
-| - | - |
-|读取|int margin const|
-|修改|void setMargin( int margin ) const|
+|      |              调用方法               |
+| ---- | ---------------------------------- |
+| 读取 | int margin() const                 |
+| 修改 | void setMargin( int margin ) const |
 
 - ### 属性：minimum （类型：int 可读 可写）
 
 最小值。
 
-| |调用方法|
-| - | - |
-|读取|int minimum const|
-|修改|void setMinimum( int minimum ) const|
+|      |               调用方法                |
+| ---- | ------------------------------------ |
+| 读取 | int minimum() const                  |
+| 修改 | void setMinimum( int minimum ) const |
 
 - ### 属性：maximum （类型：int 可读 可写）
 
 最大值。
 
-| |调用方法|
-| - | - |
-|读取|int maximum const|
-|修改|void setMaximum( int maximum ) const|
+|      |               调用方法                |
+| ---- | ------------------------------------ |
+| 读取 | int maximum() const                  |
+| 修改 | void setMaximum( int maximum ) const |
 
 - ### 属性：wrapping （类型：bool 可读 可写）
 
 是否值循环。值循环是指，当前值已到最大值时，若再向上调会转到最小值。只有设置了最大最小值时有效。
 
-| |调用方法|
-| - | - |
-|读取|bool wrapping const|
-|修改|void setWrapping( bool wrapping ) const|
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | bool wrapping() const                   |
+| 修改 | void setWrapping( bool wrapping ) const |
 
 - ### 属性：singlestep （类型：int 可读 可写）
 
 步长。点击上下按钮或滚动鼠标滚轮时值增加或减少的量。
 
-| |调用方法|
-| - | - |
-|读取|int singlestep const|
-|修改|void setSinglestep( int singlestep ) const|
+|      |                  调用方法                   |
+| ---- | ------------------------------------------ |
+| 读取 | int singlestep() const                     |
+| 修改 | void setSinglestep( int singlestep ) const |
 
 - ### 属性：prefix （类型：QString 可读 可写）
 
 前缀。在控件中显示数值对应的文本时，前面会加上前缀，不影响 value 的值，只影响显示的文本即 text 的值。
 
-| |调用方法|
-| - | - |
-|读取|QString prefix const|
-|修改|void setPrefix( const QString &prefix ) const|
+|      |                    调用方法                    |
+| ---- | --------------------------------------------- |
+| 读取 | QString prefix() const                        |
+| 修改 | void setPrefix( const QString &prefix ) const |
 
 - ### 属性：suffix （类型：QString 可读 可写）
 
 后缀。在控件中显示数据对应的文本时，后面会加上后缀，不影响 value 的值，只影响显示的文本即 text 的值。
 
-| |调用方法|
-| - | - |
-|读取|QString suffix const|
-|修改|void setSuffix( const QString &suffix ) const|
+|      |                    调用方法                    |
+| ---- | --------------------------------------------- |
+| 读取 | QString suffix() const                        |
+| 修改 | void setSuffix( const QString &suffix ) const |
 
 - ### 属性：defaultVal （类型：int 可读 ）
 
 缺省值。
 
-| |调用方法|
-| - | - |
-|读取|int defaultVal const|
+|      |        调用方法         |
+| ---- | ---------------------- |
+| 读取 | int defaultVal() const |
 
 - ### 属性：text （类型：QString 可读 ）
 
 显示的文本。为数值转换成字符串后，加上前缀和后缀，如果需要显示千分位，会再加上千分位分隔符“，”。
 
-| |调用方法|
-| - | - |
-|读取|QString text const|
+|      |       调用方法        |
+| ---- | -------------------- |
+| 读取 | QString text() const |
 
 - ### 属性：cleanText （类型：QString 可读 ）
 
 当前数值转换为字符串。只将数值转换成字符串，不会加上前缀、后缀、千分位，并且会除去前后可能会有的空格。
 
-| |调用方法|
-| - | - |
-|读取|QString cleanText const|
+|      |          调用方法          |
+| ---- | ------------------------- |
+| 读取 | QString cleanText() const |
 
 - ### 属性：value （类型：int 可读 可写）
 
 当前数值。
 
-| |调用方法|
-| - | - |
-|读取|int value const|
-|修改|void setValue( int value ) const|
+|      |             调用方法              |
+| ---- | -------------------------------- |
+| 读取 | int value() const                |
+| 修改 | void setValue( int value ) const |
 
 - ### 属性：readOnly （类型：bool 可读 可写）
 
 是否只读。
 
-| |调用方法|
-| - | - |
-|读取|bool readOnly const|
-|修改|void setReadOnly( bool readOnly ) const|
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | bool readOnl()y const                   |
+| 修改 | void setReadOnly( bool readOnly ) const |
 
 - ### 属性：showSeperator （类型：bool 可读 可写）
 
@@ -163,7 +163,7 @@
 
 |      |                      调用方法                      |
 | ---- | ------------------------------------------------- |
-| 读取 | bool showSeperator const                          |
+| 读取 | bool showSeperator() const                        |
 | 修改 | void setShowSeperator( bool showSeperator ) const |
 
 ---

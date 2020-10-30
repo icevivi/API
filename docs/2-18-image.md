@@ -48,49 +48,49 @@
 
 当前图像。
 
-| |调用方法|
-| - | - |
-|读取|QPixmap image const|
-|修改|void setImage( const QPixmap &image ) const|
+|      |                   调用方法                   |
+| ---- | ------------------------------------------- |
+| 读取 | QPixmap image() const                       |
+| 修改 | void setImage( const QPixmap &image ) const |
 
 - ### 属性：defaultVal （类型：QString 可读 ）
 
 初始设置的图像来源，具体指表单的图片集中某个图片的名称。
 
-| |调用方法|
-| - | - |
-|读取|QString defaultVal const|
+|      |          调用方法           |
+| ---- | -------------------------- |
+| 读取 | QString defaultVal() const |
 
 - ### 属性：palette （类型：QPalette 可读 可写）
 
 调色板。
 
-| |调用方法|
-| - | - |
-|读取|QPalette palette const|
-|修改|void setPalette( const QPalette &palette ) const|
+|      |                     调用方法                      |
+| ---- | ------------------------------------------------ |
+| 读取 | QPalette palette() const                         |
+| 修改 | void setPalette( const QPalette &palette ) const |
 
 - ### 属性：URL （类型：QString 可读 可写）
 
 超链接地址。
 
-| |调用方法|
-| - | - |
-|读取|QString URL const|
-|修改|void setURL( const QString &URL ) const|
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | QString URL() const                     |
+| 修改 | void setURL( const QString &URL ) const |
 
 - ### 属性：imageFillStyle （类型：int 可读 可写）
 
 图像填充方式。
 
-| |调用方法|
-| - | - |
-|读取|int imageFillStyle const|
-|修改|void setImageFillStyle( int imageFillStyle ) const|
-||**imageFillStyle取值**|
-||pub.NOT_SCALED 保持原样|
-||pub.SCALED_CONTENTS 按控件大小缩放图片|
-||pub.TEXTURE_IMAGE 连续填充|
+|      |                      调用方法                       |
+| ---- | -------------------------------------------------- |
+| 读取 | int imageFillStyle() const                         |
+| 修改 | void setImageFillStyle( int imageFillStyle ) const |
+|      | **imageFillStyle取值**                             |
+|      | pub.NOT_SCALED 保持原样                             |
+|      | pub.SCALED_CONTENTS 按控件大小缩放图片              |
+|      | pub.TEXTURE_IMAGE 连续填充                          |
 
 ---
 

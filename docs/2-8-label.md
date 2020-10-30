@@ -46,28 +46,28 @@
 
 显示的文本。
 
-| |调用方法|
-| - | - |
-|读取|QString caption const|
-|修改|void setcaption( const QString &caption ) const|
+|      |                     调用方法                     |
+| ---- | ----------------------------------------------- |
+| 读取 | QString caption() const                         |
+| 修改 | void setCaption( const QString &caption ) const |
 
 - ### 属性：URL （类型：QString 可读 可写）
 
 超链接地址。
 
-| |调用方法|
-| - | - |
-|读取|QString URL const|
-|修改|void setURL( const QString &URL ) const|
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | QString URL() const                     |
+| 修改 | void setURL( const QString &URL ) const |
 
 - ### 属性：wordWrap （类型：bool 可读 可写）
 
 是否自动换行。
 
-| |调用方法|
-| - | - |
-|读取|bool wordWrap const|
-|修改|void setwordWrap( bool wordWrap ) const|
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | bool wordWrap() const                   |
+| 修改 | void setWordWrap( bool wordWrap ) const |
 
 ---
 

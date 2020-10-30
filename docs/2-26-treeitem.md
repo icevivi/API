@@ -76,35 +76,35 @@ this.tree.addTopLevelItem(item3)
 
 列的数量。
 
-| |调用方法|
-| - | - |
-|读取|int columnCount const|
+|      |         调用方法         |
+| ---- | ----------------------- |
+| 读取 | int columnCount() const |
 
 - ### 属性：childCount （类型：int 可读 ）
 
 下级节点的数量。只计算最近的一级，下级的下级不计算在内。
 
-| |调用方法|
-| - | - |
-|读取|int childCount const|
+|      |        调用方法         |
+| ---- | ---------------------- |
+| 读取 | int childCount() const |
 
 - ### 属性：isSelected （类型：bool 可读 可写）
 
 是否被选中。
 
-| |调用方法|
-| - | - |
-|读取|bool isSelected const|
-|修改|void setSelected( bool selected ) const|
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | bool isSelected() const                 |
+| 修改 | void setSelected( bool selected ) const |
 
 - ### 属性：tag （类型：QVariant 可读 可写）
 
 保留用做存储额外的数据。
 
-| |调用方法|
-| - | - |
-|读取|QVariant tag const|
-|修改|void setTag( const QVariant &value ) const|
+|      |                  调用方法                   |
+| ---- | ------------------------------------------ |
+| 读取 | QVariant tag() const                       |
+| 修改 | void setTag( const QVariant &value ) const |
 
 ---
 

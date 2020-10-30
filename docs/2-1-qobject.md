@@ -13,53 +13,68 @@ biForm中标准控件的接口继承自QObject的部分与 Qt 中的 QObject 的
 ### objectName
 
 接口：QString objectName() const
+void setObjectName(const QString& name) const
 
-返回对象名称。调用方式：obj.objectName。
+这个属性为对象名称。
+
+调用示例：
+
+``` python
+
+#读取属性值
+print(obj.objectName)
+#修改属性值
+obj.objectName='newname'
+#或调用成员函数修改属性值
+obj.setObjectName('newname')
+
+```
 
 ## 成员函数
 
-|函数|接口|说明|
-| - | - | - |
-|blockSignals|bool blockSignals(bool block)|阻止发送信号|
-|childEvent|[virtual protected] void childEvent(QChildEvent *event)|下级对象的事件|
-|children|const QObjectList & children() const|所有下级对象|
-|className|const char * className() const|类名称|
-|connect|bool connect( const QByteArray& signal, PyObject* callable)|连接信号和Python函数|
-|connect|bool connect(const QByteArray& signal, QObject* receiver, const QByteArray& slot,  Qt::ConnectionType type = Qt::AutoConnection)|连接信号和槽|
-|connect|bool connect(QObject* sender, const QByteArray& signal, const QByteArray& slot,  Qt::ConnectionType type = Qt::AutoConnection)|连接信号和槽|
-|customEvent|[virtual protected] void customEvent(QEvent *event)|自定义事件|
-|delete|delete()|删除|
-|disconnect|bool disconnect(const QByteArray& signal, PyObject* callable = NULL)|断开连接信号和Python函数|
-|disconnect|bool disconnect(const QByteArray& signal, QObject* receiver, const QByteArray& slot) |断开连接信号和槽|
-|dumpObjectInfo|void dumpObjectInfo()|输出对象信息|
-|dumpObjectTree|void dumpObjectTree()|输出对象信息树|
-|dynamicPropertyNames|QList<QByteArray> dynamicPropertyNames()|动态属性的名称清单|
-|event|[virtual] bool event(QEvent *e)|事件|
-|eventFilter|[virtual] bool eventFilter(QObject *watched, QEvent *event)|事件过滤器|
-|findChild|T findChild(const QString &name = QString(), Qt::FindChildOptions options = Qt::FindChildrenRecursively) const|查找子对象|
-|findChildren|QList<T> findChildren(const QRegExp &regExp, Qt::FindChildOptions options = Qt::FindChildrenRecursively) const|查找子对象清单|
-|findChildren|QList<T> findChildren(const QString &name = QString(), Qt::FindChildOptions options = Qt::FindChildrenRecursively) const|查找子对象清单|
-|help|QString help()|打印帮助信息|
-|inherits|bool inherits(const char *className)|判断是否继承自某个类|
-|installEventFilter|void installEventFilter(QObject *filterObj)|设置事件过滤器对象|
-|isSignalConnected|[protected] bool isSignalConnected(const QMetaMethod &signal) const|判断信号是否已连接|
-|isWidgetType|bool isWidgetType()|是否是控件类型|
-|isWindowType|bool isWindowType()|是否是窗体类型|
-|killTimer|void killTimer(int  id)|停止定时器|
-|metaObject|[virtual] QMetaObject * metaObject() const|元对象|
-|moveToThread|void moveToThread(QThread *targetThread)|移到其它线程|
-|parent|QObject * parent() const|找上级对象|
-|property|QVariant property(const char *name) |按名称返回对应的属性|
-|removeEventFilter|void removeEventFilter(QObject *obj)|移除事件过滤器的设置|
-|sender|[protected] QObject * sender() const|接收到信号时返回发送信号的对象|
-|senderSignalIndex|[protected] int senderSignalIndex() const|发送信号的属性索引|
-|setParent|void setParent(QObject *parent)|设置上级对象|
-|setProperty|bool setProperty(const char *name, const QVariant &value)|设置属性值|
-|signalsBlocked|bool signalsBlocked() const|信号是否被阻止|
-|startTimer|int  startTimer(int  interval, Qt::TimerType  timerType = Qt::CoarseTimer)|启动定时器|
-|thread|QThread * thread() const|返回线程对象的指针|
-|timerEvent|[virtual protected] void timerEvent(QTimerEvent *event)|定时器超时事件|
-|tr|QString tr(const char *sourceText, const char *disambiguation = Q_OBJECT, int n = Q_OBJECT)|翻译文本|
+|         函数         |                                                               接口                                                               |             说明             |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
+| blockSignals         | bool blockSignals(bool block)                                                                                                    | 阻止发送信号                  |
+| childEvent           | [virtual protected] void childEvent(QChildEvent * event)                                                                         | 下级对象的事件                |
+| children             | const QObjectList & children() const                                                                                             | 所有下级对象                  |
+| className            | const char * className() const                                                                                                   | 类名称                       |
+| connect              | bool connect( const QByteArray& signal, PyObject* callable)                                                                      | 连接信号和Python函数          |
+| connect              | bool connect(const QByteArray& signal, QObject* receiver, const QByteArray& slot,  Qt::ConnectionType type = Qt::AutoConnection) | 连接信号和槽                  |
+| connect              | bool connect(QObject* sender, const QByteArray& signal, const QByteArray& slot,  Qt::ConnectionType type = Qt::AutoConnection)   | 连接信号和槽                  |
+| customEvent          | [virtual protected] void customEvent(QEvent * event)                                                                             | 自定义事件                    |
+| delete               | delete()                                                                                                                         | 删除                         |
+| disconnect           | bool disconnect(const QByteArray& signal, PyObject * callable = NULL)                                                            | 断开连接信号和Python函数      |
+| disconnect           | bool disconnect(const QByteArray& signal, QObject * receiver, const QByteArray& slot)                                            | 断开连接信号和槽              |
+| dumpObjectInfo       | void dumpObjectInfo()                                                                                                            | 输出对象信息                  |
+| dumpObjectTree       | void dumpObjectTree()                                                                                                            | 输出对象信息树                |
+| dynamicPropertyNames | QList<QByteArray> dynamicPropertyNames()                                                                                         | 动态属性的名称清单            |
+| event                | [virtual] bool event(QEvent * e)                                                                                                 | 事件                         |
+| eventFilter          | [virtual] bool eventFilter(QObject * watched, QEvent * event)                                                                    | 事件过滤器                    |
+| findChild            | T findChild(const QString &name = QString(), Qt::FindChildOptions options = Qt::FindChildrenRecursively) const                   | 查找子对象                    |
+| findChildren         | QList<T> findChildren(const QRegExp &regExp, Qt::FindChildOptions options = Qt::FindChildrenRecursively) const                   | 查找子对象清单                |
+| findChildren         | QList<T> findChildren(const QString &name = QString(), Qt::FindChildOptions options = Qt::FindChildrenRecursively) const         | 查找子对象清单                |
+| help                 | QString help()                                                                                                                   | 打印帮助信息                  |
+| inherits             | bool inherits(const char * className)                                                                                            | 判断是否继承自某个类          |
+| installEventFilter   | void installEventFilter(QObject * filterObj)                                                                                     | 设置事件过滤器对象            |
+| isSignalConnected    | [protected] bool isSignalConnected(const QMetaMethod &signal) const                                                              | 判断信号是否已连接            |
+| isWidgetType         | bool isWidgetType()                                                                                                              | 是否是控件类型                |
+| isWindowType         | bool isWindowType()                                                                                                              | 是否是窗体类型                |
+| killTimer            | void killTimer(int  id)                                                                                                          | 停止定时器                    |
+| metaObject           | [virtual] QMetaObject * metaObject() const                                                                                       | 元对象                       |
+| moveToThread         | void moveToThread(QThread * targetThread)                                                                                        | 移到其它线程                  |
+| parent               | QObject * parent() const                                                                                                         | 找上级对象                    |
+| property             | QVariant property(const char * name)                                                                                             | 按名称返回对应的属性          |
+| removeEventFilter    | void removeEventFilter(QObject * obj)                                                                                            | 移除事件过滤器的设置          |
+| sender               | [protected] QObject * sender() const                                                                                             | 接收到信号时返回发送信号的对象 |
+| senderSignalIndex    | [protected] int senderSignalIndex() const                                                                                        | 发送信号的属性索引            |
+| setParent            | void setParent(QObject* parent)                                                                                                  | 设置父级对象                  |
+| setProperty          | bool setProperty(const char * name, const QVariant &value)                                                                       | 设置属性值                    |
+| signalsBlocked       | bool signalsBlocked() const                                                                                                      | 信号是否被阻止                |
+| startTimer           | int  startTimer(int  interval, Qt::TimerType  timerType = Qt::CoarseTimer)                                                       | 启动定时器                    |
+| thread               | QThread * thread() const                                                                                                         | 返回线程对象的指针            |
+| timerEvent           | [virtual protected] void QObject::timerEvent(QTimerEvent * event)                                                                | 定时器事件处理                |
+| tr                   | QString tr(const char *sourceText, const char *disambiguation = Q_OBJECT, int n = Q_OBJECT)                                      | 翻译文本                     |
+
 ### bool blockSignals(bool block)
 
 如果 block 为 true，这个对象发出的信号会被阻止，即不会调用任何连接。如果 block 为 false，不会进行阻止。返回的值是之前 signalsBlocked() 返回的值。

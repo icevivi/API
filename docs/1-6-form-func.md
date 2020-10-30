@@ -22,120 +22,122 @@
 
 [返回目录](#category)
 
-|                      函数                       |                                                          接口                                                          |                      说明                       |
-| ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
-| [accept](#accept)                               | void accept(const QVariant& v=QVariant()) const                                                                        | 以接受方式关闭以弹出对话框显示的这个表单并返回数据 |
-| [addArg](#addArg)                               | void addArg(const QVariant &arg)                                                                                       | 添加传入参数                                    |
-| [addCheckBoxGroup](#addCheckBoxGroup)           | checkBoxGroupDelegate* addCheckBoxGroup(const QString &name,bool exclusive = false)                                    | 添加复选按钮组                                  |
-| [addDBConnection](#addDBConnection)             | DBConnectionDelegate* addDBConnection(const QString& name)                                                             | 创建新的数据库连接                               |
-| [addWidget](#addWidget)                         | void addWidget(QWidget* widget,int x=0,int y=0) const                                                                  | 添加控件                                        |
-| [allobject](#allobject)                         | QStringList allobject()                                                                                                | 所有子控件的名称清单                             |
-| [args](#args)                                   | QVariantList args() const                                                                                              | 所有传入参数                                    |
-| [baseSQL](#baseSQL)                             | QString baseSQL() const                                                                                                | 基础SQL语句                                     |
-| [baseWidget](#baseWidget)                       | QWidget* baseWidget() const                                                                                            | 表单控件对象                                    |
-| [broadcastTableUpdated](#broadcastTableUpdated) | void broadcastTableUpdated(const QStringList &tableNames) const                                                        | 广播某些表的数据有被修改过                       |
-| [buttonGroup](#buttonGroup)                     | radioButtonGroupDelegate* buttonGroup() const                                                                          | 单选按钮组                                      |
-| [buttonGroupCount](#buttonGroupCount)           | int buttonGroupCount() const                                                                                           | 多选按钮组的数量                               |
-| [checkBoxGroup](#checkBoxGroup)                 | checkBoxGroupDelegate* checkBoxGroup(const QString &name) const                                                        | 返回批定名称的复选框选按钮组                     |
-| [close](#close)                                 | void close() const                                                                                                     | 关闭这个表单                                    |
-| [contextName](#contextName)                     | QString contextName() const                                                                                            | 对应的python模块名                              |
-| [createNew](#createNew)                         | void createNew() const                                                                                                 | 创建一个新的空白表单                             |
-| [currentRecordIndex](#currentRecordIndex)       | int currentRecordIndex()                                                                                               | 当前记录的顺序号                                 |
-| [currentState](#currentState)                   | int currentState()                                                                                                     | 表单的当前状态                                  |
-| [database](#database)                           | DBDelegate* database()  const                                                                                          | 表单对应的数据库连接对象                         |
-| [DBConnection](#DBConnection)                   | DBConnectionDelegate* DBConnection(const QString& name) const                                                          | 按名称返回数据库连接对象                         |
-| [directPreview](#directPreview)                 | void directPreview() const                                                                                             | 按表单界面打印预览                               |
-| [directPrinting](#directPrinting)               | void directPrinting() const                                                                                            | 按表单界面打印                                  |
-| [drop](#drop)                                   | void drop() const                                                                                                      | 删除当前记录                                    |
-| [ensureWidgetVisible](#ensureWidgetVisible)     | void ensureWidgetVisible(const QString& name) const                                                                    | 确保某个控件可见                                 |
-| [exportAllToXLS](#exportAllToXLS)               | void exportAllToXLS(const QString& fileName="")                                                                        | 导出查询出的所有记录到XLS文件                    |
-| [exportCurrentToXLS](#exportCurrentToXLS)       | void exportCurrentToXLS(const QString& fileName="")                                                                    | 导出当前记录到XLS文件                            |
-| [exportToPFD](#exportToPFD)                     | void exportToPFD()                                                                                                     | 导出为PFD文件                                   |
-| [exportToXLSByFilter](#exportToXLSByFilter)     | void exportToXLSByFilter(const QString& fileName="",const QString& filter="")                                          | 导出过滤后的记录到XLS文件                        |
-| [findReferenceText](#findReferenceText)         | int findReferenceText(const QString& reference, const QString& text) const                                             | 在引用列表中查找文本                             |
-| [findReferenceValue](#findReferenceValue)       | int findReferenceValue(const QString& reference, const QString& value) const                                           | 在引用列表中查找值                               |
-| [finishWaiting](#finishWaiting)                 | void finishWaiting() const                                                                                             | 结束进度对话框                                  |
-| [formatPreview](#formatPreview)                 | void formatPreview() const                                                                                             | 格式化打印预览                                  |
-| [formatPrinting](#formatPrinting)               | void formatPrinting() const                                                                                            | 格式化打印                                      |
-| [getArg](#getArg)                               | QVariant getArg(const QString& key) const                                                                              | 按键值获取传入参数的值                           |
-| [getCurrentLastUpdated](#getCurrentLastUpdated) | QString getCurrentLastUpdated() const                                                                                  | 返回当前记录的 lastUpdated 的值                  |
-| [getCurrentNo](#getCurrentNo)                   | QString getCurrentNo()                                                                                                 | 返回当前记录的关键字段的值                       |
-| [getCurrentUUID](#getCurrentUUID)               | QString getCurrentUUID() const                                                                                         | 返回当前记录的 UUID 字段的值                     |
-| [getImage](#getImage)                           | QPixmap getImage(const QString &name)  const                                                                           | 从图片集里按名称获取图片                         |
-| [getImageList](#getImageList)                   | QStringList getImageList()                                                                                             | 返回图片集里所有自定义图片的清单                  |
-| [getMovie](#getMovie)                           | QMovie* getMovie(const QString &name)  const                                                                           | 从图片集里按名称获取动画图片                     |
-| [getReferenceCount](#getReferenceCount)         | int getReferenceCount(const QString& reference) const                                                                  | 返回指定引用列表中条目的数量                     |
-| [getReferenceData](#getReferenceData)           | QStringList getReferenceData(const QString& reference, int index) const                                                | 返回指定引用列表里某一个条目的显示文字和值        |
-| [getReferenceText](#getReferenceText)           | QString getReferenceText(const QString& reference, int index) const                                                    | 返回指定引用列表里某一个条目的显示文字            |
-| [getReferenceValue](#getReferenceValue)         | QString getReferenceValue(const QString& reference, int index) const                                                   | 返回指定引用列表里某一个条目的值                  |
-| [grab](#grab)                                   | QPixmap grab() const                                                                                                   | 这个表单的截图                                  |
-| [hasCountLimit](#hasCountLimit)                 | bool hasCountLimit() const                                                                                             | 表单是否限制记录数                               |
-| [hasLicense](#hasLicense)                       | bool hasLicense() const                                                                                                | 表单是否获得授权                                 |
-| [hasUseLimit](#hasUseLimit)                     | bool hasUseLimit() const                                                                                               | 表单是否限制使用次数                             |
-| [hide](#hide)                                   | void hide() const                                                                                                      | 隐藏这个表单                                    |
-| [hideBalloon](#hideBalloon)                     | void hideBalloon() const                                                                                               | 隐藏汽泡提示                                    |
-| [hideList](#hideList)                           | void hideList() const                                                                                                  | 隐藏查询结果列表                                 |
-| [hideListColumn](#hideListColumn)               | void hideListColumn(const QString & fieldName) const                                                                   | 隐藏查询结果列表中某个字段                       |
-| [hscrollto](#hscrollto)                         | void hscrollto ( int value ) const                                                                                     | 垂直滚动条滚动到指定位置                         |
-| [importFromPFD](#importFromPFD)                 | void importFromPFD()                                                                                                   | 从PFD文件导入数据                               |
-| [isDebug](#isDebug)                             | bool isDebug() const                                                                                                   | 是否在 debug 环境下                             |
-| [isDraft](#isDraft)                             | bool isDraft() const                                                                                                   | 是否是草稿                                      |
-| [isExtentTable](#isExtentTable)                 | bool isExtentTable(const QString& tablename) const                                                                     | 某个表是否是主表的扩展表                         |
-| [isInbox](#isInbox)                             | bool isInbox() const                                                                                                   | 是否是收件                                      |
-| [isMine](#isMine)                               | bool isMine() const                                                                                                    | 是否是本地发布（注册）的表单                     |
-| [isNull](#isNull)                               | bool isNull()                                                                                                          | 是否是空的表单对象                               |
-| [jumpToBegin](#jumpToBegin)                     | void jumpToBegin()                                                                                                     | 转到记录集第一条                                 |
-| [jumpToEnd](#jumpToEnd)                         | void jumpToEnd()                                                                                                       | 转到记录集最后一条                               |
-| [jumpToIndex](#jumpToIndex)                     | void jumpToIndex(int index)                                                                                            | 转到记录集指定位置                               |
-| [jumpToNext](#jumpToNext)                       | void jumpToNext()                                                                                                      | 转到记录集下一条                                 |
-| [jumpToPrevious](#jumpToPrevious)               | void jumpToPrevious()                                                                                                  | 转到记录集前一条                                 |
-| [jumpToRecordByKey](#jumpToRecordByKey)         | bool jumpToRecordByKey(const QString &key)                                                                             | 转到匹配指定关键字的记录                         |
-| [jumpToRecordByUUID](#jumpToRecordByUUID)       | bool jumpToRecordByUUID(const QString &UUID)                                                                           | 转到匹配UUID的记录                              |
-| [killAllTimer](#killAllTimer)                   | void killAllTimer() const                                                                                              | 停掉所有定时器                                  |
-| [killTimer](#killTimer)                         | bool killTimer ( int id )                                                                                              | 停掉指定的定时器                                 |
-| [lastSavedUUID](#lastSavedUUID)                 | QString lastSavedUUID() const                                                                                          | 最近保存的记录的UUID                             |
-| [object](#object)                               | QObject* object(const QString &name)                                                                                   | 按名称返回指定的控件                             |
-| [owner](#owner)                                 | QString owner() const                                                                                                  | 表单的发布者                                    |
-| [preview](#preview)                             | void preview() const                                                                                                   | 打印预览                                        |
-| [printing](#printing)                           | void printing() const                                                                                                  | 打印                                            |
-| [printToPDF](#printToPDF)                       | void printToPDF()                                                                                                      | 打印到PDF文件                                   |
-| [query](#query)                                 | QString query(const QString& filter="",bool isSilence=false,const QString& order="")                                   | 查询                                            |
-| [queryByFilter](#queryByFilter)                 | void queryByFilter()                                                                                                   | 弹出设定过滤条件查询对话框进行查询                |
-| [recordCount](#recordCount)                     | int recordCount()                                                                                                      | 当前记录集的记录数                               |
-| [refresh](#refresh)                             | void refresh() const                                                                                                   | 刷新记录集                                      |
-| [reject](#reject)                               | void reject() const                                                                                                    | 以拒绝方式关闭做为弹出对话框的这个表单            |
-| [removeCheckBoxGroup](#removeCheckBoxGroup)     | bool removeCheckBoxGroup(const QString &name) const                                                                    | 删除指定名称的多选按钮组                         |
-| [resize](#resize)                               | void resize(int w, int h) const                                                                                        | 调整大小                                        |
-| [save](#save)                                   | void save()                                                                                                            | 保存当前记录                                    |
-| [self](#self)                                   | QWidget* self()                                                                                                        | 返回表单控件对象                                 |
-| [sendData](#sendData)                           | QString sendData(const QString& filter="",const QString& toJID="",const QString& title="",const QString& msg="") const | 发送数据                                        |
-| [setAllReadOnly](#setAllReadOnly)               | void setAllReadOnly() const                                                                                            | 设置所有控件为只读状态                           |
-| [setArgs](#setArgs)                             | void setArgs(const QVariantList &arg)                                                                                  | 设置传入参数                                    |
-| [setBaseWidget](#setBaseWidget)                 | void setBaseWidget(QWidget* widget) const                                                                              | 设置基础控件                                    |
-| [setHLayout](#setHLayout)                       | void setHLayout(const QStringList &widgetList, int left=0, int top=0, int right=0, int bottom=0,int spacing=0) const   | 设置水平布局                                    |
-| [setHSplitter](#setHSplitter)                   | void setHSplitter(const QStringList &widgetList, int left=0, int top=0, int right=0, int bottom=0,int spacing=0) const | 设置水平可调布局                                 |
-| [setSubStep](#setSubStep)                       | void setSubStep(int v) const                                                                                           | 设置进度对话框的子进度值                         |
-| [setVLayout](#setVLayout)                       | void setVLayout(const QStringList &widgetList, int left=0, int top=0, int right=0, int bottom=0,int spacing=0) const   | 设置垂直布局                                    |
-| [setVSplitter](#setVSplitter)                   | void setVSplitter(const QStringList &widgetList, int left=0, int top=0, int right=0, int bottom=0,int spacing=0) const | 设置垂直可调布局                                 |
-| [setWaitingMsg](#setWaitingMsg)                 | void setWaitingMsg(const QString& msg)                                                                                 | 设置进度对话框显示的文本                         |
-| [setWaitingStep](#setWaitingStep)               | void setWaitingStep(const QString& msg,int v)                                                                          | 设置进度对话框显示的文本和进度值                  |
-| [show](#show)                                   | void show() const                                                                                                      | 显示                                            |
-| [showDownUp](#showDownUp)                       | void showDownUp() const                                                                                                | 表单显示在下方，列表显示在上方                    |
-| [showForm](#showForm)                           | void showForm() const                                                                                                  | 只显示表单                                      |
-| [showLeftRight](#showLeftRight)                 | void showLeftRight() const                                                                                             | 表单显示在左侧，列表显示在右侧                    |
-| [showList](#showList)                           | void showList() const                                                                                                  | 只显示列表                                      |
-| [showListColumn](#showListColumn)               | void showListColumn(const QString & fieldName) const                                                                   | 设置查询记录列表中某列显示                       |
-| [showRightLeft](#showRightLeft)                 | void showRightLeft() const                                                                                             | 表单显示在右侧，列表显示在左侧                    |
-| [showSplashMsg](#showSplashMsg)                 | void showSplashMsg(const QString& msg,bool error=false) const                                                          | 显示快显消息提示                                 |
-| [showUpDown](#showUpDown)                       | void showUpDown() const                                                                                                | 表单显示在上方，列表显示在下方                    |
-| [showWaiting](#showWaiting)                     | void showWaiting(const QString& title ) const                                                                          | 显示进度对话框                                  |
-| [SQL_Fields](#SQL_Fields)                       | QVariantList SQL_Fields() const                                                                                        | 返回基础SQL中字段的属性清单                      |
-| [SQL_FromTables](#SQL_FromTables)               | QStringList SQL_FromTables() const                                                                                     | 返回基础SQL中使用的表名                          |
-| [startSingleShot](#startSingleShot)             | void startSingleShot ( int interval )                                                                                  | 启动单次定时器                                  |
-| [startTimer](#startTimer)                       | int startTimer ( int interval )                                                                                        | 启动定时器                                      |
-| [tableAlias](#tableAlias)                       | QString tableAlias(const QString& tablename) const                                                                     | 返回基础SQL中某个表的别名                        |
-| [timers](#timers)                               | QStringList timers() const                                                                                             | 返回所有定时器的ID值清单                         |
-| [vscrollto](#vscrollto)                         | void vscrollto ( int value ) const                                                                                     | 垂直滚动条滚动到指定位置                         |
+|                            函数                             |                                         接口                                         |                      说明                       |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------------------ | ---------------------------------------------- |
+| [accept](#accept)                                           | void accept(const QVariant& v=QVariant()) const                                      | 以接受方式关闭以弹出对话框显示的这个表单并返回数据 |
+| [addArg](#addArg)                                           | void addArg(const QVariant &arg)                                                     | 添加传入参数                                    |
+| [addCheckBoxGroup](#addCheckBoxGroup)                       | checkBoxGroupDelegate* addCheckBoxGroup(const QString &name,bool exclusive = false)  | 添加复选按钮组                                  |
+| [addDBConnection](#addDBConnection)                         | DBConnectionDelegate* addDBConnection(const QString& name)                           | 创建新的数据库连接                               |
+| [addWidget](#addWidget)                                     | void addWidget(QWidget* widget,int x=0,int y=0) const                                | 添加控件                                        |
+| [allobject](#allobject)                                     | QStringList allobject()                                                              | 所有子控件的名称清单                             |
+| [args](#args)                                               | QVariantList args() const                                                            | 所有传入参数                                    |
+| [baseSQL](#baseSQL)                                         | QString baseSQL() const                                                              | 基础SQL语句                                     |
+| [baseWidget](#baseWidget)                                   | QWidget* baseWidget() const                                                          | 表单控件对象                                    |
+| [broadcastTableUpdated](#broadcastTableUpdated)             | void broadcastTableUpdated(const QStringList &tableNames) const                      | 广播某些表的数据有被修改过                       |
+| [buttonGroup](#buttonGroup)                                 | radioButtonGroupDelegate* buttonGroup() const                                        | 单选按钮组                                      |
+| [buttonGroupCount](#buttonGroupCount)                       | int buttonGroupCount() const                                                         | 多选按钮组的数量                                 |
+| [checkBoxGroup](#checkBoxGroup)                             | checkBoxGroupDelegate* checkBoxGroup(const QString &name) const                      | 返回批定名称的复选框选按钮组                     |
+| [close](#close)                                             | void close() const                                                                   | 关闭这个表单                                    |
+| [contextName](#contextName)                                 | QString contextName() const                                                          | 对应的python模块名                              |
+| [createNew](#createNew)                                     | void createNew() const                                                               | 创建一个新的空白表单                             |
+| [currentRecordIndex](#currentRecordIndex)                   | int currentRecordIndex()                                                             | 当前记录的顺序号                                 |
+| [currentState](#currentState)                               | int currentState()                                                                   | 表单的当前状态                                  |
+| [database](#database)                                       | DBDelegate* database()  const                                                        | 表单对应的数据库连接对象                         |
+| [DBConnection](#DBConnection)                               | DBConnectionDelegate* DBConnection(const QString& name) const                        | 按名称返回数据库连接对象                         |
+| [directPreview](#directPreview)                             | void directPreview() const                                                           | 按表单界面打印预览                               |
+| [directPrinting](#directPrinting)                           | void directPrinting() const                                                          | 按表单界面打印                                  |
+| [drop](#drop)                                               | void drop() const                                                                    | 删除当前记录                                    |
+| [ensureWidgetVisible](#ensureWidgetVisible)                 | void ensureWidgetVisible(const QString& name) const                                  | 确保某个控件可见                                 |
+| [exportAllToXLS](#exportAllToXLS)                           | void exportAllToXLS(const QString& fileName="")                                      | 导出查询出的所有记录到XLS文件                    |
+| [exportCurrentToXLS](#exportCurrentToXLS)                   | void exportCurrentToXLS(const QString& fileName="")                                  | 导出当前记录到XLS文件                            |
+| [exportToPFD](#exportToPFD)                                 | void exportToPFD()                                                                   | 导出为PFD文件                                   |
+| [exportToXLSByFilter](#exportToXLSByFilter)                 | void exportToXLSByFilter(const QString& fileName="",const QString& filter="")        | 导出过滤后的记录到XLS文件                        |
+| [findReferenceText](#findReferenceText)                     | int findReferenceText(const QString& reference, const QString& text) const           | 在引用列表中查找文本                             |
+| [findReferenceValue](#findReferenceValue)                   | int findReferenceValue(const QString& reference, const QString& value) const         | 在引用列表中查找值                               |
+| [finishWaiting](#finishWaiting)                             | void finishWaiting() const                                                           | 结束进度对话框                                  |
+| [formatPreview](#formatPreview)                             | void formatPreview() const                                                           | 格式化打印预览                                  |
+| [formatPrinting](#formatPrinting)                           | void formatPrinting() const                                                          | 格式化打印                                      |
+| [getArg](#getArg)                                           | QVariant getArg(const QString& key) const                                            | 按键值获取传入参数的值                           |
+| [getCurrentLastUpdated](#getCurrentLastUpdated)             | QString getCurrentLastUpdated() const                                                | 返回当前记录的 lastUpdated 的值                  |
+| [getCurrentNo](#getCurrentNo)                               | QString getCurrentNo()                                                               | 返回当前记录的关键字段的值                       |
+| [getCurrentUUID](#getCurrentUUID)                           | QString getCurrentUUID() const                                                       | 返回当前记录的 UUID 字段的值                     |
+| [getImage](#getImage)                                       | QPixmap getImage(const QString &name)  const                                         | 从图片集里按名称获取图片                         |
+| [getImageList](#getImageList)                               | QStringList getImageList()                                                           | 返回图片集里所有自定义图片的清单                  |
+| [getMovie](#getMovie)                                       | QMovie* getMovie(const QString &name)  const                                         | 从图片集里按名称获取动画图片                     |
+| [getReferenceCount](#getReferenceCount)                     | int getReferenceCount(const QString& reference) const                                | 返回指定引用列表中条目的数量                     |
+| [getReferenceData](#getReferenceData)                       | QStringList getReferenceData(const QString& reference, int index) const              | 返回指定引用列表里某一个条目的显示文字和值        |
+| [getReferenceText](#getReferenceText)                       | QString getReferenceText(const QString& reference, int index) const                  | 返回指定引用列表里某一个条目的显示文字            |
+| [getReferenceValue](#getReferenceValue)                     | QString getReferenceValue(const QString& reference, int index) const                 | 返回指定引用列表里某一个条目的值                  |
+| [grab](#grab)                                               | QPixmap grab() const                                                                 | 这个表单的截图                                  |
+| [hide](#hide)                                               | void hide() const                                                                    | 隐藏这个表单                                    |
+| [hideBalloon](#hideBalloon)                                 | void hideBalloon() const                                                             | 隐藏汽泡提示                                    |
+| [hideList](#hideList)                                       | void hideList() const                                                                | 隐藏查询结果列表                                 |
+| [hideListColumn](#hideListColumn)                           | void hideListColumn(const QString & fieldName) const                                 | 隐藏查询结果列表中某个字段                       |
+| [hscrollto](#hscrollto)                                     | void hscrollto ( int value ) const                                                   | 垂直滚动条滚动到指定位置                         |
+| [horizontalScrollBarMaxValue](#horizontalScrollBarMaxValue) | int horizontalScrollBarMaxValue() const                                              | 水平滚动条是否可见                               |
+| [horizontalScrollBarVisible](#horizontalScrollBarVisible)   | bool horizontalScrollBarVisible() const                                              | 水平滚动条是否可见                               |
+| [importFromPFD](#importFromPFD)                             | void importFromPFD()                                                                 | 从PFD文件导入数据                               |
+| [isDebug](#isDebug)                                         | bool isDebug() const                                                                 | 是否在 debug 环境下                             |
+| [isExtentTable](#isExtentTable)                             | bool isExtentTable(const QString& tablename) const                                   | 某个表是否是主表的扩展表                         |
+| [isMine](#isMine)                                           | bool isMine() const                                                                  | 是否是本地发布（注册）的表单                     |
+| [isNull](#isNull)                                           | bool isNull()                                                                        | 是否是空的表单对象                               |
+| [jumpToBegin](#jumpToBegin)                                 | void jumpToBegin()                                                                   | 转到记录集第一条                                 |
+| [jumpToEnd](#jumpToEnd)                                     | void jumpToEnd()                                                                     | 转到记录集最后一条                               |
+| [jumpToIndex](#jumpToIndex)                                 | void jumpToIndex(int index)                                                          | 转到记录集指定位置                               |
+| [jumpToNext](#jumpToNext)                                   | void jumpToNext()                                                                    | 转到记录集下一条                                 |
+| [jumpToPrevious](#jumpToPrevious)                           | void jumpToPrevious()                                                                | 转到记录集前一条                                 |
+| [jumpToRecordByKey](#jumpToRecordByKey)                     | bool jumpToRecordByKey(const QString &key)                                           | 转到匹配指定关键字的记录                         |
+| [jumpToRecordByUUID](#jumpToRecordByUUID)                   | bool jumpToRecordByUUID(const QString &UUID)                                         | 转到匹配UUID的记录                              |
+| [killAllTimer](#killAllTimer)                               | void killAllTimer() const                                                            | 停掉所有定时器                                  |
+| [killTimer](#killTimer)                                     | bool killTimer ( int id )                                                            | 停掉指定的定时器                                 |
+| [lastSavedUUID](#lastSavedUUID)                             | QString lastSavedUUID() const                                                        | 最近保存的记录的UUID                             |
+| [object](#object)                                           | QObject* object(const QString &name)                                                 | 按名称返回指定的控件                             |
+| [owner](#owner)                                             | QString owner() const                                                                | 表单的发布者                                    |
+| [preview](#preview)                                         | void preview() const                                                                 | 打印预览                                        |
+| [printing](#printing)                                       | void printing() const                                                                | 打印                                            |
+| [printToPDF](#printToPDF)                                   | void printToPDF()                                                                    | 打印到PDF文件                                   |
+| [query](#query)                                             | QString query(const QString& filter="",bool isSilence=false,const QString& order="") | 查询                                            |
+| [queryByFilter](#queryByFilter)                             | void queryByFilter()                                                                 | 弹出设定过滤条件查询对话框进行查询                |
+| [recordCount](#recordCount)                                 | int recordCount()                                                                    | 当前记录集的记录数                               |
+| [refresh](#refresh)                                         | void refresh() const                                                                 | 刷新记录集                                      |
+| [reject](#reject)                                           | void reject() const                                                                  | 以拒绝方式关闭做为弹出对话框的这个表单            |
+| [removeCheckBoxGroup](#removeCheckBoxGroup)                 | bool removeCheckBoxGroup(const QString &name) const                                  | 删除指定名称的多选按钮组                         |
+| [resize](#resize)                                           | void resize(int w, int h) const                                                      | 调整大小                                        |
+| [save](#save)                                               | void save()                                                                          | 保存当前记录                                    |
+| [self](#self)                                               | QWidget* self()                                                                      | 返回表单控件对象                                 |
+| [setAllReadOnly](#setAllReadOnly)                           | void setAllReadOnly() const                                                          | 设置所有控件为只读状态                           |
+| [setArgs](#setArgs)                                         | void setArgs(const QVariantList &arg)                                                | 设置传入参数                                    |
+| [setBaseWidget](#setBaseWidget)                             | void setBaseWidget(QWidget* widget) const                                            | 设置基础控件                                    |
+| [setHLayout](#setHLayout)                                   | void setHLayout(const QStringList &widgetList, int left=0                            | 设置水平布局                                    |
+|                                                             | 　　　　,int top=0, int right=0, int bottom=0,int spacing=0) const                    |                                                |
+| [setHSplitter](#setHSplitter)                               | void setHSplitter(const QStringList &widgetList                                      | 设置水平可调布局                                 |
+|                                                             | 　　　　,int left=0, int top=0, int right=0, int bottom=0,int spacing=0) const        |                                                |
+| [setSubStep](#setSubStep)                                   | void setSubStep(int v) const                                                         | 设置进度对话框的子进度值                         |
+| [setVLayout](#setVLayout)                                   | void setVLayout(const QStringList &widgetList, int left=0,                           | 设置垂直布局                                    |
+|                                                             | 　　　　,int top=0, int right=0, int bottom=0,int spacing=0) const                    |                                                |
+| [setVSplitter](#setVSplitter)                               | void setVSplitter(const QStringList &widgetList, int left=0                          | 设置垂直可调布局                                 |
+|                                                             | 　　　　,int top=0, int right=0, int bottom=0,int spacing=0) const                    |                                                |
+| [setWaitingMsg](#setWaitingMsg)                             | void setWaitingMsg(const QString& msg)                                               | 设置进度对话框显示的文本                         |
+| [setWaitingStep](#setWaitingStep)                           | void setWaitingStep(const QString& msg,int v)                                        | 设置进度对话框显示的文本和进度值                  |
+| [show](#show)                                               | void show() const                                                                    | 显示                                            |
+| [showDownUp](#showDownUp)                                   | void showDownUp() const                                                              | 表单显示在下方，列表显示在上方                    |
+| [showForm](#showForm)                                       | void showForm() const                                                                | 只显示表单                                      |
+| [showLeftRight](#showLeftRight)                             | void showLeftRight() const                                                           | 表单显示在左侧，列表显示在右侧                    |
+| [showList](#showList)                                       | void showList() const                                                                | 只显示列表                                      |
+| [showListColumn](#showListColumn)                           | void showListColumn(const QString & fieldName) const                                 | 设置查询记录列表中某列显示                       |
+| [showRightLeft](#showRightLeft)                             | void showRightLeft() const                                                           | 表单显示在右侧，列表显示在左侧                    |
+| [showSplashMsg](#showSplashMsg)                             | void showSplashMsg(const QString& msg,bool error=false) const                        | 显示快显消息提示                                 |
+| [showUpDown](#showUpDown)                                   | void showUpDown() const                                                              | 表单显示在上方，列表显示在下方                    |
+| [showWaiting](#showWaiting)                                 | void showWaiting(const QString& title ) const                                        | 显示进度对话框                                  |
+| [SQL_Fields](#SQL_Fields)                                   | QVariantList SQL_Fields() const                                                      | 返回基础SQL中字段的属性清单                      |
+| [SQL_FromTables](#SQL_FromTables)                           | QStringList SQL_FromTables() const                                                   | 返回基础SQL中使用的表名                          |
+| [startSingleShot](#startSingleShot)                         | void startSingleShot ( int interval )                                                | 启动单次定时器                                  |
+| [startTimer](#startTimer)                                   | int startTimer ( int interval )                                                      | 启动定时器                                      |
+| [tableAlias](#tableAlias)                                   | QString tableAlias(const QString& tablename) const                                   | 返回基础SQL中某个表的别名                        |
+| [timers](#timers)                                           | QStringList timers() const                                                           | 返回所有定时器的ID值清单                         |
+| [vscrollto](#vscrollto)                                     | void vscrollto ( int value ) const                                                   | 垂直滚动条滚动到指定位置                         |
+| [verticalScrollBarMaxValue](#verticalScrollBarMaxValue)     | int verticalScrollBarMaxValue() const                                                | 垂直滚动条最大值                                 |
+| [verticalScrollBarVisible](#verticalScrollBarVisible)       | bool verticalScrollBarVisible() const                                                | 垂直滚动条是否可见                               |	
 
 ## 与数据库操作相关的函数
 
@@ -1219,22 +1221,6 @@ from RT_T_CASH_0_S t0
 | 传入参数 |  |                | |
 | 返回值   |      | void|   |
 
-- ### sendData
-
-调用接口：QString sendData(const QString& filter="""",const QString& toJID="""",const QString& title="""",const QString& msg="""") const
-
-[返回目录](#category)
-
-发送表单数据给其他人。向下兼容保留。
-
-|   内容   |  名称  | 数据类型 |                    说明                     |
-| ------- | ------ | ------- | ------------------------------------------- |
-| 传入参数 | filter | QString | 需要发送的数据的过滤条件                     |
-| 传入参数 | toJID  | QString | 接收人的JID                                 |
-| 传入参数 | title  | QString | 发送的数据的标题                             |
-| 传入参数 | msg    | QString | 同时给接收人发送的消息                       |
-| 返回值   |        | QString | 如果发送成功，返回空字符串，否则返回错误信息。 |
-
 ---
 
 ## 与消息提示相关的成员函数
@@ -1580,44 +1566,48 @@ this.form 是表单类的Python访问代理类，this.form.self() 才是表单�
 | 传入参数 | value | int     | 滚动的目标值 |
 | 返回值   | 无    |         |             |
 
+- ### horizontalScrollBarVisible
+
+调用接口：bool horizontalScrollBarVisible() const
+
+[返回目录](#category)
+
+水平滚动条是否可见。
+
+|   内容   | 名称 | 数据类型 |       说明        |
+| ------- | ---- | ------- | ----------------- |
+| 传入参数 | 无   |         |                   |
+| 返回值   |     | bool    | 水平滚动条是否可见 |
+
+- ### horizontalScrollBarMaxValue
+
+调用接口：int horizontalScrollBarMaxValue() const
+
+[返回目录](#category)
+
+水平滚动条的最大值。
+
+|   内容   | 名称 | 数据类型 |       说明        |
+| ------- | ---- | ------- | ----------------- |
+| 传入参数 | 无   |         |                   |
+| 返回值   |      | int     | 水平滚动条的最大值 |
+
 - ### isDebug
 
 调用接口：bool isDebug() const
 
 [返回目录](#category)
 
-当前运行时环境是否是 debug 环境。在 biForm 中试运行表单时，isDebug() 的值为 True，在其它运行时环境下（比如 biReader），一般值为 False。
+当前运行时环境是否是 debug 环境。
+
+在 biForm 中试运行表单时，isDebug() 的值为 True，在其它运行时环境下（比如 biReader），通常值为 False。所以这个值是由使用 PFF 运行时引擎的主应用程序进行设置的，不允许修改。
+
+一般用于在值为 True 时在程序中添加一些调试用的脚本进行调试。
 
 |   内容   | 名称 | 数据类型 |       说明        |
 | ------- | ---- | ------- | ---------------- |
 | 传入参数 | 无   |         |                  |
 | 返回值   |      | bool    | 是否是 debug 状态 |
-
-- ### isDraft
-
-调用接口：bool isDraft() const
-
-[返回目录](#category)
-
-当前记录是否“草稿”状态。向下兼容保留。
-
-|   内容   | 名称 | 数据类型 |    说明    |
-| ------- | ---- | ------- | --------- |
-| 传入参数 | 无   |         |           |
-| 返回值   |      | bool    | 是否是草稿 |
-
-- ### isInbox
-
-调用接口：bool isInbox() const
-
-[返回目录](#category)
-
-当前记录是否“收件”状态。向下兼容保留。
-
-|   内容   | 名称 | 数据类型 |    说明    |
-| ------- | ---- | ------- | --------- |
-| 传入参数 | 无   |         |           |
-| 返回值   |      | bool    | 是否是收件 |
 
 - ### isMine
 
@@ -1625,7 +1615,7 @@ this.form 是表单类的Python访问代理类，this.form.self() 才是表单�
 
 [返回目录](#category)
 
-当前表单是否是本地发布（注册）的。
+当前表单是否是本地发布（注册）的。在目前发布的各PFF运行时版本中返回值都是 True。为向下兼容保留的，未来可能还会再启用。
 
 |   内容   | 名称 | 数据类型 |          说明           |
 | ------- | ---- | ------- | ---------------------- |
@@ -1794,6 +1784,33 @@ this.form 是表单类的Python访问代理类，this.form.self() 才是表单�
 | ------- | ----- | ------- | ------------- |
 | 传入参数 | value | int     | 垂直滚动条的值 |
 | 返回值   | 无    |         |               |
+
+- ### verticalScrollBarVisible
+
+调用接口：bool verticalScrollBarVisible() const
+
+[返回目录](#category)
+
+垂直滚动条是否可见。
+
+|   内容   | 名称 | 数据类型 |       说明        |
+| ------- | ---- | ------- | ----------------- |
+| 传入参数 | 无   |         |                   |
+| 返回值   |     | bool    | 垂直滚动条是否可见 |
+
+- ### verticalScrollBarMaxValue
+
+调用接口：int verticalScrollBarMaxValue() const
+
+[返回目录](#category)
+
+垂直滚动条的最大值。
+
+|   内容   | 名称 | 数据类型 |       说明        |
+| ------- | ---- | ------- | ----------------- |
+| 传入参数 | 无   |         |                   |
+| 返回值   |      | int     | 垂直滚动条的最大值 |
+
 
 ---
 

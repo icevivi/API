@@ -48,50 +48,49 @@
 
 标题显示的文字。
 
-| |调用方法|
-| - | - |
-|读取|QString caption const|
-|修改|void setCaption( const QString &caption ) const|
+|      |                     调用方法                     |
+| ---- | ----------------------------------------------- |
+| 读取 | QString caption() const                         |
+| 修改 | void setCaption( const QString &caption ) const |
 
 - ### 属性：checked （类型：bool 可读 可写）
 
 是否已选中。
 
-| |调用方法|
-| - | - |
-|读取|bool checked const|
-|修改|void setChecked( bool checked ) const|
+|      |                调用方法                |
+| ---- | ------------------------------------- |
+| 读取 | bool checked() const                  |
+| 修改 | void setChecked( bool checked ) const |
 
 - ### 属性：checkable （类型：bool 可读 可写）
 
 是否允许勾选。允许勾选的分组框会在标题处显示一个勾选框。
 
-| |调用方法|
-| - | - |
-|读取|bool checkable const|
-|修改|void setCheckable( bool checkable ) const|
+|      |                  调用方法                  |
+| ---- | ----------------------------------------- |
+| 读取 | bool checkable() const                    |
+| 修改 | void setCheckable( bool checkable ) const |
 
 - ### 属性：alignment （类型：int 可读 可写）
 
 标题的对齐方式。
 
-| |调用方法|
-| - | - |
-|读取|int alignment const|
-|修改|void setAlignment( int alignment ) const|
-| |**alignment取值：**|
-| |pub.ALIGNLEFT 向左对齐|
-| |pub.ALIGNRIGHT 向右对齐|
-| |pub.ALIGNHCENTER 水平居中对齐|
-| |pub.ALIGNJUSTIFY 水平分散对齐|
+|      |                 调用方法                  |
+| ---- | ---------------------------------------- |
+| 读取 | int alignment() const                    |
+| 修改 | void setAlignment( int alignment ) const |
+|      | **alignment取值：**                      |
+|      | pub.ALIGNLEFT 向左对齐                    |
+|      | pub.ALIGNRIGHT 向右对齐                   |
+|      | pub.ALIGNHCENTER 水平居中对齐             |
 
 - ### 属性：defaultVal （类型：bool 可读 ）
 
 缺省值。对分组框控件来讲，为是否被选中的状态。如果“是否可勾选”设为否，则将忽略这个初始值设定。
 
-| |调用方法|
-| - | - |
-|读取|bool defaultVal const|
+|      |         调用方法         |
+| ---- | ----------------------- |
+| 读取 | bool defaultVal() const |
 
 ---
 
@@ -111,6 +110,33 @@
 ## 分组框控件的信号
 
 [返回目录](#category)
+
+这两个信号只在分组框为“可勾选”状态时会发出。clicked可以带参数或不带参数，需要注意的是如果在 connect 中不带参数使用时，需要加上 ()。
+
+示例：
+
+``` python
+
+def func1(v=True):
+	log.debug('func1')
+	
+def func2():
+	log.debug('func2')
+
+#连接clicked，要注意带上()
+ok = this.groupbox.connect('clicked()',func2)
+log.debug(ok)
+#也可以连接到func1，但func1若有调用参数，需要设置缺省值，否则可以连接成功，但信号触发后不能成功调用被连接的函数
+ok = this.groupbox.connect('clicked()',func1)
+log.debug(ok)
+#连接clicked(bool)
+ok = this.groupbox.connect('clicked(bool)',func1)
+log.debug(ok)
+#连接toggled(bool)
+ok = this.groupbox.connect('toggled(bool)',func1)
+log.debug(ok)
+
+```
 
 |信号|接口|说明|
 | - | - | - | 

@@ -40,7 +40,7 @@
 | - | - | - | - |
 |fillColor|QColor|可读 可写|填充颜色|
 
-- ### 属性：fillColor （类型：QColor 可读 可写）
+- ### 属性：fillColor() （类型：QColor 可读 可写）
 
 填充颜色。如果填充方式是“透明”，这个值不起作用。
 

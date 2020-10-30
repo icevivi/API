@@ -57,37 +57,37 @@
 
 边界宽度（像素值）。
 
-| |调用方法|
-| - | - |
-|读取|int margin const|
-|修改|void setMargin( int margin ) const|
+|      |              调用方法               |
+| ---- | ---------------------------------- |
+| 读取 | int margin() const                 |
+| 修改 | void setMargin( int margin ) const |
 
 - ### 属性：minimum （类型：double 可读 可写）
 
 最小值。
 
-| |调用方法|
-| - | - |
-|读取|double minimum const|
-|修改|void setMinimum( double minimum ) const|
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | double minimum() const                  |
+| 修改 | void setMinimum( double minimum ) const |
 
 - ### 属性：maximum （类型：double 可读 可写）
 
 最大值。
 
-| |调用方法|
-| - | - |
-|读取|double maximum const|
-|修改|void setMaximum( double maximum ) const|
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | double maximum() const                  |
+| 修改 | void setMaximum( double maximum ) const |
 
 - ### 属性：wrapping （类型：bool 可读 可写）
 
 是否值循环。值循环是指，当前值已到最大值时，若再向上调会转到最小值。只有设置了最大最小值时有效。
 
-| |调用方法|
-| - | - |
-|读取|bool wrapping const|
-|修改|void setWrapping( bool wrapping ) const|
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | bool wrapping() const                   |
+| 修改 | void setWrapping( bool wrapping ) const |
 
 - ### 属性：singlestep （类型：int 可读 可写）
 
@@ -95,17 +95,17 @@
 
 |      |                  调用方法                   |
 | ---- | ------------------------------------------ |
-| 读取 | int singlestep const                       |
+| 读取 | int singlestep() const                     |
 | 修改 | void setSinglestep( int singlestep ) const |
 
 - ### 属性：prefix （类型：QString 可读 可写）
 
 前缀。在控件中显示数值对应的文本时，前面会加上前缀，不影响 value 的值，只影响显示的文本即 text 的值。
 
-| |调用方法|
-| - | - |
-|读取|QString prefix const|
-|修改|void setPrefix( const QString &prefix ) const|
+|      |                    调用方法                    |
+| ---- | --------------------------------------------- |
+| 读取 | QString prefix() const                        |
+| 修改 | void setPrefix( const QString &prefix ) const |
 
 - ### 属性：suffix （类型：QString 可读 可写）
 
@@ -113,50 +113,50 @@
 
 |      |                    调用方法                    |
 | ---- | --------------------------------------------- |
-| 读取 | QString suffix const                          |
+| 读取 | QString suffix() const                        |
 | 修改 | void setSuffix( const QString &suffix ) const |
 
 - ### 属性：decimals （类型：int 可读 可写）
 
 小数位数。
 
-| |调用方法|
-| - | - |
-|读取|int decimals const|
-|修改|void setDecimals( int decimals ) const|
+|      |                调用方法                 |
+| ---- | -------------------------------------- |
+| 读取 | int decimals() const                   |
+| 修改 | void setDecimals( int decimals ) const |
 
 - ### 属性：defaultVal （类型：double 可读 ）
 
 显示的文本。为数值转换成字符串后，加上前缀和后缀，如果需要显示千分位，会再加上千分位分隔符“，”。
 
-| |调用方法|
-| - | - |
-|读取|double defaultVal const|
+|      |          调用方法          |
+| ---- | ------------------------- |
+| 读取 | double defaultVal() const |
 
 - ### 属性：text （类型：QString 可读 ）
 
 显示的文本。为数值转换成字符串后，加上前缀和后缀，如果需要显示千分位，会再加上千分位分隔符“，”。
 
-| |调用方法|
-| - | - |
-|读取|QString text const|
+|      |       调用方法        |
+| ---- | -------------------- |
+| 读取 | QString text() const |
 
 - ### 属性：cleanText （类型：QString 可读 ）
 
 当前数值转换为字符串。只将数值转换成字符串，不会加上前缀、后缀、千分位，并且会除去前后可能会有的空格。
 
-|      |         调用方法         |
-| ---- | ----------------------- |
-| 读取 | QString cleanText const |
+|      |          调用方法          |
+| ---- | ------------------------- |
+| 读取 | QString cleanText() const |
 
 - ### 属性：value （类型：double 可读 可写）
 
 当前数值。
 
-| |调用方法|
-| - | - |
-|读取|double value const|
-|修改|void setValue( double value ) const|
+|      |               调用方法               |
+| ---- | ----------------------------------- |
+| 读取 | double value() const                |
+| 修改 | void setValue( double value ) const |
 
 - ### 属性：readOnly （类型：bool 可读 可写）
 
@@ -164,17 +164,17 @@
 
 |      |                 调用方法                 |
 | ---- | --------------------------------------- |
-| 读取 | bool readOnly const                     |
+| 读取 | bool readOnly() const                   |
 | 修改 | void setReadOnly( bool readOnly ) const |
 
 - ### 属性：showSeperator （类型：bool 可读 可写）
 
 是否显示千分位分隔符，千分位分隔符统一为“,”。
 
-| |调用方法|
-| - | - |
-|读取|bool showSeperator const|
-|修改|void setShowSeperator( bool showSeperator ) const|
+|      |                      调用方法                      |
+| ---- | ------------------------------------------------- |
+| 读取 | bool showSeperator() const                        |
+| 修改 | void setShowSeperator( bool showSeperator ) const |
 
 ---
 
@@ -198,11 +198,11 @@
 
 [返回目录](#category)
 
-|      信号       |                    接口                    |                                                                          说明                                                                           |
-| --------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| editingFinished | void editingFinished ()                    | 编辑完成时发出此信号 。通常是在按下回车键或控件失去焦点时标识着编辑已完成。如果设置了校验器或输入掩码，只在符合输入规范（返回QValidator::Acceptable）时才会触发此信号。 |
-| valueChanged    | void valueChanged ( double value )         | 值被修改时发出此信号。通过程序修改值也会发出此信号。value 为修改后的值                                                                                         |
-| valueChanged    | void valueChanged ( const QString & text ) | 值被修改时发出此信号。通过程序修改值也会发出此信号。text 为显示的文本，包括前缀后缀及可能会有的千分位分隔符。                                                       |
+|      信号       |                    接口                    |                                                                               说明                                                                                |
+| --------------- | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| editingFinished | void editingFinished ()                    | 编辑完成时发出此信号 。通常是在按下回车键或控件失去焦点时标识着编辑已完成。<br>如果设置了校验器或输入掩码，只在符合输入规范（返回QValidator::Acceptable）时才会触发此信号。 |
+| valueChanged    | void valueChanged ( double value )         | 值被修改时发出此信号。通过程序修改值也会发出此信号。value 为修改后的值                                                                                                |
+| valueChanged    | void valueChanged ( const QString & text ) | 值被修改时发出此信号。通过程序修改值也会发出此信号。text 为显示的文本，包括前缀后缀及可能会有的千分位分隔符。                                                            |
 
 ---
 

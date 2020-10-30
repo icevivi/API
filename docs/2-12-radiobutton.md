@@ -47,36 +47,36 @@
 
 显示的标题文字。
 
-| |调用方法|
-| - | - |
-|读取|QString caption const|
-|修改|void setCaption( const QString &caption ) const|
+|      |                     调用方法                     |
+| ---- | ----------------------------------------------- |
+| 读取 | QString caption() const                         |
+| 修改 | void setCaption( const QString &caption ) const |
 
 - ### 属性：checked （类型：bool 可读 可写）
 
 设置是否选中，True表示选中，False表示未选中。
 
-| |调用方法|
-| - | - |
-|读取|bool checked const|
-|修改|void setChecked( bool checked ) const|
+|      |                调用方法                |
+| ---- | ------------------------------------- |
+| 读取 | bool checked() const                  |
+| 修改 | void setChecked( bool checked ) const |
 
 - ### 属性：value （类型：QString 可读 可写）
 
 控件的值，字符串形式，多用于存储其被选中时的含义或需要保存到数据库中的值。
 
-| |调用方法|
-| - | - |
-|读取|QString value const|
-|修改|void setValue( const QString &value ) const|
+|      |                   调用方法                   |
+| ---- | ------------------------------------------- |
+| 读取 | QString value() const                       |
+| 修改 | void setValue( const QString &value ) const |
 
 - ### 属性：defaultVal （类型：bool 可读 ）
 
 缺省的是否选中的状态值。
 
-| |调用方法|
-| - | - |
-|读取|bool defaultVal const|
+|      |         调用方法         |
+| ---- | ----------------------- |
+| 读取 | bool defaultVal() const |
 
 ---
 

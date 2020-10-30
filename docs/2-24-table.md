@@ -70,10 +70,10 @@
 
 边界宽度（像素值）。
 
-| |调用方法|
-| - | - |
-|读取|int margin const|
-|修改|void setMargin( int margin ) const|
+|      |              调用方法               |
+| ---- | ---------------------------------- |
+| 读取 | int margin() const                 |
+| 修改 | void setMargin( int margin ) const |
 
 - ### 属性：gridStyle （类型：int 可读 可写）
 
@@ -81,7 +81,7 @@
 
 |      |                 调用方法                  |
 | ---- | ---------------------------------------- |
-| 读取 | int gridStyle const                      |
+| 读取 | int gridStyle() const                    |
 | 修改 | void setGridStyle( int gridStyle ) const |
 |      | **gridStyle取值：**                      |
 |      | pub.SOLIDLINE 实线                       |
@@ -96,44 +96,44 @@
 
 |      |                            调用方法                            |
 | ---- | ------------------------------------------------------------- |
-| 读取 | bool cornerButtonEnabled const                                |
+| 读取 | bool cornerButtonEnabled() const                              |
 | 修改 | void setCornerButtonEnabled( bool cornerButtonEnabled ) const |
 
 - ### 属性：sortingEnabled （类型：bool 可读 可写）
 
 是否允许排序。
 
-| |调用方法|
-| - | - |
-|读取|bool sortingEnabled const|
-|修改|void setSortingEnabled( bool sortingEnabled ) const|
+|      |                       调用方法                       |
+| ---- | --------------------------------------------------- |
+| 读取 | bool sortingEnabled() const                         |
+| 修改 | void setSortingEnabled( bool sortingEnabled ) const |
 
 - ### 属性：showGrid （类型：bool 可读 可写）
 
 是否显示网格线。
 
-| |调用方法|
-| - | - |
-|读取|bool showGrid const|
-|修改|void setShowGrid( bool showGrid ) const|
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | bool showGrid() const                   |
+| 修改 | void setShowGrid( bool showGrid ) const |
 
 - ### 属性：wordwrap （类型：bool 可读 可写）
 
 单元格内是否自动换行。
 
-| |调用方法|
-| - | - |
-|读取|bool wordwrap const|
-|修改|void setWordwrap( bool wordwrap ) const|
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | bool wordwrap() const                   |
+| 修改 | void setWordwrap( bool wordwrap ) const |
 
 - ### 属性：stretchLastColumn （类型：bool 可读 可写）
 
 最后列是否自动扩展。设为 True 时，最后一列的宽度会延伸到填满表格的水平方向。
 
-| |调用方法|
-| - | - |
-|读取|bool stretchLastColumn const|
-|修改|void setStretchLastColumn( bool stretchLastColumn ) const|
+|      |                          调用方法                          |
+| ---- | --------------------------------------------------------- |
+| 读取 | bool stretchLastColumn() const                            |
+| 修改 | void setStretchLastColumn( bool stretchLastColumn ) const |
 
 - ### 属性：stretchLastRow （类型：bool 可读 可写）
 
@@ -141,35 +141,35 @@
 
 |      |                       调用方法                       |
 | ---- | --------------------------------------------------- |
-| 读取 | bool stretchLastRow const                           |
+| 读取 | bool stretchLastRow() const                         |
 | 修改 | void setStretchLastRow( bool stretchLastRow ) const |
 
 - ### 属性：rowCount （类型：int 可读 可写）
 
 行数。
 
-| |调用方法|
-| - | - |
-|读取|int rowCount const|
-|修改|void setRowCount( int rowCount ) const|
+|      |                调用方法                 |
+| ---- | -------------------------------------- |
+| 读取 | int rowCount() const                   |
+| 修改 | void setRowCount( int rowCount ) const |
 
 - ### 属性：columnCount （类型：int 可读 可写）
 
 列数。
 
-| |调用方法|
-| - | - |
-|读取|int columnCount const|
-|修改|void setColumnCount( int columnCount ) const|
+|      |                   调用方法                    |
+| ---- | -------------------------------------------- |
+| 读取 | int columnCount() const                      |
+| 修改 | void setColumnCount( int columnCount ) const |
 
 - ### 属性：defaultRowHeight （类型：int 可读 可写）
 
 缺省行高。
 
-| |调用方法|
-| - | - |
-|读取|int defaultRowHeight const|
-|修改|void setDefaultRowHeight( int defaultRowHeight ) const|
+|      |                        调用方法                         |
+| ---- | ------------------------------------------------------ |
+| 读取 | int defaultRowHeight() const                           |
+| 修改 | void setDefaultRowHeight( int defaultRowHeight ) const |
 
 - ### 属性：rowResizeMode （类型：int 可读 可写）
 
@@ -177,7 +177,7 @@
 
 |      |                     调用方法                      |
 | ---- | ------------------------------------------------ |
-| 读取 | int rowResizeMode const                          |
+| 读取 | int rowResizeMode() const                        |
 | 修改 | void setRowResizeMode( int rowResizeMode ) const |
 |      | **rowResizeMode取值：**                          |
 |      | pub.INTERACTIVE 用户可调                          |
@@ -191,7 +191,7 @@
 
 |      |                        调用方法                         |
 | ---- | ------------------------------------------------------ |
-| 读取 | int columnResizeMode const                             |
+| 读取 | int columnResizeMode() const                           |
 | 修改 | void setColumnResizeMode( int columnResizeMode ) const |
 |      | **columnResizeMode取值：**                             |
 |      | pub.INTERACTIVE 用户可调                                |
@@ -205,17 +205,17 @@
 
 |      |                             调用方法                             |
 | ---- | --------------------------------------------------------------- |
-| 读取 | bool alternatingRowColors const                                 |
+| 读取 | bool alternatingRowColors() const                               |
 | 修改 | void setAlternatingRowColors( bool alternatingRowColors ) const |
 
 - ### 属性：alternateBaseColor （类型：QColor 可读 可写）
 
 双行背景色。
 
-| |调用方法|
-| - | - |
-|读取|QColor alternateBaseColor const|
-|修改|void setAlternateBaseColor( const QColor &alternateBaseColor ) const|
+|      |                               调用方法                                |
+| ---- | -------------------------------------------------------------------- |
+| 读取 | QColor alternateBaseColor() const                                    |
+| 修改 | void setAlternateBaseColor( const QColor &alternateBaseColor ) const |
 
 - ### 属性：columnHeaderVisible （类型：bool 可读 可写）
 
@@ -223,7 +223,7 @@
 
 |      |                            调用方法                            |
 | ---- | ------------------------------------------------------------- |
-| 读取 | bool columnHeaderVisible const                                |
+| 读取 | bool columnHeaderVisible() const                              |
 | 修改 | void setColumnHeaderVisible( bool columnHeaderVisible ) const |
 
 - ### 属性：rowHeaderVisible （类型：bool 可读 可写）
@@ -232,7 +232,7 @@
 
 |      |                         调用方法                         |
 | ---- | ------------------------------------------------------- |
-| 读取 | bool rowHeaderVisible const                             |
+| 读取 | bool rowHeaderVisible() const                           |
 | 修改 | void setRowHeaderVisible( bool rowHeaderVisible ) const |
 
 - ### 属性：defaultColumnWidth （类型：int 可读 可写）
@@ -241,44 +241,44 @@
 
 |      |                          调用方法                           |
 | ---- | ---------------------------------------------------------- |
-| 读取 | int defaultColumnWidth const                               |
+| 读取 | int defaultColumnWidth() const                             |
 | 修改 | void setDefaultColumnWidth( int defaultColumnWidth ) const |
 
 - ### 属性：rowHeaderFont （类型：QFont 可读 可写）
 
 行标题字体。
 
-| |调用方法|
-| - | - |
-|读取|QFont rowHeaderFont const|
-|修改|void setRowHeaderFont( const QFont &rowHeaderFont ) const|
+|      |                          调用方法                          |
+| ---- | --------------------------------------------------------- |
+| 读取 | QFont rowHeaderFont() const                               |
+| 修改 | void setRowHeaderFont( const QFont &rowHeaderFont ) const |
 
 - ### 属性：columnHeaderFont （类型：QFont 可读 可写）
 
 列标题字体。
 
-| |调用方法|
-| - | - |
-|读取|QFont columnHeaderFont const|
-|修改|void setColumnHeaderFont( const QFont &columnHeaderFont ) const|
+|      |                             调用方法                             |
+| ---- | --------------------------------------------------------------- |
+| 读取 | QFont columnHeaderFont() const                                  |
+| 修改 | void setColumnHeaderFont( const QFont &columnHeaderFont ) const |
 
 - ### 属性：rowHeaderForegroundColor （类型：QColor 可读 可写）
 
 行标题前景色。
 
-| |调用方法|
-| - | - |
-|读取|QColor rowHeaderForegroundColor const|
-|修改|void setRowHeaderForegroundColor( const QColor &rowHeaderForegroundColor ) const|
+|      |                                     调用方法                                      |
+| ---- | -------------------------------------------------------------------------------- |
+| 读取 | QColor rowHeaderForegroundColor() const                                          |
+| 修改 | void setRowHeaderForegroundColor( const QColor &rowHeaderForegroundColor ) const |
 
 - ### 属性：columnHeaderForegroundColor （类型：QColor 可读 可写）
 
 列标题前景色。
 
-| |调用方法|
-| - | - |
-|读取|QColor columnHeaderForegroundColor const|
-|修改|void setColumnHeaderForegroundColor( const QColor &columnHeaderForegroundColor ) const|
+|      |                                        调用方法                                         |
+| ---- | -------------------------------------------------------------------------------------- |
+| 读取 | QColor columnHeaderForegroundColor() const                                             |
+| 修改 | void setColumnHeaderForegroundColor( const QColor &columnHeaderForegroundColor ) const |
 
 - ### 属性：rowHeaderBackgroundColor （类型：QColor 可读 可写）
 
@@ -286,7 +286,7 @@
 
 |      |                                     调用方法                                      |
 | ---- | -------------------------------------------------------------------------------- |
-| 读取 | QColor rowHeaderBackgroundColor const                                            |
+| 读取 | QColor rowHeaderBackgroundColor() const                                          |
 | 修改 | void setRowHeaderBackgroundColor( const QColor &rowHeaderBackgroundColor ) const |
 
 - ### 属性：selectionMode （类型：int 可读 可写）
@@ -295,7 +295,7 @@
 
 |      |                      调用方法                       |
 | ---- | --------------------------------------------------- |
-| 读取 | int selectionMode const                             |
+| 读取 | int selectionMode() const                           |
 | 修改 | void setSelectionMode( int selectionMode ) const    |
 |      | **selectionMode**                                   |
 |      | pub.SINGLE_SELECTION  只允许选择一个对象             |
@@ -310,7 +310,7 @@
 
 |      |                         调用方法                          |
 | ---- | -------------------------------------------------------- |
-| 读取 | int selectionBehavior const                              |
+| 读取 | int selectionBehavior() const                            |
 | 修改 | void setSelectionBehavior( int selectionBehavior ) const |
 |      | **selectionBehavior**                                    |
 |      | pub.SELECT_ITEMS 选择单元格                               |
@@ -323,7 +323,7 @@
 
 |      |                                 调用方法                                  |
 | ---- | ------------------------------------------------------------------------ |
-| 读取 | int horizontalScrollBarPolicy const                                      |
+| 读取 | int horizontalScrollBarPolicy() const                                    |
 | 修改 | void setHorizontalScrollBarPolicy( int horizontalScrollBarPolicy ) const |
 |      | **horizontalScrollBarPolicy取值**                                        |
 |      | pub.SCROLLBAR_AS_NEEDED 需要时显示                                        |
@@ -336,7 +336,7 @@
 
 |      |                               调用方法                                |
 | ---- | -------------------------------------------------------------------- |
-| 读取 | int verticalScrollBarPolicy const                                    |
+| 读取 | int verticalScrollBarPolicy() const                                  |
 | 修改 | void setVerticalScrollBarPolicy( int verticalScrollBarPolicy ) const |
 |      | **verticalScrollBarPolicy取值：**                                    |
 |      | pub.SCROLLBAR_AS_NEEDED 需要时显示                                    |

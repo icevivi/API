@@ -60,13 +60,11 @@ class formclass_newform(object):
 
 # ----------------------------------- -----------------------------------
 this = formclass_newform(newform)
-gbk = sys.modules.get('__main__').gbk
-gbkList = sys.modules.get('__main__').gbkList
 # ----------------------------------- -----------------------------------
 def form_beforeload():
 	'''这段脚本将在加载这个表单之前被调用。返回 True 表示允许加载，否则表单将不会被加载。'''
 	result = True
-	log.info('#'+gbk('form')+':Before load')
+	log.info('#form:Before load')
 	#--*<debugtag>*-- 0;form;Before load
 	#以下写入你自己的脚本:
 	print('加载前')
@@ -75,7 +73,7 @@ def form_beforeload():
 # ----------------------------------- -----------------------------------
 def button_clicked():
 	'''这段脚本在点击这个控件时被调用。'''
-	log.info('#'+gbk('button')+':Clicked')
+	log.info('#button:Clicked')
 	#--*<debugtag>*-- 1;button;Clicked
 	#以下写入你自己的脚本:
 	dog = Dog('旺才')
@@ -85,8 +83,8 @@ def button_clicked():
 # ----------------------------------- -----------------------------------
 #newform 的公共模块
 #用这段脚本定义公用的变量和函数.
-log.info(gbk('* 开始加载表单：newform'))
-log.info(gbk('newform::Public module'))
+log.info('* 开始加载表单：newform')
+log.info('newform::Public module')
 #--*<debugtag>*-- 0;form;:Public module
 #以下写入你自己的脚本:
 class Animal(object):

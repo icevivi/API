@@ -36,77 +36,87 @@
 
 [返回目录](#category)
 
-|属性|值类型|读写类型|说明|
-| - | - | - | - |
-|shadow|int|可读 可写|边框样式特效|
-|useScrollBar|bool|可读 |是否使用滚动条|
-|viewportWidth|int|可读 可写|可见范围宽度|
-|viewportHeightlineStyle|int|可读 可写|可见范围高度|
+|          属性           | 值类型  | 读写类型  |     说明      |
+| ----------------------- | ------- | -------- | ------------- |
+| imageSource             | QString | 可读 可写 | 背景图片来源   |
+| shadow                  | int     | 可读 可写 | 边框样式特效   |
+| useScrollBar            | bool    | 可读      | 是否使用滚动条 |
+| viewportWidth           | int     | 可读 可写 | 可见范围宽度   |
+| viewportHeightlineStyle | int     | 可读 可写 | 可见范围高度   |
+
+- ### 属性：imageSource（类型：QString 可读 可写）
+
+背景图片来源。内容为表单属性“图片集”中的图片的名称。
+
+|      |                        调用方法                        |
+| ---- | ----------------------------------------------------- |
+| 读取 | QString imageSource() const                           |
+| 修改 | void setImageSource(const QString& imagesource) const |
 
 - ### 属性：shadow （类型：int 可读 可写）
 
 边框样式特效。
 
-| |调用方法|
-| - | - |
-|读取|int shadow const|
-|修改|void setShadow( int shadow ) const|
-| |**shadow取值：**|
-| |pub.PLAIN 平的|
-| |pub.RAISED 上凸|
-| |pub.SUNKEN 下陷|
+|      |              调用方法               |
+| ---- | ---------------------------------- |
+| 读取 | int shadow() const                 |
+| 修改 | void setShadow( int shadow ) const |
+|      | **shadow取值：**                   |
+|      | pub.PLAIN 平的                     |
+|      | pub.RAISED 上凸                    |
+|      | pub.SUNKEN 下陷                    |
 
 - ### 属性：useScrollBar （类型：bool 可读 ）
 
 是否使用滚动条。
 
-| |调用方法|
-| - | - |
-|读取|bool useScrollBar const|
+|      |          调用方法          |
+| ---- | ------------------------- |
+| 读取 | bool useScrollBar() const |
 
 - ### 属性：viewportWidth （类型：int 可读 可写）
 
 可见范围宽度。
 
-| |调用方法|
-| - | - |
-|读取|int viewportWidth const|
-|修改|void setViewportWidth( int viewportWidth ) const|
+|      |                     调用方法                      |
+| ---- | ------------------------------------------------ |
+| 读取 | int viewportWidth() const                        |
+| 修改 | void setViewportWidth( int viewportWidth ) const |
 
 - ### 属性：viewportHeight （类型：int 可读 可写）
 
 可见范围高度。
 
-| |调用方法|
-| - | - |
-|读取|int viewportHeight const|
-|修改|void setViewportHeight( int viewportHeight ) const|
+|      |                      调用方法                       |
+| ---- | -------------------------------------------------- |
+| 读取 | int viewportHeight() const                         |
+| 修改 | void setViewportHeight( int viewportHeight ) const |
 
 - ### 属性：horizontalScrollBarPolicy （类型：int 可读 可写）
 
 水平滚动条显示策略。
 
-| |调用方法|
-| - | - |
-|读取|int horizontalScrollBarPolicy const|
-|修改|void setHorizontalScrollBarPolicy( int horizontalScrollBarPolicy ) const|
-| |**horizontalScrollBarPolicy取值：**|
-| |pub.SCROLLBAR_AS_NEEDED 需要时显示|
-| |pub.SCROLLBAR_ALWAYS_OFF 一直隐藏|
-| |pub.SCROLLBAR_ALWAYS_ON 一直显示|
+|      |                                 调用方法                                  |
+| ---- | ------------------------------------------------------------------------ |
+| 读取 | int horizontalScrollBarPolicy() const                                    |
+| 修改 | void setHorizontalScrollBarPolicy( int horizontalScrollBarPolicy ) const |
+|      | **horizontalScrollBarPolicy取值：**                                      |
+|      | pub.SCROLLBAR_AS_NEEDED 需要时显示                                        |
+|      | pub.SCROLLBAR_ALWAYS_OFF 一直隐藏                                         |
+|      | pub.SCROLLBAR_ALWAYS_ON 一直显示                                          |
 
 - ### 属性：verticalScrollBarPolicy （类型：int 可读 可写）
 
 垂直滚动条显示策略。
 
-| |调用方法|
-| - | - |
-|读取|int verticalScrollBarPolicy const|
-|修改|void setVerticalScrollBarPolicy( int verticalScrollBarPolicy ) const|
-| |**verticalScrollBarPolicy取值：**|
-| |pub.SCROLLBAR_AS_NEEDED 需要时显示|
-| |pub.SCROLLBAR_ALWAYS_OFF 一直隐藏|
-| |pub.SCROLLBAR_ALWAYS_ON 一直显示|
+|      |                               调用方法                                |
+| ---- | -------------------------------------------------------------------- |
+| 读取 | int verticalScrollBarPolicy() const                                  |
+| 修改 | void setVerticalScrollBarPolicy( int verticalScrollBarPolicy ) const |
+|      | **verticalScrollBarPolicy取值：**                                    |
+|      | pub.SCROLLBAR_AS_NEEDED 需要时显示                                    |
+|      | pub.SCROLLBAR_ALWAYS_OFF 一直隐藏                                     |
+|      | pub.SCROLLBAR_ALWAYS_ON 一直显示                                      |
 
 ---
 
