@@ -1013,8 +1013,8 @@ warningMsgBox 与 QMessageBox::warning 调用效果是一样的，只是调用�
 #### getDoubleInput 
 
 调用接口：double getDoubleInput ( const QString & title, const QString & label
-	, double value = 0, double minValue = -2147483647, double maxValue = 2147483647
-	, int decimals = 1)  const
+	, double value = 0, double minValue = -1.79e+308, double maxValue = 1.79e+308
+	, int decimals = 2 )  const
 
 弹出一个用于输入小数的输入框，返回用户输入的值。
 
