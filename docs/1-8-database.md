@@ -910,6 +910,23 @@ Sybase 数据服务器名。
 
 批量执行SQL语句。传入参数 sql 中可使用占位符，在 values 中列出多组对应的值，以便使用这些值批量执行这个 SQL 语句。
 
+SQL 语句中用“？”占位符代表某个变动的值，values为一个列表，每个元素也是一个列表，列出一个占位符的一组值。
+
+比如以下示例：
+
+``` python
+
+names = ['建行', '工行', '农行']
+uuids = ['{17e7f19d-2f31-43f8-a746-8b41af84cce5}', '{3c285320-1898-453b-994b-38a78d2d4f81}', '{91a3363c-3e16-413a-b5e5-5c8a5c28bcd8}']
+db=this.form.database()
+db.execBatch("insert into "+db.getRealTableName('t_banktype')+" values (?,?,'"+pub.currentDateTime()+"')",[names,uuids])
+
+```
+
+execBatch 比逐条记录处理速度要快些，但事先要准备好 values 的内容，开发者可以视情况考虑采用。
+
+intransaction 参数只在使用的数据库支持事务处理时有效果。
+
 这个函数会影响 lastSQL() 和 lastErrorText() 。
 
 |   内容   |     名称      |   数据类型    |           说明           |
