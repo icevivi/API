@@ -49,6 +49,7 @@
 | listvalue        | QStringList | 可读      | 所有值的列表          |
 | currentRow       | int         | 可读 可写 | 当前行                |
 | count            | int         | 可读      | 列表中项目的数量       |
+| uniformItemSizes | bool        | 可读 可写 | 条目是否统一尺寸       |
 
 - ### 属性：margin （类型：int 可读 可写）
 
@@ -146,6 +147,15 @@
 | ---- | ----------------- |
 | 读取 | int count() const |
 
+- ### 属性：uniformItemSizes （类型：bool 可读 可写）
+
+各项目是否统一尺寸。
+
+|      |                     调用方法                      |
+| ---- | ------------------------------------------------ |
+| 读取 | bool uniformItemSizes () const                   |
+| 修改 | void setUniformItemSizes ( bool wrapping ) const |
+
 ---
 
 ## 列表控件自有成员函数
@@ -154,48 +164,53 @@
 
 所有属性的设置函数（参考上一节中修改属性的接口），都属于此类，都可以当做槽使用。除此之处，另外还包括以下几个成员函数：
 
-|         函数          |                                                           接口                                                           |                               说明                                |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------- |
-| clear                 | void clear()  const                                                                                                      | 清除输入的内容对应的文本和千分位，但不会清除前缀和后缀，并且不影响其值 |
-| setIconSize           | void setIconSize(int size)	const                                                                                      | 设置图标尺寸。比如设置size为32，则图标尺寸为 32 * 32                 |
-| addItem               | 	void addItem ( listItemDelegate * item )	const                                                                      | 添加项目                                                           |
-| currentItem           | 	listItemDelegate * currentItem () const                                                                                | 当前项目                                                           |
-| editItem              | 	void editItem ( listItemDelegate * item ) 	const                                                                      | 编辑项目                                                           |
-| insertItem            | 	void insertItem ( int row, listItemDelegate * item ) 	const                                                          | 在位置 row 处插入项目                                              |
-| insertItem            | 	void insertItem ( int row, const QString & label ) 	const                                                              | 在位置 row 处插入项目                                              |
-| insertItems           | 	void insertItems ( int row, const QStringList & labels ) 	const                                                      | 在位置  row 处添加多个项目                                         |
-| item                  | 	listItemDelegate * item ( int row ) const 	                                                                           | 返回第 row 行的项目（从0开始序号）                                  |
-| itemAt                | 	listItemDelegate * itemAt ( const QPoint & p ) const                                                                   | 返回光标所在处的项目                                               |
-| itemAt                | 	listItemDelegate * itemAt ( int x, int y ) const                                                                       | 返回坐标所在处的项目                                               |
-| openPersistentEditor  | 	void openPersistentEditor ( listItemDelegate * item ) 	const                                                          | 打开某个项目的编辑器                                               |
-| closePersistentEditor | 	void closePersistentEditor( listItemDelegate * item)	const                                                          | 关闭所指项目编辑器                                                 |
-| row                   | 	int row ( const listItemDelegate * item ) const                                                                        | 返回某个指定项目所在的行                                            |
-| selectedItemsCount    | 	int selectedItemsCount () const                                                                                        | 选中的项目的数量                                                   |
-| selectedRows          | 	QVariantList  selectedRows() const                                                                                     | 所有选中的项目的行号清单                                            |
-| unselectedRows        | 	QVariantList  unselectedRows() const                                                                                   | 所有未选中的项目的行号清单                                          |
-| setCurrentItem        | 	void setCurrentItem (listItemDelegate * item )	const                                                                  | 设置当前项目                                                       |
-| setCurrentItem        | 	void setCurrentItem(listItemDelegate *item, QItemSelectionModel::SelectionFlags command)	const                      | 设置当前项目，可设置是否选择模式                                    |
-| sortItems             | 	void sortItems ( bool ascorder = true ) 	const                                                                      | 对项目进行排序                                                     |
-| visualItemRect        | 	QRect visualItemRect ( const listItemDelegate * item ) const                                                           | 指定项目的可见区域的尺寸                                            |
-| takeItem              | 	listItemDelegate * takeItem ( int row ) 	const                                                                      | 取出指定序号的项目                                                 |
-| addItem               | 	void addItem(const QString  &t,const QString &v,const QString &icnfile="")	const                                      | 在列表最后增加项目                                                 |
-| addItem               | 	void addItem(const QString  &t,const QString &v,const QPixmap &icn)	const                                              | 在列表最后增加项目                                                 |
-| addItems              | 	void addItems(const QStringList  &t,const QStringList &v,const QStringList &icnfile)	const                          | 在列表最后增加多个项目                                              |
-| insertItem            | 	void insertItem(int x,const QString  &t,const QString &v,const QString &iconfile="")	const                          | 在指定位置添加项目                                                 |
-| insertItem            | 	void insertItem(int x,const QString  &t,const QString &v,const QPixmap &icon )	const                                  | 在指定位置添加项目                                                 |
-| insertItems           | 	void insertItems(int x,const QStringList  &t,const QStringList &v,<br>const QStringList &iconfile=QStringList()) const | 在指定位置增加多个项目                                              |
-| itemData              | 	QString itemData(int row)		const                                                                                  | 返回指定行的项目的数据                                              |
-| itemText              | 	QString itemText(int row)		const                                                                                  | 返回指定行的项目的文本                                              |
-| removeItem            | 	void removeItem(int row)			const                                                                              | 移除指定行对应的项目                                               |
-| setText               | 	void setText(int row,const QString &txt)	const                                                                      | 设置指定行的文本                                                   |
-| setData               | 	void setData(int row,const QString &val)	const                                                                      | 设指定行的数据                                                     |
-| setIcon               | 	void setIcon(int row,const QString &iconfile)	const                                                                  | 设置指定行的图标                                                   |
-| setIcon               | 	void setIcon(int row,const QPixmap &icon)	const                                                                      | 设置指定行的图标                                                   |
-| setList               | 	void setList(const QVariantList &v)	const                                                                              | 批量设置整个列表                                                   |
-| addList               | 	void addList(const QVariantList &v)	const                                                                              | 在最后增加列表                                                     |
-| insertList            | 	void insertList(int index,const QVariantList &v)	const                                                              | 在指定位置添加列表                                                 |
-| clearSelection        | 	void clearSelection() 	const                                                                                          | 取消所有选择，只是取消选择，不会掉项目                               |
-| selectAll             | 	void  selectAll()	const                                                                                              | 选择所有项目                                                       |
+|         函数          |                                               接口                                                |                               说明                                |
+| --------------------- | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------- |
+| clear                 | void clear() const                                                                               | 清除输入的内容对应的文本和千分位，但不会清除前缀和后缀，并且不影响其值 |
+| setIconSize           | void setIconSize(int size) const                                                                 | 设置图标尺寸。比如设置size为32，则图标尺寸为 32 * 32                 |
+| addItem               | 	void addItem ( listItemDelegate * item ) const                                                 | 添加项目                                                           |
+| currentItem           | 	listItemDelegate * currentItem () const                                                        | 当前项目                                                           |
+| editItem              | 	void editItem ( listItemDelegate * item ) const                                                | 编辑项目                                                           |
+| insertItem            | 	void insertItem ( int row, listItemDelegate * item ) const                                     | 在位置 row 处插入项目                                              |
+| insertItem            | 	void insertItem ( int row, const QString & label ) const                                       | 在位置 row 处插入项目                                              |
+| insertItems           | 	void insertItems ( int row, const QStringList & labels ) const                                 | 在位置  row 处添加多个项目                                         |
+| item                  | 	listItemDelegate * item ( int row ) const 	                                                   | 返回第 row 行的项目（从0开始序号）                                  |
+| itemAt                | 	listItemDelegate * itemAt ( const QPoint & p ) const                                           | 返回光标所在处的项目                                               |
+| itemAt                | 	listItemDelegate * itemAt ( int x, int y ) const                                               | 返回坐标所在处的项目                                               |
+| openPersistentEditor  | 	void openPersistentEditor ( listItemDelegate * item ) const                                    | 打开某个项目的编辑器                                               |
+| closePersistentEditor | 	void closePersistentEditor( listItemDelegate * item) const                                     | 关闭所指项目编辑器                                                 |
+| row                   | 	int row ( const listItemDelegate * item ) const                                                | 返回某个指定项目所在的行                                            |
+| selectedItemsCount    | 	int selectedItemsCount () const                                                                | 选中的项目的数量                                                   |
+| selectedRows          | 	QVariantList  selectedRows() const                                                             | 所有选中的项目的行号清单                                            |
+| unselectedRows        | 	QVariantList  unselectedRows() const                                                           | 所有未选中的项目的行号清单                                          |
+| setCurrentItem        | 	void setCurrentItem (listItemDelegate * item ) const                                           | 设置当前项目                                                       |
+| setCurrentItem        | 	void setCurrentItem(listItemDelegate *item, QItemSelectionModel::SelectionFlags command) const | 设置当前项目，可设置是否选择模式                                    |
+| sortItems             | 	void sortItems ( bool ascorder = true ) const                                                  | 对项目进行排序                                                     |
+| visualItemRect        | 	QRect visualItemRect ( const listItemDelegate * item ) const                                   | 指定项目的可见区域的尺寸                                            |
+| takeItem              | 	listItemDelegate * takeItem ( int row ) const                                                  | 取出指定序号的项目                                                 |
+| addItem               | 	void addItem(const QString  &t,const QString &v,const QString &icnfile="") const               | 在列表最后增加项目                                                 |
+| addItem               | 	void addItem(const QString  &t,const QString &v,const QPixmap &icn)	const                      | 在列表最后增加项目                                                 |
+| addItems              | 	void addItems(const QStringList  &t,const QStringList &v,const QStringList &icnfile) const     | 在列表最后增加多个项目                                              |
+| insertItem            | 	void insertItem(int x,const QString  &t,const QString &v,const QString &iconfile="") const     | 在指定位置添加项目                                                 |
+| insertItem            | 	void insertItem(int x,const QString  &t,const QString &v,const QPixmap &icon )	const          | 在指定位置添加项目                                                 |
+| insertItems           | 	void insertItems(int x,const QStringList  &t,const QStringList &v,                             | 在指定位置添加多个项目                                              |
+|                       | 　　　　　　　　　　const QStringList &iconfile=QStringList()) const                              |                                                                   |
+| itemData              | 	QString itemData(int row) const                                                                | 返回指定行的项目的数据                                              |
+| itemText              | 	QString itemText(int row) const                                                                | 返回指定行的项目的文本                                              |
+| removeItem            | 	void removeItem(int row) const                                                                 | 移除指定行对应的项目                                               |
+| setText               | 	void setText(int row,const QString &txt) const                                                 | 设置指定行的文本                                                   |
+| setData               | 	void setData(int row,const QString &val) const                                                 | 设指定行的数据                                                     |
+| setIcon               | 	void setIcon(int row,const QString &iconfile) const                                            | 设置指定行的图标                                                   |
+| setIcon               | 	void setIcon(int row,const QPixmap &icon) const                                                | 设置指定行的图标                                                   |
+| setList               | 	void setList(const QVariantList &v)	const                                                      | 批量设置整个列表                                                   |
+| addList               | 	void addList(const QVariantList &v)	const                                                      | 在最后增加列表                                                     |
+| insertList            | 	void insertList(int index,const QVariantList &v) const                                         | 在指定位置添加列表                                                 |
+| clearSelection        | 	void clearSelection() const                                                                    | 取消所有选择，只是取消选择，不会掉项目                               |
+| selectAll             | 	void selectAll() const                                                                         | 选择所有项目                                                       |
+| setTopToBottom        | 	void setTopToBottom() const                                                                    | 设置从上到下陈列                                                   |
+| setLeftToRight        | 	void setLeftToRight() const                                                                    | 设置从左到右陈列                                                   |
+| isTopToBottom         | 	bool isTopToBottom() const                                                                     | 是否是从上到下陈列                                                 |
+| isLeftToRight         | 	bool isLeftToRight() const                                                                     | 是否是从左到右陈列                                                 |
 	
 ---
 

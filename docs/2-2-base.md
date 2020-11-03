@@ -31,45 +31,46 @@ this.label.showBalloon('这是一个标签控件')
 
 ## 属性
 
-|属性|值类型|读写类型|说明|
-| - | - | - | - |
-|acceptDrops|bool|可读 可写|是否允许从外部拖曳放下|
-|background|QColor|可读 可写|背景色|
-|borderColor|QColor|可读 可写|边框颜色|
-|borderStyle|int|可读 可写|边框样式|
-|borderWidth|int|可读 可写|边框宽度|
-|dragEnabled|bool|可读 可写|是否允许拖动内容|
-|enabled|bool|可读 可写|是否可用|
-|font|QFont|可读 可写|字体|
-|foreground|QColor|可读 可写|前景色|
-|fillStyle|int|可读 可写|填充类型|
-|focus|bool|可读 可写|是否获得输入焦点|
-|geometry|QRect|可读 可写|位置尺寸|
-|hAlign|int|可读 可写|水平方向对齐方式|
-|height|int|可读 可写|高度|
-|maxheight|int|可读 可写|最大高度|
-|maxwidth|int|可读 可写|最大宽度|
-|minheight|int|可读 可写|最小高度|
-|minwidth|int|可读 可写|最小宽度|
-|pos|QPoint|可读 可写|位置|
-|rect|QRect|只读 |边框矩形尺寸|
-|reloadWhenCreateNew|bool|可读 可写|表单新建时是否重新加载|
-|showBorder|bool|可读 可写|是否显示边框|
-|showOnForm|bool|可读 可写|表单上是否可见|
-|showOnPDF|bool|可读 可写|PDF输出时是否可见|
-|showWhenPrint|bool|可读 可写|打印时是否可见|
-|size|QSize|可读 可写|尺寸|
-|statusTip|QString|可读 可写|状态栏提示文本|
-|tabOrder|int|只读 |tab键顺序|
-|tag|QVariant|可读 可写|备用属性|
-|toolTip|QString|可读 可写|工具提示|
-|updatesEnabled|bool|可读 可写|是否允许刷新|
-|vAlign|int|可读 可写|垂直方向对齐方式|
-|visible|bool|可读 可写|是否可见|
-|whatsThis|QString|可读 可写|“这是什么”提示文本|
-|width|int|可读 可写|宽度|
-|x|int|可读 可写|x方向位置|
-|y|int|可读 可写|y方向位置|
+|        属性         |  值类型  | 读写类型  |           说明           |
+| ------------------- | -------- | -------- | ------------------------ |
+| acceptDrops         | bool     | 可读 可写 | 是否允许从外部拖曳放下     |
+| affectFormData      | bool     | 可读      | 控件的修改是否影响表单数据 |
+| background          | QColor   | 可读 可写 | 背景色                    |
+| borderColor         | QColor   | 可读 可写 | 边框颜色                  |
+| borderStyle         | int      | 可读 可写 | 边框样式                  |
+| borderWidth         | int      | 可读 可写 | 边框宽度                  |
+| dragEnabled         | bool     | 可读 可写 | 是否允许拖动内容          |
+| enabled             | bool     | 可读 可写 | 是否可用                  |
+| font                | QFont    | 可读 可写 | 字体                     |
+| foreground          | QColor   | 可读 可写 | 前景色                    |
+| fillStyle           | int      | 可读 可写 | 填充类型                  |
+| focus               | bool     | 可读 可写 | 是否获得输入焦点          |
+| geometry            | QRect    | 可读 可写 | 位置尺寸                  |
+| hAlign              | int      | 可读 可写 | 水平方向对齐方式          |
+| height              | int      | 可读 可写 | 高度                     |
+| maxheight           | int      | 可读 可写 | 最大高度                  |
+| maxwidth            | int      | 可读 可写 | 最大宽度                  |
+| minheight           | int      | 可读 可写 | 最小高度                  |
+| minwidth            | int      | 可读 可写 | 最小宽度                  |
+| pos                 | QPoint   | 可读 可写 | 位置                     |
+| rect                | QRect    | 只读      | 边框矩形尺寸              |
+| reloadWhenCreateNew | bool     | 可读 可写 | 表单新建时是否重新加载     |
+| showBorder          | bool     | 可读 可写 | 是否显示边框              |
+| showOnForm          | bool     | 可读 可写 | 表单上是否可见            |
+| showOnPDF           | bool     | 可读 可写 | PDF输出时是否可见         |
+| showWhenPrint       | bool     | 可读 可写 | 打印时是否可见            |
+| size                | QSize    | 可读 可写 | 尺寸                     |
+| statusTip           | QString  | 可读 可写 | 状态栏提示文本            |
+| tabOrder            | int      | 只读      | tab键顺序                 |
+| tag                 | QVariant | 可读 可写 | 备用属性                  |
+| toolTip             | QString  | 可读 可写 | 工具提示                  |
+| updatesEnabled      | bool     | 可读 可写 | 是否允许刷新              |
+| vAlign              | int      | 可读 可写 | 垂直方向对齐方式          |
+| visible             | bool     | 可读 可写 | 是否可见                  |
+| whatsThis           | QString  | 可读 可写 | “这是什么”提示文本        |
+| width               | int      | 可读 可写 | 宽度                     |
+| x                   | int      | 可读 可写 | x方向位置                 |
+| y                   | int      | 可读 可写 | y方向位置                 |
 
 ### 外观相关属性
 
@@ -289,6 +290,16 @@ this.label.showBalloon('这是一个标签控件')
 |      | pub.DASHDOTDOTLINE 破折-点-点线       |
 
 ### 其它属性
+
+- ### 属性：affectFormData（类型：bool 可读 
+
+这个属性用来表示控件的修改（输入类控件输入新的内容等）是否会影响表单后台数据表中的记录的值。
+
+为 True 时也只是表示它的值可能会影响，并不是绝对的。用户在表单上对控件进行操作时，若要关闭表单或在记录之间跳转时，如果这个属性值为 True ，后台程序会判断是否有过修改以便提示是否需要保存数据。
+
+|      |           调用方法           |
+| ---- | --------------------------- |
+| 读取 | bool affectFormData() const |
 
 - ### 属性：enabled （类型：bool 可读 可写）
 

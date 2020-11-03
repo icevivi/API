@@ -47,6 +47,9 @@ pub的属性除 objectName 之外，其实都是一些常量，通常用在一�
 | GRAY                             | QColor  | 可读      | 灰色                               |
 | DARKGRAY                         | QColor  | 可读      | 深灰色                             |
 | LIGHTGRAY                        | QColor  | 可读      | 浅灰色                             |
+| INVALID                          | int     | 可读      | 校验结果：不合法                    |
+| INTERMEDIATE                     | int     | 可读      | 校验结果：超出范围或格式有误        |
+| ACCEPTABLE                       | int     | 可读      | 校验结果：可接受的合法的输入        |
 | ERRSTATE                         | int     | 可读      | 表单状态：错误                     |
 | UNSAVED_BLANK_NEW_FORM           | int     | 可读      | 表单状态：未保存的空白表单          |
 | SAVED_FORM                       | int     | 可读      | 表单状态：保存的表单                |
@@ -140,9 +143,9 @@ pub的属性除 objectName 之外，其实都是一些常量，通常用在一�
 | BC_PDF417                        | QString | 可读      | 条码类型：PDF417                   |
 | BC_CODE_93                       | QString | 可读      | 条码类型：CODE 93                  |
 | ECLEVEL_LOW                      | int     | 可读      | QRCode纠错级别：低(7%)             |
-| ECLEVEL_MEDIUM                   | int     | 可读      | QRCode纠错级别：中(15%)             |
-| ECLEVEL_QUARTIL                  | int     | 可读      | QRCode纠错级别：四分之一(25%)      |
-| ECLEVEL_HIGH                     | int     | 可读      | QRCode纠错级别：高(30%)             |
+| ECLEVEL_MEDIUM                   | int     | 可读      | QRCode纠错级别：中(15%)            |
+| ECLEVEL_QUARTIL                  | int     | 可读      | QRCode纠错级别：四分之一(25%)       |
+| ECLEVEL_HIGH                     | int     | 可读      | QRCode纠错级别：高(30%)            |
 | DATA_MODE_ALNUM                  | int     | 可读      | DATAMATRIX数据模式：全字母          |
 | DATA_MODE_DIGITS                 | int     | 可读      | DATAMATRIX数据模式：数字           |
 | DATA_MODE_8BITS                  | int     | 可读      | DATAMATRIX数据模式：8bits          |

@@ -77,12 +77,20 @@ this.lineedit2.setDoubleValidator(0)
 
 整数校验器的成员函数：
 
-|   函数   |                    接口                     |       说明        |
-| -------- | ------------------------------------------- | ----------------- |
-| setRange | void setRange(int bottom,int top) const	 | 设置最大最小值范围 |
+|   函数   |                    接口                     |                        说明                         |
+| -------- | ------------------------------------------- | -------------------------------------------------- |
+| setRange | void setRange(int bottom,int top) const	 | 设置最大最小值范围                                   |
+| validate | int validate(QString &input, int &pos)      | 检查输入值是否符合校验规则                           |
+|          |                                             | 返回值：pub.INVALID 不合法                          |
+|          |                                             | 返回值：pub.INTERMEDIATE 是整数，但超出范围或格式有误 |
+|          |                                             | 返回值：pub.ACCEPTABLE 可接受的合法的输入            |
 
 双精度浮点数校验器的成员函数：
 
-|   函数   |                              接口                               |            说明            |
-| -------- | --------------------------------------------------------------- | -------------------------- |
-| setRange | void setRange(double bottom,double top,int decimals=0) const	 | 设置最大最小值范围和小数位数 |
+|   函数   |                              接口                               |                            说明                            |
+| -------- | --------------------------------------------------------------- | ---------------------------------------------------------- |
+| setRange | void setRange(double bottom,double top,int decimals=0) const	 | 设置最大最小值范围和小数位数                                 |
+| validate | int validate(QString &input, int &pos)                          | 检查输入值是否符合校验规则                                   |
+|          |                                                                 | 返回值：pub.INVALID 不合法                                  |
+|          |                                                                 | 返回值：pub.INTERMEDIATE 是双精度浮点数，但超出范围或格式有误 |
+|          |                                                                 | 返回值：pub.ACCEPTABLE 可接受的合法的输入                    |
