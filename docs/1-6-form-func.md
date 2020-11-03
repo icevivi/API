@@ -44,6 +44,7 @@
 | [currentState](#currentState)                               | int currentState()                                                                   | 表单的当前状态                                  |
 | [database](#database)                                       | DBDelegate* database()  const                                                        | 表单对应的数据库连接对象                         |
 | [DBConnection](#DBConnection)                               | DBConnectionDelegate* DBConnection(const QString& name) const                        | 按名称返回数据库连接对象                         |
+| [DBConnections](#DBConnections)                             | QStringList formDelegate::DBConnections() const                                      | 所有数据库连接对象的名称清单                     |
 | [directPreview](#directPreview)                             | void directPreview() const                                                           | 按表单界面打印预览                               |
 | [directPrinting](#directPrinting)                           | void directPrinting() const                                                          | 按表单界面打印                                  |
 | [drop](#drop)                                               | void drop() const                                                                    | 删除当前记录                                    |
@@ -102,6 +103,7 @@
 | [refresh](#refresh)                                         | void refresh() const                                                                 | 刷新记录集                                      |
 | [reject](#reject)                                           | void reject() const                                                                  | 以拒绝方式关闭做为弹出对话框的这个表单            |
 | [removeCheckBoxGroup](#removeCheckBoxGroup)                 | bool removeCheckBoxGroup(const QString &name) const                                  | 删除指定名称的多选按钮组                         |
+| [removeDBConnection](#removeDBConnection)                   | bool removeDBConnection(const QString& name)                                         | 删除指定名称的数据库连接                         |
 | [resize](#resize)                                           | void resize(int w, int h) const                                                      | 调整大小                                        |
 | [save](#save)                                               | void save()                                                                          | 保存当前记录                                    |
 | [self](#self)                                               | QWidget* self()                                                                      | 返回表单控件对象                                 |
@@ -130,14 +132,14 @@
 | [showUpDown](#showUpDown)                                   | void showUpDown() const                                                              | 表单显示在上方，列表显示在下方                    |
 | [showWaiting](#showWaiting)                                 | void showWaiting(const QString& title ) const                                        | 显示进度对话框                                  |
 | [SQL_Fields](#SQL_Fields)                                   | QVariantList SQL_Fields() const                                                      | 返回基础SQL中字段的属性清单                      |
-| [SQL_FromTables](#SQL_FromTables)                           | QStringList SQL_FromTables() const                                                   | 返回基础SQL中使用的表名                          |
+| [SQL_FromTables](#SQL_FromTables)                           | QStringList SQL_FromTables() const                                                   | 返回基础SQL中使用的表名                         |
 | [startSingleShot](#startSingleShot)                         | void startSingleShot ( int interval )                                                | 启动单次定时器                                  |
 | [startTimer](#startTimer)                                   | int startTimer ( int interval )                                                      | 启动定时器                                      |
 | [tableAlias](#tableAlias)                                   | QString tableAlias(const QString& tablename) const                                   | 返回基础SQL中某个表的别名                        |
 | [timers](#timers)                                           | QStringList timers() const                                                           | 返回所有定时器的ID值清单                         |
 | [vscrollto](#vscrollto)                                     | void vscrollto ( int value ) const                                                   | 垂直滚动条滚动到指定位置                         |
 | [verticalScrollBarMaxValue](#verticalScrollBarMaxValue)     | int verticalScrollBarMaxValue() const                                                | 垂直滚动条最大值                                 |
-| [verticalScrollBarVisible](#verticalScrollBarVisible)       | bool verticalScrollBarVisible() const                                                | 垂直滚动条是否可见                               |	
+| [verticalScrollBarVisible](#verticalScrollBarVisible)       | bool verticalScrollBarVisible() const                                                | 垂直滚动条是否可见                               |
 
 ## 与数据库操作相关的函数
 
@@ -251,6 +253,19 @@ from RT_T_CASH_0_S t0
 | ------- | ---- | --------------------- | ------------- |
 | 传入参数 | 无   |                       |               |
 | 返回值   |      | DBConnectionDelegate* | 数据库连接对象 |
+
+- ### DBConnections
+
+调用接口：QStringList formDelegate::DBConnections() const
+
+[返回目录](#category)
+
+这个函数返回这个表单所有数据库连接的名称。
+
+|   内容   | 名称 |   数据类型   |          说明           |
+| ------- | ---- | ----------- | ---------------------- |
+| 传入参数 | 无   |             |                        |
+| 返回值   |      | QStringList | 所有数据库连接对象的名称 |
 
 - ### drop
 
@@ -480,6 +495,21 @@ from RT_T_CASH_0_S t0
 | ------- | ---- | ------- | ---- |
 | 传入参数 |     无 |         |      |
 | 返回值   |     无 |   |      |
+
+- ### removeDBConnection
+
+调用接口：bool removeDBConnection(const QString& name) 
+
+[返回目录](#category)
+
+这个函数用来移除一个表单级的数据库连接对象，移除前会关闭对应的数据库连接。
+
+表单级的数据库连接会在表单关闭时被断开并移除，所以一般并不需要在脚本中显式地调用这个函数。开发者可以视情况决定是否要在表单运行过程中调用这个函数。
+
+|   内容   | 名称 | 数据类型 |      说明       |
+| ------- | ---- | ------- | --------------- |
+| 传入参数 | name | QString | 数据库连接的名称 |
+| 返回值   |      | bool    | 是否移除成功     |
 
 - ### save
 
