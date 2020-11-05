@@ -70,6 +70,8 @@ DatabaseConnection需要显式地调用 this.form.addDBConnect() 创建新的连
 |                                               | 　　　int sortIndex = -1, bool isASC = true)                                            |                                       |
 | [getBLOB](#getBLOB)                           | QVariant getBLOB(const QString &tablename,const QString &fieldname                      | 获取BLOB字段的内容                     |
 |                                               | 　　　,const QString &filter) const                                                     |                                       |
+| [getBLOBPixmap](#getBLOBPixmap)               | QPixmap getBLOB(const QString &tablename,const QString &fieldname                       | 获取BLOB字段的内容并转成QPixmap对象     |
+|                                               | 　　　,const QString &filter) const                                                     |                                       |
 | [updateBLOB](#updateBLOB)                     | bool updateBLOB(const QString &tablename,const QString &fieldname                       | 修改BLOB字段的内容                     |
 |                                               | 　　　,const QString & filter,const QString &data) const                                |                                       |
 | [updateBLOB](#updateBLOB)                     | bool updateBLOB(const QString &tablename,const QString &fieldname                       | 修改BLOB字段的内容（图片格式）          |
@@ -343,6 +345,8 @@ Sybase 数据服务器名。
 
 这个函数会影响 lastSQL() 和 lastErrorText() 。
 
+需要注意的是，不管使用的什么类型的数据库，执行这个函数之后 lastSQL() 返回的内容都是“ BEGIN TRANSACTION”。
+
 |   内容   | 名称 | 数据类型 |        说明         |
 | ------- | ---- | ------- | ------------------- |
 | 传入参数 | 无   |         |                     |
@@ -358,6 +362,8 @@ Sybase 数据服务器名。
 
 这个函数会影响 lastSQL() 和 lastErrorText() 。
 
+需要注意的是，不管使用的什么类型的数据库，执行这个函数之后 lastSQL() 返回的内容都是“ COMMIT TRANSACTION”。
+
 |   内容   | 名称 | 数据类型 |      说明       |
 | ------- | ---- | ------- | --------------- |
 | 传入参数 | 无     |         |                 |
@@ -372,6 +378,8 @@ Sybase 数据服务器名。
 事务加滚，如果成功返回 True，否则返回 False。
 
 这个函数会影响 lastSQL() 和 lastErrorText() 。
+
+需要注意的是，不管使用的什么类型的数据库，执行这个函数之后 lastSQL() 返回的内容都是“ ROLLBACK TRANSACTION”。
 
 |   内容   | 名称 | 数据类型 |      说明       |
 | ------- | ---- | ------- | --------------- |
@@ -556,16 +564,76 @@ Sybase 数据服务器名。
 
 获取指定表、指定的BLOB字段的内容。
 
-如果查询出多条符合 filter 的记录，也只会返回第一条记录的内容。所以需要注意 filter 最好定位到确定的一条记录，否则会增加数据传输负担。
+如果查询出多条符合 filter 的记录，也只会返回第一条记录的内容。所以需要注意 filter 最好定位到确定的一条记录，否则可能会增加数据传输负担，但又用不到所有的数据。
 
 如果表名、字段名无效，或指定字段不是BLOB型字段，或没有符合条件的记录，返回 None。
+
+表名可以用设计时表名，程序会自动转换成实体表名。也可以直接用实体表名。
+
+如果使用 updateBLOB 存储了一个图像文件的二进制内容，使用 getBLOB 再读取出来后，需要使用 base64 解码之后转换成 QPixmap。如果使用 getBLOBPixmap 读取，就不需要进行转码。
+
+比如有一个表 t_image 有如下表结构：
+
+![t_image](1-8-02.png)
+
+写和读 BLOB 字段的脚本如以下示例：
+
+``` python
+
+>>> db=this.form.database()
+
+>>> #先添加一条测试用的记录，BLOB字段先空着，因为直接用 addData 无法为BLOB字段添加内容
+>>> db.addData('t_image',['ID','UUID','lastUpdated'],[1,pub.createUuid(),pub.currentDateTime()])
+True
+
+>>> #再调用 updateBLOB 修改 BLOB 字段的内容
+>>> db.updateBLOB(db.getRealTableName('t_image'),'fimage',"ID=1",this.image.image)
+True
+
+>>> #读取刚才保存的内容
+>>> a=db.getBLOB(db.getRealTableName('t_image'),'fimage','ID=1')
+
+>>> import base64
+>>> #用 base64 解码
+>>> b=base64.b64decode(a)
+
+>>> from PythonQt.Qt import *
+>>> p=QPixmap()
+>>> #将解码后的数据转为 QPixmap 对象
+>>> p.loadFromData(b,'png')
+True
+
+>>> #表单上的另外一个图像控件，显示读出的 QPixmap 图像
+>>> this.image1.setImage(p)
+
+>>> #使用 getBLOBPixmap 不需要进行转码
+>>> p=db.getBLOBPixmap(db.getRealTableName('t_image'),'fimage','ID=1')
+>>> this.image1.setImage(p)
+>
+```
 
 |   内容   |   名称    | 数据类型  |                          说明                          |
 | ------- | --------- | -------- | ------------------------------------------------------ |
 | 传入参数 | tablename | QString  | 表名，可以使用设计时的表名，也可以使用实体表名            |
-| 传入参数 | fieldname | int      | 字段的顺序（从0开始）                                   |
+| 传入参数 | fieldname | QString  | BLOB字段的名称                                          |
 | 传入参数 | filter    | QString  | 过滤条件，等同于SQL语句中where子句的内容(不带where关键字) |
 | 返回值   |           | QVariant | BLOB字段的内容                                          |
+
+- ### getBLOBPixmap
+
+调用接口： QVariant getBLOBPixmap(const QString &tablename,const QString &fieldname  ,const QString &filter) const 
+
+[返回目录](#category)
+
+获取指定表、指定的BLOB字段的内容，并转换成PNG格式的 QPixmap 对象。相关说明和示例参考  [getBLOB](#getBLOB) 中的内容。
+
+
+|   内容   |   名称    | 数据类型 |                          说明                          |
+| ------- | --------- | -------- | ------------------------------------------------------ |
+| 传入参数 | tablename | QString  | 表名，可以使用设计时的表名，也可以使用实体表名            |
+| 传入参数 | fieldname | QString | BLOB字段的名称                                          |
+| 传入参数 | filter    | QString  | 过滤条件，等同于SQL语句中where子句的内容(不带where关键字) |
+| 返回值   |           | QPixmap | BLOB字段的内容转换成 QPixmap 图像对象                    |
 
 - ### updateBLOB
 
@@ -578,7 +646,7 @@ Sybase 数据服务器名。
 |   内容   |   名称    | 数据类型 |                          说明                          |
 | ------- | --------- | ------- | ------------------------------------------------------ |
 | 传入参数 | tablename | QString  | 表名，可以使用设计时的表名，也可以使用实体表名            |
-| 传入参数 | fieldname | int      | 字段的顺序（从0开始）                                   |
+| 传入参数 | fieldname | QString | 字段的名称                                              |
 | 传入参数 | filter    | QString  | 过滤条件，等同于SQL语句中where子句的内容(不带where关键字) |
 | 传入参数 | data      | QString  | BLOB字段的内容                                          |
 | 返回值   |           | bool    | 修改是否成功                                            |
@@ -592,7 +660,7 @@ Sybase 数据服务器名。
 |   内容   |   名称    | 数据类型 |                          说明                          |
 | ------- | --------- | ------- | ------------------------------------------------------ |
 | 传入参数 | tablename | QString  | 表名，可以使用设计时的表名，也可以使用实体表名            |
-| 传入参数 | fieldname | int      | 字段的顺序（从0开始）                                   |
+| 传入参数 | fieldname | QString | 字段的名称                                              |
 | 传入参数 | filter    | QString  | 过滤条件，等同于SQL语句中where子句的内容(不带where关键字) |
 | 传入参数 | pixmap    | QPixmap  | 需要用BLOB字段保存数据的图片对象                         |
 | 返回值   |           | bool    | 修改是否成功                                            |
