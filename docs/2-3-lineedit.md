@@ -22,13 +22,13 @@
 
 ## 继承的属性和函数
 
-- [继承自QObject 的属性](2-1-qobject?id=属性)
+- [继承自QObject 的属性](2-1-qobject?id=属性){target="_blank"}
 
-- [继承自QObject 的 成员函数](2-1-qobject?id=成员函数)
+- [继承自QObject 的 成员函数](2-1-qobject?id=成员函数){target="_blank"}
 
-- [继承自widgetDelegateBase的属性](2-2-base?id=属性)
+- [继承自widgetDelegateBase的属性](2-2-base?id=属性){target="_blank"}
 
-- [继承自widgetDelegateBase的成员函数](2-2-base?id=成员函数)
+- [继承自widgetDelegateBase的成员函数](2-2-base?id=成员函数){target="_blank"}
 
 ---
 
@@ -36,29 +36,31 @@
 
 [返回目录](#category)
 
-|属性|值类型|读写类型|说明|
-| - | - | - | - |
-|caption|QString|可读 可写|标题文本|
-|captionPosition|int|可读 |标题位置|
-|defaultVal|QString|可读 可写|缺省值|
-|displaytext|QString|可读 |显示文本|
-|editorBackColor|QColor|可读 可写|编辑器背景色|
-|editorBorderColor|QColor|可读 可写|编辑器边框颜色|
-|editorBorderStyle|int|可读 可写|编辑器边框样式|
-|editorFillStyle|int|可读 可写|编辑器填充样式|
-|editorFont|QFont|可读 可写|编辑器字体|
-|editorForeColor|QColor|可读 可写|编辑器前景色|
-|editorHAlign|int|可读 可写|编辑器水平对齐方式|
-|editorVAlign|int|可读 可写|编辑器垂直对齐方式|
-|inputMask|QString|可读 可写|输入掩码|
-|isPWD|bool|可读 可写|是否显示密码格式|
-|margin|int|可读 可写|边界宽度|
-|maxLength|int|可读 可写|输入文字最大长度|
-|readOnly|bool|可读 可写|是否只读|
-|shadow|int|可读 可写|边框特效样式|
-|text|QString|可读 可写|输入的文本|
+|       属性        | 值类型  | 读写类型  |       说明        |
+| ----------------- | ------- | -------- | ----------------- |
+| caption           | QString | 可读 可写 | 标题文本          |
+| captionPosition   | int     | 可读      | 标题位置          |
+| defaultVal        | QString | 可读 可写 | 缺省值            |
+| displaytext       | QString | 可读      | 显示文本          |
+| editorBackColor   | QColor  | 可读 可写 | 编辑器背景色       |
+| editorBorderColor | QColor  | 可读 可写 | 编辑器边框颜色     |
+| editorBorderStyle | int     | 可读 可写 | 编辑器边框样式     |
+| editorFillStyle   | int     | 可读 可写 | 编辑器填充样式     |
+| editorFont        | QFont   | 可读 可写 | 编辑器字体        |
+| editorForeColor   | QColor  | 可读 可写 | 编辑器前景色       |
+| editorHAlign      | int     | 可读 可写 | 编辑器水平对齐方式 |
+| editorVAlign      | int     | 可读 可写 | 编辑器垂直对齐方式 |
+| inputMask         | QString | 可读 可写 | 输入掩码          |
+| isPWD             | bool    | 可读 可写 | 是否显示密码格式   |
+| margin            | int     | 可读 可写 | 边界宽度          |
+| maxLength         | int     | 可读 可写 | 输入文字最大长度   |
+| readOnly          | bool    | 可读 可写 | 是否只读          |
+| shadow            | int     | 可读 可写 | 边框特效样式       |
+| text              | QString | 可读 可写 | 输入的文本        |
 
 - ### 属性：caption （类型：QString 可读 可写）
+
+[返回目录](#category)
 
 标题显示的文字。
 
@@ -69,6 +71,8 @@
 
 - ### 属性：editorFont （类型：QFont 可读 可写）
 
+[返回目录](#category)
+
 文本编辑控件的字体。注意 font 属性指标题的字体，editorFont才是输入文字的控件的字体。
 
 |      |                       调用方法                       |
@@ -77,6 +81,8 @@
 | 修改 | void setEditorFont( const QFont &editorFont ) const |
 
 - ### 属性：editorBackColor （类型：QColor 可读 可写）
+
+[返回目录](#category)
 
 文本输入控件的背景色，只在填充属性为“填充”时有效。
 
@@ -87,6 +93,8 @@
 
 - ### 属性：editorForeColor （类型：QColor 可读 可写）
 
+[返回目录](#category)
+
 文本输入控件的前景色。
 
 |      |                            调用方法                             |
@@ -95,6 +103,8 @@
 | 修改 | void setEditorForeColor( const QColor &editorForeColor ) const |
 
 - ### 属性：editorBorderColor （类型：QColor 可读 可写）
+
+[返回目录](#category)
 
 文本输入控件边框颜色。
 
@@ -105,6 +115,8 @@
 
 - ### 属性：margin （类型：int 可读 可写）
 
+[返回目录](#category)
+
 边界宽度。
 
 |      |              调用方法               |
@@ -114,6 +126,8 @@
 
 - ### 属性：maxLength （类型：int 可读 可写）
 
+[返回目录](#category)
+
 输入文本最大长度。
 
 |      |                 调用方法                  |
@@ -122,6 +136,8 @@
 | 修改 | void setMaxLength( int maxLength ) const |
 
 - ### 属性：editorBorderStyle （类型：int 可读 可写）
+
+[返回目录](#category)
 
 文本编辑器边框类型。
 
@@ -136,6 +152,8 @@
 
 - ### 属性：captionPosition （类型：int 可读 ）
 
+[返回目录](#category)
+
 标题所在位置。设计时设置后，在运行时只读，不允许修改。
 
 |      |           调用方法           |
@@ -148,6 +166,8 @@
 |      | pub.NOCAPTION 无标题        |
 
 - ### 属性：shadow （类型：int 可读 可写）
+
+[返回目录](#category)
 
 输入框边框特效样式。
 
@@ -162,6 +182,8 @@
 
 - ### 属性：editorFillStyle （类型：int 可读 可写）
 
+[返回目录](#category)
+
 输入框背景填充样式。设置为“透明”时，背景色无效。
 
 |      |                       调用方法                        |
@@ -173,6 +195,8 @@
 |      | - pub.TRANSPARENT_BACKGROUND 透明                    |
 
 - ### 属性：isPWD （类型：bool 可读 可写）
+
+[返回目录](#category)
 
 是否是密码输入控件。密码输入控件会显示特殊字符替代输入的文字。
 
@@ -192,6 +216,8 @@
 
 - ### 属性：text （类型：QString 可读 可写）
 
+[返回目录](#category)
+
 输入的文字。
 
 |      |                  调用方法                  |
@@ -201,6 +227,8 @@
 
 - ### 属性：displaytext （类型：QString 可读 ）
 
+[返回目录](#category)
+
 输入框显示的文字。
 
 |      |           调用方法           |
@@ -208,6 +236,8 @@
 | 读取 | QString displaytext() const |
 
 - ### 属性：defaultVal （类型：QString 可读 可写）
+
+[返回目录](#category)
 
 缺省文本。
 
@@ -217,6 +247,8 @@
 | 修改 | void setDefaultVal( const QString &defaultVal ) const |
 
 - ### 属性：editorVAlign （类型：int 可读 可写）
+
+[返回目录](#category)
 
 输入框文本垂直方向对齐方式。
 
@@ -231,6 +263,8 @@
 
 - ### 属性：editorHAlign （类型：int 可读 可写）
 
+[返回目录](#category)
+
 输入框文本水平方向对齐方式。
 
 |      |                    调用方法                     |
@@ -244,6 +278,8 @@
 |      | pub.ALIGNJUSTIFY 水平分散对齐                   |
 
 - ### 属性：readOnly （类型：bool 可读 可写）
+
+[返回目录](#category)
 
 是否只读。只读的文本输入控件可以通过脚本修改其中的文字，但不允许用户修改。
 
