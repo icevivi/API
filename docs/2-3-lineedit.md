@@ -22,13 +22,13 @@
 
 ## 继承的属性和函数
 
-- [继承自QObject 的属性](2-1-qobject?id=属性){target="_blank"}
+- [继承自QObject 的属性](2-1-qobject?id=属性)
 
-- [继承自QObject 的 成员函数](2-1-qobject?id=成员函数){target="_blank"}
+- [继承自QObject 的 成员函数](2-1-qobject?id=成员函数)
 
-- [继承自widgetDelegateBase的属性](2-2-base?id=属性){target="_blank"}
+- [继承自widgetDelegateBase的属性](2-2-base?id=属性)
 
-- [继承自widgetDelegateBase的成员函数](2-2-base?id=成员函数){target="_blank"}
+- [继承自widgetDelegateBase的成员函数](2-2-base?id=成员函数)
 
 ---
 
