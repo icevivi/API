@@ -1,4 +1,4 @@
-# 基类widgetDelegateBase
+# 第二章 标准控件 - 基类widgetDelegateBase
 
 biForm 中的标准控件都继承自 widgetDelegateBase，有共同的一些属性和成员函数。
 

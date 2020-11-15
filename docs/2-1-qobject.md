@@ -1,4 +1,4 @@
-# QObject 接口
+# 第二章 标准控件 - 继承自 QObject 的接口
 
 biForm中的标准控件都是通过代理控件提供接口供 Python 脚本访问，代理控件都继承自 Qt 中的 QObject，因此也继承了一些 QObject 的接口，但与 Qt 中的 QObject 的接口并不完全一样，开放的接口以本文档为准。这些接口因为在 Python 中使用 dir() 都可以看到，所以本文对之进行一些解释，但其实一般用不上这些接口，只有 connect/disconnect/help/classname/objectname 等少量接口比较常用。
 
