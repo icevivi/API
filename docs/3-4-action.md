@@ -124,5 +124,5 @@ True
 
 函数名为“动作名称_triggered”，如下示例：
 
-![script](3-4-02.png)
+![script](3-4-03.png)
 
