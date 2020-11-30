@@ -127,7 +127,7 @@ def updateUI():
 
 在表单的“加载后”或“新建空白表单后”中调用```updateUI()```就可以完成布局。
 
-上面的脚本中我们可以看到，我们必须要设置控件的 sizePolicy ，否则缺省情况下，控件的大小是固定的。在  biForm 中也没有 QSpacerItem 这样的控件，可以使用一个未设置文本的标签控件来代替。
+上面的脚本中我们可以看到，我们必须要设置控件的 sizePolicy ，否则缺省情况下，控件的大小是固定的。
 
 在 biForm 中并没有 Qt 中的 layout 控件，而是通过调用 setVLayout 和 setHLayout 函数来实现布局。在  biForm 中也没有 QSpacerItem 这样的控件，可以使用一个未设置文本的标签控件来代替。
 
