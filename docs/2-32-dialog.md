@@ -17,6 +17,7 @@ biForm 提供了几种对话框控件用于辅助输入一些数据。它们与�
 - [对话框：选择时间范围](#对话框：选择时间范围)
 - [对话框：选择日期时间范围](#对话框：选择日期时间范围)
 - [自定义对话框](#自定义对话框)
+
 ---
 
 ## 如何使用对话框
@@ -38,6 +39,8 @@ biForm 中对话框控件分为以下几类：
 | [输入日期和时间范围](#对话框：选择日期时间范围) | DialogSelectDateTime2 | 供用户输入一个日期和时间范围     |
 
 ### 如何创建一个新的对话框
+
+[返回目录](#category)
 
 在 biForm 中通过使用 PythonQt.private 模块来调用它们。
 
@@ -488,18 +491,18 @@ Qt中其实提供了多种对话框类，可以直接使用，比如 QColorDialo
 
 |       类        |                 用途                 |                            参考文档                             |
 | --------------- | ----------------------------------- | -------------------------------------------------------------- |
-| QColorDialog    | 选择颜色                             | [QColorDialog](https://doc.qt.io/qt-5/QColorDialog.html)       |
-| QErrorMessage   | 错误信息提示                         | [QErrorMessage](https://doc.qt.io/qt-5/QErrorMessage.html)     |
-| QFileDialog     | 选择文件或路径                       | [QFileDialog](https://doc.qt.io/qt-5/QFileDialog.html)         |
-| QFontDialog     | 选择字体                             | [QFontDialog](https://doc.qt.io/qt-5/QFontDialog.html)         |
-| QInputDialog    | 输入数据（文本、整数、小数、选择项目） | [QInputDialog](https://doc.qt.io/qt-5/QInputDialog.html)       |
-| QMessageBox     | 消息对话框                           | [QMessageBox](https://doc.qt.io/qt-5/QMessageBox.html)         |
-| QProgressDialog | 进度条                               | [QProgressDialog](https://doc.qt.io/qt-5/QProgressDialog.html) |
-| QWizard         | 多步骤向导                           | [QWizard](https://doc.qt.io/qt-5/QWizard.html)                 |
+| QColorDialog    | 选择颜色                             | [QColorDialog](https://doc.qt.io/qt-5/qcolordialog.html)       |
+| QErrorMessage   | 错误信息提示                         | [QErrorMessage](https://doc.qt.io/qt-5/qerrormessage.html)     |
+| QFileDialog     | 选择文件或路径                       | [QFileDialog](https://doc.qt.io/qt-5/qfiledialog.html)         |
+| QFontDialog     | 选择字体                             | [QFontDialog](https://doc.qt.io/qt-5/qfontdialog.html)         |
+| QInputDialog    | 输入数据（文本、整数、小数、选择项目） | [QInputDialog](https://doc.qt.io/qt-5/qinputdialog.html)       |
+| QMessageBox     | 消息对话框                           | [QMessageBox](https://doc.qt.io/qt-5/qmessagebox.html)         |
+| QProgressDialog | 进度条                               | [QProgressDialog](https://doc.qt.io/qt-5/qprogressdialog.html) |
+| QWizard         | 多步骤向导                           | [QWizard](https://doc.qt.io/qt-5/qwizard.html)                 |
 
-其中 QMessageBox 的功能可以使用 [pub.infoMsgBox](1-9-pub#infoMsgBox)、[pub.questionMsgBox](1-9-pub#questionMsgBox)、[criticalMsgBox](1-9-pub#criticalMsgBox)、[pub.warningMsgBox](1-9-pub#warningMsgBox) 代替。但 QMessageBox 提供了更多的接口，可以在需要的时候使用。
+其中 QMessageBox 的功能可以使用 [pub.infoMsgBox](1-9-pub#infoMsgBox)、[pub.questionMsgBox](1-9-pub#questionMsgBox)、[pub.criticalMsgBox](1-9-pub#criticalMsgBox)、[pub.warningMsgBox](1-9-pub#warningMsgBox) 代替。但 QMessageBox 提供了更多的接口，可以在需要的时候再使用。
 
-QProgressDialog 也可以使用 [this.form.showWaiting](1-6-form-func#showWaiting) 来代替。不过 QProgressDialog 提供了更丰富的接口。
+QProgressDialog 也可以使用 [this.form.showWaiting](1-6-form-func#showWaiting) 来代替。QProgressDialog 提供了更丰富的接口，可以在需要的时候再使用。
 
 2、继承 QDialog 创建新的对话框类
 
