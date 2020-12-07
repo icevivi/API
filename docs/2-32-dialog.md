@@ -485,7 +485,7 @@ dateTimeEdit_from 和 dateTimeEdit_to 返回的都是 QDateTimeEdit 对象，详
 
 如果开发者想要设计自定义对话框，一般有三类实现方式。
 
-1、使用 Qt 提供的 QDialog 子类
+### 1. 使用 Qt 提供的 QDialog 衍生类
 
 Qt中其实提供了多种对话框类，可以直接使用，比如 QColorDialog, QErrorMessage, QFileDialog, QFontDialog, QInputDialog, QMessageBox, QProgressDialog, QWizard 等，这些类的使用通常并不是很复杂，可以比较方便地使用。具体参考 Qt 文档。
 
@@ -504,11 +504,11 @@ Qt中其实提供了多种对话框类，可以直接使用，比如 QColorDialo
 
 QProgressDialog 也可以使用 [this.form.showWaiting](1-6-form-func#showWaiting) 来代替。QProgressDialog 提供了更丰富的接口，可以在需要的时候再使用。
 
-2、继承 QDialog 创建新的对话框类
+### 2. 继承 QDialog 类
 
 使用 Python 脚本继承 QDialog 或其它类，然后实现自己想要的界面和处理逻辑。这种方式需要比较熟悉 Qt 库。
 
-3、使用 PFF 表单以对话框方式运行
+### 3. 使用 PFF 表单
 
 我们可以将对话框也设计成一个PFF表单，在需要调用它的另一个表单中，调用 pub.popupPFF 函数，就可以以对话框模式打开这个表单，并且返回执行的结果。具体调用方法参考 [pub.popupPFF](1-9-pub#popupPFF) 中的说明。
 
