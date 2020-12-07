@@ -1,6 +1,8 @@
 # 对话框
 
-biForm 提供了几种对话框控件用于辅助输入一些数据。它们与其它标准控件不同，不能在表单界面上显示，需要通过 Python 代码调用，以弹出对话框的形式运行。
+biForm 提供了几种对话框类用于辅助输入一些数据。它们与其它标准控件不同，不能在表单界面上显示，需要通过 Python 代码调用，以弹出对话框的形式运行。
+
+biForm 也可以使用 Qt 提供的一些特殊的对话框类，或者通过继承 QDialog 来创建自定义对话框。也可以将某个 PFF 表单做为对话框调用。
 
 ---
 
@@ -16,7 +18,10 @@ biForm 提供了几种对话框控件用于辅助输入一些数据。它们与�
 - [对话框：选择日期范围](#对话框：选择日期范围)
 - [对话框：选择时间范围](#对话框：选择时间范围)
 - [对话框：选择日期时间范围](#对话框：选择日期时间范围)
-- [自定义对话框](#自定义对话框)
+- [其它对话框](#其它对话框)
+ - [1. 使用 qt 提供的 QDialog 派生类](#_1-使用-qt-提供的-qdialog-派生类)
+ - [2. 继承 QDialog 类](#_2-继承-qdialog-类)
+ - [3. 使用 PFF 表单](#_3-使用-PFF-表单)
 
 ---
 
@@ -284,11 +289,9 @@ QDate (2005-05-16, at: 0x09CDBF80)
 
 如果希望以指定的格式返回字符串，可以参考如下示例：
 
-``` Python
-
+```
 >>> a.dateEdit.date.toString('yyyy年MM月dd日')
 '2006年10月06日'
-
 ```
 
 exec可以反复调用，下次再调用时，缺省是使用上次用户输入的值，当然也可以在执行 exec 前，通过修改 date 属性来设置缺省值。
@@ -479,15 +482,15 @@ dateTimeEdit_from 和 dateTimeEdit_to 返回的都是 QDateTimeEdit 对象，详
 | setDisplayFormat   | void setDisplayFormat(const QString &format)                      | 设置显示格式          |
 | toString           | QString toString(const QString &format) const                     | 按指定格式转换成字符串 |
 
-## 自定义对话框
+## 其它对话框
 
 [返回目录](#category)
 
-如果开发者想要设计自定义对话框，一般有三类实现方式。
+除了以上几种 biForm 提供的对话框类，开发者还可以通过以下几种方式使用对话框。
 
-### 1. 使用 Qt 提供的 QDialog 衍生类
+### 1. 使用 Qt 提供的 QDialog 派生类
 
-Qt中其实提供了多种对话框类，可以直接使用，比如 QColorDialog, QErrorMessage, QFileDialog, QFontDialog, QInputDialog, QMessageBox, QProgressDialog, QWizard 等，这些类的使用通常并不是很复杂，可以比较方便地使用。具体参考 Qt 文档。
+Qt中其实提供了多种对话框类，可以直接使用，比如 QColorDialog, QErrorMessage, QFileDialog, QFontDialog, QInputDialog, QMessageBox, QProgressDialog, QWizard 等，这些类使用起来也很方便。具体参考 Qt 文档。
 
 |       类        |                 用途                 |                            参考文档                             |
 | --------------- | ----------------------------------- | -------------------------------------------------------------- |
@@ -506,13 +509,14 @@ QProgressDialog 也可以使用 [this.form.showWaiting](1-6-form-func#showWaitin
 
 ### 2. 继承 QDialog 类
 
-使用 Python 脚本继承 QDialog 或其它类，然后实现自己想要的界面和处理逻辑。这种方式需要比较熟悉 Qt 库。
+如果有自己的特殊需求，可以在 Python 脚本中创建一个新的类，继承 QDialog 或其它对话框类，实现自己想要的界面和处理逻辑。这种方式需要比较熟悉 Qt 库。
 
 ### 3. 使用 PFF 表单
 
 我们可以将对话框也设计成一个PFF表单，在需要调用它的另一个表单中，调用 pub.popupPFF 函数，就可以以对话框模式打开这个表单，并且返回执行的结果。具体调用方法参考 [pub.popupPFF](1-9-pub#popupPFF) 中的说明。
 
-这种调用方式的前提是这个对话框表单在 PFF 运行时环境中已经注册（打开）过，否则这个调用因为在系统已经注册的表单中找不到这个表单，就不起作用。所以通常在 biForm 中进行试运行时，这个语句执行看不到效果，因为 biForm 试运行只能处理一个表单。
+这种调用方式的前提是这个对话框表单在 PFF 运行时环境中已经注册（打开）过，否则脚本运行时会因为在系统已经注册的表单中找不到这个表单，就不起作用。所以在 biForm 中试运行时，这个语句执行是看不到效果的，因为 biForm 试运行环境中只有当前表单，不能调用其它表单，只能在 PFF运行时环境（比如 biReader ）中进行测试。
 
 这种方式可以使用 biForm 的设计界面设计表单，比第二种方式要更简单，代码量通常更少，不需要事先熟悉 Qt 库。所以我们建议多用这种方式，第二种方式可以具体看情况决定是否采用。
 
+其实任何 PFF 表单都可以使用 popupPFF 函数来调用，都可以以弹出对话框方式呈现。但脚本中必须要以调用 [accept](1-6-form-func#accept) 函数的方式关闭表单才能回传数据，调用 accept 传入的参数就是回传的数据。
