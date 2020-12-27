@@ -36,26 +36,27 @@
 
 [返回目录](#category)
 
-|属性|值类型|读写类型|说明|
-| - | - | - | - |
-|caption|QString|可读 可写|标题文字|
-|editorFont|QFont|可读 可写|文本输入框字体|
-|editorBackColor|QColor|可读 可写|文本输入框背景色|
-|editorForeColor|QColor|可读 可写|文本输入框前景色|
-|editorBorderColor|QColor|可读 可写|文本输入框边框颜色|
-|margin|int|可读 可写|边界宽度|
-|maxLength|int|可读 可写|输入文本最大长度|
-|editorBorderStyle|int|可读 可写|文本输入框边框样式|
-|captionPosition|int|可读 |标题位置|
-|shadow|int|可读 可写|文本输入框边框特效样式|
-|editorFillStyle|int|可读 可写|文本输入框背景填充类型|
-|html|QString|可读 可写|当前HTML格式的文本|
-|plainText|QString|可读 可写|当前普通文本|
-|wordWrapMode|int|可读 可写|文本输入框换行模式|
-|defaultVal|QString|可读 可写|缺省文本|
-|editorVAlign|int|可读 可写|文本输入框垂直方向对齐方式|
-|editorHAlign|int|可读 可写|文本输入框水平方向对齐方式|
-|readOnly|bool|可读 可写|是否只读|
+|       属性        | 值类型  | 读写类型  |           说明           |
+| ----------------- | ------- | -------- | ------------------------ |
+| caption           | QString | 可读 可写 | 标题文字                  |
+| captionPosition   | int     | 可读 可写 | 标题位置                  |
+| defaultVal        | QString | 可读 可写 | 缺省文本                  |
+| editorBackColor   | QColor  | 可读 可写 | 文本输入框背景色          |
+| editorBorderColor | QColor  | 可读 可写 | 文本输入框边框颜色        |
+| editorBorderStyle | int     | 可读 可写 | 文本输入框边框样式        |
+| editorFillStyle   | int     | 可读 可写 | 文本输入框背景填充类型     |
+| editorFont        | QFont   | 可读 可写 | 文本输入框字体            |
+| editorForeColor   | QColor  | 可读 可写 |                          |
+| editorHAlign      | int     | 可读 可写 | 文本输入框水平方向对齐方式 |
+| editorVAlign      | int     | 可读 可写 | 文本输入框垂直方向对齐方式 |
+| html              | QString | 可读 可写 | 当前HTML格式的文本        |
+| margin            | int     | 可读 可写 | 边界宽度                  |
+| maxLength         | int     | 可读 可写 | 输入文本最大长度          |
+| plainText         | QString | 可读 可写 | 当前普通文本              |
+| readOnly          | bool    | 可读 可写 | 是否只读                  |
+| shadow            | int     | 可读 可写 | 文本输入框边框特效样式     |
+| spacing           | int     | 可读 可写 | 标题和编辑器的间距        |
+| wordWrapMode      | int     | 可读 可写 | 文本输入框换行模式        |
 
 - ### 属性：caption （类型：QString 可读 可写）
 
@@ -66,14 +67,29 @@
 | 读取 | QString caption() const                         |
 | 修改 | void setCaption( const QString &caption ) const |
 
-- ### 属性：editorFont （类型：QFont 可读 可写）
+- ### 属性：captionPosition （类型：int 可读 可写 ）
 
-文本编辑器的字体。
+标题所在位置。
 
-|      |                       调用方法                       |
-| ---- | --------------------------------------------------- |
-| 读取 | QFont editorFont() const                            |
-| 修改 | void setEditorFont( const QFont &editorFont ) const |
+|      |                   调用方法                    |
+| ---- | -------------------------------------------- |
+| 读取 | int captionPosition() const                  |
+| 修改 | void setCaptionPosition( int position) const |
+|      | 值的含义：                                    |
+|      | pub.ATTOP 在上方                             |
+|      | pub.ATLEFT 在左侧                            |
+|      | pub.ATBOTTOM 在下方                          |
+|      | pub.ATRIGHT 在右侧                           |
+|      | pub.NOCAPTION 无标题                         |
+
+- ### 属性：defaultVal （类型：QString 可读 可写）
+
+缺省的文本内容。
+
+|      |                        调用方法                        |
+| ---- | ----------------------------------------------------- |
+| 读取 | QString defaultVal() const                            |
+| 修改 | void setDefaultVal( const QString &defaultVal ) const |
 
 - ### 属性：editorBackColor （类型：QColor 可读 可写）
 
@@ -84,15 +100,6 @@
 | 读取 | QColor editorBackColor() const                                 |
 | 修改 | void setEditorBackColor( const QColor &editorBackColor ) const |
 
-- ### 属性：editorForeColor （类型：QColor 可读 可写）
-
-文本编辑器的前景色。
-
-|      |                            调用方法                             |
-| ---- | -------------------------------------------------------------- |
-| 读取 | QColor editorForeColor() const                                 |
-| 修改 | void setEditorForeColor( const QColor &editorForeColor ) const |
-
 - ### 属性：editorBorderColor （类型：QColor 可读 可写）
 
 文本编辑器的边框颜色。
@@ -101,24 +108,6 @@
 | ---- | ------------------------------------------------------------------ |
 | 读取 | QColor editorBorderColor() const                                   |
 | 修改 | void setEditorBorderColor( const QColor &editorBorderColor ) const |
-
-- ### 属性：margin （类型：int 可读 可写）
-
-边界宽度（像素为单位）。
-
-|      |              调用方法               |
-| ---- | ---------------------------------- |
-| 读取 | int margin() const                 |
-| 修改 | void setMargin( int margin ) const |
-
-- ### 属性：maxLength （类型：int 可读 可写）
-
-可输入文本的最大长度。
-
-|      |                 调用方法                  |
-| ---- | ---------------------------------------- |
-| 读取 | int maxLength() const                    |
-| 修改 | void setMaxLength( int maxLength ) const |
 
 - ### 属性：editorBorderStyle （类型：int 可读 可写）
 
@@ -133,33 +122,6 @@
 |      | pub.UNDERLINE 下划线                                     |
 |      | pub.RECTANGLE 矩形边框                                    |
 
-- ### 属性：captionPosition （类型：int 可读 ）
-
-标题所在位置。设计阶段设置后，运行时不允许修改。
-
-|      |           调用方法           |
-| ---- | --------------------------- |
-| 读取 | int captionPosition() const |
-|      | 值的含义：                   |
-|      | pub.ATTOP 在上方            |
-|      | pub.ATLEFT 在左侧           |
-|      | pub.ATBOTTOM 在下方         |
-|      | pub.ATRIGHT 在右侧          |
-|      | pub.NOCAPTION 无标题        |
-
-- ### 属性：shadow （类型：int 可读 可写）
-
-文本输入框边框样式。
-
-|      |              调用方法               |
-| ---- | ---------------------------------- |
-| 读取 | int shadow() const                 |
-| 修改 | void setShadow( int shadow ) const |
-|      | **shadow取值：**                   |
-|      | pub.PLAIN 平的                     |
-|      | pub.RAISED 上凸                    |
-|      | pub.SUNKEN 下陷                    |
-
 - ### 属性：editorFillStyle （类型：int 可读 可写）
 
 文本输入框背景填充样式。设置为“透明”时，背景色无效。
@@ -171,6 +133,51 @@
 |      | **editorFillStyle的值：**                            |
 |      | - pub.FILLED_BACKGROUND 填充                         |
 |      | - pub.TRANSPARENT_BACKGROUND 透明                    |
+
+- ### 属性：editorFont （类型：QFont 可读 可写）
+
+文本编辑器的字体。
+
+|      |                       调用方法                       |
+| ---- | --------------------------------------------------- |
+| 读取 | QFont editorFont() const                            |
+| 修改 | void setEditorFont( const QFont &editorFont ) const |
+
+- ### 属性：editorForeColor （类型：QColor 可读 可写）
+
+文本编辑器的前景色。
+
+|      |                            调用方法                             |
+| ---- | -------------------------------------------------------------- |
+| 读取 | QColor editorForeColor() const                                 |
+| 修改 | void setEditorForeColor( const QColor &editorForeColor ) const |
+
+- ### 属性：editorHAlign （类型：int 可读 可写）
+
+文本输入框水平方向对齐方式。
+
+|      |                    调用方法                     |
+| ---- | ---------------------------------------------- |
+| 读取 | int editorHAlign() const                       |
+| 修改 | void setEditorHAlign( int editorHAlign ) const |
+|      | **editorHAlign取值：**                         |
+|      | pub.ALIGNLEFT 向左对齐                          |
+|      | pub.ALIGNRIGHT 向右对齐                         |
+|      | pub.ALIGNHCENTER 水平居中对齐                   |
+|      | pub.ALIGNJUSTIFY 水平分散对齐                   |
+
+- ### 属性：editorVAlign （类型：int 可读 可写）
+
+文本输入框垂直方向对齐方式。
+
+|      |                    调用方法                     |
+| ---- | ---------------------------------------------- |
+| 读取 | int editorVAlign() const                       |
+| 修改 | void setEditorVAlign( int editorVAlign ) const |
+|      | **editorVAlign取值：**                         |
+|      | pub.ALIGNTOP 向上对齐                           |
+|      | pub.ALIGNBOTTOM 向下对齐                        |
+|      | pub.ALIGNVCENTER 垂直居中对齐                   |
 
 - ### 属性：html （类型：QString 可读 可写）
 
@@ -190,6 +197,55 @@
 | 读取 | QString plainText() const                           |
 | 修改 | void setPlainText( const QString &plainText ) const |
 
+- ### 属性：margin （类型：int 可读 可写）
+
+边界宽度（像素为单位）。
+
+|      |              调用方法               |
+| ---- | ---------------------------------- |
+| 读取 | int margin() const                 |
+| 修改 | void setMargin( int margin ) const |
+
+- ### 属性：maxLength （类型：int 可读 可写）
+
+可输入文本的最大长度。
+
+|      |                 调用方法                  |
+| ---- | ---------------------------------------- |
+| 读取 | int maxLength() const                    |
+| 修改 | void setMaxLength( int maxLength ) const |
+
+- ### 属性：readOnly （类型：bool 可读 可写）
+
+是否只读。
+
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | bool readOnly() const                   |
+| 修改 | void setReadOnly( bool readOnly ) const |
+
+- ### 属性：shadow （类型：int 可读 可写）
+
+文本输入框边框样式。
+
+|      |              调用方法               |
+| ---- | ---------------------------------- |
+| 读取 | int shadow() const                 |
+| 修改 | void setShadow( int shadow ) const |
+|      | **shadow取值：**                   |
+|      | pub.PLAIN 平的                     |
+|      | pub.RAISED 上凸                    |
+|      | pub.SUNKEN 下陷                    |
+
+- ### 属性：spacing （类型：bool 可读 可写）
+
+标题和输入框的间距（像素值）。
+
+|      |               调用方法                |
+| ---- | ------------------------------------ |
+| 读取 | int spacing() const                  |
+| 修改 | void setSpacing( int spacing ) const |
+
 - ### 属性：wordWrapMode （类型：int 可读 可写）
 
 换行模式。
@@ -205,51 +261,6 @@
 |      | - pub.WRAP_ANYWHERE 随时换行                             |
 |      | - pub.WRAP_ATWORD_BOUNDARY_OR_ANYWHERE 单词边界或随时换行 |
 
-- ### 属性：defaultVal （类型：QString 可读 可写）
-
-缺省的文本内容。
-
-|      |                        调用方法                        |
-| ---- | ----------------------------------------------------- |
-| 读取 | QString defaultVal() const                            |
-| 修改 | void setDefaultVal( const QString &defaultVal ) const |
-
-- ### 属性：editorVAlign （类型：int 可读 可写）
-
-文本输入框垂直方向对齐方式。
-
-|      |                    调用方法                     |
-| ---- | ---------------------------------------------- |
-| 读取 | int editorVAlign() const                       |
-| 修改 | void setEditorVAlign( int editorVAlign ) const |
-|      | **editorVAlign取值：**                         |
-|      | pub.ALIGNTOP 向上对齐                           |
-|      | pub.ALIGNBOTTOM 向下对齐                        |
-|      | pub.ALIGNVCENTER 垂直居中对齐                   |
-
-- ### 属性：editorHAlign （类型：int 可读 可写）
-
-文本输入框水平方向对齐方式。
-
-|      |                    调用方法                     |
-| ---- | ---------------------------------------------- |
-| 读取 | int editorHAlign() const                       |
-| 修改 | void setEditorHAlign( int editorHAlign ) const |
-|      | **editorHAlign取值：**                         |
-|      | pub.ALIGNLEFT 向左对齐                          |
-|      | pub.ALIGNRIGHT 向右对齐                         |
-|      | pub.ALIGNHCENTER 水平居中对齐                   |
-|      | pub.ALIGNJUSTIFY 水平分散对齐                   |
-
-- ### 属性：readOnly （类型：bool 可读 可写）
-
-是否只读。
-
-|      |                 调用方法                 |
-| ---- | --------------------------------------- |
-| 读取 | bool readOnly() const                   |
-| 修改 | void setReadOnly( bool readOnly ) const |
-
 ---
 
 ## 多行文本输入控件自有成员函数
@@ -258,21 +269,23 @@
 
 所有属性的设置函数（参考上一节中修改属性的接口），都属于此类，都可以当做槽使用。除此之处，另外还包括以下几个成员函数：
 
-|函数|接口|说明|
-| - | - | - |
-|append| void append(const QString & text) const|在最后添加文本|
-|clear| void clear() const|清除所有内容|
-|copy| void copy() const|复制选中的文本|
-|cut| void cut() const|剪切|
-|insertHtml| void insertHtml(const QString &text) const|插入HTML文本|
-|insertPlainText| void insertPlainText(const QString &text) const|插入普通文本|
-|paste| void paste() const|粘贴|
-|redo| void redo() const|重做上一步操作|
-|selectAll| void selectAll() const|选择所有|
-|setText| void setText(const QString & text) const|设置文本|
-|undo| void undo() const|撤消上一步操作|
-|zoomIn| void zoomIn(int range = 1) const|放大，range指定字号增加的点数|
-|zoomOut| void zoomOut(int range =1) const|缩小，range指定字号减少的点数|
+|        函数         |                         接口                         |             说明             |
+| ------------------- | ---------------------------------------------------- | --------------------------- |
+| append              | void append(const QString & text) const              | 在最后添加文本               |
+| clear               | void clear() const                                   | 清除所有内容                 |
+| copy                | void copy() const                                    | 复制选中的文本               |
+| cut                 | void cut() const                                     | 剪切                         |
+| insertHtml          | void insertHtml(const QString &text) const           | 插入HTML文本                 |
+| insertPlainText     | void insertPlainText(const QString &text) const      | 插入普通文本                 |
+| paste               | void paste() const                                   | 粘贴                         |
+| redo                | void redo() const                                    | 重做上一步操作               |
+| selectAll           | void selectAll() const                               | 选择所有                     |
+| setText             | void setText(const QString & text) const             | 设置文本                     |
+| setTitleStyleSheet  | void setTitleStyleSheet(const QString& style) const  | 设置标题的外观样式            |
+| setEditorStyleSheet | void setEditorStyleSheet(const QString& style) const | 设置编辑器的外观样式          |
+| undo                | void undo() const                                    | 撤消上一步操作               |
+| zoomIn              | void zoomIn(int range = 1) const                     | 放大，range指定字号增加的点数 |
+| zoomOut             | void zoomOut(int range =1) const                     | 缩小，range指定字号减少的点数 |
 
 ---
 
