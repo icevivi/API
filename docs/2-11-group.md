@@ -36,13 +36,14 @@
 
 [返回目录](#category)
 
-|属性|值类型|读写类型|说明|
-| - | - | - | - |
-|caption|QString|可读 可写|标题显示的文字|
-|checked|bool|可读 可写|是否被选中|
-|checkable|bool|可读 可写|是否可勾选|
-|alignment|int|可读 可写|标题的对齐方式|
-|defaultVal|bool|可读|缺省的勾选状态|
+|      属性       | 值类型  | 读写类型  |     说明      |
+| --------------- | ------- | -------- | ------------- |
+| caption         | QString | 可读 可写 | 标题显示的文字 |
+| checked         | bool    | 可读 可写 | 是否被选中     |
+| checkable       | bool    | 可读 可写 | 是否可勾选     |
+| alignment       | int     | 可读 可写 | 标题的对齐方式 |
+| defaultVal      | bool    | 可读      | 缺省的勾选状态 |
+| titleBackground | QColor  | 可读 可写 | 标题的背景色   |
 
 - ### 属性：caption （类型：QString 可读 可写）
 
@@ -91,6 +92,15 @@
 |      |         调用方法         |
 | ---- | ----------------------- |
 | 读取 | bool defaultVal() const |
+
+- ### 属性：titleBackground （类型：QColor 可读 可写）
+
+标题的背景色。
+
+|      |                       调用方法                       |
+| ---- | --------------------------------------------------- |
+| 读取 | QColor titleBackground() const                      |
+| 修改 | void setTitleBackground(const QColor &color ) const |
 
 ---
 
