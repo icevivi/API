@@ -38,44 +38,203 @@
 
 |            属性             | 值类型 | 读写类型  |       说明        |
 | --------------------------- | ------ | -------- | ----------------- |
-| margin                      | int    | 可读 可写 | 边界宽度          |
-| gridStyle                   | int    | 可读 可写 | 网格线样式        |
+| alternateBaseColor          | QColor | 可读 可写 | 双行背景色        |
+| alternatingRowColors        | bool   | 可读 可写 | 单双行颜色不同     |
+| cellsBackground             | QColor | 可读 可写 | 单元格背景色       |
+| columnCount                 | int    | 可读 可写 | 列数              |
+| columnHeaderFont            | QFont  | 可读 可写 | 列标题字体        |
+| columnHeaderForegroundColor | QColor | 可读 可写 | 列标题前景色       |
+| columnHeaderVisible         | bool   | 可读 可写 | 列标题是否可见     |
+| columnResizeMode            | int    | 可读 可写 | 列宽调整模式       |
+| cornerBackground            | QColor | 可读 可写 | 左上角按钮背景色   |
+| cornerBorderColor           | QColor | 可读 可写 | 左上角按钮边框色   |
 | cornerButtonEnabled         | bool   | 可读 可写 | 左上角按钮是否可用 |
-| sortingEnabled              | bool   | 可读 可写 | 是否允许排序       |
+| defaultColumnWidth          | int    | 可读 可写 | 缺省列宽          |
+| defaultRowHeight            | int    | 可读 可写 | 缺省行高          |
+| gridColor                   | QColor | 可读 可写 | 格线颜色          |
+| gridStyle                   | int    | 可读 可写 | 网格线样式        |
+| headerBorderColor           | QColor | 可读 可写 | 标题栏边框颜色     |
+| horizontalScrollBarPolicy   | int    | 可读 可写 | 水平滚动条显示规则 |
+| margin                      | int    | 可读 可写 | 边界宽度          |
+| rowCount                    | int    | 可读 可写 | 行数              |
+| rowHeaderBackgroundColor    | QColor | 可读 可写 | 行标题背景色       |
+| rowHeaderFont               | QFont  | 可读 可写 | 行标题字体        |
+| rowHeaderForegroundColor    | QColor | 可读 可写 | 行标题前景色       |
+| rowHeaderVisible            | bool   | 可读 可写 | 行标题是否可见     |
+| rowResizeMode               | int    | 可读 可写 | 行高调整模式       |
+| selectionBehavior           | int    | 可读 可写 | 行列选择模式       |
+| selectionMode               | int    | 可读 可写 | 选择区域模式       |
 | showGrid                    | bool   | 可读 可写 | 是否显示网格线     |
-| wordwrap                    | bool   | 可读 可写 | 是否自动换行       |
+| sortingEnabled              | bool   | 可读 可写 | 是否允许排序       |
 | stretchLastColumn           | bool   | 可读 可写 | 是否最后列自动扩展 |
 | stretchLastRow              | bool   | 可读 可写 | 是否最后行自动扩展 |
-| rowCount                    | int    | 可读 可写 | 行数              |
-| columnCount                 | int    | 可读 可写 | 列数              |
-| defaultRowHeight            | int    | 可读 可写 | 缺省行高          |
-| rowResizeMode               | int    | 可读 可写 | 行高调整模式       |
-| columnResizeMode            | int    | 可读 可写 | 列宽调整模式       |
-| alternatingRowColors        | bool   | 可读 可写 | 单双行颜色不同     |
-| alternateBaseColor          | QColor | 可读 可写 | 双行背景色        |
-| columnHeaderVisible         | bool   | 可读 可写 | 列标题是否可见     |
-| rowHeaderVisible            | bool   | 可读 可写 | 行标题是否可见     |
-| defaultColumnWidth          | int    | 可读 可写 | 缺省列宽          |
-| rowHeaderFont               | QFont  | 可读 可写 | 行标题字体        |
-| columnHeaderFont            | QFont  | 可读 可写 | 列标题字体        |
-| rowHeaderForegroundColor    | QColor | 可读 可写 | 行标题前景色       |
-| columnHeaderForegroundColor | QColor | 可读 可写 | 列标题前景色       |
-| rowHeaderBackgroundColor    | QColor | 可读 可写 | 行标题背景色       |
-| selectionMode               | int    | 可读 可写 | 选择区域模式       |
-| selectionBehavior           | int    | 可读 可写 | 行列选择模式       |
-| horizontalScrollBarPolicy   | int    | 可读 可写 | 水平滚动条显示规则 |
 | verticalScrollBarPolicy     | int    | 可读 可写 | 垂直滚动条显示规则 |
+| wordwrap                    | bool   | 可读 可写 | 是否自动换行       |
 
-- ### 属性：margin （类型：int 可读 可写）
+- ### 属性：alternatingRowColors （类型：bool 可读 可写）
 
-边界宽度（像素值）。
+[返回目录](#category)
 
-|      |              调用方法               |
-| ---- | ---------------------------------- |
-| 读取 | int margin() const                 |
-| 修改 | void setMargin( int margin ) const |
+单双行不同背景色。
+
+|      |                             调用方法                             |
+| ---- | --------------------------------------------------------------- |
+| 读取 | bool alternatingRowColors() const                               |
+| 修改 | void setAlternatingRowColors( bool alternatingRowColors ) const |
+
+- ### 属性：alternateBaseColor （类型：QColor 可读 可写）
+
+[返回目录](#category)
+
+双行背景色。
+
+|      |                               调用方法                                |
+| ---- | -------------------------------------------------------------------- |
+| 读取 | QColor alternateBaseColor() const                                    |
+| 修改 | void setAlternateBaseColor( const QColor &alternateBaseColor ) const |
+
+- ### 属性：cellsBackground （类型：QColor 可读 可写）
+
+[返回目录](#category)
+
+单元格背景色。
+
+|      |                       调用方法                       |
+| ---- | --------------------------------------------------- |
+| 读取 | QColor cellsBackground() const                      |
+| 修改 | void setCellsBackground( const QColor &color) const |
+
+
+- ### 属性：columnCount （类型：int 可读 可写）
+
+[返回目录](#category)
+
+列数。
+
+|      |                   调用方法                    |
+| ---- | -------------------------------------------- |
+| 读取 | int columnCount() const                      |
+| 修改 | void setColumnCount( int columnCount ) const |
+
+- ### 属性：columnHeaderFont （类型：QFont 可读 可写）
+
+[返回目录](#category)
+
+列标题字体。
+
+|      |                             调用方法                             |
+| ---- | --------------------------------------------------------------- |
+| 读取 | QFont columnHeaderFont() const                                  |
+| 修改 | void setColumnHeaderFont( const QFont &columnHeaderFont ) const |
+
+- ### 属性：columnHeaderForegroundColor （类型：QColor 可读 可写）
+
+[返回目录](#category)
+
+列标题前景色。
+
+|      |                                        调用方法                                         |
+| ---- | -------------------------------------------------------------------------------------- |
+| 读取 | QColor columnHeaderForegroundColor() const                                             |
+| 修改 | void setColumnHeaderForegroundColor( const QColor &columnHeaderForegroundColor ) const |
+
+- ### 属性：columnHeaderVisible （类型：bool 可读 可写）
+
+[返回目录](#category)
+
+列标题是否可见。
+
+|      |                            调用方法                            |
+| ---- | ------------------------------------------------------------- |
+| 读取 | bool columnHeaderVisible() const                              |
+| 修改 | void setColumnHeaderVisible( bool columnHeaderVisible ) const |
+
+- ### 属性：columnResizeMode （类型：int 可读 可写）
+
+[返回目录](#category)
+
+列宽调整模式。
+
+|      |                        调用方法                         |
+| ---- | ------------------------------------------------------ |
+| 读取 | int columnResizeMode() const                           |
+| 修改 | void setColumnResizeMode( int columnResizeMode ) const |
+|      | **columnResizeMode取值：**                             |
+|      | pub.INTERACTIVE 用户可调                                |
+|      | pub.FIXED  固定大小                                     |
+|      | pub.STRETCH 内容自动拉伸                                |
+|      | pub.RESIZETOCONTENTS 按内容调整大小                     |
+
+- ### 属性：cornerBackground（类型：QColor 可读 可写）
+
+[返回目录](#category)
+
+左上角按钮背景色。
+
+|      |                       调用方法                        |
+| ---- | ---------------------------------------------------- |
+| 读取 | QColor cornerBackground() const                      |
+| 修改 | void setCornerBackground( const QColor &color) const |
+
+- ### 属性：cornerBorderColor（类型：QColor 可读 可写）
+
+[返回目录](#category)
+
+左上角按钮边框颜色。
+
+|      |                        调用方法                        |
+| ---- | ----------------------------------------------------- |
+| 读取 | QColor cornerBorderColor() const                      |
+| 修改 | void setCornerBorderColor( const QColor &color) const |
+
+
+- ### 属性：cornerButtonEnabled （类型：bool 可读 可写）
+
+[返回目录](#category)
+
+左上角按钮是否可用。如果是可用的，点击这个按钮，可以选择所有单元格。
+
+|      |                            调用方法                            |
+| ---- | ------------------------------------------------------------- |
+| 读取 | bool cornerButtonEnabled() const                              |
+| 修改 | void setCornerButtonEnabled( bool cornerButtonEnabled ) const |
+
+- ### 属性：defaultColumnWidth （类型：int 可读 可写）
+
+[返回目录](#category)
+
+缺省列宽。
+
+|      |                          调用方法                           |
+| ---- | ---------------------------------------------------------- |
+| 读取 | int defaultColumnWidth() const                             |
+| 修改 | void setDefaultColumnWidth( int defaultColumnWidth ) const |
+
+- ### 属性：defaultRowHeight （类型：int 可读 可写）
+
+[返回目录](#category)
+
+缺省行高。
+
+|      |                        调用方法                         |
+| ---- | ------------------------------------------------------ |
+| 读取 | int defaultRowHeight() const                           |
+| 修改 | void setDefaultRowHeight( int defaultRowHeight ) const |
+
+- ### 属性：gridColor （类型：QColor 可读 可写）
+
+[返回目录](#category)
+
+格线颜色。
+
+|      |                    调用方法                    |
+| ---- | --------------------------------------------- |
+| 读取 | QColor gridColor() const                      |
+| 修改 | void setGridColor( const QColor &color) const |
 
 - ### 属性：gridStyle （类型：int 可读 可写）
+
+[返回目录](#category)
 
 网格样式。
 
@@ -90,61 +249,46 @@
 |      | pub.DASHDOTLINE 破折-点线                 |
 |      | pub.DASHDOTDOTLINE 破折-点-点线           |
 
-- ### 属性：cornerButtonEnabled （类型：bool 可读 可写）
+- ### 属性：headerBorderColor（类型：QColor 可读 可写）
 
-左上角按钮是否可用。如果是可用的，点击这个按钮，可以选择所有单元格。
+[返回目录](#category)
 
-|      |                            调用方法                            |
-| ---- | ------------------------------------------------------------- |
-| 读取 | bool cornerButtonEnabled() const                              |
-| 修改 | void setCornerButtonEnabled( bool cornerButtonEnabled ) const |
+标题行边框颜色。
 
-- ### 属性：sortingEnabled （类型：bool 可读 可写）
+|      |                        调用方法                         |
+| ---- | ------------------------------------------------------ |
+| 读取 | QColor headerBorderColor() const                       |
+| 修改 | void setHheaderBorderColor( const QColor &color) const |
 
-是否允许排序。
+- ### 属性：horizontalScrollBarPolicy （类型：int 可读 可写）
 
-|      |                       调用方法                       |
-| ---- | --------------------------------------------------- |
-| 读取 | bool sortingEnabled() const                         |
-| 修改 | void setSortingEnabled( bool sortingEnabled ) const |
+[返回目录](#category)
 
-- ### 属性：showGrid （类型：bool 可读 可写）
+水平滚动条显示规则。
 
-是否显示网格线。
+|      |                                 调用方法                                  |
+| ---- | ------------------------------------------------------------------------ |
+| 读取 | int horizontalScrollBarPolicy() const                                    |
+| 修改 | void setHorizontalScrollBarPolicy( int horizontalScrollBarPolicy ) const |
+|      | **horizontalScrollBarPolicy取值**                                        |
+|      | pub.SCROLLBAR_AS_NEEDED 需要时显示                                        |
+|      | pub.SCROLLBAR_ALWAYS_OFF 一直隐藏                                         |
+|      | pub.SCROLLBAR_ALWAYS_ON 一直显示                                          |
 
-|      |                 调用方法                 |
-| ---- | --------------------------------------- |
-| 读取 | bool showGrid() const                   |
-| 修改 | void setShowGrid( bool showGrid ) const |
+- ### 属性：margin （类型：int 可读 可写）
 
-- ### 属性：wordwrap （类型：bool 可读 可写）
+[返回目录](#category)
 
-单元格内是否自动换行。
+边界宽度（像素值）。
 
-|      |                 调用方法                 |
-| ---- | --------------------------------------- |
-| 读取 | bool wordwrap() const                   |
-| 修改 | void setWordwrap( bool wordwrap ) const |
-
-- ### 属性：stretchLastColumn （类型：bool 可读 可写）
-
-最后列是否自动扩展。设为 True 时，最后一列的宽度会延伸到填满表格的水平方向。
-
-|      |                          调用方法                          |
-| ---- | --------------------------------------------------------- |
-| 读取 | bool stretchLastColumn() const                            |
-| 修改 | void setStretchLastColumn( bool stretchLastColumn ) const |
-
-- ### 属性：stretchLastRow （类型：bool 可读 可写）
-
-最后行是否自动扩展。设为 True 时，最后一行的高度会延伸到填满表格的垂直方向。
-
-|      |                       调用方法                       |
-| ---- | --------------------------------------------------- |
-| 读取 | bool stretchLastRow() const                         |
-| 修改 | void setStretchLastRow( bool stretchLastRow ) const |
+|      |              调用方法               |
+| ---- | ---------------------------------- |
+| 读取 | int margin() const                 |
+| 修改 | void setMargin( int margin ) const |
 
 - ### 属性：rowCount （类型：int 可读 可写）
+
+[返回目录](#category)
 
 行数。
 
@@ -153,25 +297,53 @@
 | 读取 | int rowCount() const                   |
 | 修改 | void setRowCount( int rowCount ) const |
 
-- ### 属性：columnCount （类型：int 可读 可写）
+- ### 属性：rowHeaderBackgroundColor （类型：QColor 可读 可写）
 
-列数。
+[返回目录](#category)
 
-|      |                   调用方法                    |
-| ---- | -------------------------------------------- |
-| 读取 | int columnCount() const                      |
-| 修改 | void setColumnCount( int columnCount ) const |
+行标题背景色。
 
-- ### 属性：defaultRowHeight （类型：int 可读 可写）
+|      |                                     调用方法                                      |
+| ---- | -------------------------------------------------------------------------------- |
+| 读取 | QColor rowHeaderBackgroundColor() const                                          |
+| 修改 | void setRowHeaderBackgroundColor( const QColor &rowHeaderBackgroundColor ) const |
 
-缺省行高。
+- ### 属性：rowHeaderFont （类型：QFont 可读 可写）
 
-|      |                        调用方法                         |
-| ---- | ------------------------------------------------------ |
-| 读取 | int defaultRowHeight() const                           |
-| 修改 | void setDefaultRowHeight( int defaultRowHeight ) const |
+[返回目录](#category)
+
+行标题字体。
+
+|      |                          调用方法                          |
+| ---- | --------------------------------------------------------- |
+| 读取 | QFont rowHeaderFont() const                               |
+| 修改 | void setRowHeaderFont( const QFont &rowHeaderFont ) const |
+
+- ### 属性：rowHeaderForegroundColor （类型：QColor 可读 可写）
+
+[返回目录](#category)
+
+行标题前景色。
+
+|      |                                     调用方法                                      |
+| ---- | -------------------------------------------------------------------------------- |
+| 读取 | QColor rowHeaderForegroundColor() const                                          |
+| 修改 | void setRowHeaderForegroundColor( const QColor &rowHeaderForegroundColor ) const |
+
+- ### 属性：rowHeaderVisible （类型：bool 可读 可写）
+
+[返回目录](#category)
+
+行标题是否可见。
+
+|      |                         调用方法                         |
+| ---- | ------------------------------------------------------- |
+| 读取 | bool rowHeaderVisible() const                           |
+| 修改 | void setRowHeaderVisible( bool rowHeaderVisible ) const |
 
 - ### 属性：rowResizeMode （类型：int 可读 可写）
+
+[返回目录](#category)
 
 行高调整模式。
 
@@ -185,111 +357,24 @@
 |      | pub.STRETCH 内容自动拉伸                          |
 |      | pub.RESIZETOCONTENTS 按内容调整大小               |
 
-- ### 属性：columnResizeMode （类型：int 可读 可写）
+- ### 属性：selectionBehavior （类型：int 可读 可写）
 
-列宽调整模式。
+[返回目录](#category)
 
-|      |                        调用方法                         |
-| ---- | ------------------------------------------------------ |
-| 读取 | int columnResizeMode() const                           |
-| 修改 | void setColumnResizeMode( int columnResizeMode ) const |
-|      | **columnResizeMode取值：**                             |
-|      | pub.INTERACTIVE 用户可调                                |
-|      | pub.FIXED  固定大小                                     |
-|      | pub.STRETCH 内容自动拉伸                                |
-|      | pub.RESIZETOCONTENTS 按内容调整大小                     |
+行列选择模式。更详细的说明请参考 Qt 文档。
 
-- ### 属性：alternatingRowColors （类型：bool 可读 可写）
-
-单双行不同背景色。
-
-|      |                             调用方法                             |
-| ---- | --------------------------------------------------------------- |
-| 读取 | bool alternatingRowColors() const                               |
-| 修改 | void setAlternatingRowColors( bool alternatingRowColors ) const |
-
-- ### 属性：alternateBaseColor （类型：QColor 可读 可写）
-
-双行背景色。
-
-|      |                               调用方法                                |
-| ---- | -------------------------------------------------------------------- |
-| 读取 | QColor alternateBaseColor() const                                    |
-| 修改 | void setAlternateBaseColor( const QColor &alternateBaseColor ) const |
-
-- ### 属性：columnHeaderVisible （类型：bool 可读 可写）
-
-列标题是否可见。
-
-|      |                            调用方法                            |
-| ---- | ------------------------------------------------------------- |
-| 读取 | bool columnHeaderVisible() const                              |
-| 修改 | void setColumnHeaderVisible( bool columnHeaderVisible ) const |
-
-- ### 属性：rowHeaderVisible （类型：bool 可读 可写）
-
-行标题是否可见。
-
-|      |                         调用方法                         |
-| ---- | ------------------------------------------------------- |
-| 读取 | bool rowHeaderVisible() const                           |
-| 修改 | void setRowHeaderVisible( bool rowHeaderVisible ) const |
-
-- ### 属性：defaultColumnWidth （类型：int 可读 可写）
-
-缺省列宽。
-
-|      |                          调用方法                           |
-| ---- | ---------------------------------------------------------- |
-| 读取 | int defaultColumnWidth() const                             |
-| 修改 | void setDefaultColumnWidth( int defaultColumnWidth ) const |
-
-- ### 属性：rowHeaderFont （类型：QFont 可读 可写）
-
-行标题字体。
-
-|      |                          调用方法                          |
-| ---- | --------------------------------------------------------- |
-| 读取 | QFont rowHeaderFont() const                               |
-| 修改 | void setRowHeaderFont( const QFont &rowHeaderFont ) const |
-
-- ### 属性：columnHeaderFont （类型：QFont 可读 可写）
-
-列标题字体。
-
-|      |                             调用方法                             |
-| ---- | --------------------------------------------------------------- |
-| 读取 | QFont columnHeaderFont() const                                  |
-| 修改 | void setColumnHeaderFont( const QFont &columnHeaderFont ) const |
-
-- ### 属性：rowHeaderForegroundColor （类型：QColor 可读 可写）
-
-行标题前景色。
-
-|      |                                     调用方法                                      |
-| ---- | -------------------------------------------------------------------------------- |
-| 读取 | QColor rowHeaderForegroundColor() const                                          |
-| 修改 | void setRowHeaderForegroundColor( const QColor &rowHeaderForegroundColor ) const |
-
-- ### 属性：columnHeaderForegroundColor （类型：QColor 可读 可写）
-
-列标题前景色。
-
-|      |                                        调用方法                                         |
-| ---- | -------------------------------------------------------------------------------------- |
-| 读取 | QColor columnHeaderForegroundColor() const                                             |
-| 修改 | void setColumnHeaderForegroundColor( const QColor &columnHeaderForegroundColor ) const |
-
-- ### 属性：rowHeaderBackgroundColor （类型：QColor 可读 可写）
-
-行标题背景色。
-
-|      |                                     调用方法                                      |
-| ---- | -------------------------------------------------------------------------------- |
-| 读取 | QColor rowHeaderBackgroundColor() const                                          |
-| 修改 | void setRowHeaderBackgroundColor( const QColor &rowHeaderBackgroundColor ) const |
+|      |                         调用方法                          |
+| ---- | -------------------------------------------------------- |
+| 读取 | int selectionBehavior() const                            |
+| 修改 | void setSelectionBehavior( int selectionBehavior ) const |
+|      | **selectionBehavior**                                    |
+|      | pub.SELECT_ITEMS 选择单元格                               |
+|      | pub.SELECT_ROWS 选择行                                   |
+|      | pub.SELECT_COLUMNS 选择列                                |
 
 - ### 属性：selectionMode （类型：int 可读 可写）
+
+[返回目录](#category)
 
 选择区域模式。更详细的说明请参考 Qt 文档。
 
@@ -304,33 +389,53 @@
 |      | pub.MULTI_SELECTION 允许选择多个对象                 |
 |      | pub.NO_SELECTION 不允许选择                          |
 
-- ### 属性：selectionBehavior （类型：int 可读 可写）
+- ### 属性：showGrid （类型：bool 可读 可写）
 
-行列选择模式。更详细的说明请参考 Qt 文档。
+[返回目录](#category)
 
-|      |                         调用方法                          |
-| ---- | -------------------------------------------------------- |
-| 读取 | int selectionBehavior() const                            |
-| 修改 | void setSelectionBehavior( int selectionBehavior ) const |
-|      | **selectionBehavior**                                    |
-|      | pub.SELECT_ITEMS 选择单元格                               |
-|      | pub.SELECT_ROWS 选择行                                   |
-|      | pub.SELECT_COLUMNS 选择列                                |
+是否显示网格线。
 
-- ### 属性：horizontalScrollBarPolicy （类型：int 可读 可写）
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | bool showGrid() const                   |
+| 修改 | void setShowGrid( bool showGrid ) const |
 
-水平滚动条显示规则。
+- ### 属性：sortingEnabled （类型：bool 可读 可写）
 
-|      |                                 调用方法                                  |
-| ---- | ------------------------------------------------------------------------ |
-| 读取 | int horizontalScrollBarPolicy() const                                    |
-| 修改 | void setHorizontalScrollBarPolicy( int horizontalScrollBarPolicy ) const |
-|      | **horizontalScrollBarPolicy取值**                                        |
-|      | pub.SCROLLBAR_AS_NEEDED 需要时显示                                        |
-|      | pub.SCROLLBAR_ALWAYS_OFF 一直隐藏                                         |
-|      | pub.SCROLLBAR_ALWAYS_ON 一直显示                                          |
+[返回目录](#category)
+
+是否允许排序。
+
+|      |                       调用方法                       |
+| ---- | --------------------------------------------------- |
+| 读取 | bool sortingEnabled() const                         |
+| 修改 | void setSortingEnabled( bool sortingEnabled ) const |
+
+- ### 属性：stretchLastColumn （类型：bool 可读 可写）
+
+[返回目录](#category)
+
+最后列是否自动扩展。设为 True 时，最后一列的宽度会延伸到填满表格的水平方向。
+
+|      |                          调用方法                          |
+| ---- | --------------------------------------------------------- |
+| 读取 | bool stretchLastColumn() const                            |
+| 修改 | void setStretchLastColumn( bool stretchLastColumn ) const |
+
+- ### 属性：stretchLastRow （类型：bool 可读 可写）
+
+[返回目录](#category)
+
+最后行是否自动扩展。设为 True 时，最后一行的高度会延伸到填满表格的垂直方向。
+
+|      |                       调用方法                       |
+| ---- | --------------------------------------------------- |
+| 读取 | bool stretchLastRow() const                         |
+| 修改 | void setStretchLastRow( bool stretchLastRow ) const |
 
 - ### 属性：verticalScrollBarPolicy （类型：int 可读 可写）
+
+[返回目录](#category)
 
 垂直滚动条显示规则。
 
@@ -342,6 +447,17 @@
 |      | pub.SCROLLBAR_AS_NEEDED 需要时显示                                    |
 |      | pub.SCROLLBAR_ALWAYS_OFF 一直隐藏                                     |
 |      | pub.SCROLLBAR_ALWAYS_ON 一直显示                                      |
+
+- ### 属性：wordwrap （类型：bool 可读 可写）
+
+[返回目录](#category)
+
+单元格内是否自动换行。
+
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | bool wordwrap() const                   |
+| 修改 | void setWordwrap( bool wordwrap ) const |
 
 ---
 
