@@ -72,6 +72,7 @@
 | showOnForm      | 编辑器没有这个属性                                                         |
 | showOnPDF       | 编辑器没有这个属性                                                         |
 | showWhenPrint   | 编辑器没有这个属性                                                         |
+| spacing         | 编辑器没有这个“与标题的间距”这个属性，因为文本输入类控件的标题都设为“无标题”了 |
 | updatesEnabled  | 编辑器没有这个属性                                                         |
 | dragEnabled     | 编辑器没有这个属性                                                         |
 | acceptDrops     | 编辑器没有这个属性                                                         |

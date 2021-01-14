@@ -33,15 +33,16 @@ biForm 也可以使用 Qt 提供的一些特殊的对话框类，或者通过继
 
 biForm 中对话框控件分为以下几类：
 
-|                     类型                     |         类名          |              功能              |
-| -------------------------------------------- | --------------------- | ------------------------------ |
-| [选择项目](#对话框：选择项目)                  | DialogSelectItem      | 从数据库记录中选择一个或多个条目 |
-| [输入日期](#对话框：选择日期)                  | DialogSelectDate      | 供用户输入一个日期值            |
-| [输入时间](#对话框：选择时间)                  | DialogSelectTime      | 供用户输入一个时间值            |
-| [输入日期和时间](#对话框：选择日期时间)        | DialogSelectDateTime  | 供用户输入一个日期时间值        |
-| [输入日期范围](#对话框：选择日期范围)          | DialogSelectDate2     | 供用户输入一个日期范围          |
-| [输入时间范围](#对话框：选择时间范围)          | DialogSelectTime2     | 供用户输入一个时间范围          |
-| [输入日期和时间范围](#对话框：选择日期时间范围) | DialogSelectDateTime2 | 供用户输入一个日期和时间范围     |
+|                     类型                     |         类名          |                 功能                 |
+| -------------------------------------------- | --------------------- | ----------------------------------- |
+| [选择项目](#对话框：选择项目)                  | DialogSelectItem      | 从数据库记录中选择一个或多个条目       |
+| [搜索下拉列表项目](#对话框：搜索下拉列表项目)   | DialogComboSearch     | 在下拉列表框的列表中执行并选择一个条目 |
+| [输入日期](#对话框：选择日期)                  | DialogSelectDate      | 供用户输入一个日期值                  |
+| [输入时间](#对话框：选择时间)                  | DialogSelectTime      | 供用户输入一个时间值                  |
+| [输入日期和时间](#对话框：选择日期时间)        | DialogSelectDateTime  | 供用户输入一个日期时间值              |
+| [输入日期范围](#对话框：选择日期范围)          | DialogSelectDate2     | 供用户输入一个日期范围                |
+| [输入时间范围](#对话框：选择时间范围)          | DialogSelectTime2     | 供用户输入一个时间范围                |
+| [输入日期和时间范围](#对话框：选择日期时间范围) | DialogSelectDateTime2 | 供用户输入一个日期和时间范围          |
 
 ### 如何创建一个新的对话框
 
@@ -220,6 +221,45 @@ def buSelectPerson_clicked():
 | exec                | int exec()                                          | 执行这个对话框                                                               |
 | getSelectedItems    | QVariantList getSelectedItems()                     | 允许多选时，返回所有选中的项目的值                                             |
 | getSelectedItem     | QVariant getSelectedItem()                          | 返回所选的项目                                                               |
+
+## 对话框：搜索下拉列表项目
+
+[返回目录](#category)
+
+这个弹出对话框用于在一个下拉列表框控件的条目中进行搜索和选择。对应的类为 DialogComboSearch。从 PythonQt.private 模块中导入后就可以使用。
+
+![combosearch](2-32-12.png)
+
+假设我们现在表单上有一个下拉列表框，用于选择城市，名称为 combobox 。有时这种下拉列表框中的内容太多，我们就可以用这个弹出对话框对条目进行搜索，并返回选中的项目。
+
+我们就可以在合适的地方，用脚本来使用这个弹出对话框，在弹出对话框中双击选中的条目，或选择后点击“确定”完成选择。脚本如以下示例：
+
+``` Python
+
+>>> from PythonQt.private import DialogComboSearch
+>>> a=DialogComboSearch(this.combobox)
+>>> a.exec()
+1
+
+>>> a.getSelectedIndex()
+1
+
+>>> a.getSelectedItem()
+'上海'
+
+```
+
+这个对话框也可反复调用，或使用 setCombo 重新指定对应其它的下拉列表框控件。
+
+除了继承自 QDialog 的接口，选择项目对话框还提供以下调用接口：
+
+|       接口       |                调用方式                 |                              说明                              |
+| ---------------- | -------------------------------------- | ------------------------------------------------------------- |
+| execDialog       | int execDialog()                       | 执行这个对话框，等同于 exec()                                   |
+| exec             | int exec()                             | 执行这个对话框，点“取消”返回0，点“确定”返回1，直接关闭窗体，返回0 |
+| getSelectedItem  | QVariant getSelectedItem()             | 返回所有选中的条目的文本，未选择时返回空字符串                    |
+| getSelectedIndex | int getSelectedItem()                  | 返回所选的项目在下拉列表中的索引，从0开始，未选择时返回-1         |
+| setCombo         | void setCombo(comboBoxDelegate* combo) | 重新指定对应的下拉列表框控件                                    |
 
 ## 对话框：选择日期
 
