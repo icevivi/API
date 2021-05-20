@@ -20,7 +20,7 @@
 | [isModified](#isModified)                     | bool    | 可读 可写 | 是否被修改过                     |
 | [locationbarEnabled](#locationbarEnabled)     | bool    | 可读 可写 | 是否显示记录定位器               |
 | [mainTable](#mainTable)                       | QString | 可读      | 主表的表名                       |
-| [margin](#margin)                             | int     | 可读 可写 | 边界宽度                        |
+| [margin](#margin)                             | int     | 可读 可写 | 图片背景与边界的距离             |
 | [name](#name)                                 | QString | 可读      | 表单的名称                       |
 | [objectName](#objectName)                     | QString | 可读 可写 | 表单控件的对象名称               |
 | [printEnabled](#printEnabled)                 | bool    | 可读 可写 | 是否允许打印/打印预览            |
