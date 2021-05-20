@@ -40,7 +40,6 @@
 | --------------------------- | ------ | -------- | ----------------- |
 | alternateBaseColor          | QColor | 可读 可写 | 双行背景色        |
 | alternatingRowColors        | bool   | 可读 可写 | 单双行颜色不同     |
-| cellsBackground             | QColor | 可读 可写 | 单元格背景色       |
 | columnCount                 | int    | 可读 可写 | 列数              |
 | columnHeaderFont            | QFont  | 可读 可写 | 列标题字体        |
 | columnHeaderForegroundColor | QColor | 可读 可写 | 列标题前景色       |
@@ -63,6 +62,8 @@
 | rowHeaderVisible            | bool   | 可读 可写 | 行标题是否可见     |
 | rowResizeMode               | int    | 可读 可写 | 行高调整模式       |
 | selectionBehavior           | int    | 可读 可写 | 行列选择模式       |
+| selectionColor              | QColor | 可读 可写 | 被选中区域的前景色 |
+| selectionBackgroundColor    | QColor | 可读 可写 | 被选中区域的背景色 |
 | selectionMode               | int    | 可读 可写 | 选择区域模式       |
 | showGrid                    | bool   | 可读 可写 | 是否显示网格线     |
 | sortingEnabled              | bool   | 可读 可写 | 是否允许排序       |
@@ -70,6 +71,8 @@
 | stretchLastRow              | bool   | 可读 可写 | 是否最后行自动扩展 |
 | verticalScrollBarPolicy     | int    | 可读 可写 | 垂直滚动条显示规则 |
 | wordwrap                    | bool   | 可读 可写 | 是否自动换行       |
+
+
 
 - ### 属性：alternatingRowColors （类型：bool 可读 可写）
 
@@ -92,18 +95,6 @@
 | ---- | -------------------------------------------------------------------- |
 | 读取 | QColor alternateBaseColor() const                                    |
 | 修改 | void setAlternateBaseColor( const QColor &alternateBaseColor ) const |
-
-- ### 属性：cellsBackground （类型：QColor 可读 可写）
-
-[返回目录](#category)
-
-单元格背景色。
-
-|      |                       调用方法                       |
-| ---- | --------------------------------------------------- |
-| 读取 | QColor cellsBackground() const                      |
-| 修改 | void setCellsBackground( const QColor &color) const |
-
 
 - ### 属性：columnCount （类型：int 可读 可写）
 
@@ -371,6 +362,28 @@
 |      | pub.SELECT_ITEMS 选择单元格                               |
 |      | pub.SELECT_ROWS 选择行                                   |
 |      | pub.SELECT_COLUMNS 选择列                                |
+
+- ### 属性：selectionColor （类型：QColor 可读 可写）
+
+[返回目录](#category)
+
+被选中区域的前景色。
+
+|      |                       调用方法                       |
+| ---- | --------------------------------------------------- |
+| 读取 | QColor selectionColor() const                       |
+| 修改 | void setSelectionColor( const QColor& color ) const |
+
+- ### 属性：selectionBackgroundColor （类型：QColor 可读 可写）
+
+[返回目录](#category)
+
+被选中区域的背景色。
+
+|      |                            调用方法                            |
+| ---- | ------------------------------------------------------------- |
+| 读取 | QColor selectionBackgroundColor() const                       |
+| 修改 | void setSelectionBackgroundColor( const QColor& color ) const |
 
 - ### 属性：selectionMode （类型：int 可读 可写）
 
