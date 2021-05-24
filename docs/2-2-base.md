@@ -534,12 +534,12 @@ PDF打印时是否显示。
 | [grab](#grab)                         | QPixmap grab() const                           | 截取控件图像          |
 | [hide](#hide)                         | void hide() const                              | 隐藏                 |
 | [hideBalloon](#hideBalloon)           | void hideBalloon() const                       | 隐藏汽泡控件          |
-| [isNull](#isNull)                     | bool isNull() const                            | 是否为空             |
+| [isNull](#isNull)                     | bool isNull() const                            | 是否为空              |
 | [killAllTimer](#killAllTimer)         | void killAllTimer() const                      | 关闭所有定时器        |
 | [killTimer](#killTimer)               | bool killTimer ( int id ) const                | 关闭指定的定时器      |
-| [lower](#lower)                       | void lower() const                             | 置于底层             |
-| [quitFullScreen](#quitFullScreen)     | void quitFullScreen()                          | 退出全屏             |
-| [raise](#raise)                       | void raise() const                             | 置于顶层             |
+| [lower](#lower)                       | void lower() const                             | 置于底层              |
+| [quitFullScreen](#quitFullScreen)     | void quitFullScreen()                          | 退出全屏              |
+| [raiseToTop](#raiseToTop)             | void raiseToTop() const                        | 置于顶层              |
 | [repaint](#repaint)                   | void repaint()                                 | 重画画               |
 | [setDisabled](#setDisabled)           | void setDisabled(bool disabled) const          | 设置可用状态          |
 | [setFullScreen](#setFullScreen)       | void setFullScreen()                           | 全屏                 |
@@ -551,8 +551,8 @@ PDF打印时是否显示。
 | [startSingleShot](#startSingleShot)   | void startSingleShot ( int interval ) const    | 启动单次定时器        |
 | [startTimer](#startTimer)             | int startTimer ( int interval ) const          | 启动一个新的定时器     |
 | [timers](#timers)                     | QStringList timers() const                     | 所有定时器的标识号清单 |
-| [toBottom](#toBottom)                 | void toBottom() const                          | 置于底层             |
-| [toTop](#toTop)                       | void toTop() const                             | 置于顶层             |
+| [toBottom](#toBottom)                 | void toBottom() const                          | 置于底层              |
+| [toTop](#toTop)                       | void toTop() const                             | 置于顶层              |
 
 - ### grab
 
@@ -632,7 +632,7 @@ PDF打印时是否显示。
 
 [返回目录](#category)
 
-将这个控件提升到同一级控件中最前端，它会显示在最前端。同 raise() 是一样的效果。
+将这个控件提升到同一级控件中最前端，它会显示在最前端。同 raiseToTop() 是一样的效果。
 
 - ### toBottom
 
@@ -642,9 +642,9 @@ PDF打印时是否显示。
 
 将这个控件置于同一级控件中最底层，它会显示在其它控件最后面。同 lower() 是一样的效果。
 
-- ### raise
+- ### raiseToTop
 
-调用方法：void raise() const
+调用方法：void raiseToTop() const
 
 [返回目录](#category)
 
