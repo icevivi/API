@@ -8,7 +8,7 @@ biForm 和 biReader 基于 Qt5 和 Python3 进行开发，也使用到一些其�
 | ----------------- | ------- | ------------------------------------------------------ | ------------------------------- |
 | Qt                | 5.11.1  | [LGPL V3协议](LICENSE_LGPL)                            | [Qt](6-2-qt)                    |
 | Qt                | 5.12.10 | [LGPL V3协议](LICENSE_LGPL)                            | [Qt](6-2-qt)                    |
-| Python            | 3.6.5   | [LGPL V3协议](LICENSE_LGPL)                            |                                 |
+| Python            | 3.6.5   | [PSF](LICENSE_python.md)                               |                                 |
 | QScintilla        |         | 商业协议                                               |                                 |
 | PythonQt          |         | [LGPL V2.1协议](COPYING_pythonqt)                      |                                 |
 | Python第三方库     |         | 多种协议                                               | [python第三方库](6-3-python)     |
