@@ -70,9 +70,9 @@ this.label.showBalloon('这是一个标签控件')
 | rect                | QRect    | 只读      | 边框矩形尺寸              |
 | reloadWhenCreateNew | bool     | 可读 可写 | 表单新建时是否重新加载     |
 | showBorder          | bool     | 可读 可写 | 是否显示边框              |
-| showOnForm          | bool     | 可读 可写 | 表单上是否可见            |
-| showOnPDF           | bool     | 可读 可写 | PDF输出时是否可见         |
-| showWhenPrint       | bool     | 可读 可写 | 打印时是否可见            |
+| visibleOnForm       | bool     | 可读 可写 | 表单上是否可见            |
+| visibleOnPDF        | bool     | 可读 可写 | PDF输出时是否可见         |
+| visibleWhenPrint    | bool     | 可读 可写 | 打印时是否可见            |
 | size                | QSize    | 可读 可写 | 尺寸                     |
 | statusTip           | QString  | 可读 可写 | 状态栏提示文本            |
 | tabOrder            | int      | 只读      | tab键顺序                 |
@@ -383,7 +383,7 @@ this.label.showBalloon('这是一个标签控件')
 |读取|bool visible() const|
 |修改|void setVisible(bool visible) const|
 
-- ### 属性：showOnForm （类型：bool 可读 可写）
+- ### 属性：visibleOnForm （类型：bool 可读 可写）
 
 [返回目录](#category)
 
@@ -391,30 +391,30 @@ this.label.showBalloon('这是一个标签控件')
 
 | |调用方法|
 | - | - |
-|读取|bool showOnForm() const|
-|修改|void setShowOnForm(bool show) const|
+|读取|bool visibleOnForm() const|
+|修改|void setVisibleOnForm(bool show) const|
 
-- ### 属性：showOnPDF （类型：bool 可读 可写）
+- ### 属性：visibleOnPDF （类型：bool 可读 可写）
 
 [返回目录](#category)
 
 PDF打印时是否显示。
 
-| |调用方法|
-| - | - |
-|读取|bool showOnPDF() const|
-|修改|void setShowOnPDF(bool show) const|
+|      |                调用方法                |
+| ---- | ------------------------------------- |
+| 读取 | bool visibleOnPDF() const             |
+| 修改 | void setVisibleOnPDF(bool show) const |
 
-- ### 属性：showWhenPrint （类型：bool 可读 可写）
+- ### 属性：visibleWhenPrint （类型：bool 可读 可写）
 
 [返回目录](#category)
 
 打印机打印时是否显示。
 
-| |调用方法|
-| - | - |
-|读取|bool showWhenPrint() const|
-|修改|void setShowWhenPrint(bool show) const|
+|      |                  调用方法                  |
+| ---- | ----------------------------------------- |
+| 读取 | bool visibleWhenPrint() const             |
+| 修改 | void setVisibleWhenPrint(bool show) const |
 
 - ### 属性：focus （类型：bool 可读 可写）
 
