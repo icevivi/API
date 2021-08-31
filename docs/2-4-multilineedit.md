@@ -66,7 +66,7 @@
 | shadow                | int                      | 可读 可写 | 文本输入框边框特效样式                |
 | spacing               | int                      | 可读 可写 | 标题和编辑器的间距                    |
 | tabChangesFocus       | bool                     | 可读 可写 | 按TAB是否切换控件焦点                 |
-| tabStopDistance       | qreal                    | 可读 可写 | TAB符宽度                            |
+| tabStopDistance       | double                   | 可读 可写 | TAB符宽度                            |
 | textInteractionFlags  | Qt.TextInteractionFlags  | 可读 可写 | 文本交互模式                         |
 | undoRedoEnabled       | bool                     | 可读 可写 | 是否允许UNDO REDO                    |
 | wordWrapMode          | int                      | 可读 可写 | 文本输入框单词换行模式                |
@@ -370,14 +370,14 @@ this.textedit.caption('备注')
 | 读取 | bool tabChangesFocus() const               |
 | 修改 | void setTabChangesFocus( bool set )  const |
 
-- ### tabStopDistance （类型：qreal 可读 可写）
+- ### tabStopDistance （类型：double 可读 可写）
 
 TAB键宽度（像素值），缺省为80像素。
 
-|      |                  调用方法                  |
-| ---- | ------------------------------------------ |
-| 读取 | qreal tabStopDistance() const              |
-| 修改 | void setTabStopDistance( qreal set ) const |
+|      |                   调用方法                   |
+| ---- | ------------------------------------------- |
+| 读取 | double tabStopDistance() const              |
+| 修改 | void setTabStopDistance( double set ) const |
 
 - ### textInteractionFlags（类型：Qt.TextInteractionFlags 可读 可写）
 
@@ -467,7 +467,7 @@ TAB键宽度（像素值），缺省为80像素。
 |                           | 　　　　,QTextDocument.FindFlags options = QTextDocument.FindFlags())       |                                |
 | fontFamily                | QString fontFamily() const                                                  | 当前格式使用的字体集            |
 | fontItalic                | bool fontItalic() const                                                     | 当前格式是否使用斜体            |
-| fontPointSize             | qreal fontPointSize() const                                                 | 当前格式使用的字号              |
+| fontPointSize             | double fontPointSize() const                                                | 当前格式使用的字号              |
 | fontUnderline             | bool fontUnderline() const                                                  | 当前格式是否使用下划线          |
 | fontWeight                | int fontWeight() const                                                      | 当前格式的加粗程度              |
 | loadResource              | QVariant loadResource(int type, const QUrl &name)                           | 从URL加载内容                  |
@@ -489,7 +489,7 @@ TAB键宽度（像素值），缺省为80像素。
 | setCurrentFont            | void setCurrentFont(const QFont &font ) const                               | 设置当前格式的字体              |
 | setFontFamily             | void setFontFamily(const QString &fontFamily)                               | 设置当前格式的字体集            |
 | setFontItalic             | void setFontItalic(bool italic)                                             | 设置当前格式的字体是否使用斜体   |
-| setFontPointSize          | void setFontPointSize(qreal s)                                              | 设置当前格式的字号              |
+| setFontPointSize          | void setFontPointSize(double s)                                             | 设置当前格式的字号              |
 | setFontUnderline          | void setFontUnderline(bool underline)                                       | 设置当前格式的字体下划线        |
 | setFontWeight             | void setFontWeight(int weight)                                              | 设置当前格式的字体加粗程度       |
 | setTextBackgroundColor    | void setTextBackgroundColor(const QColor &c)                                | 设置当前格式的背景颜色          |
