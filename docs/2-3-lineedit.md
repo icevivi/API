@@ -51,7 +51,7 @@
 | editorHAlign      | int     | 可读 可写 | 编辑器水平对齐方式 |
 | editorVAlign      | int     | 可读 可写 | 编辑器垂直对齐方式 |
 | inputMask         | QString | 可读 可写 | 输入掩码          |
-| isPWD             | bool    | 可读 可写 | 是否显示密码格式   |
+| isPasswordMode    | bool    | 可读 可写 | 是否显示密码格式   |
 | margin            | int     | 可读 可写 | 边界宽度          |
 | maxLength         | int     | 可读 可写 | 输入文字最大长度   |
 | readOnly          | bool    | 可读 可写 | 是否只读          |
@@ -223,16 +223,16 @@
 | 读取 | int margin() const                 |
 | 修改 | void setMargin( int margin ) const |
 
-- ### 属性：isPWD （类型：bool 可读 可写）
+- ### 属性：isPasswordMode （类型：bool 可读 可写）
 
 [返回目录](#category)
 
 是否是密码输入控件。密码输入控件会显示特殊字符替代输入的文字。
 
-|      |              调用方法              |
-| ---- | --------------------------------- |
-| 读取 | bool isPWD() const                |
-| 修改 | void setIsPWD( bool isPWD ) const |
+|      |                调用方法                |
+| ---- | ------------------------------------- |
+| 读取 | bool isPasswordMode() const           |
+| 修改 | void setPasswordMode( bool on ) const |
 
 - ### 属性：inputMask （类型：QString 可读 可写）
 
@@ -320,7 +320,7 @@
 | undo                | void undo()  const                                                | 撤消上一步操作                                                                                                             |
 | selectAll           | void selectAll() const                                            | 选择所有文本                                                                                                               |
 | setText             | void setText ( const QString & text ) const                       | 设置输入框内的文本                                                                                                         |
-| setIsPWD            | void setIsPWD(bool isPWD) const                                   | 设置是否显示密码                                                                                                           |
+| setPasswordMode     | void setPasswordMode(bool on) const                               | 设置是否显示密码                                                                                                           |
 | setDefaultVal       | void setDefaultVal(const QString &text) const                     | 设置缺省值                                                                                                                 |
 | setInputMask        | void setInputMask(const QString &mask) const                      | 设置输入掩码                                                                                                               |
 | setEditorVAlign     | void setEditorVAlign(int valign) const                            | 设置编辑器垂直方向对齐方式                                                                                                  |

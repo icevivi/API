@@ -75,10 +75,10 @@
 
 是否使用圆角。
 
-|      |                      调用方法                      |
-| ---- | ------------------------------------------------- |
-| 读取 | bool isRoundCorner() const                        |
-| 修改 | void setIsRoundCorner( bool isRoundCorner ) const |
+|      |                     调用方法                     |
+| ---- | ----------------------------------------------- |
+| 读取 | bool isRoundCorner() const                      |
+| 修改 | void setRoundCorner( bool isRoundCorner ) const |
 
 ---
 
