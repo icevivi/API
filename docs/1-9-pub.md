@@ -1242,6 +1242,28 @@ args 用来传递一些数据给需要打开的表单，在表单中可以通过
 
 [返回目录](#category)
 
+#### applicationName
+
+调用接口：QString applicationName() const
+
+返回当前正在使用的应用程序名称。
+
+|   内容   | 名称 | 数据类型 |    说明     |
+| ------- | ---- | ------- | ----------- |
+| 传入参数 | 无   |         |             |
+| 返回值   |      | QString | 应用程序名称 |
+
+#### applicationVersion
+
+调用接口：QString applicationVersion() const
+
+返回当前正在使用的应用程序的版本号。
+
+|   内容   | 名称 | 数据类型 |     说明      |
+| ------- | ---- | ------- | ------------- |
+| 传入参数 | 无   |         |               |
+| 返回值   |      | QString | 应用程序版本号 |
+
 #### applicationDirPath
 
 调用接口：QString applicationDirPath() const
@@ -1252,6 +1274,17 @@ args 用来传递一些数据给需要打开的表单，在表单中可以通过
 | ------- | ---- | ------- | --------------- |
 | 传入参数 | 无   |         |                 |
 | 返回值   |      | QString | 应用程序所在目录 |
+
+#### machineID
+
+调用接口：QString machineID() const
+
+返回机器的唯一ID。
+
+|   内容   | 名称 | 数据类型 |     说明     |
+| ------- | ---- | ------- | ----------- |
+| 传入参数 | 无   |         |             |
+| 返回值   |      | QString | 机器的唯一ID |
 
 #### showWaitCursor
 
