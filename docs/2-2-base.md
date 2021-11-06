@@ -529,30 +529,39 @@ PDF打印时是否显示。
 
 成员函数在 biForm 中都可以当做槽函数使用。
 
-|                 函数                  |                      接口                      |         说明         |
-| ------------------------------------- | ---------------------------------------------- | -------------------- |
-| [grab](#grab)                         | QPixmap grab() const                           | 截取控件图像          |
-| [hide](#hide)                         | void hide() const                              | 隐藏                 |
-| [hideBalloon](#hideBalloon)           | void hideBalloon() const                       | 隐藏汽泡控件          |
-| [isNull](#isNull)                     | bool isNull() const                            | 是否为空              |
-| [killAllTimer](#killAllTimer)         | void killAllTimer() const                      | 关闭所有定时器        |
-| [killTimer](#killTimer)               | bool killTimer ( int id ) const                | 关闭指定的定时器      |
-| [lower](#lower)                       | void lower() const                             | 置于底层              |
-| [quitFullScreen](#quitFullScreen)     | void quitFullScreen()                          | 退出全屏              |
-| [raiseToTop](#raiseToTop)             | void raiseToTop() const                        | 置于顶层              |
-| [repaint](#repaint)                   | void repaint()                                 | 重画画               |
-| [setDisabled](#setDisabled)           | void setDisabled(bool disabled) const          | 设置可用状态          |
-| [setFullScreen](#setFullScreen)       | void setFullScreen()                           | 全屏                 |
-| [setSizePolicy](#setSizePolicy)       | void setSizePolicy(QSizePolicy policy) const   | 设置尺寸缩放规则      |
-| [setStyleSheet](#setStyleSheet)       | setStyleSheet(const QString& styleSheet) const | 设置样式表            |
-| [show](#show)                         | void show() const                              | 显示                 |
-| [showBalloon](#showBalloon)           | void showBalloon(const QString& msg) const     | 显示汽泡提示文本      |
-| [showValidBalloon](#showValidBalloon) | void showValidBalloon() const                  | 显示有效性汽泡提示     |
-| [startSingleShot](#startSingleShot)   | void startSingleShot ( int interval ) const    | 启动单次定时器        |
-| [startTimer](#startTimer)             | int startTimer ( int interval ) const          | 启动一个新的定时器     |
-| [timers](#timers)                     | QStringList timers() const                     | 所有定时器的标识号清单 |
-| [toBottom](#toBottom)                 | void toBottom() const                          | 置于底层              |
-| [toTop](#toTop)                       | void toTop() const                             | 置于顶层              |
+|                  函数                  |                      接口                      |           说明           |
+| ------------------------------------- | ---------------------------------------------- | ------------------------ |
+| [baseMetaObject](#baseMetaObject)     | QMetaObject* baseMetaObject() const;	         | 返回基类对象的QMetaObject |
+| [grab](#grab)                         | QPixmap grab() const                           | 截取控件图像              |
+| [hide](#hide)                         | void hide() const                              | 隐藏                     |
+| [hideBalloon](#hideBalloon)           | void hideBalloon() const                       | 隐藏汽泡控件              |
+| [isNull](#isNull)                     | bool isNull() const                            | 是否为空                  |
+| [killAllTimer](#killAllTimer)         | void killAllTimer() const                      | 关闭所有定时器            |
+| [killTimer](#killTimer)               | bool killTimer ( int id ) const                | 关闭指定的定时器          |
+| [lower](#lower)                       | void lower() const                             | 置于底层                  |
+| [quitFullScreen](#quitFullScreen)     | void quitFullScreen()                          | 退出全屏                  |
+| [raiseToTop](#raiseToTop)             | void raiseToTop() const                        | 置于顶层                  |
+| [repaint](#repaint)                   | void repaint()                                 | 重画画                   |
+| [setDisabled](#setDisabled)           | void setDisabled(bool disabled) const          | 设置可用状态              |
+| [setFullScreen](#setFullScreen)       | void setFullScreen()                           | 全屏                     |
+| [setSizePolicy](#setSizePolicy)       | void setSizePolicy(QSizePolicy policy) const   | 设置尺寸缩放规则          |
+| [setStyleSheet](#setStyleSheet)       | setStyleSheet(const QString& styleSheet) const | 设置样式表                |
+| [show](#show)                         | void show() const                              | 显示                     |
+| [showBalloon](#showBalloon)           | void showBalloon(const QString& msg) const     | 显示汽泡提示文本          |
+| [showValidBalloon](#showValidBalloon) | void showValidBalloon() const                  | 显示有效性汽泡提示        |
+| [startSingleShot](#startSingleShot)   | void startSingleShot ( int interval ) const    | 启动单次定时器            |
+| [startTimer](#startTimer)             | int startTimer ( int interval ) const          | 启动一个新的定时器        |
+| [timers](#timers)                     | QStringList timers() const                     | 所有定时器的标识号清单     |
+| [toBottom](#toBottom)                 | void toBottom() const                          | 置于底层                  |
+| [toTop](#toTop)                       | void toTop() const                             | 置于顶层                  |
+
+- ### baseMetaObject
+
+调用方法：QMetaObject* baseMetaObject() const;
+
+[返回目录](#category)
+
+返回 widgetDelegateBase 类的 metaObject ，而不是子类的 metaObject 。以便可以通过 QMetaObject 类提供的接口，读取 widgetDelegateBase 包含的属性、方法、枚举等接口。
 
 - ### grab
 

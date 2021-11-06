@@ -6,8 +6,11 @@ pub对象是 biForm/biReader 内置的一个特殊的对象，提供一些常用
 
 <h2 id="category">目录</h2>
 
+- [枚举类型](#枚举类型)
 - [属性（常量）](#属性)
-
+ - [常用颜色](#属性：常用颜色)
+ - [标准按钮](#属性：标准按钮)
+ - [条码类型](#属性：条码类型)
 - [成员函数](#成员函数)
  - [系统选项类](#成员函数：系统选项类)
  - [日期时间类](#成员函数：日期时间类)
@@ -18,10 +21,262 @@ pub对象是 biForm/biReader 内置的一个特殊的对象，提供一些常用
  - [登录账号](#成员函数：登录账号)
  - [控件相关](#成员函数：控件相关)
  - [其它](#成员函数：其它)
-
 - [信号](#信号)
 
 ---
+## 枚举类型
+
+[返回目录](#category)
+
+### 尺寸适应规则(SizePolicy)
+
+等同于 QSizePolicy::Policy，放在pub类中方便调用。
+
+|     枚举变量      |                       说明                        |
+| ---------------- | ------------------------------------------------ |
+| FIXEDSIZE        | 尺寸适应规则：固定                                 |
+| MINIMUM          | 尺寸适应规则：不能小于缺省尺寸                     |
+| MAXIMUM          | 尺寸适应规则：不能大于缺省尺寸                     |
+| PREFERRED        | 尺寸适应规则：缺省尺寸是最佳效果                    |
+| EXPANDING        | 尺寸适应规则：尽可能扩展                           |
+| MINIMUMEXPANDING | 尺寸适应规则：缺省尺寸是最小值，在此基础上尽可能扩展 |
+| IGNORED          | 尺寸适应规则：缺省尺寸将被忽略，尽可能扩展          |
+
+### 校验器校验结果(ValidateState)
+
+等同于 QValidator::State ，放在pub对象中方便调用。
+
+|   枚举变量    |            说明            |
+| ------------ | -------------------------- |
+| INVALID      | 校验结果：不合法            |
+| INTERMEDIATE | 校验结果：超出范围或格式有误 |
+| ACCEPTABLE   | 校验结果：可接受的合法的输入 |
+
+### 表单状态(FormState)
+
+|        枚举变量         |           说明           |
+| ---------------------- | ------------------------ |
+| ERRSTATE               | 表单状态：错误            |
+| UNSAVED_BLANK_NEW_FORM | 表单状态：未保存的空白表单 |
+| SAVED_FORM             | 表单状态：保存的表单       |
+| QUERY_RESULT           | 表单状态：查询结果        |
+
+### 背景填充类型(FillStyles)
+
+| 枚举变量 | 说明 |
+| ------- | ---- |
+| TRANSPARENT_BACKGROUND           | 背景填充类型：透明背景              |
+| FILLED_BACKGROUND                | 背景填充类型：填充                  |
+
+### 标题位置(CaptionPosition)
+
+|             枚举变量              |              说明               |
+| -------------------------------- | ------------------------------- |
+| ATLEFT                           | 标题位置：左侧                   |
+| ATRIGHT                          | 标题位置：右侧                   |
+| ATTOP                            | 标题位置：上方                   |
+| ATBOTTOM                         | 标题位置：下方                   |
+| NOCAPTION                        | 标题位置：无标题                 |
+
+### 输入框边框类型(BorderStyle)
+
+|             枚举变量              |              说明               |
+| -------------------------------- | ------------------------------- |
+| RECTANGLE                        | 输入框边框类型：矩形边框         |
+| NOFRAME                          | 输入框边框类型：没有边框         |
+| UNDERLINE                        | 输入框边框类型：下划线           |
+
+### 对齐方式(AlignmentFlag)
+
+|   枚举变量    |         说明          |
+| ------------ | -------------------- |
+| ALIGNLEFT    | 水平对齐方式：靠左     |
+| ALIGNRIGHT   | 水平对齐方式：靠右     |
+| ALIGNHCENTER | 水平对齐方式：居中     |
+| ALIGNJUSTIFY | 水平对齐方式：分散对齐 |
+| ALIGNTOP     | 垂直对齐方式：靠上     |
+| ALIGNBOTTOM  | 垂直对齐方式：靠下     |
+| ALIGNVCENTER | 垂直对齐方式：居中     |
+
+### 边框阴影样式(FrameShadow)
+
+同于 QFrame::Shadow，放在pub对象中方便调用。
+
+| 枚举变量 |     说明      |
+| ------- | ------------- |
+| PLAIN   | 边框样式：平的 |
+| RAISED  | 边框样式：上凸 |
+| SUNKEN  | 边框样式：下陷 |
+
+### 方向(Orientation)
+
+|             枚举变量              |              说明               |
+| -------------------------------- | ------------------------------- |
+| HORIZONTAL                       | 直线方向：水平                   |
+| VERTICAL                         | 直线方向：垂直                   |
+
+### 线型(PenStyle)
+
+|             枚举变量              |              说明               |
+| -------------------------------- | ------------------------------- |
+| NOPEN                            | 线型：无                        |
+| SOLIDLINE                        | 线型：实线                      |
+| DASHLINE                         | 线型：破折线                     |
+| DOTLINE                          | 线型：点划线                     |
+| DASHDOTLINE                      | 线型：破折-点线                  |
+| DASHDOTDOTLINE                   | 线型：破折-点-点线               |
+
+### 列宽模式/行高模式(HeaderResizeMode)
+
+|     枚举变量      |              说明               |
+| ---------------- | ------------------------------- |
+| INTERACTIVE      | 列宽模式/行高模式：用户可调       |
+| FIXED            | 列宽模式/行高模式：固定大小       |
+| STRETCH          | 列宽模式/行高模式：内容自动拉伸   |
+| RESIZETOCONTENTS | 列宽模式/行高模式：按内容调整大小 |
+
+### 换行模式(WrapMode)
+
+同于 QTextOption::WrapMode，放在pub对象中方便调用。
+
+|             枚举变量              |            说明            |
+| -------------------------------- | -------------------------- |
+| NOWRAP                           | 换行模式：不换行            |
+| WORD_WRAP                        | 换行模式：换单词换行        |
+| MANUAL_WRAP                      | 换行模式：手动换行          |
+| WRAP_ANYWHERE                    | 换行模式：随时换行          |
+| WRAP_ATWORD_BOUNDARY_OR_ANYWHERE | 换行模式：单词边界或随时换行 |
+
+### 背景图片填充方式(BackgroundImageFillType)
+
+|       枚举变量        |                说明                |
+| -------------------- | --------------------------------- |
+| TEXTURE_BACKGROUND   | 背景图片填充方式：连续填充          |
+| LEFTTOP_CORNER       | 背景图片填充方式：左上角            |
+| RIGHTTOP_CORNER      | 背景图片填充方式：右上角            |
+| LEFTBOTTOM_CORNER    | 背景图片填充方式：左下角            |
+| RIGHTBOTTOM_CORNER   | 背景图片填充方式：右下角            |
+| IMAGE_CENTER         | 背景图片填充方式：居中              |
+
+### 图片填充类型(FillStyles)
+
+| 枚举变量 | 说明 |
+| ------- | ---- |
+| NOT_SCALED           | 图片填充类型：保持原样              |
+| SCALED_CONTENTS      | 图片填充类型：缩放图片              |
+| TEXTURE_IMAGE        | 图片填充类型：连续填充              |
+
+### 表格选择区域模式(SelectionMode)
+
+等同于QAbstractItemView::SelectionMode，放在pub对象中方便调用。
+
+| 枚举变量 | 说明 |
+| ------- | ---- |
+| SINGLE_SELECTION     | 表格选择区域模式：只允许选择一个对象 |
+| CONTIGUOUS_SELECTION | 表格选择区域模式：选择连续区域       |
+| EXTENDED_SELECTION   | 表格选择区域模式：扩展选择          |
+| MULTI_SELECTION      | 表格选择区域模式：允许选择多个对象   |
+| NO_SELECTION         | 表格选择区域模式：不允许选择        |
+
+### 表格行列选择模式(SelectionBehavior)
+
+等同于QAbstractItemView::SelectionBehavior，放在pub对象中方便调用。
+
+|    枚举变量     |            说明            |
+| -------------- | -------------------------- |
+| SELECT_ITEMS   | 表格行列选择模式：选择单元格 |
+| SELECT_ROWS    | 表格行列选择模式：选择行     |
+| SELECT_COLUMNS | 表格行列选择模式：选择列     |
+
+### 滚动条显示模式(ScrollBarPolicy)
+
+等同于 Qt::ScrollBarPolicy ，放在pub对象中方便调用。
+
+|       枚举变量        |           说明           |
+| -------------------- | ------------------------ |
+| SCROLLBAR_AS_NEEDED  | 滚动条显示模式：需要时显示 |
+| SCROLLBAR_ALWAYS_OFF | 滚动条显示模式：一直隐藏   |
+| SCROLLBAR_ALWAYS_ON  | 滚动条显示模式：一直显示   |
+
+### 勾选状态(CheckState)
+
+等同于 Qt::CheckState，放在pub对象中方便调用。
+
+|     枚举变量      |       说明        |
+| ---------------- | ----------------- |
+| UNCHECKED        | 勾选状态：未选中   |
+| PARTIALLYCHECKED | 勾选状态：部分选中 |
+| CHECKED          | 勾选状态：选中     |
+
+### QRCode纠错级别(BarcodeECLevel)
+
+条码控件使用。用于设置 qrcode 的纠错级别。
+
+|     枚举变量     |             说明             |
+| --------------- | ---------------------------- |
+| ECLEVEL_LOW     | QRCode纠错级别：低(7%)        |
+| ECLEVEL_MEDIUM  | QRCode纠错级别：中(15%)       |
+| ECLEVEL_QUARTIL | QRCode纠错级别：四分之一(25%) |
+| ECLEVEL_HIGH    | QRCode纠错级别：高(30%)       |
+
+### DATAMATRIX数据模式(BarcodeDataMode)
+
+条码控件使用。用于设置 datamatrix 的数据模式。
+
+|     枚举变量      |              说明              |
+| ---------------- | ------------------------------ |
+| DATA_MODE_ALNUM  | DATAMATRIX数据模式：全字母      |
+| DATA_MODE_DIGITS | DATAMATRIX数据模式：数字        |
+| DATA_MODE_8BITS  | DATAMATRIX数据模式：8bits       |
+
+### DATAMATRIX行列数(BarcodeDataMatrixSize)
+
+条码控件使用。用于设置 datamatrix 的行列数。
+
+|    枚举变量    |              说明              |
+| ------------- | ------------------------------ |
+| DM_AUTOSIZE   | DATAMATRIX行列数：自动计算尺寸   |
+| DM_SIZE_10    | DATAMATRIX行列数：10行 * 10列   |
+| DM_SIZE_12    | DATAMATRIX行列数：12行 * 12列   |
+| DM_SIZE_14    | DATAMATRIX行列数：14行 * 14列   |
+| DM_SIZE_16    | DATAMATRIX行列数：16行 * 16列   |
+| DM_SIZE_18    | DATAMATRIX行列数：18行 * 18列   |
+| DM_SIZE_20    | DATAMATRIX行列数：20行 * 20列   |
+| DM_SIZE_22    | DATAMATRIX行列数：22行 * 22列   |
+| DM_SIZE_24    | DATAMATRIX行列数：24行 * 24列   |
+| DM_SIZE_26    | DATAMATRIX行列数：26行 * 26列   |
+| DM_SIZE_32    | DATAMATRIX行列数：32行 * 32列   |
+| DM_SIZE_36    | DATAMATRIX行列数：36行 * 36列   |
+| DM_SIZE_40    | DATAMATRIX行列数：40行 * 40列   |
+| DM_SIZE_44    | DATAMATRIX行列数：44行 * 44列   |
+| DM_SIZE_48    | DATAMATRIX行列数：48行 * 48列   |
+| DM_SIZE_52    | DATAMATRIX行列数：52行 * 52列   |
+| DM_SIZE_64    | DATAMATRIX行列数：64行 * 64列   |
+| DM_SIZE_72    | DATAMATRIX行列数：72行 * 72列   |
+| DM_SIZE_80    | DATAMATRIX行列数：80行 * 80列   |
+| DM_SIZE_88    | DATAMATRIX行列数：88行 * 88列   |
+| DM_SIZE_96    | DATAMATRIX行列数：96行 * 96列   |
+| DM_SIZE_104   | DATAMATRIX行列数：104行 * 104列 |
+| DM_SIZE_120   | DATAMATRIX行列数：120行 * 120列 |
+| DM_SIZE_132   | DATAMATRIX行列数：132行 * 132列 |
+| DM_SIZE_144   | DATAMATRIX行列数：144行 * 144列 |
+| DM_SIZE_8_18  | DATAMATRIX行列数：8行 * 18列    |
+| DM_SIZE_8_32  | DATAMATRIX行列数：8行 * 32列    |
+| DM_SIZE_12_26 | DATAMATRIX行列数：12行 * 26列   |
+| DM_SIZE_12_36 | DATAMATRIX行列数：12行 * 36列   |
+| DM_SIZE_16_36 | DATAMATRIX行列数：16行 * 36列   |
+| DM_SIZE_16_48 | DATAMATRIX行列数：16行 * 48列   |
+
+### CODE128字符集(BarcodeCharSet128)
+
+条码控件使用，用于设置 code128 的字符集。
+
+|   枚举变量    |         说明          |
+| ------------ | --------------------- |
+| CHARSET_AUTO | CODE128字符集：自动    |
+| CHARSET_A    | CODE128字符集：字符集A |
+| CHARSET_B    | CODE128字符集：字符集B |
+| CHARSET_C    | CODE128字符集：字符集C |
 
 ## 属性
 
@@ -29,163 +284,72 @@ pub对象是 biForm/biReader 内置的一个特殊的对象，提供一些常用
 
 pub的属性除 objectName 之外，其实都是一些常量，通常用在一些标准控件和内置对象的接口中。使用 ```pub.GREEN``` 这样的方式就可以调用。
 
-|               属性               | 值类型  | 读写类型  |                说明                |
-| -------------------------------- | ------- | -------- | --------------------------------- |
-| objectName                       | QString | 可读 可写 | 对象名称                           |
-| GREEN                            | QColor  | 可读      | 绿色                               |
-| RED                              | QColor  | 可读      | 红色                               |
-| BLUE                             | QColor  | 可读      | 蓝色                               |
-| WHITE                            | QColor  | 可读      | 白色                               |
-| BLACK                            | QColor  | 可读      | 黑色                               |
-| DARKRED                          | QColor  | 可读      | 深红                               |
-| DARKGREEN                        | QColor  | 可读      | 深绿                               |
-| DARKBLUE                         | QColor  | 可读      | 深蓝                               |
-| CYAN                             | QColor  | 可读      | 青色                               |
-| DARKCYAN                         | QColor  | 可读      | 深青色                             |
-| MAGENTA                          | QColor  | 可读      | 品红                               |
-| DARKMAGENTA                      | QColor  | 可读      | 深品红                             |
-| YELLOW                           | QColor  | 可读      | 黄色                               |
-| DARKYELLOW                       | QColor  | 可读      | 深黄色                             |
-| GRAY                             | QColor  | 可读      | 灰色                               |
-| DARKGRAY                         | QColor  | 可读      | 深灰色                             |
-| LIGHTGRAY                        | QColor  | 可读      | 浅灰色                             |
-| INVALID                          | int     | 可读      | 校验结果：不合法                    |
-| INTERMEDIATE                     | int     | 可读      | 校验结果：超出范围或格式有误        |
-| ACCEPTABLE                       | int     | 可读      | 校验结果：可接受的合法的输入        |
-| ERRSTATE                         | int     | 可读      | 表单状态：错误                     |
-| UNSAVED_BLANK_NEW_FORM           | int     | 可读      | 表单状态：未保存的空白表单          |
-| SAVED_FORM                       | int     | 可读      | 表单状态：保存的表单                |
-| QUERY_RESULT                     | int     | 可读      | 表单状态：查询结果                  |
-| TRANSPARENT_BACKGROUND           | int     | 可读      | 背景填充类型：透明背景              |
-| FILLED_BACKGROUND                | int     | 可读      | 背景填充类型：填充                  |
-| ATLEFT                           | int     | 可读      | 标题位置：左侧                     |
-| ATRIGHT                          | int     | 可读      | 标题位置：右侧                     |
-| ATTOP                            | int     | 可读      | 标题位置：上方                     |
-| ATBOTTOM                         | int     | 可读      | 标题位置：下方                     |
-| NOCAPTION                        | int     | 可读      | 标题位置：无标题                    |
-| RECTANGLE                        | int     | 可读      | 输入框边框类型：矩形边框            |
-| NOFRAME                          | int     | 可读      | 输入框边框类型：没有边框            |
-| UNDERLINE                        | int     | 可读      | 输入框边框类型：下划线              |
-| ALIGNLEFT                        | int     | 可读      | 水平对齐方式：靠左                  |
-| ALIGNRIGHT                       | int     | 可读      | 水平对齐方式：靠右                  |
-| ALIGNHCENTER                     | int     | 可读      | 水平对齐方式：居中                  |
-| ALIGNJUSTIFY                     | int     | 可读      | 水平对齐方式：分散对齐              |
-| ALIGNTOP                         | int     | 可读      | 垂直对齐方式：靠上                  |
-| ALIGNBOTTOM                      | int     | 可读      | 垂直对齐方式：靠下                  |
-| ALIGNVCENTER                     | int     | 可读      | 垂直对齐方式：居中                  |
-| PLAIN                            | int     | 可读      | 边框样式：平的                     |
-| RAISED                           | int     | 可读      | 边框样式：上凸                     |
-| SUNKEN                           | int     | 可读      | 边框样式：下陷                     |
-| HORIZONTAL                       | int     | 可读      | 直线方向：水平                     |
-| VERTICAL                         | int     | 可读      | 直线方向：垂直                     |
-| NOPEN                            | int     | 可读      | 线型：无                           |
-| SOLIDLINE                        | int     | 可读      | 线型：实线                         |
-| DASHLINE                         | int     | 可读      | 线型：破折线                       |
-| DOTLINE                          | int     | 可读      | 线型：点划线                       |
-| DASHDOTLINE                      | int     | 可读      | 线型：破折-点线                    |
-| DASHDOTDOTLINE                   | int     | 可读      | 线型：破折-点-点线                  |
-| INTERACTIVE                      | int     | 可读      | 列宽模式/行高模式：用户可调         |
-| FIXED                            | int     | 可读      | 列宽模式/行高模式：：固定大小       |
-| STRETCH                          | int     | 可读      | 列宽模式/行高模式：内容自动拉伸      |
-| RESIZETOCONTENTS                 | int     | 可读      | 列宽模式/行高模式：按内容调整大小    |
-| NOWRAP                           | int     | 可读      | 换行模式：不换行                    |
-| WORD_WRAP                        | int     | 可读      | 换行模式：换单词换行                |
-| MANUAL_WRAP                      | int     | 可读      | 换行模式：手动换行                  |
-| WRAP_ANYWHERE                    | int     | 可读      | 换行模式：随时换行                  |
-| WRAP_ATWORD_BOUNDARY_OR_ANYWHERE | int     | 可读      | 换行模式：单词边界或随时换行        |
-| OK_BUTTON                        | QString | 可读      | 标准按钮：确定                     |
-| OPEN_BUTTON                      | QString | 可读      | 标准按钮：打开                     |
-| SAVE_BUTTON                      | QString | 可读      | 标准按钮：保存                     |
-| CANCEL_BUTTON                    | QString | 可读      | 标准按钮：取消                     |
-| CLOSE_BUTTON                     | QString | 可读      | 标准按钮：关闭                     |
-| DISCARD_BUTTON                   | QString | 可读      | 标准按钮：撤消                     |
-| APPLY_BUTTON                     | QString | 可读      | 标准按钮：应用                     |
-| RESET_BUTTON                     | QString | 可读      | 标准按钮：重置                     |
-| RESTOREDEFAULTS_BUTTON           | QString | 可读      | 标准按钮：恢复缺省值                |
-| HELP_BUTTON                      | QString | 可读      | 标准按钮：帮助                     |
-| SAVEALL_BUTTON                   | QString | 可读      | 标准按钮：保存所有                  |
-| YES_BUTTON                       | QString | 可读      | 标准按钮：是                       |
-| YESTOALL_BUTTON                  | QString | 可读      | 标准按钮：全部是                    |
-| NO_BUTTON                        | QString | 可读      | 标准按钮：否                       |
-| NOTOALL_BUTTON                   | QString | 可读      | 标准按钮：全部否                    |
-| ABORT_BUTTON                     | QString | 可读      | 标准按钮：退出                     |
-| RETRY_BUTTON                     | QString | 可读      | 标准按钮：重试                     |
-| IGNORE_BUTTON                    | QString | 可读      | 标准按钮：忽略                     |
-| NOBUTTON                         | QString | 可读      | 标准按钮：无按钮                    |
-| TEXTURE_BACKGROUND               | int     | 可读      | 背景图片填充方式：连续填充          |
-| LEFTTOP_CORNER                   | int     | 可读      | 背景图片填充方式：左上角            |
-| RIGHTTOP_CORNER                  | int     | 可读      | 背景图片填充方式：右上角            |
-| LEFTBOTTOM_CORNER                | int     | 可读      | 背景图片填充方式：左下角            |
-| RIGHTBOTTOM_CORNER               | int     | 可读      | 背景图片填充方式：右下角            |
-| IMAGE_CENTER                     | int     | 可读      | 背景图片填充方式：居中              |
-| NOT_SCALED                       | int     | 可读      | 图片填充类型：保持原样              |
-| SCALED_CONTENTS                  | int     | 可读      | 图片填充类型：缩放图片              |
-| TEXTURE_IMAGE                    | int     | 可读      | 图片填充类型：连续填充              |
-| SINGLE_SELECTION                 | int     | 可读      | 表格选择区域模式：只允许选择一个对象 |
-| CONTIGUOUS_SELECTION             | int     | 可读      | 表格选择区域模式：选择连续区域       |
-| EXTENDED_SELECTION               | int     | 可读      | 表格选择区域模式：扩展选择          |
-| MULTI_SELECTION                  | int     | 可读      | 表格选择区域模式：允许选择多个对象   |
-| NO_SELECTION                     | int     | 可读      | 表格选择区域模式：不允许选择        |
-| SELECT_ITEMS                     | int     | 可读      | 表格行列选择模式：选择单元格        |
-| SELECT_ROWS                      | int     | 可读      | 表格行列选择模式：选择行            |
-| SELECT_COLUMNS                   | int     | 可读      | 表格行列选择模式：选择列            |
-| SCROLLBAR_AS_NEEDED              | int     | 可读      | 滚动条显示模式：需要时显示          |
-| SCROLLBAR_ALWAYS_OFF             | int     | 可读      | 滚动条显示模式：一直隐藏            |
-| SCROLLBAR_ALWAYS_ON              | int     | 可读      | 滚动条显示模式：一直显示            |
-| UNCHECKED                        | int     | 可读      | 勾选状态：未选中                    |
-| PARTIALLYCHECKED                 | int     | 可读      | 勾选状态：部分选中                  |
-| CHECKED                          | int     | 可读      | 勾选状态：选中                     |
-| BC_CODE_39                       | QString | 可读      | 条码类型：CODE 39                  |
-| BC_CODE_128                      | QString | 可读      | 条码类型：CODE 128                 |
-| BC_CODE_2of5                     | QString | 可读      | 条码类型：Interleaved 2 of 5       |
-| BC_CODABAR                       | QString | 可读      | 条码类型：CODABAR                  |
-| BC_CODE_EAN13                    | QString | 可读      | 条码类型：EAN13                    |
-| BC_QRCODE                        | QString | 可读      | 条码类型：QRCODE                   |
-| BC_DATAMATRIX                    | QString | 可读      | 条码类型：DATAMATRIX               |
-| BC_PDF417                        | QString | 可读      | 条码类型：PDF417                   |
-| BC_CODE_93                       | QString | 可读      | 条码类型：CODE 93                  |
-| ECLEVEL_LOW                      | int     | 可读      | QRCode纠错级别：低(7%)             |
-| ECLEVEL_MEDIUM                   | int     | 可读      | QRCode纠错级别：中(15%)            |
-| ECLEVEL_QUARTIL                  | int     | 可读      | QRCode纠错级别：四分之一(25%)       |
-| ECLEVEL_HIGH                     | int     | 可读      | QRCode纠错级别：高(30%)            |
-| DATA_MODE_ALNUM                  | int     | 可读      | DATAMATRIX数据模式：全字母          |
-| DATA_MODE_DIGITS                 | int     | 可读      | DATAMATRIX数据模式：数字           |
-| DATA_MODE_8BITS                  | int     | 可读      | DATAMATRIX数据模式：8bits          |
-| DM_AUTOSIZE                      | int     | 可读      | DATAMATRIX行列数：自动计算尺寸      |
-| DM_SIZE_10                       | int     | 可读      | DATAMATRIX行列数：10行 * 10列      |
-| DM_SIZE_12                       | int     | 可读      | DATAMATRIX行列数：12行 * 12列      |
-| DM_SIZE_14                       | int     | 可读      | DATAMATRIX行列数：14行 * 14列      |
-| DM_SIZE_16                       | int     | 可读      | DATAMATRIX行列数：16行 * 16列      |
-| DM_SIZE_18                       | int     | 可读      | DATAMATRIX行列数：18行 * 18列      |
-| DM_SIZE_20                       | int     | 可读      | DATAMATRIX行列数：20行 * 20列      |
-| DM_SIZE_22                       | int     | 可读      | DATAMATRIX行列数：22行 * 22列      |
-| DM_SIZE_24                       | int     | 可读      | DATAMATRIX行列数：24行 * 24列      |
-| DM_SIZE_26                       | int     | 可读      | DATAMATRIX行列数：26行 * 26列      |
-| DM_SIZE_32                       | int     | 可读      | DATAMATRIX行列数：32行 * 32列      |
-| DM_SIZE_36                       | int     | 可读      | DATAMATRIX行列数：36行 * 36列      |
-| DM_SIZE_40                       | int     | 可读      | DATAMATRIX行列数：40行 * 40列      |
-| DM_SIZE_44                       | int     | 可读      | DATAMATRIX行列数：44行 * 44列      |
-| DM_SIZE_48                       | int     | 可读      | DATAMATRIX行列数：48行 * 48列      |
-| DM_SIZE_52                       | int     | 可读      | DATAMATRIX行列数：52行 * 52列      |
-| DM_SIZE_64                       | int     | 可读      | DATAMATRIX行列数：64行 * 64列      |
-| DM_SIZE_72                       | int     | 可读      | DATAMATRIX行列数：72行 * 72列      |
-| DM_SIZE_80                       | int     | 可读      | DATAMATRIX行列数：80行 * 80列      |
-| DM_SIZE_88                       | int     | 可读      | DATAMATRIX行列数：88行 * 88列      |
-| DM_SIZE_96                       | int     | 可读      | DATAMATRIX行列数：96行 * 96列      |
-| DM_SIZE_104                      | int     | 可读      | DATAMATRIX行列数：104行 * 104列    |
-| DM_SIZE_120                      | int     | 可读      | DATAMATRIX行列数：120行 * 120列    |
-| DM_SIZE_132                      | int     | 可读      | DATAMATRIX行列数：132行 * 132列    |
-| DM_SIZE_144                      | int     | 可读      | DATAMATRIX行列数：144行 * 144列    |
-| DM_SIZE_8_18                     | int     | 可读      | DATAMATRIX行列数：8行 * 18列       |
-| DM_SIZE_8_32                     | int     | 可读      | DATAMATRIX行列数：8行 * 32列       |
-| DM_SIZE_12_26                    | int     | 可读      | DATAMATRIX行列数：12行 * 26列      |
-| DM_SIZE_12_36                    | int     | 可读      | DATAMATRIX行列数：12行 * 36列      |
-| DM_SIZE_16_36                    | int     | 可读      | DATAMATRIX行列数：16行 * 36列      |
-| DM_SIZE_16_48                    | int     | 可读      | DATAMATRIX行列数：16行 * 48列      |
-| CHARSET_AUTO                     | int     | 可读      | CODE128字符集：自动                |
-| CHARSET_A                        | int     | 可读      | CODE128字符集：字符集A             |
-| CHARSET_B                        | int     | 可读      | CODE128字符集：字符集B             |
-| CHARSET_C                        | int     | 可读      | CODE128字符集：字符集C             |
+### 属性：常用颜色
+
+|    属性     | 值类型  | 读写类型  |   说明   |
+| ----------- | ------- | -------- | ------- |
+| objectName  | QString | 可读 可写 | 对象名称 |
+| GREEN       | QColor  | 可读      | 绿色     |
+| RED         | QColor  | 可读      | 红色     |
+| BLUE        | QColor  | 可读      | 蓝色     |
+| WHITE       | QColor  | 可读      | 白色     |
+| BLACK       | QColor  | 可读      | 黑色     |
+| DARKRED     | QColor  | 可读      | 深红     |
+| DARKGREEN   | QColor  | 可读      | 深绿     |
+| DARKBLUE    | QColor  | 可读      | 深蓝     |
+| CYAN        | QColor  | 可读      | 青色     |
+| DARKCYAN    | QColor  | 可读      | 深青色   |
+| MAGENTA     | QColor  | 可读      | 品红     |
+| DARKMAGENTA | QColor  | 可读      | 深品红   |
+| YELLOW      | QColor  | 可读      | 黄色     |
+| DARKYELLOW  | QColor  | 可读      | 深黄色   |
+| GRAY        | QColor  | 可读      | 灰色     |
+| DARKGRAY    | QColor  | 可读      | 深灰色   |
+| LIGHTGRAY   | QColor  | 可读      | 浅灰色   |
+|             |         |          |         |
+
+### 属性：标准按钮
+
+这些属性返回的是标准按钮上显示的文字。
+
+|          属性          | 值类型  | 读写类型 |             说明             |
+| ---------------------- | ------- | -------- | --------------------------- |
+| OK_BUTTON              | QString | 可读     | 标准按钮：确定               |
+| OPEN_BUTTON            | QString | 可读     | 标准按钮：打开               |
+| SAVE_BUTTON            | QString | 可读     | 标准按钮：保存               |
+| CANCEL_BUTTON          | QString | 可读     | 标准按钮：取消               |
+| CLOSE_BUTTON           | QString | 可读     | 标准按钮：关闭               |
+| DISCARD_BUTTON         | QString | 可读     | 标准按钮：撤消               |
+| APPLY_BUTTON           | QString | 可读     | 标准按钮：应用               |
+| RESET_BUTTON           | QString | 可读     | 标准按钮：重置               |
+| RESTOREDEFAULTS_BUTTON | QString | 可读     | 标准按钮：恢复缺省值          |
+| HELP_BUTTON            | QString | 可读     | 标准按钮：帮助               |
+| SAVEALL_BUTTON         | QString | 可读     | 标准按钮：保存所有            |
+| YES_BUTTON             | QString | 可读     | 标准按钮：是                 |
+| YESTOALL_BUTTON        | QString | 可读     | 标准按钮：全部是             |
+| NO_BUTTON              | QString | 可读     | 标准按钮：否                 |
+| NOTOALL_BUTTON         | QString | 可读     | 标准按钮：全部否             |
+| ABORT_BUTTON           | QString | 可读     | 标准按钮：退出               |
+| RETRY_BUTTON           | QString | 可读     | 标准按钮：重试               |
+| IGNORE_BUTTON          | QString | 可读     | 标准按钮：忽略               |
+| NOBUTTON               | QString | 可读     | 标准按钮：无按钮             |
+
+### 属性：条码类型
+
+这些属性返回的内容与属性名是一样的，对应系统支持的不同的条码类型。
+有些版本的 biForm 不允许使用条码控件。
+
+|     属性      | 值类型  | 读写类型 |             说明             |
+| ------------- | ------- | -------- | --------------------------- |
+| BC_CODE_39    | QString | 可读     | 条码类型：CODE 39            |
+| BC_CODE_128   | QString | 可读     | 条码类型：CODE 128           |
+| BC_CODE_2of5  | QString | 可读     | 条码类型：Interleaved 2 of 5 |
+| BC_CODABAR    | QString | 可读     | 条码类型：CODABAR            |
+| BC_CODE_EAN13 | QString | 可读     | 条码类型：EAN13              |
+| BC_QRCODE     | QString | 可读     | 条码类型：QRCODE             |
+| BC_DATAMATRIX | QString | 可读     | 条码类型：DATAMATRIX         |
+| BC_PDF417     | QString | 可读     | 条码类型：PDF417             |
+| BC_CODE_93    | QString | 可读     | 条码类型：CODE 93            |
 
 ---
 
@@ -1077,10 +1241,25 @@ warningMsgBox 与 QMessageBox::warning 调用效果是一样的，只是调用�
 
 |   内容   | 名称  | 数据类型 |                                      说明                                      |
 | ------- | ----- | ------- | ----------------------------------------------------------------------------- |
-| 传入参数 | title | QString | 输入框的标题                                                            |
+| 传入参数 | title | QString | 输入框的标题                                                                   |
 | 传入参数 | label | QString | 输入的内容的提示文字                                                            |
 | 传入参数 | ispwd | bool    | 是否用于密码输入，如果设置为 True，用户的输入会被密码掩码覆盖，不会直接显示密码内容 |
+| 传入参数 | text  | QString | 缺省内容                                                                       |
 | 返回值   |       | QString | 用户输入的字符串                                                                |
+
+#### getMultiLineTextInput 
+
+调用接口：QString getMultiLineTextInput ( const QString & title, const QString & label
+	, const QString & text = QString())  const
+
+弹出一个文本输入框，用于输入多行文本。
+
+|   内容   | 名称  | 数据类型 |        说明         |
+| ------- | ----- | ------- | ------------------- |
+| 传入参数 | title | QString | 输入框的标题        |
+| 传入参数 | label | QString | 输入的内容的提示文字 |
+| 传入参数 | text  | QString | 缺省内容            |
+| 返回值   |       | QString | 用户输入的字符串     |
 
 #### getExistingDirectory 
 
@@ -1484,6 +1663,16 @@ args 用来传递一些数据给需要打开的表单，在表单中可以通过
 ### 成员函数：其它
 
 [返回目录](#category)
+
+#### clipboard
+
+调用接口：QClipboard * clipboard();
+
+返回系统剪贴板对象，其访问接口参考 Qt 文档。
+
+|  内容  | 名称 |   数据类型    |    说明    |
+| ------ | ---- | ------------ | --------- |
+| 返回值 |      | QClipboard * | 剪贴板对象 |
 
 #### textWidth
 
