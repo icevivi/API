@@ -12,6 +12,7 @@ biForm 也可以使用 Qt 提供的一些特殊的对话框类，或者通过继
  - [对话框的分类](#对话框的分类)
  - [如何创建一个新的对话框](#如何创建一个新的对话框)
 - [对话框：选择项目](#对话框：选择项目)
+- [对话框：搜索下拉列表项目](#对话框：搜索下拉列表项目) 
 - [对话框：选择日期](#对话框：选择日期)
 - [对话框：选择时间](#对话框：选择时间)
 - [对话框：选择日期时间](#对话框：选择日期时间)
@@ -257,8 +258,9 @@ def buSelectPerson_clicked():
 | ---------------- | -------------------------------------- | ------------------------------------------------------------- |
 | execDialog       | int execDialog()                       | 执行这个对话框，等同于 exec()                                   |
 | exec             | int exec()                             | 执行这个对话框，点“取消”返回0，点“确定”返回1，直接关闭窗体，返回0 |
-| getSelectedItem  | QVariant getSelectedItem()             | 返回所有选中的条目的文本，未选择时返回空字符串                    |
+| getSelectedItem  | QVariant getSelectedItem()             | 返回所选项目的数据，未选择时返回空的QVariant                    |
 | getSelectedIndex | int getSelectedItem()                  | 返回所选的项目在下拉列表中的索引，从0开始，未选择时返回-1         |
+| getSelectedText  | QString getSelectedText()              | 返回所选项目的文本，未选择时返回空字符串                         |
 | setCombo         | void setCombo(comboBoxDelegate* combo) | 重新指定对应的下拉列表框控件                                    |
 
 ## 对话框：选择日期
