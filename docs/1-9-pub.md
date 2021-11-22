@@ -1406,6 +1406,14 @@ filter 是针对表单主表的过滤条件，语法参考 SQL 语句中 where �
 
 以弹出对话框的方式加载一个PFF表单。
 
+isModal为true时，弹出的是模式窗口，只有关闭掉它才能继续使用其它窗口。
+
+如果isModal为true，被加载的表单可以通过accept(result)或reject()来关闭，popupPFF返回的值是调用accept函数时传入的result的值，如果使用reject()关闭，得到空的QVariant。
+
+如果isModal为false，返回的值是为True或False，表示表单是否被打开了。被加载的表单调用accept的值不会被处理。
+
+maximized设为true也并不是对所有类型的表单有效。如果表单设置为“只使用表单模式”且“使用缺省的框架”，maximized是无效的。
+
 args 用来传递一些数据给需要打开的表单，在表单中可以通过 this.form.args this.form.getArg 等接口调用这些参数加以使用。具体参考文档 [表单的成员函数和信号](1-6-form-func) 。
 
 |   内容   |   名称    |   数据类型    |                                 说明                                  |
