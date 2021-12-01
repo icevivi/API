@@ -132,6 +132,8 @@
  
 ---
 
+申明：本文档由武汉百利孚信息科技有限公司拥有所有著作权。
+
 [biForm 官方网站](https://www.bilive.com)
 
 [致谢 VNote：一个更懂程序员和 Markdown 的笔记软件！](https://github.com/vnotex/vnote) 
