@@ -1197,6 +1197,42 @@ warningMsgBox 与 QMessageBox::warning 调用效果是一样的，只是调用�
 | 传入参数 | decimals | int     | 小数位数            |
 | 返回值   |          | double  | 用户输入的值        |
 
+
+#### getImageFromIconset 
+
+调用接口：QString getImageFromIconset(const QString& name=""
+    , bool iconsetEnabled=true
+    ,QList<QPair<QString, QString> > customList= QList<QPair<QString, QString> >())
+
+弹出一个从标准图标集中选择图标的对话框，也可以添加自己的图标文件供选择。
+
+如果是从标准图标集中选择图标，返回的名称都是“:/iconset/”开头的，如果是自定义图标，则是返回传入参数 customList 中指定的图标名称。
+
+调用示例：
+
+``` Python
+#允许选择缺省图标集中的图标，另外添加两个自定义图标
+iconname1=pub.getImageFromIconset("",True,[["bg01.jpg","e:\\background\\bg01.jpg"],\
+		["bg02.jpg","e:\\background\\bg02.jpg"]])
+#不允许选择缺省图标集中的图标，自定义图标可以使用 Python 的列表类型或元组类型：
+iconname2=pub.getImageFromIconset("bg01.jpg",False,(("bg01.jpg","e:\\background\\bg01.jpg"),\
+		("bg02.jpg","e:\\background\\bg02.jpg")))
+```
+
+弹出对话框如下图：
+
+![iconset](1-9-04.png)
+
+![iconset_custom](1-9-05.png)
+
+
+|   内容   |      名称      |             数据类型             |                                 说明                                 |
+| ------- | -------------- | ------------------------------- | -------------------------------------------------------------------- |
+| 传入参数 | name           | QString                         | 缺省选择的图标的名称，不为空时，弹出对话框打开时会定位到这个图标         |
+| 传入参数 | iconsetEnabled | bool                            | 是否允许从标准图标集中选择，如果设为否，只能选择 customList 中设置的图片 |
+| 传入参数 | customList     | QList<QPair<QString, QString> > | 设置自定义图片，每个元素第一个元素是图片的名称，第二个元素是图片文件路径  |
+| 返回值   |                | QString                         | 用户选中的图标的名称，未选择返回空字符串                                |
+
 #### getIntegerInput 
 
 调用接口：int getIntegerInput ( const QString & title, const QString & label
@@ -1352,23 +1388,54 @@ warningMsgBox 与 QMessageBox::warning 调用效果是一样的，只是调用�
 
 #### openPFF
 
-调用接口：void openPFF(const QString& formuuid,const QVariantList & args=QVariantList()	,bool ignoreLastOpend=false,
+调用接口：void openPFF(const QString& formuuid,const QVariantList & args=QVariantList(),bool ignoreLastOpend=false,
 	const QString& owner = "") 
 
-加载一个PFF表单。
+加载一个PFF程序。这个程序必须是已经在系统中注册过（使用过），在系统中已经注册过其UUID，调用这个函数才有效果。
 
-|   内容   |       名称       |   数据类型    |                                 说明                                  |
-| ------- | ---------------- | ------------ | --------------------------------------------------------------------- |
-| 传入参数 | formuuid         | QString      | 待打开的表单的UUID                                                     |
-| 传入参数 | args             | QVariantList | 传递给需要打开的表单的参数                                              |
-| 传入参数 | ignoreLastOpened | bool         | 是否忽略之前已经打开的这个表单的实例                                    |
-| 传入参数 | owner            | QString      | 表单的拥有者（即注册和发布表单的账号）不使用此参数，则使用系统缺省本地账号 |
-| 返回值   | 无               |              |                                                                       |
+参数 args 是一组关键字和值，可以使用 Python 的列表类型或元组类型，类似 [['name','vivian'],['count',1]] 这样  ，每个元素第一个元素是参数的名字，第二个元素是参数的值。
+
+如果指定了 args ，被加载的PFF程序中需要有相应的脚本处理这些参数。所以调用前需要事先了解被加载的PFF程序支持哪些参数及其含义。
+
+调用示例：
+
+``` Python
+
+pub.openPFF('{a86607bb-540a-4962-8fe9-0384c213a74d}',(('name','vivian'),('count','6')),True)
+
+```
+
+|   内容   |       名称       |   数据类型    |                                             说明                                              |
+| ------- | ---------------- | ------------ | --------------------------------------------------------------------------------------------- |
+| 传入参数 | formuuid         | QString      | 待打开的表单的UUID                                                                             |
+| 传入参数 | args             | QVariantList | 传递给需要打开的表单的参数                                                                      |
+| 传入参数 | ignoreLastOpened | bool         | 是否忽略之前已经打开的这个表单的实例，如果值为 True ，则忽略之前运行中的实例，创建新的实例          |
+| 传入参数 | owner            | QString      | 表单的拥有者（即注册和发布表单的账号）。不使用此参数，则使用系统缺省本地账号。留用的接口，暂未启用。 |
+| 返回值   | 无               |              |                                                                                               |
+
+#### openPFFFile
+
+调用接口：void openPFFFile(const QString& filename) 
+
+使用指定的文件加载一个PFF程序。
+
+在智应软件中心和biReader中，一般情况下，这个PFF程序如果不是第一次被加载，运行时引擎会对之进行升级处理。判断指定的文件中的版本号和已注册的同一个PFF程序的版本号，如果文件中的版本号更高，就进行升级。所以，如果是对现有PFF程序进行升级，也可以调用这个函数，并不限于加载新程序。
+
+不同的运行时环境，对这个函数的处理可能会稍有不同，取决于运行时环境的处理。比如有些情况下，因为权限管理和安全性的要求，运行时环境不允许当前用户加载新的PFF程序，或者不允许进行升级。
+
+#### openPFPFile
+
+调用接口：void openPFPFile(const QString& filename) 
+
+使用指定的文件加载一个PFP程序包。
+
+openPFPFile的效果等于对其中的PFF分别调用openPFFFile，但会在运行时环境中注册一个“应用模块”，这个模块与这些PFF是一对多的关系。关于应用模块的这些信息并不会影响各个PFF的运行，只是帮助运行时环境对这些PFF进行分类管理，简化注册PFF程序的过程。
+
+与 openPFFFile 函数一样，运行时环境会判断是否需要升级，以及是否需要限制权限。
 
 #### openRecord
 
-调用接口：void openRecord(const QString& formuuid,const QString& recorduuid,bool ignoreLastOpend=false
-	, const QString& owner = "") 
+调用接口：void openRecord(const QString& formuuid,const QString& recorduuid,bool ignoreLastOpend=false, const QString& owner = "") 
 
 加载一个PFF表单，并转到显示指定的某条记录。这种调用方式只对设置了“主表”属性的表单有效，其它类型的表单会被加载，但不会转到对应的记录。
 
@@ -1424,6 +1491,41 @@ args 用来传递一些数据给需要打开的表单，在表单中可以通过
 | 传入参数 | isModal   | bool         | 是否使用模式窗口。模式窗口显示时只有先关闭它才能使用应用程序其它窗口       |
 | 传入参数 | owner     | QString      | 表单的拥有者（即注册和发布表单的账号）不使用此参数，则使用系统缺省本地账号 |
 | 返回值   |           | QVariant     | 弹出对话框执行被接受后，PFF返回的数据                                   |
+
+#### getIcon
+
+调用接口：QPixmap getIcon(const QString& uuid)
+
+获取一个PFF程序或一个PFP应用模块的图标。也可以用于存储自定义的一些图标。
+
+PFF程序设计时有“图标”属性，PFP应用包也可以设置图标。如果进行过设置，在运行时环境中注册时也会注册其图标，其它程序可以随时通过这个函数获得其图标。
+
+如果PFF程序/PFP程序包没有设置“图标”属性，或者 uuid 无效，系统没有找到对应的图标，会返回一个空的 QPixmap ，可以用 isNull() 来判断是不是为空。
+
+|   内容   | 名称 | 数据类型 |    说明    |
+| ------- | ---- | -------- | ---------- |
+| 传入参数 | uuid | QString  | 表单的UUID |
+| 返回值   |      | QPixmap | 表单的图标 |
+
+#### updateIcon
+
+调用接口：bool updateIcon(const QString& uuid, const QPixmap& pixmap)
+
+与getIcon对应，这个函数用于设置一个PFF程序或一个PFP应用模块的图标 。但也可用于存储自已的一些图标，要注意uuid不要与其它图标冲突。
+
+不建议存储大的图片文件，也不建议存储标准图标集（通过 getImageFromIconset 可获取）中的图标，即以“:/iconset/”开头的那些图标，这些图标在运行时引擎中直接通过名称就可以引用，不必再用这个函数另外存储一份。
+
+相同uuid的情况下，第二次调用这个函数，会用第二次调用的图标覆盖原来的图标。
+
+发布PFF/PFP并不需要在程序中主动调用这个函数，因为运行时引擎会按设置进行处理。将来的运行时环境也许会限制这个函数对PFF/PFP图标的修改，所以这类图标的维护请不要依赖这个函数。只建议将之用于管理用户自定义图标的场合。
+
+这些图标设置是全局有效，并长期有效的，可以在其它表单中随时调用。
+
+|   内容   |  名称  | 数据类型 |               说明               |
+| ------- | ------ | -------- | -------------------------------- |
+| 传入参数 | uuid   | QString  | 图标的UUID，或表单或应用模块的UUID |
+| 传入参数 | pixmap | QPixmap | 图标                             |
+| 返回值   |        | bool    | 设置是否成功                      |
 
 ### 成员函数：应用程序
 
