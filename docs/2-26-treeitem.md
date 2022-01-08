@@ -123,8 +123,8 @@ this.tree.addTopLevelItem(item3)
 |indexOfChild|	int indexOfChild ( treeItemDelegate * child ) const |返回下级项目的序号|
 |insertChild|	void insertChild ( int index, treeItemDelegate * child )  const|在指定位置插入下级项目|
 |isDisabled|	bool isDisabled () const |是否不可用|
-|isDragEnabled|	bool isDragEnabled() const|是否允许拖曳|
-|isDropEnabled|	bool isDropEnabled() const|是否允许拖曳放下|
+|isDragEnabled|	bool isDragEnabled() const|是否允许拖拽|
+|isDropEnabled|	bool isDropEnabled() const|是否允许拖拽放下|
 |isEnabled|	bool isEnabled() const|是否可用|
 |isExpanded|	bool isExpanded () const |是否可以展开|
 |isFirstColumnSpanned|	bool isFirstColumnSpanned () const |首列是否合并了其它列|
@@ -134,8 +134,8 @@ this.tree.addTopLevelItem(item3)
 |removeChild|	void removeChild ( treeItemDelegate * child )  const|移除指定的下级项目|
 |setBackground|	void setBackground ( int column, const QColor & brush )  const|设置指定列的背景色|
 |setDisabled|	void setDisabled ( bool disabled )  const|设置是否不可用|
-|setDragEnabled|	void setDragEnabled( bool v)  const|设置是否允许拖曳|
-|setDropEnabled|	void setDropEnabled( bool v)  const|设置是否允许拖曳放下|
+|setDragEnabled|	void setDragEnabled( bool v)  const|设置是否允许拖拽|
+|setDropEnabled|	void setDropEnabled( bool v)  const|设置是否允许拖拽放下|
 |setEnabled|	void setEnabled( bool v)  const|设置是否可用|
 |setExpanded|	void setExpanded ( bool expand )  const|设置是否可展开|
 |setFirstColumnSpanned|	void setFirstColumnSpanned ( bool span ) const|设置是否将首列合并所有列|

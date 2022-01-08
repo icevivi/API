@@ -47,7 +47,7 @@ this.label.showBalloon('这是一个标签控件')
 
 |        属性         |  值类型  | 读写类型  |           说明           |
 | ------------------- | -------- | -------- | ------------------------ |
-| acceptDrops         | bool     | 可读 可写 | 是否允许从外部拖曳放下     |
+| acceptDrops         | bool     | 可读 可写 | 是否允许从外部拖拽放下     |
 | affectFormData      | bool     | 可读      | 控件的修改是否影响表单数据 |
 | background          | QColor   | 可读 可写 | 背景色                    |
 | borderColor         | QColor   | 可读 可写 | 边框颜色                  |

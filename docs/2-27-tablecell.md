@@ -14,7 +14,7 @@
 
 - [单元格范围](#单元格范围)
 
-- - [单元格范围的属性](#单元格范围的属性)
+- [单元格范围的属性](#单元格范围的属性)
 
 ---
 
@@ -94,7 +94,7 @@ cell.setToolTip('这是一本书')
 | background        | QColor background () const			                 | 背景色                               |
 | clone             | tableCellDelegate * clone() const                      | 克隆这个单元格对象                    |
 | isEditable        | bool isEditable() const	                             | 是否要编辑                           |
-| isDragEnabled     | bool isDragEnabled() const                             | 是否允许拖曳                         |
+| isDragEnabled     | bool isDragEnabled() const                             | 是否允许拖拽                         |
 | isDropEnabled     | bool isDropEnabled() const                             | 是否允许拖入放下                     |
 | isEnabled         | bool isEnabled() const	                             | 是否可用                             |
 | foreground        | QColor foreground () const                             | 前景色                               |
@@ -105,7 +105,7 @@ cell.setToolTip('这是一本书')
 | isChecked         | bool isChecked() const                                 | 如果允许勾选 ，是否在选中的状态       |
 | setSelectable     | void setSelectable( bool v) const                      | 设置是否允许选择                     |
 | setEditable       | void setEditable( bool v) const                        | 设置是否允许编辑                     |
-| setDragEnabled    | void setDragEnabled(bool v) const                      | 设置是否允许拖曳                     |
+| setDragEnabled    | void setDragEnabled(bool v) const                      | 设置是否允许拖拽                     |
 | setDropEnabled    | void setDropEnabled(bool v) const                      | 设置是否允许拖入放下                  |
 | setEnabled        | void setEnabled( bool v) const                         | 设置是否可用                         |
 | setForeground     | void setForeground ( const QColor & brushcolor ) const | 设置前景色                           |
