@@ -33,11 +33,11 @@ print(m.this) #这里的m.this就是另一个表单的this对象了
 
 ## 2、pub对象
 
-pub对象提供了一组常用的常量和函数方便调用。其中大部分都可以通过 PythonQt.Qt 相关模块加以调用，pub只是提供比较简单的调用方式。比如 pub.currentDateTime() 返回当前日期和时间，pub.rgb(200,200,200) 返回一个QColor对象，pub.openPFF('form_UUID_XXXX') 用于打开另外的表单。详细内容请参考pub的接口说明。
+pub对象提供了一组常用的常量和函数方便调用。其中大部分都可以通过 PythonQt.Qt 相关模块加以调用，pub只是提供比较简单的调用方式。比如 pub.currentDateTime() 返回当前日期和时间，pub.rgb(200,200,200) 返回一个QColor对象，pub.openPFF('form_UUID_XXXX') 用于打开另外的表单。详细内容请参考[pub的接口说明](1-9-pub)。
 
 ## 3、log对象
 
-biForm 中内置了一个运行时全程共用的log对象，通过调用它的接口进行日志输出。 调用方式如 ```log.debug('调试信息')```。log对象本身是 Python 的模块 logging 的 Logger 类的一个实例，详细的调用接口可以参考Python的文档。
+biForm 中内置了一个运行时全程共用的log对象，通过调用它的接口进行日志输出。 调用方式如 ```log.debug('调试信息')```。log对象本身是 Python 的模块 logging 的 Logger 类的一个实例，详细的调用接口可以参考Python的文档和[日志系统](4-3-log)。
 
 ### 3.1 log的输出方式
 
@@ -98,5 +98,5 @@ print(db.hasTable('t_mytable'))
 
 ```
 
-关于数据库连接对象详细的调用接口请参考文档：[数据库转接对象](1-8-database)。
+关于数据库连接对象详细的调用接口请参考文档：[数据库连接对象](1-8-database)。
 
