@@ -357,6 +357,18 @@ pub的属性除 objectName 之外，其实都是一些常量，通常用在一�
 
 pub 中的函数分为几大类：
 
+|                 分类                  |
+| ------------------------------------- |
+| [系统选项类](#成员函数：系统选项类)     |
+| [日期时间类](#成员函数：日期时间类)     |
+| [对话框类](#成员函数：对话框类)        |
+| [颜色、图像类](#成员函数：颜色、图像类) |
+| [表单相关](#成员函数：表单相关)        |
+| [应用程序](#成员函数：应用程序)        |
+| [登录账号](#成员函数：登录账号)        |
+| [控件相关](#成员函数：控件相关)        |
+| [其它](#成员函数：其它)                |
+
 ### 成员函数：系统选项类
 
 [返回目录](#category)
@@ -1887,7 +1899,7 @@ PFF程序设计时有“图标”属性，PFP应用包也可以设置图标。�
 | wantOpenRecord   | 试图打开一个PFF表单并定位到指定记录     |
 | wantOpenFormList | 试图打开一个PFF表单并转到显示列表的状态 |
 
-### wantOpenUUID
+### 信号：wantOpenUUID
 
 void wantOpenUUID(const QString& uuid,const QString& owner,const QVariantList & args,bool ignoreLastOpened)
 
@@ -1900,7 +1912,7 @@ void wantOpenUUID(const QString& uuid,const QString& owner,const QVariantList & 
 | args             | QVariantList | 需要传给这个表单的参数                                                                         |
 | ignoreLastOpened | bool         | 是否忽略之前已经打开的同一个表单。如果选择 True，则重新打开一个实例，否则，打开之前打开的那个实例。 |
 
-### wantOpenRecord
+### 信号：wantOpenRecord
 
 void wantOpenRecord(const QString& uuid,const QString& recorduuid,const QString& owner,bool ignoreLastOpened)
 
@@ -1913,7 +1925,7 @@ void wantOpenRecord(const QString& uuid,const QString& recorduuid,const QString&
 | owner            | QString | 表单发布（注册）的账号                                                                         |
 | ignoreLastOpened | bool    | 是否忽略之前已经打开的同一个表单。如果选择 True，则重新打开一个实例，否则，打开之前打开的那个实例。 |
 
-### wantOpenFormList
+### 信号：wantOpenFormList
 
 void wantOpenFormList(const QString& formuuid, const QString& filter, bool ignoreLastOpend, bool lockFilter, const QString& owner)
 
