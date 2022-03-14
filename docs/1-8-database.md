@@ -1,23 +1,42 @@
 # 第一章 biForm开发基础 - 数据库连接对象
 
-biForm 中有两种数据库连接对象，分别在不同的场合下适用。
+biForm 中我们设计了两种数据库连接对象，分别在不同的场合下适用。
 
 |         类         |                                                                   说明                                                                   |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | FormDBDelegate     | 通过 this.form.database() 访问，提供表单对应的后台数据库连接的接口，为应用程序级的永久连接                                                   |
 | DatabaseConnection | 通过 this.form.addDBConnect() 添加新的数据库连接，为表单提供除它自身的数据库连接之外的其它数据库连接的访问接口，可以视之为表单运行时的临时性连接 |
 
-在 PFF 的运行时环境中，目前 biReader 缺省地只连接到一个数据源，所以每个表单的 ```this.form.database()``` 都返回的是同一个连接。但并不代表开发者可以将这个连接做成公用变量加以共享。在不同的 PFF 运行时环境，有可能不同的表单使用不同的数据源。所以建议只将这个数据库连接在本表单内部使用。
+- 在 PFF 的运行时环境中，目前 biReader 缺省地只连接到一个数据源，所以每个表单的 ```this.form.database()``` 都返回的是同一个连接。但并不代表开发者可以将这个连接做成公用变量加以共享。未来发布的其它 PFF 运行时环境，有可能不同的表单使用不同的数据源。所以建议只将这个数据库连接在本表单内部使用。
 
-表单的数据库连接 FormDBDelegate 在表单关闭时，不会断开连接。但通过 addDBConnect() 添加的 DatabaseConnection，在表单关闭时会断开连接。
+- 表单的数据库连接 FormDBDelegate 在表单关闭时，不会断开连接。但通过 addDBConnect() 添加的 DatabaseConnection，在表单关闭时会断开连接。
 
-FormDBDelegate不需要显式地创建连接，也不允许修改连接参数、断开或重新连接。
+- FormDBDelegate不需要显式地创建连接，也不允许修改连接参数、断开或重新连接。
 
-DatabaseConnection需要显式地调用 this.form.addDBConnect() 创建新的连接，设置连接参数并进行连接。在合适的时候，最好调用 close() 将之关闭。表单销毁时所有已打开的连接也会被关闭。
+- DatabaseConnection需要显式地调用 this.form.addDBConnect() 创建新的连接，设置连接参数并进行连接。在合适的时候，最好调用 close() 将之关闭。表单销毁时所有已打开的连接也会被关闭。
+
+- 目前，这两种数据库连接仅指 API 支持的几种关系型数据库：SQLite、MSSQL Server、PostgreSQL、Sybase。未来可能会增加支持更多的数据库类型。不同的发行版并不支持所有这几种数据库类型，目前发布的几种产品支持的RDBMS清单如下，更多细节请参考技术文档：
+
+|    产品     |      版本      |     支持的数据库类型     |                                          说明                                          |
+| ----------- | -------------- | ----------------------- | ------------------------------------------------------------------------------------- |
+| biForm      | 3.1(Windows版) | SQLite\MSSQL\PostgreSQL | 试运行状态下FormDBDelegate永远都是SQLite数据库，DatabaseConnection 可以使用全部支持的类型 |
+| biForm      | 3.1(Linux版)   | SQLite\PostgreSQL       | 同上                                                                                   |
+| biReader    | 3.1(Windows版) | SQLite\MSSQL\PostgreSQL | FormDBDelegate为启动时选择的数据源类型，DatabaseConnection 可以使用全部支持的类型         |
+| biReader    | 3.1(Linux版)   | SQLite\PostgreSQL       | 同上                                                                                   |
+| 智应软件中心 | 1.0(Windows版) | SQLite\MSSQL\PostgreSQL | FormDBDelegate永远都是SQLite数据库，DatabaseConnection 可以使用全部支持的类型            |
+| 智应软件中心 | 1.0(Linux版)   | SQLite\PostgreSQL       | 同上                                                                                   |
+| 智龙IDE      | 1.0(Windows版) | SQLite\MSSQL\PostgreSQL | 同上                                                                                   |
+| 智龙IDE      | 1.0(Linux版)   | SQLite\PostgreSQL       | 同上                                                                                   |
+
+- biForm 中已经集成了 QtSql 模块，所以除了以上两种 biLive 应用框架提供的数据库访问方式以外，也可以使用 QtSql 提供的接口，或者使用 Python 提供的功能使用其它数据源。QtSql 模块能使用的RDBMS与上表相同，Python能访问的数据库由使用的库来决定。
 
 <h2 id=category>目录</h2>
 
+- [字段类型](#字段类型)
+
 - [FormDBDelegate的成员函数](#FormDBDelegate的成员函数)
+
+- [自建数据库连接对象 DatabaseConnection](#自建数据连接对象)
 
 - [DatabaseConnection的属性](#DatabaseConnection的属性)
 
@@ -25,11 +44,39 @@ DatabaseConnection需要显式地调用 this.form.addDBConnect() 创建新的连
 
 ---
 
+## 字段类型
+
+[返回目录](#category)
+
+biForm中设计“数据视图”时允许使用的字段类型如下表所示，在运行时环境中，biLive运行时引擎会根据当前使用的数据库类型，在创建表时选择合适的字段类型。下表列出了不同RDBMS中对应的字段类型：
+
+| 字段类型/固定字段 |     SQLite      |      MSSQL      |   PostgreSQL    |        格式         |
+| ---------------- | --------------- | --------------- | --------------- | ------------------- |
+| 文本             | nvarchar        | nvarchar        | varchar         |                     |
+| 整数             | int             | int             | int             |                     |
+| 小数             | Decimal         | Decimal         | Decimal         |                     |
+| 是/否            | int (default 0) | bit (default 0) | bit (default 0) |                     |
+| 日期             | varchar         | varchar         | varchar         | yyyy-MM-dd          |
+| 时间             | varchar         | varchar         | varchar         | HH:mm:ss            |
+| 日期时间         | varchar         | varchar         | varchar         | yyyy-MM-dd HH:mm:ss |
+| 二进制           | varbinary       | varbinary       | varbinary       |                     |
+| 大二进制数据      | BLOB            | NTEXT           | TEXT            |                     |
+| UUID             | nvarchar        | nvarchar        | varchar         |                     |
+| lastUpdated      | varchar         | varchar         | varchar         | yyyy-MM-dd HH:mm:ss |
+
+需要注意的是“日期时间”类字段，在biLive运行时引擎中，都做为字符串类型进行处理。原因是不同的 RDBMS 对日期型字段的处理差异较大，统一为文本类型能减少不同RDBMS之间的数据格式和处理上的差异，统一格式也有利于数据交换。开发者添加或修改记录时传入的日期类数据会自动按此格式进行转换后再写入数据表，转换格式参考上表。如果您对日期类数据有特殊的格式化处理要求，可以设置为“文本”类型后自己进行格式转换处理。
+
+biLive运行时引擎会自动给每个表添加两个字段：UUID（文本型）、lastUpdated（日期时间型），参考上表可知其实体表的字段类型。
+
+---
+
 ## FormDBDelegate的成员函数
+
+[返回目录](#category)
 
 这些成员函数也都可以当做槽函数使用。
 
-|                    调用接口                    |                                          说明                                           |               成员函数                |
+|                    成员函数                    |                                         调用接口                                         |                 说明                  |
 | --------------------------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------- |
 | [isUseSQLite](#isUseSQLite)                   | bool isUseSQLite() const                                                                | 是否是使用的 SQLite 数据库             |
 | [SQLiteDBName](#SQLiteDBName)                 | QString SQLiteDBName() const                                                            | 使用的 SQLite 数据库文件名（不带路径）  |
@@ -99,10 +146,10 @@ DatabaseConnection需要显式地调用 this.form.addDBConnect() 创建新的连
 | [getFieldType](#getFieldType)                 | QString getFieldType(const QString& tablename, const QString& fieldname) const          | 获取某个表某个字段的数据类型            |
 | [execute](#execute)                           | QVariantList execute(const QString &sql)                                                | 执行SQL语句，并返回结果                |
 | [execBatch](#execBatch)                       | bool execBatch(const QString &sql,const QVariantList &values,bool intrasaction=true)    | 批量执行SQL语句                        |
-| [deleteData](#deleteData)                     | bool deleteData(const QString &tablename,const QString &filter = "" )                   | 删除记录                              |
+| [deleteData](#deleteData)                     | bool deleteData(const QString &tablename,const QString &filter = "" )                   | 在指定表里按过滤条件批量删除记录        |
 | [deleteKeyData](#deleteKeyData)               | bool deleteKeyData(const QString &tablename,const QVariantList &keyvalue)               | 按指定关键字段的值删除记录              |
-| [addData](#addData)                           | bool addData(const QString &tablename,                                                  | 添加数据                              |
-|                                               | 　　　const QStringList &fieldname,const QVariantList &value) ;                         |                                       |
+| [addData](#addData)                           | bool addData(const QString &tablename,                                                  | 往指定表里添加一条记录                 |
+|                                               | 　　　const QStringList &fieldname,const QVariantList &value)                           |                                       |
 | [lastErrorText](#lastErrorText)               | QString lastErrorText() const                                                           | 最后执行的SQL语句的错误信息             |
 | [lastSQL](#lastSQL)                           | QString lastSQL() const                                                                 | 最后执行的SQL语句                      |
 | [baseQuerySql](#baseQuerySql)                 | QString baseQuerySql(bool onlyPk=false) const                                           | 表单的基础SQL语句                      |
@@ -375,11 +422,11 @@ Sybase 数据服务器名。
 
 [返回目录](#category)
 
-事务加滚，如果成功返回 True，否则返回 False。
+事务回滚，如果成功返回 True，否则返回 False。
 
 这个函数会影响 lastSQL() 和 lastErrorText() 。
 
-需要注意的是，不管使用的什么类型的数据库，执行这个函数之后 lastSQL() 返回的内容都是“ ROLLBACK TRANSACTION”。
+需要注意的是，不管使用的什么类型的RDBMS，执行这个函数之后 lastSQL() 返回的内容都是“ ROLLBACK TRANSACTION”。
 
 |   内容   | 名称 | 数据类型 |      说明       |
 | ------- | ---- | ------- | --------------- |
@@ -489,7 +536,6 @@ Sybase 数据服务器名。
 | 传入参数 | tablename  | QString  | 表名，可以使用设计时的表名，也可以使用实体表名 |
 | 传入参数 | fieldindex | int      | 字段的顺序（从0开始）                        |
 | 返回值   |            | QVariant | 最小值                                      |
-
 
 - ### getMinValue
 
@@ -1042,7 +1088,9 @@ intransaction 参数只在使用的数据库支持事务处理时有效果。
 
 [返回目录](#category)
 
-往指定表里添加数据。这个函数只用于添加一条记录。如果需要一次添加多条记录，使用 execBatch() 函数。如果记录较多，用 execBatch 速度较快，但需要提前按格式准备好数据。
+往指定表里添加数据。这个函数只用于添加一条记录。如果需要一次添加多条记录，可以考虑使用 execBatch() 函数。如果记录较多，用 execBatch 速度较快，但需要提前按格式准备好数据。
+
+添加过程中如果原有的关键字相同的记录已存在，会报错。
 
 这个函数会影响 lastSQL() 和 lastErrorText() 。
 
@@ -1061,9 +1109,9 @@ intransaction 参数只在使用的数据库支持事务处理时有效果。
 
 返回最后执行的SQL语句的错误信息。如果语句执行成功无错，返回空字符串。
 
-运行时环境后台的数据库引擎执行产生的错误不会通过这个函数反馈给开发者。只有通过 this.form.database 调用的几个函数产生的错误才能通过这个函数了解执行情况。
+运行时环境后台的数据库引擎执行产生的错误不会通过这个函数反馈给开发者。只有通过 this.form.database() 提供的接口函数产生的错误才能通过这个函数了解执行情况。
 
-在程序中如果需要调用 ```this.form.database.execute()``` ，可以通过这个函数了解刚才执行的SQL语句是否执行有错。比如：
+在程序中如果需要调用 ```this.form.database().execute()``` ，可以通过这个函数了解刚才执行的SQL语句是否执行有错。比如：
 
 ``` python 
 
@@ -1149,27 +1197,85 @@ intransaction 参数只在使用的数据库支持事务处理时有效果。
 | 传入参数 | 无   |             |                            |
 | 返回值   |      | QStringList | 表单的基础查询语句的字段清单 |
 
+--- 
+
+## 自建数据库连接对象
+
+[返回目录](#category)
+
+有时我们除了使用运行时环境设定的数据库连接之外，还需要连接其它数据源。比较典型的应用场景是对几个不同的系统进行集成时，通常是需要程序能连接多种不同的数据库系统的。这种情况下，就需要使用 DatabaseConnection 对象了。
+
+比如以下示例连接本机一个PostgreSQL数据库。连接前先调用 ```this.form.addDBConnection```创建一个数据库连接对象（DatabaseConnection类）。然后调用 connectPostgreSQL 函数进行连接。
+
+``` Python
+
+db=this.form.addDBConnection('connection1')
+
+re=db.connectPostgreSQL('localhost','erp','postgres','password',5432)
+if re:
+	this.form.showSplashMsg('连接成功')
+else:
+	this.form.showSplashMsg('连接失败',True)
+
+#关闭连接
+re=db.close()
+if re:
+	this.form.showSplashMsg('关闭连接')
+else:
+	this.form.showSplashMsg('关闭连接失败',True)
+
+#判断连接状态
+status=db.isOpen
+if status:
+	this.form.showSplashMsg('当前状态：已连接')
+else:
+	this.form.showSplashMsg('当前状态：已断开')
+
+#重新连接
+re=db.open()
+if re:
+	this.form.showSplashMsg('连接成功')
+else:
+	this.form.showSplashMsg('连接失败',True)
+
+#执行SQL语句，返回查询结果
+data=db.execute("select fname,ftitle from sometable")
+
+```
+
+连接不同的RDBMS使用不同的函数:
+
+|       函数        |             说明              |
+| ----------------- | ----------------------------- |
+| connectLocalMSSQL | 连接到本地 MSSQL Server 数据库 |
+| connectMSSQL      | 连接到 MSSQL Server 数据库    |
+| connectSqlite     | 连接到 SQLite 数据库           |
+| connectTDS        | 连接 Sybase 数据库             |
+| connectPostgreSQL | 连接 PostgreSQL 数据库         |
+
+调用这些连接函数后，连接参数会保存下来。可以调用 close 函数关闭连接，也可以调用 open 函数重新连接。如果需要修改连接参数，或者需要使用其它数据库类型，可以重新调用这组连接函数。在重新连接前，原来的连接会被关闭。
+
 ---
 
 ## DatabaseConnection的属性
 
 [返回目录](#category)
 
-|      属性      |  类型   | 读写状态  |             说明             |
-| -------------- | ------- | -------- | ---------------------------- |
-| objectName     | QString | 可读 可写 | 对象名称                     |
-| server         | QString | 可读      | 连接的服务器名或IP地址        |
-| port           | QString | 可读      | 连接使用的端口号              |
-| user           | QString | 可读      | 连接使用的登录账号            |
-| database       | QString | 可读      | 连接的数据库名                |
-| useSystemLogin | bool    | 可读      | 是否使用 windows 系统账号登录 |
-| useTDS         | bool    | 可读      | 是否使用TDS连接              |
-| useSqlite      | bool    | 可读      | 是否使用的 SQLite 数据库      |
-| useMSSQL       | bool    | 可读      | 是否使用的 MSSQL 数据库       |
-| usePostgreSQL  | bool    | 可读      | 是否使用的 PostgreSQL 数据库  |
-| SqliteName     | QString | 可读      | 使用的 SQLite 数据库名        |
-| name           | QString | 可读      | 连接的名称                   |
-| isOpen         | bool    | 可读      | 是否已连接                   |
+|      属性      |  类型   | 读写状态  |                     说明                     |
+| -------------- | ------- | -------- | ------------------------------------------- |
+| objectName     | QString | 可读 可写 | 对象名称                                     |
+| server         | QString | 可读      | 连接的服务器名或IP地址                        |
+| port           | QString | 可读      | 连接使用的端口号                              |
+| user           | QString | 可读      | 连接使用的登录账号                            |
+| database       | QString | 可读      | 连接的数据库名                               |
+| useSystemLogin | bool    | 可读      | 是否使用 windows 系统账号登录                 |
+| useTDS         | bool    | 可读      | 是否使用TDS连接                              |
+| useSqlite      | bool    | 可读      | 是否使用的 SQLite 数据库                      |
+| useMSSQL       | bool    | 可读      | 是否使用的 MSSQL 数据库                       |
+| usePostgreSQL  | bool    | 可读      | 是否使用的 PostgreSQL 数据库                  |
+| SqliteName     | QString | 可读      | 使用的 SQLite 数据库名(通常是对应的数据库文件) |
+| name           | QString | 可读      | 连接的名称                                   |
+| isOpen         | bool    | 可读      | 是否已连接                                   |
 
 ---
 
@@ -1180,15 +1286,17 @@ intransaction 参数只在使用的数据库支持事务处理时有效果。
 |                  属性                   |             说明              |
 | --------------------------------------- | ----------------------------- |
 | [close](#close)                         | 关闭连接                      |
+| [connection](#connection)               | 返回QSqlDatabase对象          |
 | [connectLocalMSSQL](#connectLocalMSSQL) | 连接到本地 MSSQL Server 数据库 |
-| [connectMSSQL](#connectMSSQL)           | 连接到 MSSQL Server 数据库    |
+| [connectMSSQL](#connectMSSQL)           | 连接到 MSSQL Server 数据库     |
 | [connectSqlite](#connectSqlite)         | 连接到 SQLite 数据库           |
 | [connectTDS](#connectTDS)               | 使用 TDS 连接到 Sybase 数据库  |
+| [connectPostgreSQL](#connectPostgreSQL) | 连接到 PostgreSQL 数据库       |
+| [execute](#execute-1)                   | 执行SQL语句                   |
 | [execBatch](#execbatch-1)               | 批量执行 SQL 语句              |
-| [open](#open)                           | 打开连接                      |
 | [lastErrorText](#lasterrortext-1)       | 最后执行的SQL语句的错误信息     |
 | [lastSQL](#lastsql-1)                   | 最后执行的SQL语句              |
-| [execute](#execute-1)                   | 执行SQL语句                   |
+| [open](#open)                           | 打开连接                      |
 
 - ### close
 
@@ -1204,6 +1312,37 @@ intransaction 参数只在使用的数据库支持事务处理时有效果。
 | ------- | ---- | ------- | ----------- |
 | 传入参数 | 无   |         |             |
 | 返回值   |      | bool    | 关闭是否成功 |
+
+- ### connection
+
+调用接口：QSqlDatabase connection() 
+
+[返回目录](#DatabaseConnection的成员函数)
+
+返回数据库连接对象，对应为 QSql 模块的 QSqlDatabase 对象 ，这个类提供了可丰富的接口使用数据库，也可以与 QSqlQuery 等其它类配合进行更多复杂的开发。可以查看 Qt 文档了解 QSqlDatabase 类的详细用法。
+
+比如
+
+```
+
+>>> a=db.connection()
+>>> a
+QSqlDatabase(driver="QPSQL", database="test", host="localhost", port=5432, user="postgres", open=true) 
+
+>>> dir(a)
+['__bool__', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__nonzero__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'addDatabase', 'className', 'cloneDatabase', 'close', 'commit', 'connectOptions', 'connectionName', 'connectionNames', 'contains', 'database', 'databaseName', 'delete', 'driver', 'driverName', 'drivers', 'exec', 'help', 'hostName', 'inherits', 'isDriverAvailable', 'isOpen', 'isOpenError', 'isValid', 'lastError', 'numericalPrecisionPolicy', 'open', 'password', 'port', 'primaryIndex', 'record', 'registerSqlDriver', 'removeDatabase', 'rollback', 'setConnectOptions', 'setDatabaseName', 'setHostName', 'setNumericalPrecisionPolicy', 'setPassword', 'setPort', 'setUserName', 'tables', 'transaction', 'userName']
+
+>>> a.connectionName()
+'test'
+
+>>> a.connectionNames()
+('localinfo', 'qt_sql_default_connection', 'test')
+
+
+>>> a.tables()
+('rt_t_unit_0_s', 'fl_t_unit_0_s')
+
+```
 
 - ### connectLocalMSSQL
 
@@ -1273,6 +1412,25 @@ intransaction 参数只在使用的数据库支持事务处理时有效果。
 | 传入参数 | password | QString | 登录的密码          |
 | 返回值   |          | bool    | 是否连接成功         |
 
+- ### connectPostgreSQL
+
+调用接口：bool connectPostgreSQL(const QString& server, const  QString& database,	const QString& user, const QString& password,int port=5432);
+
+[返回目录](#DatabaseConnection的成员函数)
+
+连接到 PostgreSQL 数据库。是否能连接取决于运行时环境是否有提供 PostgreSQL 的数据库驱动程序。如果运行时环境没有提供这个驱动，调用这个函数就不能连接成功。
+
+这个函数会影响 lastSQL() 和 lastErrorText() 。lastSQL返回值为空字符串。
+
+|   内容   |   名称   | 数据类型 |        说明         |
+| ------- | -------- | ------- | ------------------- |
+| 传入参数 | server   | QString | 数据库服务名或IP地址 |
+| 传入参数 | database | QString | 数据库名            |
+| 传入参数 | user     | QString | 登录的账号          |
+| 传入参数 | password | QString | 登录的密码          |
+| 传入参数 | port     | int     | 端口号，缺省为 5432  |
+| 返回值   |          | bool    | 是否连接成功         |
+
 - ### execBatch
 
 调用接口：bool execBatch(const QString &sql,QVariantList values, bool intransaction);
@@ -1298,6 +1456,8 @@ intransaction 参数只在使用的数据库支持事务处理时有效果。
 
 连接数据库。
 
+使用 connectSqlite、connectLocalMSSQL、connectMSSQL、connectTDS、connectPostgreSQL  等函数会自动连接并保存连接参数，不用再调用一次 open 函数。调用 open 函数时会使用保存的连接参数，如果需要修改连接参数，可以重新使用 connectSqlite、connectLocalMSSQL、connectMSSQL、connectTDS、connectPostgreSQL  等函数重新连接。
+
 这个函数会影响 lastSQL() 和 lastErrorText() 。lastSQL返回值为空字符串。
 
 |   内容   | 名称 | 数据类型 |    说明     |
@@ -1305,7 +1465,7 @@ intransaction 参数只在使用的数据库支持事务处理时有效果。
 | 传入参数 | 无   |         |             |
 | 返回值   |      | bool    | 是否连接成功 |
 
-- ### lasterrortext
+- ### lastErrorText
 
 调用接口：QString lastErrorText() const;
 
@@ -1324,7 +1484,7 @@ intransaction 参数只在使用的数据库支持事务处理时有效果。
 
 [返回目录](#DatabaseConnection的成员函数)
 
-这个函数返回最后执行的SQL语句的内容。只处理通过脚本接口执行的SQL语句，数据库引擎内部执行的SQL语句不能通过这个接口查询。
+这个函数返回最后执行的SQL语句的内容。只处理通过数据库连接对象的接口函数执行的SQL语句，数据库引擎内部执行的SQL语句不能通过这个接口查询。
 
 |   内容   | 名称 | 数据类型 |          说明          |
 | ------- | ---- | ------- | ---------------------- |
