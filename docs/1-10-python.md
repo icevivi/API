@@ -42,6 +42,7 @@ biForm 使用 Python 做为编程语言，目前发布的 V3.1 基于 Python v3.
 | kiwisolver    | 1.0.1       | BSD              | Cassowray约束求解器的快速实现            | [kiwisolver](https://pypi.org/project/kiwisolver/)                 |
 | markupsafe    | 1.1.1       | BSD              | 安全地为HTML/XML标记添加不受信任的字符串  | [MarkupSafe](https://pypi.org/project/MarkupSafe/)                 |
 | matplotlib    | 3.0.3       | PSFL             | 绘图库                                  | [matplotlib](https://pypi.org/project/matplotlib/)                 |
+| modbus_tk     | 1.1.2       | LGPL             | 在python中实现modbus协议                 | [modbus_tk](https://pypi.org/project/modbus_tk/)                   |
 | mpl_toolkits  | 1.2.1       | PSFL             | matplotlib工具包                        | [mpl_toolkits](https://matplotlib.org/mpl_toolkits/index.html)     |
 | Naked         | 0.1.31      | MIT              | 一个命令行应用程序框架                   | [Naked](https://pypi.org/project/naked/)                           |
 | numpy         | 1.16.2      | BSD              | 科学计算                                | [numpy](https://pypi.org/project/numpy/)                           |
@@ -56,11 +57,13 @@ biForm 使用 Python 做为编程语言，目前发布的 V3.1 基于 Python v3.
 | pygraphviz    | 1.6         | BSD              | Graphviz的Python接口                    | [pygraphviz](https://pypi.org/project/pygraphviz/)                 |
 | pylab         | 1.3.2       | MIT              | 开发工具包                              | [pylab-sdk](https://pypi.org/project/pylab-sdk/)                   |
 | pyparsing     | 2.2.0       | MIT              | 语法解析                                | [pyparsing](https://pypi.org/project/pyparsing/)                   |
+| pyserial      | 3.5         | BSD              | 串口工具                                | [pyserial](https://pypi.org/project/pyserial/)                     |
 | pytz          | 2017.2      | MIT              | 时区工具                                | [pytz](https://pypi.org/project/pytz/)                             |
 | qrcode        | 6.1         | BSD              | QRCode二维码生成器                       | [qrcode](https://pypi.org/project/qrcode/)                         |
 | reportlab     | 3.5.13      | BSD              | 生成PDF和图像的库                        | [reportlab](https://pypi.org/project/reportlab/)                   |
 | requests      | 2.18.2      | Apache 2.0       | HTTP库                                  | [requests](https://pypi.org/project/requests/)                     |
 | scipy         | 1.2.1       | BSD              | 数据、科学、工程领域的软件包              | [scipy](https://pypi.org/project/scipy/)                           |
+| serial        | 3.5         | MIT              | 安装工具                                | [setuptools](https://pypi.org/project/setuptools/)                 |
 | setuptools    | 47.3.1      | MIT              | 安装工具                                | [setuptools](https://pypi.org/project/setuptools/)                 |
 | shellescape   | 3.8.1       | MIT              | Shell转义字符串                         | [shellescape](https://pypi.org/project/shellescape/)               |
 | six           | 1.10.0      | MIT              | Python2和Python3兼容工具包               | [six](https://pypi.org/project/six/)                               |
@@ -76,7 +79,7 @@ biForm 使用 Python 做为编程语言，目前发布的 V3.1 基于 Python v3.
 | xlwt          | 1.3.0       | BSD              | 写Excel文件的工具                        | [xlwt](https://pypi.org/project/xlwt/)                             |
 | yaml          | 5.3.1       | MIT              | YAML解析器和发射器                       | [PyYAML](https://pypi.org/project/PyYAML/)                         |
 
-以上的版本号针对 Windows 下 V3.1.001 发布的版本，其它平台下的版本或升级版本，可能使用的第三方库的版本号不同，以上只做参考。
+以上的版本号针对 Windows 下 V3.1.x 发布的版本，其它平台下的版本或升级版本，可能使用的第三方库的版本号不同，以上只做参考。
 
 ## 其它第三方库
 
