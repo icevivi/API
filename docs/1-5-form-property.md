@@ -27,6 +27,7 @@
 | [printFormUUID](#printFormUUID)               | QString | 可读 可写 | 用来格式化打印的表单UUID         |
 | [printPageNumber](#printPageNumber)           | bool    | 可读 可写 | 打印时是否显示页号               |
 | [publishUUID](#publishUUID)                   | QString | 可读      | 运行时表单的发布UUID             |
+| [PFFVersion](#PFFVersion)                     | QString | 可读      | 表单开发时使用的PFF引擎版本号     |
 | [queryEnabled](#queryEnabled)                 | bool    | 可读 可写 | 是否允许使用“查询”按钮           |
 | [remark](#remark)                             | QString | 可读      | 表单说明                        |
 | [saveEnabled](#saveEnabled)                   | bool    | 可读 可写 | 是否允许使用“保存”按钮           |
@@ -321,6 +322,20 @@ this.form.setCaption('新标题')
 |      |           调用接口           |
 | ---- | --------------------------- |
 | 读取 | QString publishUUID() const |
+
+### PFFVersion
+
+[返回目录](#category)
+
+属性：表单开发时使用的PFF引擎版本号。V3.1.006开始引入。
+
+这个是只读属性，不允许修改。在运行时环境（如biReader、智应软件中心等）中，低版本的PFF引擎不允许执行高版本的PFF程序。
+
+|      |          调用接口           |
+| ---- | -------------------------- |
+| 读取 | QString PFFVersion() const |
+
+| [PFFVersion](#PFFVersion)                     | QString | 可读      | 表单开发时使用的PFF引擎版本号     |
 
 ### queryEnabled
 
