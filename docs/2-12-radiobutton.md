@@ -36,12 +36,12 @@
 
 [返回目录](#category)
 
-|属性|值类型|读写类型|说明|
-| - | - | - | - |
-|caption|QString|可读 可写|显示的标题文字|
-|checked|bool|可读 可写|显示的标题文字|
-|value|QString|可读 可写|显示的标题文字|
-|defaultVal|bool|可读 可写|缺省的是否选中的状态|
+|    属性    | 值类型  | 读写类型  |        说明         |
+| ---------- | ------- | -------- | ------------------- |
+| caption    | QString | 可读 可写 | 显示的标题文字       |
+| checked    | bool    | 可读 可写 | 显示的标题文字       |
+| defaultVal | bool    | 可读 可写 | 缺省的是否选中的状态 |
+| value      | QString | 可读 可写 | 显示的标题文字       |
 
 - ### 属性：caption （类型：QString 可读 可写）
 
@@ -61,6 +61,14 @@
 | 读取 | bool checked() const                  |
 | 修改 | void setChecked( bool checked ) const |
 
+- ### 属性：defaultVal （类型：bool 可读 ）
+
+缺省的是否选中的状态值。
+
+|      |         调用方法         |
+| ---- | ----------------------- |
+| 读取 | bool defaultVal() const |
+
 - ### 属性：value （类型：QString 可读 可写）
 
 控件的值，字符串形式，多用于存储其被选中时的含义或需要保存到数据库中的值。
@@ -69,14 +77,6 @@
 | ---- | ------------------------------------------- |
 | 读取 | QString value() const                       |
 | 修改 | void setValue( const QString &value ) const |
-
-- ### 属性：defaultVal （类型：bool 可读 ）
-
-缺省的是否选中的状态值。
-
-|      |         调用方法         |
-| ---- | ----------------------- |
-| 读取 | bool defaultVal() const |
 
 ---
 

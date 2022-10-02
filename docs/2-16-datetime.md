@@ -38,34 +38,60 @@
 
 |     属性      | 值类型  | 读写类型  |       说明        |
 | ------------- | ------- | -------- | ----------------- |
-| wrapping      | bool    | 可读 可写 | 是否使用值循环     |
-| format        | QString | 可读 可写 | 显示格式          |
 | calendarpopup | bool    | 可读 可写 | 是否弹出日期选择框 |
-| text          | QString | 可读 可写 | 当前显示的文本     |
-| defaultVal    | QString | 可读 可写 | 缺省值            |
 | checkable     | bool    | 可读 可写 | 是否可勾选        |
 | checked       | bool    | 可读 可写 | 是否被勾选        |
 | datetime      | QString | 可读 可写 | 当前日期时间       |
+| defaultVal    | QString | 可读 可写 | 缺省值            |
+| format        | QString | 可读 可写 | 显示格式          |
+| margin        | int     | 可读 可写 | 边界宽度(像素为单位)          |
 | readonly      | bool    | 可读 可写 | 是否只读          |
 | showButton    | bool    | 可读 可写 | 是否显示调节按钮   |
+| text          | QString | 可读 可写 | 当前显示的文本     |
+| wrapping      | bool    | 可读 可写 | 是否使用值循环     |
 
-- ### 属性：margin （类型：int 可读 可写）
+- ### 属性：calendarpopup （类型：bool 可读 可写）
 
-边界宽度。
+是否提供弹出日历做为日期期的辅助输入方式。在设为 True 时，设置边框的属性无效。
 
-|      |              调用方法               |
-| ---- | ---------------------------------- |
-| 读取 | int margin() const                 |
-| 修改 | void setMargin( int margin ) const |
+|      |                      调用方法                      |
+| ---- | ------------------------------------------------- |
+| 读取 | bool calendarpopup() const                        |
+| 修改 | void setCalendarpopup( bool calendarpopup ) const |
 
-- ### 属性：wrapping （类型：bool 可读 可写）
+- ### 属性：checkable （类型：bool 可读 ）
 
-是否使用值循环。值循环是指，当前值已到最大值时，若再向上调会转到最小值。只有设置了最大最小值时有效。
+是否可勾选。如果是可勾选的状态，在未选中时，不允许输入日期。
 
-|      |                 调用方法                 |
-| ---- | --------------------------------------- |
-| 读取 | bool wrapping() const                   |
-| 修改 | void setWrapping( bool wrapping ) const |
+|      |        调用方法         |
+| ---- | ---------------------- |
+| 读取 | bool checkable() const |
+
+- ### 属性：checked （类型：bool 可读 可写）
+
+checkable为 True 时，是否是选中的状态。
+
+|      |                调用方法                |
+| ---- | ------------------------------------- |
+| 读取 | bool checked() const                  |
+| 修改 | void setChecked( bool checked ) const |
+
+- ### 属性：datetime （类型：QString 可读 可写）
+
+当前日期值。返回值会被转换为字符串形式。如果以 obj.date 的方式调用，格式是"yyyy-MM-dd hh:mm:ss"。如果需要其它格式，使用 obj.dateToString(format) 形式调用。同理，修改属性值时，默认格式也是"yyyy-MM-dd"。
+
+|      |                      调用方法                      |
+| ---- | ------------------------------------------------- |
+| 读取 | QString datetime() const                          |
+| 修改 | void setDatetime( const QString &datetime ) const |
+
+- ### 属性：defaultVal （类型：QString 可读 ）
+
+缺省值。控件创建之后默认设置为这个缺省值。
+
+|      |          调用方法           |
+| ---- | -------------------------- |
+| 读取 | QString defaultVal() const |
 
 - ### 属性：format （类型：QString 可读 可写）
 
@@ -107,56 +133,14 @@
 | 读取 | QString format() const                        |
 | 修改 | void setFormat( const QString &format ) const |
 
-- ### 属性：calendarpopup （类型：bool 可读 可写）
+- ### 属性：margin （类型：int 可读 可写）
 
-是否提供弹出日历做为日期期的辅助输入方式。在设为 True 时，设置边框的属性无效。
+边界宽度(像素为单位)。
 
-|      |                      调用方法                      |
-| ---- | ------------------------------------------------- |
-| 读取 | bool calendarpopup() const                        |
-| 修改 | void setCalendarpopup( bool calendarpopup ) const |
-
-- ### 属性：defaultVal （类型：QString 可读 ）
-
-缺省值。控件创建之后默认设置为这个缺省值。
-
-|      |          调用方法           |
-| ---- | -------------------------- |
-| 读取 | QString defaultVal() const |
-
-- ### 属性：text （类型：QString 可读 ）
-
-显示的文本。
-
-|      |       调用方法        |
-| ---- | -------------------- |
-| 读取 | QString text() const |
-
-- ### 属性：checkable （类型：bool 可读 ）
-
-是否可勾选。如果是可勾选的状态，在未选中时，不允许输入日期。
-
-|      |        调用方法         |
-| ---- | ---------------------- |
-| 读取 | bool checkable() const |
-
-- ### 属性：checked （类型：bool 可读 可写）
-
-checkable为 True 时，是否是选中的状态。
-
-|      |                调用方法                |
-| ---- | ------------------------------------- |
-| 读取 | bool checked() const                  |
-| 修改 | void setChecked( bool checked ) const |
-
-- ### 属性：datetime （类型：QString 可读 可写）
-
-当前日期值。返回值会被转换为字符串形式。如果以 obj.date 的方式调用，格式是"yyyy-MM-dd hh:mm:ss"。如果需要其它格式，使用 obj.dateToString(format) 形式调用。同理，修改属性值时，默认格式也是"yyyy-MM-dd"。
-
-|      |                      调用方法                      |
-| ---- | ------------------------------------------------- |
-| 读取 | QString datetime() const                          |
-| 修改 | void setDatetime( const QString &datetime ) const |
+|      |              调用方法               |
+| ---- | ---------------------------------- |
+| 读取 | int margin() const                 |
+| 修改 | void setMargin( int margin ) const |
 
 - ### 属性：readOnly （类型：bool 可读 可写）
 
@@ -176,6 +160,23 @@ checkable为 True 时，是否是选中的状态。
 | 读取 | bool showButton() const               |
 | 修改 | void setShowButton( bool show ) const |
 
+- ### 属性：text （类型：QString 可读 ）
+
+显示的文本。
+
+|      |       调用方法        |
+| ---- | -------------------- |
+| 读取 | QString text() const |
+
+- ### 属性：wrapping （类型：bool 可读 可写）
+
+是否使用值循环。值循环是指，当前值已到最大值时，若再向上调会转到最小值。只有设置了最大最小值时有效。
+
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | bool wrapping() const                   |
+| 修改 | void setWrapping( bool wrapping ) const |
+
 ---
 
 ## 日期时间编辑器自有成员函数
@@ -184,50 +185,50 @@ checkable为 True 时，是否是选中的状态。
 
 所有属性的设置函数（参考上一节中修改属性的接口），都属于此类，都可以当做槽使用。除此之处还包括以下成员函数：
 
-|函数|接口|说明|
-| - | - | - | 
-|isValid|bool isValid()	const|是否是有效的时间值|
-|minimumtime|QString minimum() const|最小时间值|
-|maximumtime|QString maximum() const	|最大时间值|
-|minimumdate|QString minimum() const|最小日期值|
-|maximumdate|QString maximum() const	|最大日期值|
-|setMinimumDate|void setMinimumDate(int y,int m,int d ) const|设置最小日期值|
-|setMaximumDate|void setMaximumDate(int y,int m,int d ) const	|设置最大日期值|
-|setMinimumTime|void setMinimumTime(int h,int m,int s ) const|设置最小时间值|
-|setMaximumTime|void setMaximumTime(int h,int m,int s ) const	|设置最大时间值|
-|dateToString|QString toString(const QString & format="yyyy-MM-dd") const|当前日期值按日期格式转换成字符串|
-|timeToString|QString toString(const QString & format="HH:mm:ss") const|当前时间值按格式转换成字符串|
-|dateTimeToString|QString toString(const QString & format="yyyy-MM-dd HH:mm:ss") const|当前日期时间值值按格式转换成字符串|
-|clear|void clear ()		const|清除输入的内容|
-|selectAll|void selectAll () 	const|选择所有文本|
-|stepDown|void stepDown () 	const|向下调(减少)|
-|stepUp|void stepUp () 		const|向上调(增加)|
-|year|int year() const		|当前日期值对应的年份|
-|month|int month() const		|当前日期值对应的月份|
-|day|int day() const		|当前日期值对应的一个月中的第几天|
-|dayOfWeek|int dayOfWeek() const|当前日期值对应的一周中的周几|
-|daysTo|int daysTo(int year,int month,int day ) const		|当前日期值与另一个日期值之间相隔几天|
-|dayOfYear|int dayOfYear () const 	|当前日期值在该年份中是第几天（值从1到365/366）|
-|daysInMonth|int daysInMonth () const 	|当前日期值对应的月份总共有几天|
-|daysInYear|int daysInYear () const 	|当前日期值对应的年份总共有几天|
-|hour|int hour() const		|当前时间值对应的小时|
-|minute|int minute() const		|当前时间值对应的分钟|
-|second|int second() const		|当前时间值对应的秒|
-|secsTo|int secsTo(int h,int m,int s) const		|当前时间值与其它时间值之间相差多少秒|
-|isLeapYear|bool isLeapYear ( )	 const|是否是闰年|
-|longDayName|QString longDayName (  )  const|周几的名称|
-|longMonthName|QString longMonthName (  )  const|月份的名称|
-|shortDayName|QString shortDayName ( )  const	|周几的简短名称|
-|shortMonthName|QString shortMonthName () const	|月份的简短名称|
-|toString|QString toString(const QString & format="yyyy-MM-dd HH:mm:ss") const|当前日期值按日期格式转换成字符串|
-|setDate|void setDate(int year,int month,int day) |设置日期值|
-|setTime|void setTime(int h,int m,int s) const|设置时间值|
-|setDateTime|void setDateTime(int year,int month,int day,int h,int m,int s) const|设置日期时间值|
-|setDateFromString|QString toString(const QString & format="yyyy-MM-dd") const|设置日期|
-|setTimeFromString|QString toString(const QString & format="HH:mm:ss") const|设置时间|
-|setDateTimeFromString|QString toString(const QString & format="yyyy-MM-dd HH:mm:ss") const|设置日期时间|
-|chineseDay|QString chineseDay() const|当前日期值对应的中国农历的日期，如“八月初六”。|
-|chineseYear|QString chineseYear() const|当前日期值对应的中国农历，如“兔年(己卯)”。|
+|         函数          |                                 接口                                 |                     说明                     |
+| --------------------- | -------------------------------------------------------------------- | ------------------------------------------- |
+| chineseDay            | QString chineseDay() const                                           | 当前日期值对应的中国农历的日期，如“八月初六”。 |
+| chineseYear           | QString chineseYear() const                                          | 当前日期值对应的中国农历，如“兔年(己卯)”。     |
+| clear                 | void clear () const                                                  | 清除输入的内容                               |
+| dateTimeToString      | QString toString(const QString & format="yyyy-MM-dd HH:mm:ss") const | 当前日期时间值值按格式转换成字符串             |
+| dateToString          | QString toString(const QString & format="yyyy-MM-dd") const          | 当前日期值按日期格式转换成字符串               |
+| day                   | int day() const                                                      | 当前日期值对应的一个月中的第几天               |
+| dayOfWeek             | int dayOfWeek() const                                                | 当前日期值对应的一周中的周几                  |
+| dayOfYear             | int dayOfYear () const                                               | 当前日期值在该年份中是第几天（值从1到365/366） |
+| daysInMonth           | int daysInMonth () const                                             | 当前日期值对应的月份总共有几天                |
+| daysInYear            | int daysInYear () const                                              | 当前日期值对应的年份总共有几天                |
+| daysTo                | int daysTo(int year,int month,int day ) const                        | 当前日期值与另一个日期值之间相隔几天           |
+| hour                  | int hour() const                                                     | 当前时间值对应的小时                          |
+| isLeapYear            | bool isLeapYear ( ) const                                            | 是否是闰年                                   |
+| isValid               | bool isValid() const                                                 | 是否是有效的时间值                            |
+| longDayName           | QString longDayName ( ) const                                        | 周几的名称                                   |
+| longMonthName         | QString longMonthName ( ) const                                      | 月份的名称                                   |
+| maximumdate           | QString maximum() const                                              | 最大日期值                                   |
+| maximumtime           | QString maximum() const                                              | 最大时间值                                   |
+| minimumdate           | QString minimum() const                                              | 最小日期值                                   |
+| minimumtime           | QString minimum() const                                              | 最小时间值                                   |
+| minute                | int minute() const                                                   | 当前时间值对应的分钟                          |
+| month                 | int month() const                                                    | 当前日期值对应的月份                          |
+| second                | int second() const                                                   | 当前时间值对应的秒                            |
+| secsTo                | int secsTo(int h,int m,int s) const                                  | 当前时间值与其它时间值之间相差多少秒           |
+| selectAll             | void selectAll () const                                              | 选择所有文本                                 |
+| setDate               | void setDate(int year,int month,int day)                             | 设置日期值                                   |
+| setDateFromString     | QString toString(const QString & format="yyyy-MM-dd") const          | 设置日期                                     |
+| setDateTime           | void setDateTime(int year,int month,int day,int h,int m,int s) const | 设置日期时间值                               |
+| setDateTimeFromString | QString toString(const QString & format="yyyy-MM-dd HH:mm:ss") const | 设置日期时间                                 |
+| setMaximumDate        | void setMaximumDate(int y,int m,int d ) const                        | 设置最大日期值                               |
+| setMaximumTime        | void setMaximumTime(int h,int m,int s ) const                        | 设置最大时间值                               |
+| setMinimumDate        | void setMinimumDate(int y,int m,int d ) const                        | 设置最小日期值                               |
+| setMinimumTime        | void setMinimumTime(int h,int m,int s ) const                        | 设置最小时间值                               |
+| setTime               | void setTime(int h,int m,int s) const                                | 设置时间值                                   |
+| setTimeFromString     | QString toString(const QString & format="HH:mm:ss") const            | 设置时间                                     |
+| shortDayName          | QString shortDayName ( ) const                                       | 周几的简短名称                               |
+| shortMonthName        | QString shortMonthName () const                                      | 月份的简短名称                               |
+| stepDown              | void stepDown () const                                               | 向下调(减少)                                 |
+| stepUp                | void stepUp () const                                                 | 向上调(增加)                                 |
+| timeToString          | QString toString(const QString & format="HH:mm:ss") const            | 当前时间值按格式转换成字符串                  |
+| toString              | QString toString(const QString & format="yyyy-MM-dd HH:mm:ss") const | 当前日期值按日期格式转换成字符串               |
+| year                  | int year() const                                                     | 当前日期值对应的年份                          |
 
 ---
 
@@ -238,10 +239,10 @@ checkable为 True 时，是否是选中的状态。
 |信号|接口|说明|
 | - | - | - | 
 |dateChanged|void dateChanged ( const QDate & time ) |日期值改变时发出此信号|
-|timeChanged|void timeChanged ( const QTime & time ) |时间值改变时发出此信号|
 |dateTimeChanged|void dateTimeChanged ( const QDateTime & time ) |日期时间值改变时发出此信号|
 |editingFinished|	void editingFinished () |编辑完成时发出此信号|
 |stateChanged|	void stateChanged(bool)|如果允许勾选，在勾选状态发生变化时发出此信号|
+|timeChanged|void timeChanged ( const QTime & time ) |时间值改变时发出此信号|
 
 ---
 

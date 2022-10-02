@@ -36,13 +36,13 @@
 
 [返回目录](#category)
 
-|属性|值类型|读写类型|说明|
-| - | - | - | - |
-|image|QPixmap |可读 可写|当前图像|
-|defaultVal|QString |可读 |缺省值|
-|palette|QPalette|可读 可写|调色板|
-|URL|QString |可读 可写|超链接地址|
-|imageFillStyle|int |可读 可写|图片填充方式|
+|      属性      |  值类型  | 读写类型  |    说明     |
+| -------------- | -------- | -------- | ----------- |
+| defaultVal     | QString  | 可读      | 缺省值       |
+| image          | QPixmap  | 可读 可写 | 当前图像     |
+| imageFillStyle | int      | 可读 可写 | 图片填充方式 |
+| palette        | QPalette | 可读 可写 | 调色板       |
+| URL            | QString  | 可读 可写 | 超链接地址   |
 
 - ### 属性：image （类型：QPixmap 可读 可写）
 
@@ -100,12 +100,12 @@
 
 所有属性的设置函数（参考上一节中修改属性的接口），都属于此类，都可以当做槽使用。除此之处， 图像控件还有以下成员函数。 
 
-|函数|接口|说明|
-| - | - | - |
-|setMovie|void setMovie(QMovie * v) const|设置动画<br>只显示动画图片，不能播放声音。通常用于显示gif文件<br>关于 QMovie 的用法请参考 Qt 文档|
-|movie|QMovie* movie() const|当前设置的动画|
-|setImageFromImageset|void setImageFromImageset(const QString & v)const |从表单的图片集中按名称取出图像进行设置|
-|setMovieFromImageset|void setMovieFromImageset(const QString & v)const  |从表单的图片集中按名称取出动画进行设置|
+|         函数         |                       接口                        |                                             说明                                             |
+| -------------------- | ------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| movie                | QMovie* movie() const                             | 当前设置的动画                                                                                |
+| setImageFromImageset | void setImageFromImageset(const QString & v)const | 从表单的图片集中按名称取出图像进行设置                                                         |
+| setMovie             | void setMovie(QMovie * v) const                   | 设置动画<br>只显示动画图片，不能播放声音。通常用于显示gif文件<br>关于 QMovie 的用法请参考 Qt 文档 |
+| setMovieFromImageset | void setMovieFromImageset(const QString & v)const | 从表单的图片集中按名称取出动画进行设置                                                         |
 
 ---
 

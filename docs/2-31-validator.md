@@ -26,10 +26,11 @@
 
 |                                         调用接口                                         |             示例             |                             说明                             |
 | --------------------------------------------------------------------------------------- | ---------------------------- | ------------------------------------------------------------ |
-| intValidatorDelegate* intValidator() const                                              | pub.intValidator()           | 不指定范围，可以允许最大范围的整数值 （-2147483647到2147483647) |
-| intValidatorDelegate* intValidator(int min,int max) const                               | pub.intValidator(10,100)     | 指定最大最小值                                                |
 | doubleValidatorDelegate* doubleValidator() const                                        | pub.doubleValidator()        | 不指定范围，可以允许最大范围的整数值（无限）                    |
 | doubleValidatorDelegate* doubleValidator(double min,double max, int decimals = 0) const | pub.doubleValidator(0,100,2) | 指定最大最小值范围和小数位数                                   |
+| intValidatorDelegate* intValidator() const                                              | pub.intValidator()           | 不指定范围，可以允许最大范围的整数值 （-2147483647到2147483647) |
+| intValidatorDelegate* intValidator(int min,int max) const                               | pub.intValidator(10,100)     | 指定最大最小值                                                |
+
 
 在控件中使用方式如以下代码所示：
 
@@ -58,18 +59,18 @@ this.lineedit2.setDoubleValidator(0)
 
 整数校验器的属性：
 
-| 属性 | 值类型 | 读写类型  | 读取 |  赋值函数  |  说明  |
-| ---- | ------ | -------- | ---- | --------- | ------ |
-| top | int    | 可读 可写 | top | setTop    | 最大值 |
+|  属性  | 值类型 | 读写类型  |  读取  |  赋值函数  |  说明  |
+| ------ | ------ | -------- | ------ | --------- | ------ |
 | bottom | int    | 可读 可写 | bottom | setBottom | 最小值 |
+| top    | int    | 可读 可写 | top    | setTop    | 最大值 |
 
 双精度浮点数校验器的属性：
 
 |   属性   | 值类型 | 读写类型  |   读取   |   赋值函数   |   说明   |
 | -------- | ------ | -------- | -------- | ----------- | ------- |
-| top      | double | 可读 可写 | top      | setTop      | 最大值   |
 | bottom   | double | 可读 可写 | bottom   | setBottom   | 最小值   |
 | decimals | int    | 可读 可写 | decimals | setDecimals | 小数位数 |
+| top      | double | 可读 可写 | top      | setTop      | 最大值   |
 
 ## 成员函数
 

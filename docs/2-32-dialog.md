@@ -209,19 +209,19 @@ def buSelectPerson_clicked():
 
 |        接口         |                       调用方式                       |                                     说明                                     |
 | ------------------- | --------------------------------------------------- | --------------------------------------------------------------------------- |
+| exec                | int exec()                                          | 执行这个对话框                                                               |
+| execDialog          | int execDialog()                                    | 执行这个对话框，等同于 exec()                                                 |
+| getSelectedItem     | QVariant getSelectedItem()                          | 返回所选的项目                                                               |
+| getSelectedItems    | QVariantList getSelectedItems()                     | 允许多选时，返回所有选中的项目的值                                             |
+| prepareList         | void prepareList(const QVariant & selected)         | 弹出对话框时，预先设置哪些为已选中的，常用于修改已选清单                        |
+| setDisplayFields    | void setDisplayFields(const QVariant & fieldsIndex) | 设置选中的项目在选中清单或控件中，显示哪些字段的内容                            |
+| setFilterFields     | void setFilterFields(const QVariant & fieldsIndex)  | 设置允许按哪几个字段进行过滤，传入参数为字段在列表中的顺序，从0开始序号          |
+| setHiddenFields     | void setHiddenFields(const QVariant & fieldsIndex)  | 设置列表中隐藏的列，列的序号从0开始                                            |
+| setKeyFieldIndex    | void setKeyFieldIndex(int index)                    | 设置返回的值对应的字段在列表中的顺序，如果不设置，缺省使用第一列，顺序从0开始序号 |
 | setMultiSelection   | void setMultiSelection( bool value)                 | 设置是否允许选择多个项目，如果设为否，则只允许选择一个项目                      |
 | setSelectAllEnabled | void setSelectAllEnabled( bool value)               | 设置是否允许显示“全选”按钮                                                    |
 | setSqlModel         | void setSqlModel(const QString& sql)                | 设置记录列表使用的SQL语句                                                     |
 | setTitles           | void setTitles(const QStringList & list)            | 设置表格的标题显示的文字                                                      |
-| setDisplayFields    | void setDisplayFields(const QVariant & fieldsIndex) | 设置选中的项目在选中清单或控件中，显示哪些字段的内容                            |
-| setHiddenFields     | void setHiddenFields(const QVariant & fieldsIndex)  | 设置列表中隐藏的列，列的序号从0开始                                            |
-| setKeyFieldIndex    | void setKeyFieldIndex(int index)                    | 设置返回的值对应的字段在列表中的顺序，如果不设置，缺省使用第一列，顺序从0开始序号 |
-| setFilterFields     | void setFilterFields(const QVariant & fieldsIndex)  | 设置允许按哪几个字段进行过滤，传入参数为字段在列表中的顺序，从0开始序号          |
-| prepareList         | void prepareList(const QVariant & selected)         | 弹出对话框时，预先设置哪些为已选中的，常用于修改已选清单                        |
-| execDialog          | int execDialog()                                    | 执行这个对话框，等同于 exec()                                                 |
-| exec                | int exec()                                          | 执行这个对话框                                                               |
-| getSelectedItems    | QVariantList getSelectedItems()                     | 允许多选时，返回所有选中的项目的值                                             |
-| getSelectedItem     | QVariant getSelectedItem()                          | 返回所选的项目                                                               |
 
 ## 对话框：搜索下拉列表项目
 
@@ -342,27 +342,27 @@ exec可以反复调用，下次再调用时，缺省是使用上次用户输入�
 
 总结一下常用的接口：
 
-|       接口        |                                      调用方式                                      |                                               说明                                               |
-| ----------------- | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| exec              | int exec()                                                                        | 显示这个对话框，返回执行结果。如果点击“确定”，返回值为1，如果点击“取消”，返回值为0. 可做为槽函数使用。 |
-| execDialog        | int execDialog()                                                                  | 与 exec 相同                                                                                     |
-| setDate           | void setDate(const QDate & date)                                                  | 设置日期值                                                                                       |
-| getDate           | QDate getDate()                                                                   | 获取用户输入的日期值                                                                              |
-| dateEdit          | QDateEdit dateEdit                                                                | 返回日期输入控件对象                                                                              |
-| setDateFromString | void setDateFromString(const QString & date,const QString& format= "yyyy-MM-dd" ) | 以字符串形式设置日期，字符串的格式以format参数指定                                                 |
-| dateToString      | QString dateToString(const QString& format = "yyyy-MM-dd")                        | 返回字符串格式的日期，格式由format参数指定                                                         |
+|       接口        |                                      调用方式                                      |                      说明                       |
+| ----------------- | --------------------------------------------------------------------------------- | ----------------------------------------------- |
+| dateEdit          | QDateEdit dateEdit                                                                | 返回日期输入控件对象                             |
+| dateToString      | QString dateToString(const QString& format = "yyyy-MM-dd")                        | 返回字符串格式的日期，格式由format参数指定        |
+| execDialog        | int execDialog()                                                                  | 与 exec 相同                                    |
+| getDate           | QDate getDate()                                                                   | 获取用户输入的日期值                             |
+| setDate           | void setDate(const QDate & date)                                                  | 设置日期值                                       |
+| setDateFromString | void setDateFromString(const QString & date,const QString& format= "yyyy-MM-dd" ) | 以字符串形式设置日期，字符串的格式以format参数指定 |
+
 
 dateEdit返回的是一个 QDateEdit 对象，详细信息参考 [Qt在线文档-qdateedit](https://doc.qt.io/qt-5/qdateedit.html) 。常用的接口：
 
 |       接口       |                        调用方式                        |         说明          |
 | ---------------- | ----------------------------------------------------- | -------------------- |
-| minimumDate      | QDate minimumDate() const                             | 读取最小日期值        |
-| setMinimumDate   | void setMinimumDate(const QDate &min)                 | 设置最小日期值        |
-| maximumDate      | QDate maximumDate() const                             | 读取最大日期值        |
-| setMaximumDate   | void setMaximumDate(const QDate &min)                 | 设置最大日期值        |
-| setDateRange     | void setDateRange(const QDate &min, const QDate &max) | 设置日期范围          |
 | displayFormat    | QString displayFormat() const                         | 读取显示格式          |
+| minimumDate      | QDate minimumDate() const                             | 读取最小日期值        |
+| maximumDate      | QDate maximumDate() const                             | 读取最大日期值        |
+| setDateRange     | void setDateRange(const QDate &min, const QDate &max) | 设置日期范围          |
 | setDisplayFormat | void setDisplayFormat(const QString &format)          | 设置显示格式          |
+| setMaximumDate   | void setMaximumDate(const QDate &min)                 | 设置最大日期值        |
+| setMinimumDate   | void setMinimumDate(const QDate &min)                 | 设置最小日期值        |
 | toString         | QString toString(const QString &format) const         | 按指定格式转换成字符串 |
 
 ## 对话框：选择时间
@@ -379,23 +379,23 @@ dateEdit返回的是一个 QDateEdit 对象，详细信息参考 [Qt在线文档
 | ----------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | exec              | int exec()                                                                    | 显示这个对话框，返回执行结果。如果点击“确定”，返回值为1，如果点击“取消”，返回值为0. 可做为槽函数使用。 |
 | execDialog        | int execDialog()                                                              | 与 exec 相同                                                                                     |
-| setTime           | void setTime(const QTime & time)                                              | 设置时间值                                                                                       |
 | getTime           | QTime getTime()                                                               | 获取用户输入的时间值                                                                              |
-| timeEdit          | QTimeEdit timeEdit                                                            | 返回时间输入控件对象                                                                              |
+| setTime           | void setTime(const QTime & time)                                              | 设置时间值                                                                                       |
 | setTimeFromString | void setTimeFromString(const QString & time,const QString& format="HH:mm:ss") | 以字符串形式设置时间，字符串的格式以format参数指定                                                 |
+| timeEdit          | QTimeEdit timeEdit                                                            | 返回时间输入控件对象                                                                              |
 | timeToString      | QString timeToString(const QString& format="HH:mm:ss")                        | 返回字符串格式的时间，格式由format参数指定                                                         |
 
 timeEdit返回的是一个 QTimeEdit 对象，详细信息参考 [Qt在线文档-qtimeedit](https://doc.qt.io/qt-5/qtimeedit.html) 。常用的接口：
 
 |       接口       |                        调用方式                        |         说明          |
 | ---------------- | ----------------------------------------------------- | -------------------- |
-| minimumTime      | QDate minimumTime() const                             | 读取最小时间值        |
-| setMinimumTime   | void setMinimumTime(const QTime &min)                 | 设置最小时间值        |
-| maximumTime      | QDate maximumTime() const                             | 读取最大时间值        |
-| setMaximumTime   | void setMaximumTime(const QTime &min)                 | 设置最大时间值        |
-| setTimeRange     | void setTimeRange(const QTime &min, const QTime &max) | 设置时间范围          |
 | displayFormat    | QString displayFormat() const                         | 读取显示格式          |
+| maximumTime      | QDate maximumTime() const                             | 读取最大时间值        |
+| minimumTime      | QDate minimumTime() const                             | 读取最小时间值        |
 | setDisplayFormat | void setDisplayFormat(const QString &format)          | 设置显示格式          |
+| setMaximumTime   | void setMaximumTime(const QTime &min)                 | 设置最大时间值        |
+| setMinimumTime   | void setMinimumTime(const QTime &min)                 | 设置最小时间值        |
+| setTimeRange     | void setTimeRange(const QTime &min, const QTime &max) | 设置时间范围          |
 | toString         | QString toString(const QString &format) const         | 按指定格式转换成字符串 |
 
 ## 对话框：选择日期时间
@@ -412,24 +412,24 @@ timeEdit返回的是一个 QTimeEdit 对象，详细信息参考 [Qt在线文档
 | --------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | exec                  | int exec()                                                            | 显示这个对话框，返回执行结果。如果点击“确定”，返回值为1，如果点击“取消”，返回值为0. 可做为槽函数使用。 |
 | execDialog            | int execDialog()                                                      | 与 exec 相同                                                                                     |
-| setDateTime           | void setDateTime(const QDateTime & time)                              | 设置日期时间值                                                                                   |
-| getDateTime           | QDateTime getDateTime()                                               | 获取用户输入的日期时间值                                                                          |
 | dateTimeEdit          | QDateTimeEdit timeEdit                                                | 返回日期时间输入控件对象                                                                          |
+| dateTimeToString      | QString dateTimeToString(const QString& format="yyyy-MM-dd HH:mm:ss") | 返回字符串格式的时间，格式由format参数指定                                                         |
+| getDateTime           | QDateTime getDateTime()                                               | 获取用户输入的日期时间值                                                                          |
+| setDateTime           | void setDateTime(const QDateTime & time)                              | 设置日期时间值                                                                                   |
 | setDateTimeFromString | void setDateTimeFromString(const QString & datetime,                  | 以字符串形式设置时间，字符串的格式以format参数指定                                                 |
 |                       | 　　　　const QString& format="yyyy-MM-dd HH:mm:ss")                   |                                                                                                 |
-| dateTimeToString      | QString dateTimeToString(const QString& format="yyyy-MM-dd HH:mm:ss") | 返回字符串格式的时间，格式由format参数指定                                                         |
 
 dateTimeEdit返回的是一个 QDateTimeEdit 对象，详细信息参考 [Qt在线文档-qdatetimeedit](https://doc.qt.io/qt-5/qdatetimeedit.html) 。常用的接口：
 
 |        接口        |                              调用方式                              |         说明          |
 | ------------------ | ----------------------------------------------------------------- | -------------------- |
-| minimumDateTime    | QDateTime minimumTime() const                                     | 读取最小日期时间值     |
-| setMinimumDateTime | void setMinimumTime(const QDateTime &min)                         | 设置最小日期时间值     |
-| maximumDateTime    | QDateTime maximumDateTime() const                                 | 读取最大日期时间值     |
-| setMaximumDateTime | void setMaximumDateTime(const QDateTime &min)                     | 设置最大日期时间值     |
-| setDateTimeRange   | void setDateTimeRange(const QDateTime &min, const QDateTime &max) | 设置日期时间范围       |
 | displayFormat      | QString displayFormat() const                                     | 读取显示格式          |
+| maximumDateTime    | QDateTime maximumDateTime() const                                 | 读取最大日期时间值     |
+| minimumDateTime    | QDateTime minimumTime() const                                     | 读取最小日期时间值     |
+| setDateTimeRange   | void setDateTimeRange(const QDateTime &min, const QDateTime &max) | 设置日期时间范围       |
 | setDisplayFormat   | void setDisplayFormat(const QString &format)                      | 设置显示格式          |
+| setMaximumDateTime | void setMaximumDateTime(const QDateTime &min)                     | 设置最大日期时间值     |
+| setMinimumDateTime | void setMinimumTime(const QDateTime &min)                         | 设置最小日期时间值     |
 | toString           | QString toString(const QString &format) const                     | 按指定格式转换成字符串 |
 
 ## 对话框：选择日期范围
@@ -442,31 +442,32 @@ dateTimeEdit返回的是一个 QDateTimeEdit 对象，详细信息参考 [Qt在�
 
 常用的接口：
 
-|       接口        |                                  调用方式                                  |                                               说明                                               |
-| ----------------- | ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| exec              | int exec()                                                                | 显示这个对话框，返回执行结果。如果点击“确定”，返回值为1，如果点击“取消”，返回值为0. 可做为槽函数使用。 |
-| execDialog        | int execDialog()                                                          | 与 exec 相同                                                                                     |
-| setDate           | void setDate(const QDate & datefrom,const QDate & dateto)                 | 设置日期值的范围                                                                                 |
-| getDateFrom       | QDate getDateFrom()                                                       | 获取用户输入的开始日期值（大于或等于）                                                             |
-| getDateTo         | QDate getDateTo()                                                         | 获取用户输入的截止日期值（小于或等于）                                                             |
-| dateEdit_from     | QDateEdit dateEdit_from                                                   | 返回用于输入开始日期的日期输入控件对象                                                             |
-| dateEdit_to       | QDateEdit dateEdit_to                                                     | 返回用于输入截止日期的日期输入控件对象                                                             |
-| setDateFromString | void setDateFromString(const QString & datefrom,                          | 以字符串设置起止日期，字符串格式用参数format设置                                                   |
+|       接口        |                             调用方式                              |                                               说明                                               |
+| ----------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| dateEdit_from     | QDateEdit dateEdit_from                                           | 返回用于输入开始日期的日期输入控件对象                                                             |
+| dateEdit_to       | QDateEdit dateEdit_to                                             | 返回用于输入截止日期的日期输入控件对象                                                             |
+| dateFromToString  | 	QString dateFromToString(const QString& format="yyyy-MM-dd")    | 返回字符串格式的开始日期，格式由参数format设置                                                     |
+| dateToToString    | 	QString dateToToString(const QString& format = "yyyy-MM-dd")    | 返回字符串格式的截止日期，格式由参数format设置                                                     |
+| exec              | int exec()                                                        | 显示这个对话框，返回执行结果。如果点击“确定”，返回值为1，如果点击“取消”，返回值为0. 可做为槽函数使用。 |
+| execDialog        | int execDialog()                                                  | 与 exec 相同                                                                                     |
+| getDateFrom       | QDate getDateFrom()                                               | 获取用户输入的开始日期值（大于或等于）                                                             |
+| getDateTo         | QDate getDateTo()                                                 | 获取用户输入的截止日期值（小于或等于）                                                             |
+| setDate           | void setDate(const QDate & datefrom,const QDate & dateto)         | 设置日期值的范围                                                                                 |
+| setDateFromString | void setDateFromString(const QString & datefrom,                  | 以字符串设置起止日期，字符串格式用参数format设置                                                   |
 |                   | 　　const QString & dateto, const QString& format = "yyyy-MM-dd") |                                                                                                 |
-| dateFromToString  | 	QString dateFromToString(const QString& format="yyyy-MM-dd")            | 返回字符串格式的开始日期，格式由参数format设置                                                     |
-| dateToToString    | 	QString dateToToString(const QString& format = "yyyy-MM-dd")            | 返回字符串格式的截止日期，格式由参数format设置                                                     |
+
 
 dateEdit_from 和 dateEdit_to 返回的都是 QDateEdit 对象，详细信息参考 [Qt在线文档-qdateedit](https://doc.qt.io/qt-5/qdateedit.html) 。常用的接口：
 
-|       接口       |                        调用方式                        |         说明          |
-| ---------------- | ----------------------------------------------------- | -------------------- |
-| minimumDate      | QDate minimumDate() const                             | 读取最小日期值        |
-| setMinimumDate   | void setMinimumDate(const QDate &min)                 | 设置最小日期值        |
-| maximumDate      | QDate maximumDate() const                             | 读取最大日期值        |
-| setMaximumDate   | void setMaximumDate(const QDate &min)                 | 设置最大日期值        |
-| setDateRange     | void setDateRange(const QDate &min, const QDate &max) | 设置日期范围          |
-| displayFormat    | QString displayFormat() const                         | 读取显示格式          |
-| setDisplayFormat | void setDisplayFormat(const QString &format)          | 设置显示格式          |
+|       接口       |                        调用方式                        |     说明      |
+| ---------------- | ----------------------------------------------------- | ------------- |
+| displayFormat    | QString displayFormat() const                         | 读取显示格式   |
+| maximumDate      | QDate maximumDate() const                             | 读取最大日期值 |
+| minimumDate      | QDate minimumDate() const                             | 读取最小日期值 |
+| setDateRange     | void setDateRange(const QDate &min, const QDate &max) | 设置日期范围   |
+| setDisplayFormat | void setDisplayFormat(const QString &format)          | 设置显示格式   |
+| setMinimumDate   | void setMinimumDate(const QDate &min)                 | 设置最小日期值 |
+| setMaximumDate   | void setMaximumDate(const QDate &min)                 | 设置最大日期值 |
 | toString         | QString toString(const QString &format) const         | 按指定格式转换成字符串 |
 
 ## 对话框：选择时间范围
@@ -483,27 +484,27 @@ dateEdit_from 和 dateEdit_to 返回的都是 QDateEdit 对象，详细信息参
 | ----------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | exec              | int exec()                                                      | 显示这个对话框，返回执行结果。如果点击“确定”，返回值为1，如果点击“取消”，返回值为0. 可做为槽函数使用。 |
 | execDialog        | int execDialog()                                                | 与 exec 相同                                                                                     |
-| setTime           | void setTime(const QTime & timefrom,const QTime & timeto)       | 设置时间值的范围                                                                                 |
 | getTimeFrom       | QTime getTimeFrom()                                             | 获取用户输入的开始时间值（大于或等于）                                                             |
 | getTimeTo         | QTime getTimeTo()                                               | 获取用户输入的截止时间值（小于或等于）                                                             |
-| timeEdit_from     | QTimeEdit timeEdit_from                                         | 返回用于输入开始时间的时间输入控件对象                                                             |
-| timeEdit_to       | QTimeEdit timeEdit_to                                           | 返回用于输入截止时间的时间输入控件对象                                                             |
+| setTime           | void setTime(const QTime & timefrom,const QTime & timeto)       | 设置时间值的范围                                                                                 |
 | setTimeFromString | void setTimeFromString(const QString & timefrom,                | 以字符串设置起止时间，字符串格式用参数format设置                                                   |
 |                   | 　　const QString & timeto, const QString& format = "HH:mm:ss") |                                                                                                 |
-| timeFromToString  | 	QString timeFromToString(const QString& format="HH:mm:ss")    | 返回字符串格式的开始时间，格式由参数format设置                                                     |
-| timeToToString    | 	QString timeToToString(const QString& format = "HH:mm:ss")    | 返回字符串格式的截止时间，格式由参数format设置                                                     |
+| timeEdit_from     | QTimeEdit timeEdit_from                                         | 返回用于输入开始时间的时间输入控件对象                                                             |
+| timeEdit_to       | QTimeEdit timeEdit_to                                           | 返回用于输入截止时间的时间输入控件对象                                                             |
+| timeFromToString  | QString timeFromToString(const QString& format="HH:mm:ss")      | 返回字符串格式的开始时间，格式由参数format设置                                                     |
+| timeToToString    | QString timeToToString(const QString& format = "HH:mm:ss")      | 返回字符串格式的截止时间，格式由参数format设置                                                     |
 
 timeEdit_from 和 timeEdit_to 返回的都是 QTimeEdit 对象，详细信息参考 [Qt在线文档-qtimeedit](https://doc.qt.io/qt-5/qtimeedit.html) 。常用的接口：
 
 |       接口       |                        调用方式                        |         说明          |
 | ---------------- | ----------------------------------------------------- | -------------------- |
-| minimumTime      | QDate minimumTime() const                             | 读取最小时间值        |
-| setMinimumTime   | void setMinimumTime(const QTime &min)                 | 设置最小时间值        |
-| maximumTime      | QDate maximumTime() const                             | 读取最大时间值        |
-| setMaximumTime   | void setMaximumTime(const QTime &min)                 | 设置最大时间值        |
-| setTimeRange     | void setTimeRange(const QTime &min, const QTime &max) | 设置时间范围          |
 | displayFormat    | QString displayFormat() const                         | 读取显示格式          |
+| maximumTime      | QDate maximumTime() const                             | 读取最大时间值        |
+| minimumTime      | QDate minimumTime() const                             | 读取最小时间值        |
 | setDisplayFormat | void setDisplayFormat(const QString &format)          | 设置显示格式          |
+| setMaximumTime   | void setMaximumTime(const QTime &min)                 | 设置最大时间值        |
+| setMinimumTime   | void setMinimumTime(const QTime &min)                 | 设置最小时间值        |
+| setTimeRange     | void setTimeRange(const QTime &min, const QTime &max) | 设置时间范围          |
 | toString         | QString toString(const QString &format) const         | 按指定格式转换成字符串 |
 
 ## 对话框：选择日期时间范围
@@ -518,29 +519,29 @@ timeEdit_from 和 timeEdit_to 返回的都是 QTimeEdit 对象，详细信息参
 
 |         接口          |                                    调用方式                                    |                                               说明                                               |
 | --------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| exec                  | int exec()                                                                    | 显示这个对话框，返回执行结果。如果点击“确定”，返回值为1，如果点击“取消”，返回值为0. 可做为槽函数使用。 |
-| execDialog            | int execDialog()                                                              | 与 exec 相同                                                                                     |
-| setDateTime           | void setDateTime(const QDateTime & dateTimeFrom,const QDateTime & dateTimeTo) | 设置时间值的范围                                                                                 |
-| getDateTimeFrom       | QDateTime getDateTimeFrom()                                                   | 获取用户输入的开始日期时间值（大于或等于）                                                         |
-| getDateTimeTo         | QDateTime getDateTimeTo()                                                     | 获取用户输入的截止日期时间值（小于或等于）                                                         |
 | dateTimeEdit_from     | QDateTimeEdit dateTimeEdit_from                                               | 返回用于输入开始日期时间的日期时间输入控件对象                                                      |
 | dateTimeEdit_to       | QDateTimeEdit dateTimeEdit_to                                                 | 返回用于输入截止日期时间的日期时间输入控件对象                                                      |
-| setDateTimeFromString | void setDateTimeFromString(const QString & datetimefrom,                      | 以字符串设置起止日期时间，字符串格式用参数format设置                                                |
-|                       | 　　const QString & datetimeto, const QString& format = "yyyy-MM-dd HH:mm:ss") |                                                                                                 |
 | dateTimeFromToString  | 	QString dateTimeFromToString(const QString& format="yyyy-MM-dd HH:mm:ss")    | 返回字符串格式的开始日期时间，格式由参数format设置                                                 |
 | dateTimeToToString    | 	QString dateTimeToToString(const QString& format = "yyyy-MM-dd HH:mm:ss")    | 返回字符串格式的截止日期时间，格式由参数format设置                                                 |
+| exec                  | int exec()                                                                    | 显示这个对话框，返回执行结果。如果点击“确定”，返回值为1，如果点击“取消”，返回值为0. 可做为槽函数使用。 |
+| execDialog            | int execDialog()                                                              | 与 exec 相同                                                                                     |
+| getDateTimeFrom       | QDateTime getDateTimeFrom()                                                   | 获取用户输入的开始日期时间值（大于或等于）                                                         |
+| getDateTimeTo         | QDateTime getDateTimeTo()                                                     | 获取用户输入的截止日期时间值（小于或等于）                                                         |
+| setDateTime           | void setDateTime(const QDateTime & dateTimeFrom,const QDateTime & dateTimeTo) | 设置时间值的范围                                                                                 |
+| setDateTimeFromString | void setDateTimeFromString(const QString & datetimefrom,                      | 以字符串设置起止日期时间，字符串格式用参数format设置                                                |
+|                       | 　　const QString & datetimeto, const QString& format = "yyyy-MM-dd HH:mm:ss") |                                                                                                 |
 
 dateTimeEdit_from 和 dateTimeEdit_to 返回的都是 QDateTimeEdit 对象，详细信息参考 [Qt在线文档-qdatetimeedit](https://doc.qt.io/qt-5/qdatetimeedit.html) 。常用的接口：
 
 |        接口        |                              调用方式                              |         说明          |
 | ------------------ | ----------------------------------------------------------------- | -------------------- |
-| minimumDateTime    | QDateTime minimumTime() const                                     | 读取最小日期时间值     |
-| setMinimumDateTime | void setMinimumTime(const QDateTime &min)                         | 设置最小日期时间值     |
-| maximumDateTime    | QDateTime maximumDateTime() const                                 | 读取最大日期时间值     |
-| setMaximumDateTime | void setMaximumDateTime(const QDateTime &min)                     | 设置最大日期时间值     |
-| setDateTimeRange   | void setDateTimeRange(const QDateTime &min, const QDateTime &max) | 设置日期时间范围       |
 | displayFormat      | QString displayFormat() const                                     | 读取显示格式          |
+| maximumDateTime    | QDateTime maximumDateTime() const                                 | 读取最大日期时间值     |
+| minimumDateTime    | QDateTime minimumTime() const                                     | 读取最小日期时间值     |
+| setDateTimeRange   | void setDateTimeRange(const QDateTime &min, const QDateTime &max) | 设置日期时间范围       |
 | setDisplayFormat   | void setDisplayFormat(const QString &format)                      | 设置显示格式          |
+| setMaximumDateTime | void setMaximumDateTime(const QDateTime &min)                     | 设置最大日期时间值     |
+| setMinimumDateTime | void setMinimumTime(const QDateTime &min)                         | 设置最小日期时间值     |
 | toString           | QString toString(const QString &format) const                     | 按指定格式转换成字符串 |
 
 ## 其它对话框

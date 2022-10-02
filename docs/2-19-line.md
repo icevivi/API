@@ -36,12 +36,12 @@
 
 [返回目录](#category)
 
-|属性|值类型|读写类型|说明|
-| - | - | - | - |
-|lineColor|QColor|可读 可写|线条颜色|
-|lineWidth|int|可读 可写|线宽|
-|orientation|int|可读 可写|方向|
-|lineStyle|int|可读 可写|线型|
+|    属性     | 值类型 | 读写类型  |   说明   |
+| ----------- | ------ | -------- | ------- |
+| lineColor   | QColor | 可读 可写 | 线条颜色 |
+| lineWidth   | int    | 可读 可写 | 线宽     |
+| lineStyle   | int    | 可读 可写 | 线型     |
+| orientation | int    | 可读 可写 | 方向     |
 
 - ### 属性：lineColor （类型：QColor 可读 可写）
 
@@ -61,18 +61,6 @@
 | 读取 | int lineWidth() const                    |
 | 修改 | void setLineWidth( int lineWidth ) const |
 
-- ### 属性：orientation （类型：int 可读 可写）
-
-方向。
-
-|      |                   调用方法                    |
-| ---- | -------------------------------------------- |
-| 读取 | int orientation() const                      |
-| 修改 | void setOrientation( int orientation ) const |
-|      | **orientation取值：**                        |
-|      | pub.VERTICAL 垂直方向                         |
-|      | pub.HORIZONTAL 水平方向                       |
-
 - ### 属性：lineStyle （类型：int 可读 可写）
 
 线型。
@@ -87,6 +75,18 @@
 |      | pub.DOTLINE 点划线                       |
 |      | pub.DASHDOTLINE 破折-点线                 |
 |      | pub.DASHDOTDOTLINE 破折-点-点线           |
+
+- ### 属性：orientation （类型：int 可读 可写）
+
+方向。
+
+|      |                   调用方法                    |
+| ---- | -------------------------------------------- |
+| 读取 | int orientation() const                      |
+| 修改 | void setOrientation( int orientation ) const |
+|      | **orientation取值：**                        |
+|      | pub.VERTICAL 垂直方向                         |
+|      | pub.HORIZONTAL 水平方向                       |
 
 ---
 

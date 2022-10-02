@@ -36,21 +36,37 @@
 
 [返回目录](#category)
 
-|     属性      |  值类型  | 读写类型  |        说明        |
-| ------------- | ------- | -------- | ------------------ |
+|     属性      |  值类型  | 读写类型  |        说明         |
+| ------------- | ------- | -------- | ------------------- |
+| cleanText     | QString | 可读      | 数值对应的文本       |
+| defaultVal    | int     | 可读      | 缺省值              |
 | margin        | int     | 可读 可写 | 边界宽度            |
-| minimum       | int     | 可读 可写 | 最小值             |
-| maximum       | int     | 可读 可写 | 最大值             |
-| wrapping      | bool    | 可读 可写 | 是否值循环          |
-| singlestep    | int     | 可读 可写 | 步长               |
-| prefix        | QString | 可读 可写 | 前缀               |
-| suffix        | QString | 可读 可写 | 后缀               |
-| defaultVal    | int     | 可读      | 缺省值             |
-| text          | QString | 可读      | 显示的文本          |
-| cleanText     | QString | 可读      | 数值对应的文本      |
-| value         | int     | 可读 可写 | 当前值             |
+| maximum       | int     | 可读 可写 | 最大值              |
+| minimum       | int     | 可读 可写 | 最小值              |
+| prefix        | QString | 可读 可写 | 前缀                |
 | readOnly      | bool    | 可读 可写 | 是否只读            |
 | showSeperator | bool    | 可读 可写 | 是否显示千分位分隔符 |
+| singlestep    | int     | 可读 可写 | 步长                |
+| suffix        | QString | 可读 可写 | 后缀                |
+| text          | QString | 可读      | 显示的文本          |
+| value         | int     | 可读 可写 | 当前值              |
+| wrapping      | bool    | 可读 可写 | 是否值循环          |
+
+- ### 属性：cleanText （类型：QString 可读 ）
+
+当前数值转换为字符串。只将数值转换成字符串，不会加上前缀、后缀、千分位，并且会除去前后可能会有的空格。
+
+|      |          调用方法          |
+| ---- | ------------------------- |
+| 读取 | QString cleanText() const |
+
+- ### 属性：defaultVal （类型：int 可读 ）
+
+缺省值。
+
+|      |        调用方法         |
+| ---- | ---------------------- |
+| 读取 | int defaultVal() const |
 
 - ### 属性：margin （类型：int 可读 可写）
 
@@ -61,15 +77,6 @@
 | 读取 | int margin() const                 |
 | 修改 | void setMargin( int margin ) const |
 
-- ### 属性：minimum （类型：int 可读 可写）
-
-最小值。
-
-|      |               调用方法                |
-| ---- | ------------------------------------ |
-| 读取 | int minimum() const                  |
-| 修改 | void setMinimum( int minimum ) const |
-
 - ### 属性：maximum （类型：int 可读 可写）
 
 最大值。
@@ -79,23 +86,14 @@
 | 读取 | int maximum() const                  |
 | 修改 | void setMaximum( int maximum ) const |
 
-- ### 属性：wrapping （类型：bool 可读 可写）
+- ### 属性：minimum （类型：int 可读 可写）
 
-是否值循环。值循环是指，当前值已到最大值时，若再向上调会转到最小值。只有设置了最大最小值时有效。
+最小值。
 
-|      |                 调用方法                 |
-| ---- | --------------------------------------- |
-| 读取 | bool wrapping() const                   |
-| 修改 | void setWrapping( bool wrapping ) const |
-
-- ### 属性：singlestep （类型：int 可读 可写）
-
-步长。点击上下按钮或滚动鼠标滚轮时值增加或减少的量。
-
-|      |                  调用方法                   |
-| ---- | ------------------------------------------ |
-| 读取 | int singlestep() const                     |
-| 修改 | void setSinglestep( int singlestep ) const |
+|      |               调用方法                |
+| ---- | ------------------------------------ |
+| 读取 | int minimum() const                  |
+| 修改 | void setMinimum( int minimum ) const |
 
 - ### 属性：prefix （类型：QString 可读 可写）
 
@@ -105,48 +103,6 @@
 | ---- | --------------------------------------------- |
 | 读取 | QString prefix() const                        |
 | 修改 | void setPrefix( const QString &prefix ) const |
-
-- ### 属性：suffix （类型：QString 可读 可写）
-
-后缀。在控件中显示数据对应的文本时，后面会加上后缀，不影响 value 的值，只影响显示的文本即 text 的值。
-
-|      |                    调用方法                    |
-| ---- | --------------------------------------------- |
-| 读取 | QString suffix() const                        |
-| 修改 | void setSuffix( const QString &suffix ) const |
-
-- ### 属性：defaultVal （类型：int 可读 ）
-
-缺省值。
-
-|      |        调用方法         |
-| ---- | ---------------------- |
-| 读取 | int defaultVal() const |
-
-- ### 属性：text （类型：QString 可读 ）
-
-显示的文本。为数值转换成字符串后，加上前缀和后缀，如果需要显示千分位，会再加上千分位分隔符“，”。
-
-|      |       调用方法        |
-| ---- | -------------------- |
-| 读取 | QString text() const |
-
-- ### 属性：cleanText （类型：QString 可读 ）
-
-当前数值转换为字符串。只将数值转换成字符串，不会加上前缀、后缀、千分位，并且会除去前后可能会有的空格。
-
-|      |          调用方法          |
-| ---- | ------------------------- |
-| 读取 | QString cleanText() const |
-
-- ### 属性：value （类型：int 可读 可写）
-
-当前数值。
-
-|      |             调用方法              |
-| ---- | -------------------------------- |
-| 读取 | int value() const                |
-| 修改 | void setValue( int value ) const |
 
 - ### 属性：readOnly （类型：bool 可读 可写）
 
@@ -166,6 +122,50 @@
 | 读取 | bool showSeperator() const                        |
 | 修改 | void setShowSeperator( bool showSeperator ) const |
 
+- ### 属性：singlestep （类型：int 可读 可写）
+
+步长。点击上下按钮或滚动鼠标滚轮时值增加或减少的量。
+
+|      |                  调用方法                   |
+| ---- | ------------------------------------------ |
+| 读取 | int singlestep() const                     |
+| 修改 | void setSinglestep( int singlestep ) const |
+
+- ### 属性：suffix （类型：QString 可读 可写）
+
+后缀。在控件中显示数据对应的文本时，后面会加上后缀，不影响 value 的值，只影响显示的文本即 text 的值。
+
+|      |                    调用方法                    |
+| ---- | --------------------------------------------- |
+| 读取 | QString suffix() const                        |
+| 修改 | void setSuffix( const QString &suffix ) const |
+
+- ### 属性：text （类型：QString 可读 ）
+
+显示的文本。为数值转换成字符串后，加上前缀和后缀，如果需要显示千分位，会再加上千分位分隔符“，”。
+
+|      |       调用方法        |
+| ---- | -------------------- |
+| 读取 | QString text() const |
+
+- ### 属性：value （类型：int 可读 可写）
+
+当前数值。
+
+|      |             调用方法              |
+| ---- | -------------------------------- |
+| 读取 | int value() const                |
+| 修改 | void setValue( int value ) const |
+
+- ### 属性：wrapping （类型：bool 可读 可写）
+
+是否值循环。值循环是指，当前值已到最大值时，若再向上调会转到最小值。只有设置了最大最小值时有效。
+
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | bool wrapping() const                   |
+| 修改 | void setWrapping( bool wrapping ) const |
+
 ---
 
 ## 整数编辑器自有成员函数
@@ -178,9 +178,9 @@
 | - | - | - |
 |clear|void clear()  const|清除输入的内容对应的文本和千分位，但不会清除前缀和后缀，并且不影响其值|
 |selectAll|void selectAll() const|选择所有文本|
+|setRange |void setRange(int min,int max) const|设置最大最小值范围|
 |stepDown|void stepDown () const|值上调一步，上调的值等于步长|
 |stepUp|void stepUp () const|值下调一步，下调的值等于步长|
-|setRange |void setRange(int min,int max) const|设置最大最小值范围|
 
 ---
 

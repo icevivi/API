@@ -58,17 +58,17 @@
 
 |       函数        |                     接口                     |                              说明                               |
 | ----------------- | -------------------------------------------- | --------------------------------------------------------------- |
-| isNull            | bool isNull() const	                       | 是否是空的组（成员数量为零）                                      |
-| setValue          | void setValue(const QString &val) const	   | 设置当前值，符合的单选按钮会被选中，组内其它单选按钮为未被选中的状态 |
-| checkButton       | void checkButton( int index) const           | 选中第几个按钮，其它会被置为未被选中的状态                         |
+| buttonName        | QString buttonName( int index)  const        | 按顺序返回单选按钮的控件名称                                      |
 | buttonNames       | QStringList buttonNames() const              | 返回群中单选按钮的控件名称的清单，列表中的顺序按 tabOrder 的顺序    |
+| buttonValue       | QString buttonValue( int index) const        | 按顺序返回单选按钮的值                                            |
 | buttonValues      | QStringList buttonValues() const             | 返回群中单选按钮的值的清单，列表中的顺序按 tabOrder 的顺序          |
-| currentIndex      | int currentIndex () const                    | 当前选中的单选按钮在群中的顺序                                    |
+| checkButton       | void checkButton( int index) const           | 选中第几个按钮，其它会被置为未被选中的状态                         |
 | checkedButtonName | QString checkedButtonName() const            | 当前选中的单选按钮的控件名称                                      |
+| currentIndex      | int currentIndex () const                    | 当前选中的单选按钮在群中的顺序                                    |
 | indexOfName       | int indexOfName(const QString &name) const   | 按单选控件的名称返回其中群中的顺序                                 |
 | indexOfValue      | int indexOfValue(const QString &value) const | 按单选按钮的值返回其中群中的顺序                                  |
-| buttonName        | QString buttonName( int index)  const        | 按顺序返回单选按钮的控件名称                                      |
-| buttonValue       | QString buttonValue( int index) const        | 按顺序返回单选按钮的值                                            |
+| isNull            | bool isNull() const	                       | 是否是空的组（成员数量为零）                                      |
+| setValue          | void setValue(const QString &val) const	   | 设置当前值，符合的单选按钮会被选中，组内其它单选按钮为未被选中的状态 |
 
 ## 信号
 

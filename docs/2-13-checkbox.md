@@ -36,17 +36,17 @@
 
 [返回目录](#category)
 
-|属性|值类型|读写类型|说明|
-| - | - | - | - |
-|caption|QString|可读 可写|标题显示的文本|
-|checked|bool|可读 可写|标题显示的文本|
-|checkState|int|可读 可写|勾选状态|
-|triState|bool|可读 可写|是否可用三种状态|
-|defaultVal|QVariant|可读 可写|缺省勾选状态|
-|checkedText|QString|可读 可写|选中状态对应的的文本|
-|uncheckedText|QString|可读 可写|未选中状态的文本|
-|partiallyCheckedText|QString|可读 可写|部分选中对应的文本|
-|currentText|QString|可读 可写|当前状态对应的的文本|
+|         属性         |  值类型  | 读写类型  |        说明         |
+| -------------------- | -------- | -------- | ------------------- |
+| caption              | QString  | 可读 可写 | 标题显示的文本       |
+| checked              | bool     | 可读 可写 | 标题显示的文本       |
+| checkedText          | QString  | 可读 可写 | 选中状态对应的的文本 |
+| checkState           | int      | 可读 可写 | 勾选状态            |
+| currentText          | QString  | 可读 可写 | 当前状态对应的的文本 |
+| defaultVal           | QVariant | 可读 可写 | 缺省勾选状态        |
+| partiallyCheckedText | QString  | 可读 可写 | 部分选中对应的文本   |
+| triState             | bool     | 可读 可写 | 是否可用三种状态     |
+| uncheckedText        | QString  | 可读 可写 | 未选中状态的文本     |
 
 - ### 属性：caption （类型：QString 可读 可写）
 
@@ -66,6 +66,15 @@
 | 读取 | bool checked() const                  |
 | 修改 | void setChecked( bool checked ) const |
 
+- ### 属性：checkedText （类型：QString 可读 可写）
+
+选中时对应的文本内容。
+
+|      |                         调用方法                         |
+| ---- | ------------------------------------------------------- |
+| 读取 | QString checkedText() const                             |
+| 修改 | void setCheckedText( const QString &checkedText ) const |
+
 - ### 属性：checkState （类型：int 可读 可写）
 
 设置勾选状态。
@@ -79,14 +88,14 @@
 |      | pub.PARTIALLYCHECKED 部分选中               |
 |      | pub.CHECKED 选中                           |
 
-- ### 属性：triState （类型：bool 可读 可写）
+- ### 属性：currentText （类型：QString 可读 可写）
 
-是否允许使用三种勾选状态。设为 True 时，可以为“部分选中”的状态，否则只有“选中”和“未选中”两种状态。
+当前文本。文本按当前勾选的状态，返回不同的文本内容。
 
-|      |                 调用方法                 |
-| ---- | --------------------------------------- |
-| 读取 | bool triState() const                   |
-| 修改 | void setTriState( bool triState ) const |
+|      |                         调用方法                         |
+| ---- | ------------------------------------------------------- |
+| 读取 | QString currentText() const                             |
+| 修改 | void setCurrentText( const QString &currentText ) const |
 
 - ### 属性：defaultVal （类型：QVariant 可读 ）
 
@@ -100,24 +109,6 @@
 |      | 1 : 部分选中                 |
 |      | 2 : 选中                    |
 
-- ### 属性：checkedText （类型：QString 可读 可写）
-
-选中时对应的文本内容。
-
-|      |                         调用方法                         |
-| ---- | ------------------------------------------------------- |
-| 读取 | QString checkedText() const                             |
-| 修改 | void setCheckedText( const QString &checkedText ) const |
-
-- ### 属性：uncheckedText （类型：QString 可读 可写）
-
-未勾选时对应的文本内容。
-
-|      |                           调用方法                           |
-| ---- | ----------------------------------------------------------- |
-| 读取 | QString uncheckedText() const                               |
-| 修改 | void setUncheckedText( const QString &uncheckedText ) const |
-
 - ### 属性：partiallyCheckedText （类型：QString 可读 可写）
 
 部分勾选时对应的文本内容。
@@ -127,14 +118,24 @@
 | 读取 | QString partiallyCheckedText() const                                      |
 | 修改 | void setPartiallyCheckedText( const QString &partiallyCheckedText ) const |
 
-- ### 属性：currentText （类型：QString 可读 可写）
+- ### 属性：triState （类型：bool 可读 可写）
 
-当前文本。文本按当前勾选的状态，返回不同的文本内容。
+是否允许使用三种勾选状态。设为 True 时，可以为“部分选中”的状态，否则只有“选中”和“未选中”两种状态。
 
-|      |                         调用方法                         |
-| ---- | ------------------------------------------------------- |
-| 读取 | QString currentText() const                             |
-| 修改 | void setCurrentText( const QString &currentText ) const |
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | bool triState() const                   |
+| 修改 | void setTriState( bool triState ) const |
+
+
+- ### 属性：uncheckedText （类型：QString 可读 可写）
+
+未勾选时对应的文本内容。
+
+|      |                           调用方法                           |
+| ---- | ----------------------------------------------------------- |
+| 读取 | QString uncheckedText() const                               |
+| 修改 | void setUncheckedText( const QString &uncheckedText ) const |
 
 ---
 

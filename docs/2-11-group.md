@@ -38,12 +38,25 @@
 
 |      属性       | 值类型  | 读写类型  |     说明      |
 | --------------- | ------- | -------- | ------------- |
+| alignment       | int     | 可读 可写 | 标题的对齐方式 |
 | caption         | QString | 可读 可写 | 标题显示的文字 |
 | checked         | bool    | 可读 可写 | 是否被选中     |
 | checkable       | bool    | 可读 可写 | 是否可勾选     |
-| alignment       | int     | 可读 可写 | 标题的对齐方式 |
 | defaultVal      | bool    | 可读      | 缺省的勾选状态 |
 | titleBackground | QColor  | 可读 可写 | 标题的背景色   |
+
+- ### 属性：alignment （类型：int 可读 可写）
+
+标题的对齐方式。
+
+|      |                 调用方法                  |
+| ---- | ---------------------------------------- |
+| 读取 | int alignment() const                    |
+| 修改 | void setAlignment( int alignment ) const |
+|      | **alignment取值：**                      |
+|      | pub.ALIGNLEFT 向左对齐                    |
+|      | pub.ALIGNRIGHT 向右对齐                   |
+|      | pub.ALIGNHCENTER 水平居中对齐             |
 
 - ### 属性：caption （类型：QString 可读 可写）
 
@@ -72,19 +85,6 @@
 | 读取 | bool checkable() const                    |
 | 修改 | void setCheckable( bool checkable ) const |
 
-- ### 属性：alignment （类型：int 可读 可写）
-
-标题的对齐方式。
-
-|      |                 调用方法                  |
-| ---- | ---------------------------------------- |
-| 读取 | int alignment() const                    |
-| 修改 | void setAlignment( int alignment ) const |
-|      | **alignment取值：**                      |
-|      | pub.ALIGNLEFT 向左对齐                    |
-|      | pub.ALIGNRIGHT 向右对齐                   |
-|      | pub.ALIGNHCENTER 水平居中对齐             |
-
 - ### 属性：defaultVal （类型：bool 可读 ）
 
 缺省值。对分组框控件来讲，为是否被选中的状态。如果“是否可勾选”设为否，则将忽略这个初始值设定。
@@ -112,8 +112,8 @@
 
 |函数|接口|说明|
 | - | - | - | 
-|buttonGroupCount|int buttonGroupCount() const|单选按钮群的数量，一直为1等于分页数量|
 |buttonGroup|radioButtonGroupDelegate* buttonGroup(int index = 0) const|返回单选按钮群|
+|buttonGroupCount|int buttonGroupCount() const|单选按钮群的数量，一直为1等于分页数量|
 
 ---
 

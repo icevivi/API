@@ -72,8 +72,6 @@
 | verticalScrollBarPolicy     | int    | 可读 可写 | 垂直滚动条显示规则 |
 | wordwrap                    | bool   | 可读 可写 | 是否自动换行       |
 
-
-
 - ### 属性：alternatingRowColors （类型：bool 可读 可写）
 
 [返回目录](#category)

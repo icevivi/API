@@ -78,7 +78,7 @@
 | [horizontalScrollBarMaxValue](#horizontalScrollBarMaxValue) | int horizontalScrollBarMaxValue() const                                              | 水平滚动条是否可见                               |
 | [horizontalScrollBarVisible](#horizontalScrollBarVisible)   | bool horizontalScrollBarVisible() const                                              | 水平滚动条是否可见                               |
 | [importFromPFD](#importFromPFD)                             | void importFromPFD()                                                                 | 从PFD文件导入数据                               |
-| [isDebug](#isDebug)                                         | bool isDebug() const                                                                 | 是否在 debug 环境下                             |
+| [isDebug](#isDebug)                                         | bool isDebug() const                                                                 | 是否在 debug 环境下                              |
 | [isExtentTable](#isExtentTable)                             | bool isExtentTable(const QString& tablename) const                                   | 某个表是否是主表的扩展表                         |
 | [isMine](#isMine)                                           | bool isMine() const                                                                  | 是否是本地发布（注册）的表单                     |
 | [isNull](#isNull)                                           | bool isNull()                                                                        | 是否是空的表单对象                               |
@@ -91,7 +91,7 @@
 | [jumpToRecordByUUID](#jumpToRecordByUUID)                   | bool jumpToRecordByUUID(const QString &UUID)                                         | 转到匹配UUID的记录                              |
 | [killAllTimer](#killAllTimer)                               | void killAllTimer() const                                                            | 停掉所有定时器                                  |
 | [killTimer](#killTimer)                                     | bool killTimer ( int id )                                                            | 停掉指定的定时器                                 |
-| [lastSavedUUID](#lastSavedUUID)                             | QString lastSavedUUID() const                                                        | 最近保存的记录的UUID                             |
+| [lastSavedUUID](#lastSavedUUID)                             | QString lastSavedUUID() const                                                        | 最近保存的记录的UUID                            |
 | [object](#object)                                           | QObject* object(const QString &name)                                                 | 按名称返回指定的控件                             |
 | [owner](#owner)                                             | QString owner() const                                                                | 表单的发布者                                    |
 | [preview](#preview)                                         | void preview() const                                                                 | 打印预览                                        |
@@ -113,7 +113,7 @@
 | [setHLayout](#setHLayout)                                   | void setHLayout(const QStringList &widgetList, int left=0                            | 设置水平布局                                    |
 |                                                             | 　　　　,int top=0, int right=0, int bottom=0,int spacing=0) const                    |                                                |
 | [setHSplitter](#setHSplitter)                               | void setHSplitter(const QStringList &widgetList                                      | 设置水平可调布局                                 |
-|                                                             | 　　　　,int left=0, int top=0, int right=0, int bottom=0,int spacing=0) const        |                                                |
+|                                                             | 　　　　,int left=0, int top=0, int right=0, int bottom=0,int spacing=0) const       |                                                |
 | [setSubStep](#setSubStep)                                   | void setSubStep(int v) const                                                         | 设置进度对话框的子进度值                         |
 | [setVLayout](#setVLayout)                                   | void setVLayout(const QStringList &widgetList, int left=0,                           | 设置垂直布局                                    |
 |                                                             | 　　　　,int top=0, int right=0, int bottom=0,int spacing=0) const                    |                                                |
@@ -130,7 +130,7 @@
 | [showRightLeft](#showRightLeft)                             | void showRightLeft() const                                                           | 表单显示在右侧，列表显示在左侧                    |
 | [showSplashMsg](#showSplashMsg)                             | void showSplashMsg(const QString& msg,bool error=false) const                        | 显示快显消息提示                                 |
 | [showUpDown](#showUpDown)                                   | void showUpDown() const                                                              | 表单显示在上方，列表显示在下方                    |
-| [showWaiting](#showWaiting)                                 | void showWaiting(const QString& title ) const                                        | 显示进度对话框                                  |
+| [showWaiting](#showWaiting)                                 | void showWaiting(const QString& title ,bool frameless=false) const                   | 显示进度对话框                                  |
 | [SQL_Fields](#SQL_Fields)                                   | QVariantList SQL_Fields() const                                                      | 返回基础SQL中字段的属性清单                      |
 | [SQL_FromTables](#SQL_FromTables)                           | QStringList SQL_FromTables() const                                                   | 返回基础SQL中使用的表名                         |
 | [startSingleShot](#startSingleShot)                         | void startSingleShot ( int interval )                                                | 启动单次定时器                                  |
@@ -1324,16 +1324,17 @@ from RT_T_CASH_0_S t0
 
 - ### showWaiting
 
-调用接口：void showWaiting(const QString& title ) const
+调用接口：void showWaiting(const QString& title ,bool frameless=false) const
 
 [返回目录](#category)
 
-调用这个函数，会显示进度对话框。 title 指定显示的标题。
+调用这个函数，会显示进度对话框。 title 指定显示的标题，frameless为True时显示无边框窗口（没有关闭按钮）。
 
-|   内容   | 名称  | 数据类型 |      说明       |
-| ------- | ----- | ------- | --------------- |
-| 传入参数 | title | QString | 对话框显示的标题 |
-| 返回值   | 无    |         |                 |
+|   内容   |   名称    | 数据类型 |                      说明                       |
+| ------- | --------- | ------- | ----------------------------------------------- |
+| 传入参数 | title     | QString | 对话框显示的标题                                 |
+| 传入参数 | frameless | bool    | 是否显示无边框窗口，缺省值为 false (V3.1.006引入) |
+| 返回值   | 无        |         |                                                 |
 
 ---
 
@@ -1877,21 +1878,156 @@ this.form 是表单类的Python访问代理类，this.form.self() 才是表单�
 
 [返回目录](#category)
 
-|     信号      |                     接口                     |            说明            |
-| ------------- | -------------------------------------------- | -------------------------- |
-| waitingMsg    | 	void waitingMsg(const QString& msg)        | 等待消息                    |
-| waitingStep   | 	void waitingStep(const QString& msg,int v) | 等待消息和完成度            |
-| statusChanged | 	void statusChanged()                       | 当前状态发生改变时发出此信号 |
+|                           信号                            |                        接口                         |               说明               |
+| --------------------------------------------------------- | -------------------------------------------------- | -------------------------------- |
+| [accepted](#accepted)                                     | void accepted(const QVariant& v)                   | 表单被接受                       |
+| [activated](#activated)                                   | void activated()                                   | 窗体被激活                       |
+| [blankNewCreated](#blankNewCreated)                       | void blankNewCreated()                             | 创建了新的空白表单                |
+| [bookmarkTriggered](#bookmarkTriggered)                   | void bookmarkTriggered(bool checked= true)         | 切换收藏状态                     |
+| [captionChanged](#captionChanged)                         | void captionChanged(const QString& caption)        | 表单标题被修改时                  |
+| [currentRecordChanged](#currentRecordChanged)             | void currentRecordChanged()                        | 切换主表记录时                    |
+| [customContextMenuRequested](#customContextMenuRequested) | void customContextMenuRequested(const QPoint &pos) | 请求自定义上下文菜单时（右键菜单） |
+| [dataUpdated](#dataUpdated)                               | void dataUpdated(const QString& formUUID)          | 数据被修改时                     |
+| [deactivated](#deactivated)                               | void deactivated()                                 | 窗体失活时                       |
+| [destroyed](#destroyed)                                   | void destroyed(QObject *obj = nullptr)             | 对象被销毁时                     |
+| [formModified](#formModified)                             | void formModified(bool v)                          | 表单数据发生变化时                |
+| [objectNameChanged](#objectNameChanged)                   | void objectNameChanged(const QString &objectName)  | 表单的对象名发生变化时            |
+| [recordDeleted](#recordDeleted)                           | void recordDeleted(const QString& UUID)            | 记录被删除时                     |
+| [rejected](#rejected)                                     | void rejected()                                    | 表单被拒绝                       |
+| [statusChanged](#statusChanged)                           | void statusChanged()                               | 当前状态发生改变时发出此信号       |
+| [statusTip](#statusTip)                                   | void statusTip(const QString& tip)                 | 发出状态栏消息时                  |
+| [waitingMsg](#waitingMsg)                                 | void waitingMsg(const QString& msg)                | 等待消息                         |
+| [waitingStep](#waitingStep)                               | void waitingStep(const QString& msg,int v)         | 等待消息和完成度                  |
+| [windowIconChanged](#windowIconChanged)                   | void windowIconChanged(const QIcon &icon)          | 窗口图标发生变化时                |
+| [windowTitleChanged](#windowTitleChanged)                 | void windowTitleChanged(const QString &title)      | 窗口标题发生变化时                |
 
-### waitingMsg
+### accepted
 
-在调用 ```this.form.setWaitingMsg(msg)```  时会发出此信号。调用的 setWaitingMsg 函数，同时会影响等待窗口显示的消息。
+接口：```void accepted(const QVariant& v)```
 
-### waitingStep
+在调用 ```this.form.accept(v)``` 时会发出此信号，表示窗体（表单）的输入被接受，对于以非模式窗口打开的表单，并不表示该表单被关闭，模式窗口通常同时会关闭表单。
 
-在调用 ```this.form.setWaitingStep(msg,v)```  时会发出此信号。调用的 setWaitingStep 函数，同时会影响等待窗口显示的消息和进度条。
+V3.1.006 引入。
+
+### activated
+
+接口：```void activated()```
+
+在表单所在窗口或子窗口被激活时，发出此信号。
+
+V3.1.006 引入。
+
+### blankNewCreated
+
+接口：```void blankNewCreated()```
+
+表单创建一个新的空白表单后，发出此信号。即使表单没有设置“主表”属性，也会发出此信号，缺省情况下，每个表单加载后，都会至少会执行一次创建新的空白表单的操作。
+
+V3.1.006 引入。
+
+### bookmarkTriggered
+
+接口：```void bookmarkTriggered(bool checked= true) ```
+
+在设置了“主表”属性的表单上切换“收藏”和“取消收藏”状态时，会发出此信号。参数 checked 为真时，表示“收藏”，为假时，表示“取消收藏”。
+
+V3.1.006 引入。
+
+### captionChanged
+
+接口： ```void captionChanged(const QString& caption) ```
+
+在表单标题被修改时，发出此信号。表单标题不等于表单所在窗口当前正显示的窗口标题，只是一项基本属性，通常窗口标题与之相关。
+
+参数 caption 是被修改后的标题内容。
+
+V3.1.006 引入。
+
+### currentRecordChanged
+
+接口：```void currentRecordChanged() ```
+
+表单如果有“主表”属性，在多条主表的记录之间跳转时，会发出此信号。
+
+V3.1.006 引入。
+
+### customContextMenuRequested
+
+接口：``` void customContextMenuRequested(const QPoint &pos)```
+
+在请求右键菜单时发出此信号。参数 pos 是鼠标所在坐标（相对表单左上角）。
+
+V3.1.006 引入。
+
+### dataUpdated
+
+接口：```void customContextMenuRequested(const QPoint &pos)```
+
+表单如果有“主表”属性，在通过界面添加一个新记录，或修改一个已有记录时，会此信号。如果是直接通过数据库接口修改数据，不会发出此信号。
+
+需要注意的是参数 formUUID 是表单的UUID，不是记录的UUID。
+
+V3.1.006 引入。
+
+### deactivated
+
+接口：```void deactivated() ```
+
+在表单所在窗口或子窗口失活时，发出此信号。
+
+V3.1.006 引入。
+
+### destroyed
+
+接口：```void destroyed(QObject *obj = nullptr)```
+
+对象被销毁时发出此信号。参数 obj 是被销毁的对象。
+
+V3.1.006 引入。
+
+### formModified
+
+接口：```void formModified(bool v)```
+
+在表单被修改过时发出此信号。表单上控件属性“影响表单数据”如果为“否”，则对该控件进行的录入操作，不会引发此信号，否则，用户做的输入会触发此信号 。数据通常指文本输入框输入的文字、单选或多选按钮的选中状态变化等，不包括外观样式等属性的变化。
+
+V3.1.006 引入。
+
+### objectNameChanged
+
+接口：```void objectNameChanged(const QString &objectName)```
+
+表单的对象名发生变化时，参数 objectName 是变化后的名称。
+
+V3.1.006 引入。
+
+### recordDeleted
+
+接口：```void recordDeleted(const QString& UUID)```
+
+表单如果有“主表”属性，在通过界面（或对应接口）删除一个记录时，会发出此信号。直接调用数据库接口删除记录时不会发出此信号。参数 UUID 是被删除的记录的UUID。
+
+V3.1.006 引入。
+
+### rejected
+
+接口：```void rejected()```
+
+当表单接口 reject 被调用，或被以拒绝方式关闭时，会发出此信号 。
+
+V3.1.006 引入。
+
+### statusTip
+
+接口：```void statusTip(const QString& tip)```
+
+表单运行时，底层引擎有时会发出 statusTip 信号。
+
+V3.1.006 引入。
 
 ### statusChanged 
+
+接口：```void statusChanged()```
 
 表单状态发生变化时发出此信号。
 
@@ -1903,5 +2039,33 @@ this.form 是表单类的Python访问代理类，this.form.self() 才是表单�
 | 未保存的空白表单 | pub.UNSAVED_BLANK_NEW_FORM | 新加载一个表单默认就处于这种状态，不管是不是用来填写数据的表单，点击“新建”按钮后，也会切换到这个状态                          |
 | 保存后的表单     | pub.SAVED_FORM             | 用于填写数据的表单（设置了“主表”属性的表单），在保存一条记录后，会短暂地处于这个状态。                                       |
 |                 |                            | 但保存后通常会“新建”一个新的空白表单，或加载之前保存的那条记录，表单会很快转到 UNSAVED_BLANK_NEW_FORM 或 QUERY_RESULT 状态。 |
-| 查询结果        | pub.QUERY_RESULT           | 保存表单的一条记录后，如果选项设置为“保存后显示保存的记录”，就会转到这个状态。                                              |
+| 查询结果        | pub.QUERY_RESULT           | 保存表单的一条记录后，如果选项设置为“保存后显示保存的记录”，就会转到这个状态。 没有设置“主表”的表单不会切换到这个状态。        |
+
+### windowIconChanged
+
+接口：```void windowIconChanged(const QIcon &icon) ```
+
+在表单所在窗体或子窗体的窗口图标发生改变时发出此信号，参数 icon 是图标对象。
+
+V3.1.006 引入。
+
+### windowTitleChanged
+
+接口：```void windowTitleChanged(const QString &title)```
+
+在表单所在窗体或子窗体的窗口标题发生改变时发出此信号，参数 title 是标题内容。
+
+V3.1.006 引入。
+
+### waitingMsg
+
+接口：```void waitingMsg(const QString& msg)```
+
+在调用 ```this.form.setWaitingMsg(msg)```  时会发出此信号。调用的 setWaitingMsg 函数，同时会影响等待窗口显示的消息。参数 msg 是消息内容。
+
+### waitingStep
+
+接口：```void waitingStep(const QString& msg,int v) ```
+
+在调用 ```this.form.setWaitingStep(msg,v)```  时会发出此信号。调用的 setWaitingStep 函数，同时会影响等待窗口显示的消息和进度条。参数 msg 是消息内容，v 是当前进度百分比（0~100）。
 

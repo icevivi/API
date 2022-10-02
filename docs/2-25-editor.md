@@ -107,15 +107,15 @@
 | bool editorIsByColumn() const		                               | this.table.editorIsByColumn()              | 是否“按列设定”                               |
 | bool editorIsByRow() const	                                   | this.table.editorIsByRow()                 | 是否“按行设定”                               |
 | bool editorIsByScript() const                                    | this.table.editorIsByScript()              | 是否“按脚本设定”                             |
+| void setColumnEditor(int column,const QString &editorName) const | this.table.setColumnEditor(1,'editor_int') | 设置某列对应的编辑器，只在“按列设定”时有效     |
 | void setEditorByColumn() const                                   | this.table.setEditorByColumn()             | 设置为“按列设定”编辑器                       |
 | void setEditorByRow()	const                                      | this.table.setEditorByRow()                | 设置为“按行设定”编辑器                       |
 | void setEditorByScript() const                                   | this.table.setEditorByScript()             | 设置为“按脚本设定”编辑器                     |
-| void setColumnEditor(int column,const QString &editorName) const | this.table.setColumnEditor(1,'editor_int') | 设置某列对应的编辑器，只在“按列设定”时有效     |
 | void setRowEditor(int row,const QString &editorName) const       | this.table.setRowEditor(1,'editor_int')    | 设置某行对应的编辑器，只在“按行设定”时有效     |
 | void removeColumnEditor(int column) const                        | this.table.removeColumnEditor(1)           | 移除对某列的编辑器的设置，只在“按列设定”时有效 |
 | void removeRowEditor(int row)	const                              | this.table.removeRowEditor(1)              | 移除对某行的编辑器的设置，只在“按行设定”时有效 |
-| widgetDelegate* currentEditor() const                            | editor=this.table.currentEditor()          | 返回当前正在使用的编辑器                      |
 | void closeCurrentEditor()	const                                  | this.table.closeCurrentEditor()            | 关闭当前编辑器                               |
+| widgetDelegate* currentEditor() const                            | editor=this.table.currentEditor()          | 返回当前正在使用的编辑器                      |
 
 ## 编辑器的生存周期
 

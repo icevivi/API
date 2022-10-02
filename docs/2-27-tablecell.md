@@ -72,12 +72,12 @@ cell.setToolTip('这是一本书')
 | font       | QFont    | 可读 可写 | font       | setFont      | 单元格的字体                     |
 | isSelected | bool     | 可读 可写 | isSelected | setSelected  | 是否被选中                       |
 | row        | int      | 可读      | row        |              | 单元格所在行                     |
+| tag        | QVariant | 可读 可写 | tag        | setTag       | 备用的属性，可以用来存储额外的数据 |
 | text       | QString  | 可读 可写 | text       | setText      | 单元格显示的文字                  |
-| value      | QVariant | 可读 可写 | value      | setValue     | 单元格内部存储的值                |
 | toolTip    | QString  | 可读 可写 | toolTip    | setToolTip   | 单元格的工具提示                  |
 | statusTip  | QString  | 可读 可写 | statusTip  | setStatusTip | 单元格的状态栏提示                |
+| value      | QVariant | 可读 可写 | value      | setValue     | 单元格内部存储的值                |
 | whatsThis  | QString  | 可读 可写 | whatsThis  | setWhatsThis | 使用“这是什么？”时显示的帮助信息   |
-| tag        | QVariant | 可读 可写 | tag        | setTag       | 备用的属性，可以用来存储额外的数据 |
 
 ---
 
@@ -87,34 +87,34 @@ cell.setToolTip('这是一本书')
 
 |       函数        |                          接口                          |                 说明                 |
 | ----------------- | ------------------------------------------------------ | ----------------------------------- |
-| isNull            | bool isNull() const	                                 | 是否是一个没有指向有效的单元格的空对象 |
-| textVAlignment    | int textVAlignment () const		                     | 垂直方面对齐方式                     |
-| textHAlignment    | int textHAlignment () const		                     | 水平方向对齐方式                     |
-| textAlignment     | int textAlignment () const		                     | 对齐方式                             |
-| background        | QColor background () const			                 | 背景色                               |
+| background        | QColor background () const                             | 背景色                               |
 | clone             | tableCellDelegate * clone() const                      | 克隆这个单元格对象                    |
-| isEditable        | bool isEditable() const	                             | 是否要编辑                           |
+| foreground        | QColor foreground () const                             | 前景色                               |
+| isCheckable       | bool isCheckable() const                               | 是否可以勾选                         |
+| isChecked         | bool isChecked() const                                 | 如果允许勾选 ，是否在选中的状态       |
 | isDragEnabled     | bool isDragEnabled() const                             | 是否允许拖拽                         |
 | isDropEnabled     | bool isDropEnabled() const                             | 是否允许拖入放下                     |
-| isEnabled         | bool isEnabled() const	                             | 是否可用                             |
-| foreground        | QColor foreground () const                             | 前景色                               |
+| isEditable        | bool isEditable() const                                | 是否要编辑                           |
+| isEnabled         | bool isEnabled() const                                 | 是否可用                             |
+| isNull            | bool isNull() const                                    | 是否是一个没有指向有效的单元格的空对象 |
 | isSelectable      | bool isSelectable() const                              | 是否允许选择                         |
 | setBackground     | void setBackground ( const QColor & brushcolor ) const | 设置背景色                           |
-| isCheckable       | bool isCheckable() const                               | 是否可以勾选                         |
 | setCheckable      | void setCheckable( bool v)                             | 设置是否允许勾选                     |
-| isChecked         | bool isChecked() const                                 | 如果允许勾选 ，是否在选中的状态       |
-| setSelectable     | void setSelectable( bool v) const                      | 设置是否允许选择                     |
-| setEditable       | void setEditable( bool v) const                        | 设置是否允许编辑                     |
 | setDragEnabled    | void setDragEnabled(bool v) const                      | 设置是否允许拖拽                     |
 | setDropEnabled    | void setDropEnabled(bool v) const                      | 设置是否允许拖入放下                  |
+| setEditable       | void setEditable( bool v) const                        | 设置是否允许编辑                     |
 | setEnabled        | void setEnabled( bool v) const                         | 设置是否可用                         |
 | setForeground     | void setForeground ( const QColor & brushcolor ) const | 设置前景色                           |
-| setIcon           | void setIcon ( const QString & iconfile ) const        | 设置图标（按文件名设置）              |
 | setIcon           | void setIcon ( const QPixmap & icon ) const            | 设置图标（按图片设置）                |
-| sizeHint          | sizeHint QSize sizeHint () const						 | 建议的尺寸                           |
-| setSizeHint       | void setSizeHint ( const QSize & size )	const        | 设置建议的尺寸                       |
-| setTextVAlignment | void setTextVAlignment ( int alignment ) const         | 设置垂直对齐方式                     |
+| setIcon           | void setIcon ( const QString & iconfile ) const        | 设置图标（按文件名设置）              |
+| setSelectable     | void setSelectable( bool v) const                      | 设置是否允许选择                     |
+| setSizeHint       | void setSizeHint ( const QSize & size ) const          | 设置建议的尺寸                       |
 | setTextHAlignment | void setTextHAlignment ( int alignment ) const         | 设置水平对齐方式                     |
+| setTextVAlignment | void setTextVAlignment ( int alignment ) const         | 设置垂直对齐方式                     |
+| sizeHint          | sizeHint QSize sizeHint () const                       | 建议的尺寸                           |
+| textAlignment     | int textAlignment () const                             | 对齐方式                             |
+| textHAlignment    | int textHAlignment () const                            | 水平方向对齐方式                     |
+| textVAlignment    | int textVAlignment () const                            | 垂直方面对齐方式                     |
 
 ## 单元格范围
 

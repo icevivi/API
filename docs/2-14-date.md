@@ -36,62 +36,20 @@
 
 [返回目录](#category)
 
-|     属性      | 值类型  | 读写类型  |       说明        |
-| ------------- | ------- | -------- | ----------------- |
-| wrapping      | bool    | 可读 可写 | 是否使用值循环     |
-| format        | QString | 可读 可写 | 显示格式          |
-| calendarpopup | bool    | 可读 可写 | 是否弹出日期选择框 |
-| text          | QString | 可读 可写 | 当前显示的文本     |
-| defaultVal    | QString | 可读 可写 | 缺省值            |
-| checkable     | bool    | 可读 可写 | 是否可勾选        |
-| checked       | bool    | 可读 可写 | 是否被勾选        |
-| date          | QString | 可读 可写 | 当前日期          |
-| readonly      | bool    | 可读 可写 | 是否只读          |
-| showButton    | bool    | 可读 可写 | 是否显示调节按钮   |
+|     属性      | 值类型  | 读写类型  |        说明         |
+| ------------- | ------- | -------- | ------------------- |
+| calendarpopup | bool    | 可读 可写 | 是否弹出日期选择框   |
+| checkable     | bool    | 可读 可写 | 是否可勾选          |
+| checked       | bool    | 可读 可写 | 是否被勾选          |
+| date          | QString | 可读 可写 | 当前日期            |
+| defaultVal    | QString | 可读 可写 | 缺省值              |
+| format        | QString | 可读 可写 | 显示格式            |
+| margin        | int     | 可读 可写 | 边界宽度(像素为单位) |
+| readonly      | bool    | 可读 可写 | 是否只读            |
+| showButton    | bool    | 可读 可写 | 是否显示调节按钮     |
+| text          | QString | 可读 可写 | 当前显示的文本       |
+| wrapping      | bool    | 可读 可写 | 是否使用值循环       |
 
-- ### 属性：margin （类型：int 可读 可写）
-
-边界宽度（像素为单位）。
-
-|      |              调用方法               |
-| ---- | ---------------------------------- |
-| 读取 | int margin() const                 |
-| 修改 | void setMargin( int margin ) const |
-
-- ### 属性：wrapping （类型：bool 可读 可写）
-
-是否使用值循环。值循环是指，当前值已到最大值时，若再向上调会转到最小值。只有设置了最大最小值时有效。
-
-|      |                 调用方法                 |
-| ---- | --------------------------------------- |
-| 读取 | bool wrapping() const                   |
-| 修改 | void setWrapping( bool wrapping ) const |
-
-- ### 属性：format （类型：QString 可读 可写）
-
-显示格式。
-
-比如格式设置为 “yyyy-MM-dd”，显示的格式就是“2020-06-08“，如果设置为“yy年M月d日”，显示的格式就是“20年5月8日”。
-
-关于格式的设置参考下表，更详细的资料请参考 Qt 文档。
-
-|格式|说明|
-| - | - |
-|d|日期数值，不补零 (1 到 31)|
-|dd|日期，两位，不足两位时在前面补零 (01 到 31)|
-|ddd|简化的本地化的周几(如英文 'Mon' 到 'Sun'，中文'周一'到'周日').|
-|dddd|本地化的周几(如英文 'Monday' to 'Sunday'，中文'星期一'到'星期日').|
-|M|月份数值，前面不补零 (1 到 12)|
-|MM|两位的月份数值，不足两位时前面补零 (01 到 12)|
-|MMM|简化的本地化的月份名称(如英文 'Jan' 到 'Dec'，中文'一月'到'十二月'). |
-|MMMM|本地化的月份名称(如英文 'January' 到 'December'，中文'一月'到'十二月').|
-|yy|两位的年份数值 (00 to 99)|
-|yyyy|四位的年份数值|
-
-|      |                    调用方法                    |
-| ---- | --------------------------------------------- |
-| 读取 | QString format() const                        |
-| 修改 | void setFormat( const QString &format ) const |
 
 - ### 属性：calendarpopup （类型：bool 可读 可写）
 
@@ -101,22 +59,6 @@
 | ---- | ------------------------------------------------- |
 | 读取 | bool calendarpopup() const                        |
 | 修改 | void setCalendarpopup( bool calendarpopup ) const |
-
-- ### 属性：text （类型：QString 可读 ）
-
-显示的文本。
-
-| |调用方法|
-| - | - |
-|读取|QString text const|
-
-- ### 属性：defaultVal （类型：QString 可读 ）
-
-缺省值。控件创建之后默认设置为这个缺省值。
-
-|      |          调用方法           |
-| ---- | -------------------------- |
-| 读取 | QString defaultVal() const |
 
 - ### 属性：checkable （类型：bool 可读 ）
 
@@ -144,6 +86,50 @@ checkable为 True 时，是否是选中的状态。
 | 读取 | QString dateToString() const                        |
 | 修改 | void setDateFromString( const QString &date ) const |
 
+
+- ### 属性：defaultVal （类型：QString 可读 ）
+
+缺省值。控件创建之后默认设置为这个缺省值。
+
+|      |          调用方法           |
+| ---- | -------------------------- |
+| 读取 | QString defaultVal() const |
+
+- ### 属性：format （类型：QString 可读 可写）
+
+显示格式。
+
+比如格式设置为 “yyyy-MM-dd”，显示的格式就是“2020-06-08“，如果设置为“yy年M月d日”，显示的格式就是“20年5月8日”。
+
+关于格式的设置参考下表，更详细的资料请参考 Qt 文档。
+
+|格式|说明|
+| - | - |
+|d|日期数值，不补零 (1 到 31)|
+|dd|日期，两位，不足两位时在前面补零 (01 到 31)|
+|ddd|简化的本地化的周几(如英文 'Mon' 到 'Sun'，中文'周一'到'周日').|
+|dddd|本地化的周几(如英文 'Monday' to 'Sunday'，中文'星期一'到'星期日').|
+|M|月份数值，前面不补零 (1 到 12)|
+|MM|两位的月份数值，不足两位时前面补零 (01 到 12)|
+|MMM|简化的本地化的月份名称(如英文 'Jan' 到 'Dec'，中文'一月'到'十二月'). |
+|MMMM|本地化的月份名称(如英文 'January' 到 'December'，中文'一月'到'十二月').|
+|yy|两位的年份数值 (00 to 99)|
+|yyyy|四位的年份数值|
+
+|      |                    调用方法                    |
+| ---- | --------------------------------------------- |
+| 读取 | QString format() const                        |
+| 修改 | void setFormat( const QString &format ) const |
+
+- ### 属性：margin （类型：int 可读 可写）
+
+边界宽度（像素为单位）。
+
+|      |              调用方法               |
+| ---- | ---------------------------------- |
+| 读取 | int margin() const                 |
+| 修改 | void setMargin( int margin ) const |
+
 - ### 属性：readOnly （类型：bool 可读 可写）
 
 是否只读。
@@ -162,6 +148,23 @@ checkable为 True 时，是否是选中的状态。
 | 读取 | bool showButton() const               |
 | 修改 | void setShowButton( bool show ) const |
 
+- ### 属性：text （类型：QString 可读 ）
+
+显示的文本。
+
+|      |      调用方法       |
+| ---- | ------------------ |
+| 读取 | QString text const |
+
+- ### 属性：wrapping （类型：bool 可读 可写）
+
+是否使用值循环。值循环是指，当前值已到最大值时，若再向上调会转到最小值。只有设置了最大最小值时有效。
+
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | bool wrapping() const                   |
+| 修改 | void setWrapping( bool wrapping ) const |
+
 ---
 
 ## 日期编辑器控件自有成员函数
@@ -170,35 +173,35 @@ checkable为 True 时，是否是选中的状态。
 
 所有属性的设置函数（参考上一节中修改属性的接口），都属于此类，都可以当做槽使用。除此之处还包括以下成员函数：
 
-|函数|接口|说明|
-| - | - | - | 
-|isValid|bool isValid()	const|是否是有效的日期值|
-|minimumDate|QString minimumDate() const|最小日期|
-|maximumDate|QString maximumDate() const	|最大日期|
-|setMinimumDate|void setMinimumDate(int year,int month,int day ) const|设置最小日期|
-|setMaximumDate|void setMaximumDate(int year,int month,int day ) const	|设置最大日期|
-|clear|void clear ()	const|清除输入的内容|
-|selectAll|void selectAll () const|选择所有文本|
-|stepDown|void stepDown () 	const|向下调（减少）|
-|stepUp|void stepUp ()	const|向上调（增加）|
-|year|int year() const	|当前日期值对应的年份|
-|month|int month() const	|当前日期值对应的月份|
-|day|int day() const|当前日期值对应的一个月中的第几天|
-|dayOfWeek|int dayOfWeek() const|当前日期值对应的一周中的周几|
-|daysTo|int daysTo(int year,int month,int day ) const	|当前日期值与另一个日期值之间相隔几天|
-|dayOfYear|int dayOfYear () const 	|当前日期值在该年份中是第几天（值从1到365/366）|
-|daysInMonth|int daysInMonth () const |当前日期值对应的月份总共有几天|
-|daysInYear|int daysInYear () const |当前日期值对应的年份总共有几天|
-|isLeapYear|bool isLeapYear ( )	const|是否是闰年|
-|setDate|void setDate(int year,int month,int day) |设置日期值|
-|longDayName|QString longDayName (  )  const|周几的名称|
-|longMonthName|QString longMonthName (  )  const|月份的名称|
-|shortDayName|QString shortDayName ( )  const	|周几的简短名称|
-|shortMonthName|QString shortMonthName () const	|月份的简短名称|
-|toString|QString toString ( const QString & format  = "yyyy-MM-dd") const	|转换成字符串|
-|setDateFromString|void setDateFromString ( const QString & string, const QString & format = "yyyy-MM-dd") |设置日期|
-|chineseDay|QString chineseDay() const|当前日期值对应的中国农历的日期，如“八月初六”。|
-|chineseYear|QString chineseYear() const|当前日期值对应的中国农历，如“兔年(己卯)”。|
+|       函数        |                                          接口                                           |                     说明                     |
+| ----------------- | --------------------------------------------------------------------------------------- | ------------------------------------------- |
+| chineseDay        | QString chineseDay() const                                                              | 当前日期值对应的中国农历的日期，如“八月初六”。 |
+| chineseYear       | QString chineseYear() const                                                             | 当前日期值对应的中国农历，如“兔年(己卯)”。     |
+| clear             | void clear () const                                                                     | 清除输入的内容                               |
+| day               | int day() const                                                                         | 当前日期值对应的一个月中的第几天               |
+| dayOfWeek         | int dayOfWeek() const                                                                   | 当前日期值对应的一周中的周几                  |
+| dayOfYear         | int dayOfYear () const                                                                  | 当前日期值在该年份中是第几天（值从1到365/366） |
+| daysInMonth       | int daysInMonth () const                                                                | 当前日期值对应的月份总共有几天                |
+| daysInYear        | int daysInYear () const                                                                 | 当前日期值对应的年份总共有几天                |
+| daysTo            | int daysTo(int year,int month,int day ) const                                           | 当前日期值与另一个日期值之间相隔几天           |
+| isLeapYear        | bool isLeapYear ( ) const                                                               | 是否是闰年                                   |
+| isValid           | bool isValid() const                                                                    | 是否是有效的日期值                            |
+| longDayName       | QString longDayName ( ) const                                                           | 周几的名称                                   |
+| longMonthName     | QString longMonthName ( ) const                                                         | 月份的名称                                   |
+| maximumDate       | QString maximumDate() const                                                             | 最大日期                                     |
+| minimumDate       | QString minimumDate() const                                                             | 最小日期                                     |
+| month             | int month() const                                                                       | 当前日期值对应的月份                          |
+| selectAll         | void selectAll () const                                                                 | 选择所有文本                                 |
+| setDate           | void setDate(int year,int month,int day)                                                | 设置日期值                                   |
+| setDateFromString | void setDateFromString ( const QString & string, const QString & format = "yyyy-MM-dd") | 设置日期                                     |
+| setMaximumDate    | void setMaximumDate(int year,int month,int day ) const                                  | 设置最大日期                                 |
+| setMinimumDate    | void setMinimumDate(int year,int month,int day ) const                                  | 设置最小日期                                 |
+| shortDayName      | QString shortDayName ( ) const                                                          | 周几的简短名称                               |
+| shortMonthName    | QString shortMonthName () const                                                         | 月份的简短名称                               |
+| stepDown          | void stepDown () const                                                                  | 向下调（减少）                               |
+| stepUp            | void stepUp () const                                                                    | 向上调（增加）                               |
+| toString          | QString toString ( const QString & format = "yyyy-MM-dd") const                         | 转换成字符串                                 |
+| year              | int year() const                                                                        | 当前日期值对应的年份                          |
 
 ---
 

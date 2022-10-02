@@ -37,12 +37,12 @@
 
 [返回目录](#category)
 
-|属性|值类型|读写类型|说明|
-| - | - | - | - |
-|fillColor|QColor|可读 可写|填充颜色|
-|xCorner|int|可读 可写|圆角x方向曲率|
-|yCorner|int|可读 可写|圆角y方向曲率|
-|isRoundCorner|bool|可读 可写|是否使用圆角|
+|     属性      | 值类型 | 读写类型  |     说明     |
+| ------------- | ------ | -------- | ------------ |
+| fillColor     | QColor | 可读 可写 | 填充颜色      |
+| isRoundCorner | bool   | 可读 可写 | 是否使用圆角  |
+| xCorner       | int    | 可读 可写 | 圆角x方向曲率 |
+| yCorner       | int    | 可读 可写 | 圆角y方向曲率 |
 
 - ### 属性：fillColor （类型：QColor 可读 可写）
 
@@ -52,6 +52,15 @@
 | ---- | -------------------------------------------------- |
 | 读取 | QColor fillColor() const                           |
 | 修改 | void setFillColor( const QColor &fillColor ) const |
+
+- ### 属性：isRoundCorner （类型：bool 可读 可写）
+
+是否使用圆角。
+
+|      |                     调用方法                     |
+| ---- | ----------------------------------------------- |
+| 读取 | bool isRoundCorner() const                      |
+| 修改 | void setRoundCorner( bool isRoundCorner ) const |
 
 - ### 属性：xCorner （类型：int 可读 可写）
 
@@ -70,15 +79,6 @@
 | ---- | ------------------------------------ |
 | 读取 | int yCorner() const                  |
 | 修改 | void setYCorner( int yCorner ) const |
-
-- ### 属性：isRoundCorner （类型：bool 可读 可写）
-
-是否使用圆角。
-
-|      |                     调用方法                     |
-| ---- | ----------------------------------------------- |
-| 读取 | bool isRoundCorner() const                      |
-| 修改 | void setRoundCorner( bool isRoundCorner ) const |
 
 ---
 

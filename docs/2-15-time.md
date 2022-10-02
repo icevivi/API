@@ -38,33 +38,41 @@
 
 |    属性    | 值类型  | 读写类型  |      说明       |
 | ---------- | ------- | -------- | --------------- |
-| wrapping   | bool    | 可读 可写 | 是否使用值循环   |
-| format     | QString | 可读 可写 | 显示格式        |
-| text       | QString | 可读 可写 | 当前显示的文本   |
-| defaultVal | QString | 可读 可写 | 缺省值          |
 | checkable  | bool    | 可读 可写 | 是否可勾选       |
 | checked    | bool    | 可读 可写 | 是否被勾选       |
-| time       | QString | 可读 可写 | 当前时间        |
+| defaultVal | QString | 可读 可写 | 缺省值          |
+| format     | QString | 可读 可写 | 显示格式        |
+| margin     | int     | 可读 可写 | 边界宽度（像素为单位）        |
 | readonly   | bool    | 可读 可写 | 是否只读        |
 | showButton | bool    | 可读 可写 | 是否显示调节按钮 |
+| text       | QString | 可读 可写 | 当前显示的文本   |
+| time       | QString | 可读 可写 | 当前时间        |
+| wrapping   | bool    | 可读 可写 | 是否使用值循环   |
 
-- ### 属性：margin （类型：int 可读 可写）
+- ### 属性：checkable （类型：bool 可读 ）
 
-边界宽度（像素为单位）。
+是否可勾选。
 
-|      |              调用方法               |
-| ---- | ---------------------------------- |
-| 读取 | int margin() const                 |
-| 修改 | void setMargin( int margin ) const |
+|      |        调用方法         |
+| ---- | ---------------------- |
+| 读取 | bool checkable() const |
 
-- ### 属性：wrapping （类型：bool 可读 可写）
+- ### 属性：checked （类型：bool 可读 可写）
 
-是否值循环。值循环是指，当前值已到最大值时，若再向上调会转到最小值。只有设置了最大最小值时有效。
+是否被勾选。
 
-|      |                 调用方法                 |
-| ---- | --------------------------------------- |
-| 读取 | bool wrapping() const                   |
-| 修改 | void setWrapping( bool wrapping ) const |
+|      |                调用方法                |
+| ---- | ------------------------------------- |
+| 读取 | bool checked() const                  |
+| 修改 | void setChecked( bool checked ) const |
+
+- ### 属性：defaultVal （类型：QString 可读 ）
+
+缺省的时间值。
+
+|      |          调用方法           |
+| ---- | -------------------------- |
+| 读取 | QString defaultVal() const |
 
 - ### 属性：format （类型：QString 可读 可写）
 
@@ -94,47 +102,14 @@
 | 读取 | QString format() const                        |
 | 修改 | void setFormat( const QString &format ) const |
 
-- ### 属性：defaultVal （类型：QString 可读 ）
+- ### 属性：margin （类型：int 可读 可写）
 
-缺省的时间值。
+边界宽度（像素为单位）。
 
-|      |          调用方法           |
-| ---- | -------------------------- |
-| 读取 | QString defaultVal() const |
-
-- ### 属性：text （类型：QString 可读 ）
-
-当前显示的文本。
-
-|      |       调用方法        |
-| ---- | -------------------- |
-| 读取 | QString text() const |
-
-- ### 属性：checkable （类型：bool 可读 ）
-
-是否可勾选。
-
-|      |        调用方法         |
-| ---- | ---------------------- |
-| 读取 | bool checkable() const |
-
-- ### 属性：checked （类型：bool 可读 可写）
-
-是否被勾选。
-
-|      |                调用方法                |
-| ---- | ------------------------------------- |
-| 读取 | bool checked() const                  |
-| 修改 | void setChecked( bool checked ) const |
-
-- ### 属性：time （类型：QString 可读 可写）
-
-当前时间值。
-
-|      |                       调用方法                       |
-| ---- | --------------------------------------------------- |
-| 读取 | QString timeToString() const                        |
-| 修改 | void setTimeFromString( const QString &time ) const |
+|      |              调用方法               |
+| ---- | ---------------------------------- |
+| 读取 | int margin() const                 |
+| 修改 | void setMargin( int margin ) const |
 
 - ### 属性：readOnly （类型：bool 可读 可写）
 
@@ -154,6 +129,32 @@
 | 读取 | bool showButton() const               |
 | 修改 | void setShowButton( bool show ) const |
 
+- ### 属性：text （类型：QString 可读 ）
+
+当前显示的文本。
+
+|      |       调用方法        |
+| ---- | -------------------- |
+| 读取 | QString text() const |
+
+- ### 属性：time （类型：QString 可读 可写）
+
+当前时间值。
+
+|      |                       调用方法                       |
+| ---- | --------------------------------------------------- |
+| 读取 | QString timeToString() const                        |
+| 修改 | void setTimeFromString( const QString &time ) const |
+
+- ### 属性：wrapping （类型：bool 可读 可写）
+
+是否值循环。值循环是指，当前值已到最大值时，若再向上调会转到最小值。只有设置了最大最小值时有效。
+
+|      |                 调用方法                 |
+| ---- | --------------------------------------- |
+| 读取 | bool wrapping() const                   |
+| 修改 | void setWrapping( bool wrapping ) const |
+
 ---
 
 ## 时间编辑器控件自有成员函数
@@ -162,21 +163,21 @@
 
 所有属性的设置函数（参考上一节中修改属性的接口），都属于此类，都可以当做槽使用。除此之处还包括以下成员函数：
 
-|函数|接口|说明|
-| - | - | - | 
-|isValid|bool isValid()	const|是否是有效的时间值|
-|minimumTime|QString minimumTime() const|最小时间值|
-|maximumTime|QString maximumTime() const	|最大时间值|
-|setMinimumTime|void setMinimumTime(int h,int m,int s ) const|设置最小时间值|
-|setMaximumTime|void setMaximumTime(int h,int m,int s ) const	|设置最大时间值|
-|clear|void clear ()		const|清除输入的内容|
-|selectAll|void selectAll () 	const|选择所有文本|
-|stepDown|void stepDown () 	const|向下调(减少)|
-|stepUp|void stepUp () 		const|向上调(增加)|
-|hour|int hour() const		|当前时间值对应的小时|
-|minute|int minute() const		|当前时间值对应的分钟|
-|second|int second() const		|当前时间值对应的秒|
-|toString|QString toString() const|当前日期值按日期格式转换成字符串|
+|      函数      |                     接口                      |              说明              |
+| -------------- | --------------------------------------------- | ------------------------------ |
+| clear          | void clear () const                           | 清除输入的内容                  |
+| hour           | int hour() const                              | 当前时间值对应的小时            |
+| isValid        | bool isValid() const                          | 是否是有效的时间值              |
+| maximumTime    | QString maximumTime() const                   | 最大时间值                     |
+| minimumTime    | QString minimumTime() const                   | 最小时间值                     |
+| minute         | int minute() const                            | 当前时间值对应的分钟            |
+| second         | int second() const                            | 当前时间值对应的秒              |
+| selectAll      | void selectAll () const                       | 选择所有文本                    |
+| setMaximumTime | void setMaximumTime(int h,int m,int s ) const | 设置最大时间值                  |
+| setMinimumTime | void setMinimumTime(int h,int m,int s ) const | 设置最小时间值                  |
+| stepDown       | void stepDown () const                        | 向下调(减少)                   |
+| stepUp         | void stepUp () const                          | 向上调(增加)                   |
+| toString       | QString toString() const                      | 当前日期值按日期格式转换成字符串 |
 
 ---
 
@@ -186,9 +187,9 @@
 
 |信号|接口|说明|
 | - | - | - | 
-|timeChanged|void timeChanged ( const QTime & time ) |日期值改变时发出此信号|
 |editingFinished|	void editingFinished () |编辑完成时发出此信号|
 |stateChanged|	void stateChanged(bool)|如果允许勾选，在勾选状态发生变化时发出此信号|
+|timeChanged|void timeChanged ( const QTime & time ) |日期值改变时发出此信号|
 
 ---
 
