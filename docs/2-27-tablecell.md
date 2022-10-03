@@ -70,6 +70,7 @@ cell.setToolTip('这是一本书')
 | ---------- | -------- | -------- | ---------- | ------------ | -------------------------------- |
 | column     | int      | 可读      | column     |              | 单元格所在列                     |
 | font       | QFont    | 可读 可写 | font       | setFont      | 单元格的字体                     |
+| icon       | QIcon    | 可读 可写 | icon       | setIcon      | 单元格的图标(V3.1.006引入)        |
 | isSelected | bool     | 可读 可写 | isSelected | setSelected  | 是否被选中                       |
 | row        | int      | 可读      | row        |              | 单元格所在行                     |
 | tag        | QVariant | 可读 可写 | tag        | setTag       | 备用的属性，可以用来存储额外的数据 |
@@ -107,6 +108,7 @@ cell.setToolTip('这是一本书')
 | setForeground     | void setForeground ( const QColor & brushcolor ) const | 设置前景色                           |
 | setIcon           | void setIcon ( const QPixmap & icon ) const            | 设置图标（按图片设置）                |
 | setIcon           | void setIcon ( const QString & iconfile ) const        | 设置图标（按文件名设置）              |
+| setIcon           | void setIcon ( const QIcon & icon ) const              | 设置图标（按文件名设置）(V3.1.006引入)              |
 | setSelectable     | void setSelectable( bool v) const                      | 设置是否允许选择                     |
 | setSizeHint       | void setSizeHint ( const QSize & size ) const          | 设置建议的尺寸                       |
 | setTextHAlignment | void setTextHAlignment ( int alignment ) const         | 设置水平对齐方式                     |
