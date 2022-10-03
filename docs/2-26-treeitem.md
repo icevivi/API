@@ -65,12 +65,12 @@ this.tree.addTopLevelItem(item3)
 
 [返回目录](#category)
 
-|属性|值类型|读写类型|说明|
-| - | - | - | - |
-|columnCount|int|可读 |列数量|
-|childCount|int|可读 |子节点的数量|
-|isSelected|bool|可读 可写|是否被选中|
-|tag|QVariant|可读 可写|保留用做存储额外的数据|
+|    属性     |  值类型  | 读写类型  |         说明          |
+| ----------- | -------- | -------- | -------------------- |
+| columnCount | int      | 可读      | 列数量                |
+| childCount  | int      | 可读      | 子节点的数量          |
+| isSelected  | bool     | 可读 可写 | 是否被选中            |
+| tag         | QVariant | 可读 可写 | 保留用做存储额外的数据 |
 
 - ### 属性：columnCount （类型：int 可读 ）
 
@@ -112,57 +112,58 @@ this.tree.addTopLevelItem(item3)
 
 [返回目录](#category)
 
-|函数|接口|说明|
-| - | - | - | 
-|addChild|	void addChild ( treeItemDelegate * child )  const|添加下级项目|
-|background|	QColor background (int column) const			|返回指定列的背景色|
-|child|	treeItemDelegate * child ( int index ) const|获取指定序号的下级项目|
-|clone|	treeItemDelegate * clone () const|对这个项目进行克隆|
-|font|	QFont font (int column) const	|返回指定列的字体|
-|foreground|	QColor foreground (int column) const	|返回指定列的前景色|
-|indexOfChild|	int indexOfChild ( treeItemDelegate * child ) const |返回下级项目的序号|
-|insertChild|	void insertChild ( int index, treeItemDelegate * child )  const|在指定位置插入下级项目|
-|isDisabled|	bool isDisabled () const |是否不可用|
-|isDragEnabled|	bool isDragEnabled() const|是否允许拖拽|
-|isDropEnabled|	bool isDropEnabled() const|是否允许拖拽放下|
-|isEnabled|	bool isEnabled() const|是否可用|
-|isExpanded|	bool isExpanded () const |是否可以展开|
-|isFirstColumnSpanned|	bool isFirstColumnSpanned () const |首列是否合并了其它列|
-|isHidden|	bool isHidden () const |是否隐藏|
-|isNull|	bool isNull() const	|是否为空|
-|parent|	treeItemDelegate * parent () const |上级对象|
-|removeChild|	void removeChild ( treeItemDelegate * child )  const|移除指定的下级项目|
-|setBackground|	void setBackground ( int column, const QColor & brush )  const|设置指定列的背景色|
-|setDisabled|	void setDisabled ( bool disabled )  const|设置是否不可用|
-|setDragEnabled|	void setDragEnabled( bool v)  const|设置是否允许拖拽|
-|setDropEnabled|	void setDropEnabled( bool v)  const|设置是否允许拖拽放下|
-|setEnabled|	void setEnabled( bool v)  const|设置是否可用|
-|setExpanded|	void setExpanded ( bool expand )  const|设置是否可展开|
-|setFirstColumnSpanned|	void setFirstColumnSpanned ( bool span ) const|设置是否将首列合并所有列|
-|setFont|	void setFont ( int column,const QFont & font )	 const|设置字体|
-|setForeground|	void setForeground ( int column, const QColor & brush )  const|设置指定列的前景色|
-|setHidden|	void setHidden ( bool hide )  const|设置是否隐藏|
-|setIcon|	void setIcon (int column , const QString & iconfile ) const|设置指定列的图标，指定文件名|
-|setIcon|	void setIcon (int column ,  const QPixmap & icon )	 const|设置指定列的图标对应的图像|
-|setSelected|	void setSelected ( bool select )		 const|设置是否选中|
-|setSizeHint|	void setSizeHint ( int column, const QSize & size )  const|设置指定列的提示尺寸，如果不指定提示尺寸，则将基于项目的数据计算提示尺寸|
-|setStatusTip|	void setStatusTip (  int column,const QString & statusTip ) const|设置指定列的工具栏提示文字|
-|setText|	void setText ( int column, const QString & text ) const|设置指定列显示的文字|
-|setTextHAlignment|	void setTextHAlignment ( int column, int alignment ) const|设置指定列的水平对齐方式<br>pub.ALIGNLEFT 向左对齐<br>pub.ALIGNRIGHT 向右对齐<br>pub.ALIGNHCENTER 水平居中对齐<br>pub.ALIGNJUSTIFY 水平分散对齐）|
-|setTextList|	void setTextList(const QStringList &list) const|按字符串列表设置每一列显示的文字|
-|setTextVAlignment|	void setTextVAlignment ( int column, int alignment ) const|设置指定列的垂直对齐方式<br>pub.ALIGNTOP 向上对齐<br>pub.ALIGNBOTTOM 向下对齐<br>pub.ALIGNVCENTER 垂直居中对齐|
-|setToolTip|	void setToolTip (  int column,const QString & toolTip )		 const|设置指定列的工具提示|
-|setWhatsThis|	void setWhatsThis (  int column,const QString & whatsThis )  const|设置指定列的“这是什么”提示文本|
-|sizeHint|	QSize sizeHint ( int column ) const |返回指定列的提示尺寸|
-|sortChildren|	void sortChildren ( int column, bool ascorder = true )  const|对指定的下级项目进行排序|
-|statusTip|	QString statusTip (int column) const	|返回指定列的状态栏提示文本|
-|takeChild|	treeItemDelegate * takeChild ( int index )  const|取出指定序号的下级项目|
-|text|	QString text (int column) const	|获取指定列的显示文本|
-|textAlignment|	int textAlignment ( int column ) const |返回指定列的对齐方式|
-|textHAlignment|	int textHAlignment ( int column ) const |返回指定列的水平对齐方式|
-|textList|	QStringList textList() const|返回所有列显示的文本|
-|textVAlignment|	int textVAlignment ( int column ) const |返回指定列的垂直对齐方式|
-|toolTip|	QString toolTip (int column) const|返回指定列的工具提示文本|
-|whatsThis|	QString whatsThis (int column) const|返回指定列的“这是什么”提示文本|
+|         函数          |                                 接口                                 |                                                                     说明                                                                      |
+| --------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| addChild              | 	void addChild ( treeItemDelegate * child )  const                  | 添加下级项目                                                                                                                                  |
+| background            | 	QColor background (int column) const			                   | 返回指定列的背景色                                                                                                                             |
+| child                 | 	treeItemDelegate * child ( int index ) const                       | 获取指定序号的下级项目                                                                                                                         |
+| clone                 | 	treeItemDelegate * clone () const                                  | 对这个项目进行克隆                                                                                                                             |
+| font                  | 	QFont font (int column) const	                                   | 返回指定列的字体                                                                                                                              |
+| foreground            | 	QColor foreground (int column) const	                           | 返回指定列的前景色                                                                                                                             |
+| icon                  | 	QIcon icon ( int column ) const                                    | 返回指定列的图标(V3.1.006引入)                                                                                                                 |
+| insertChild           | 	void insertChild ( int index, treeItemDelegate * child )  const    | 在指定位置插入下级项目                                                                                                                         |
+| isDisabled            | 	bool isDisabled () const                                           | 是否不可用                                                                                                                                    |
+| isDragEnabled         | 	bool isDragEnabled() const                                         | 是否允许拖拽                                                                                                                                  |
+| isDropEnabled         | 	bool isDropEnabled() const                                         | 是否允许拖拽放下                                                                                                                              |
+| isEnabled             | 	bool isEnabled() const                                             | 是否可用                                                                                                                                      |
+| isExpanded            | 	bool isExpanded () const                                           | 是否可以展开                                                                                                                                  |
+| isFirstColumnSpanned  | 	bool isFirstColumnSpanned () const                                 | 首列是否合并了其它列                                                                                                                           |
+| isHidden              | 	bool isHidden () const                                             | 是否隐藏                                                                                                                                      |
+| isNull                | 	bool isNull() const	                                               | 是否为空                                                                                                                                      |
+| parent                | 	treeItemDelegate * parent () const                                 | 上级对象                                                                                                                                      |
+| removeChild           | 	void removeChild ( treeItemDelegate * child )  const               | 移除指定的下级项目                                                                                                                             |
+| setBackground         | 	void setBackground ( int column, const QColor & brush )  const     | 设置指定列的背景色                                                                                                                             |
+| setDisabled           | 	void setDisabled ( bool disabled )  const                          | 设置是否不可用                                                                                                                                |
+| setDragEnabled        | 	void setDragEnabled( bool v)  const                                | 设置是否允许拖拽                                                                                                                              |
+| setDropEnabled        | 	void setDropEnabled( bool v)  const                                | 设置是否允许拖拽放下                                                                                                                           |
+| setEnabled            | 	void setEnabled( bool v)  const                                    | 设置是否可用                                                                                                                                  |
+| setExpanded           | 	void setExpanded ( bool expand )  const                            | 设置是否可展开                                                                                                                                |
+| setFirstColumnSpanned | 	void setFirstColumnSpanned ( bool span ) const                     | 设置是否将首列合并所有列                                                                                                                       |
+| setFont               | 	void setFont ( int column,const QFont & font )	 const             | 设置字体                                                                                                                                      |
+| setForeground         | 	void setForeground ( int column, const QColor & brush )  const     | 设置指定列的前景色                                                                                                                             |
+| setHidden             | 	void setHidden ( bool hide )  const                                | 设置是否隐藏                                                                                                                                  |
+| setIcon               | 	void setIcon (int column , const QString & iconfile ) const        | 设置指定列的图标，指定文件名                                                                                                                   |
+| setIcon               | 	void setIcon (int column ,  const QPixmap & icon )	 const         | 设置指定列的图标对应的图像                                                                                                                     |
+| setIcon               | 	void setIcon (int column ,  const QIcon & icon )	 const         | 设置指定列的图标对应的图像(V3.1.006引入)                                                                                                                     |
+| setSelected           | 	void setSelected ( bool select )		 const                     | 设置是否选中                                                                                                                                  |
+| setSizeHint           | 	void setSizeHint ( int column, const QSize & size )  const         | 设置指定列的提示尺寸，如果不指定提示尺寸，则将基于项目的数据计算提示尺寸                                                                          |
+| setStatusTip          | 	void setStatusTip (  int column,const QString & statusTip ) const  | 设置指定列的工具栏提示文字                                                                                                                     |
+| setText               | 	void setText ( int column, const QString & text ) const            | 设置指定列显示的文字                                                                                                                           |
+| setTextHAlignment     | 	void setTextHAlignment ( int column, int alignment ) const         | 设置指定列的水平对齐方式<br>pub.ALIGNLEFT 向左对齐<br>pub.ALIGNRIGHT 向右对齐<br>pub.ALIGNHCENTER 水平居中对齐<br>pub.ALIGNJUSTIFY 水平分散对齐） |
+| setTextList           | 	void setTextList(const QStringList &list) const                    | 按字符串列表设置每一列显示的文字                                                                                                                |
+| setTextVAlignment     | 	void setTextVAlignment ( int column, int alignment ) const         | 设置指定列的垂直对齐方式<br>pub.ALIGNTOP 向上对齐<br>pub.ALIGNBOTTOM 向下对齐<br>pub.ALIGNVCENTER 垂直居中对齐                                   |
+| setToolTip            | 	void setToolTip (  int column,const QString & toolTip )		 const | 设置指定列的工具提示                                                                                                                           |
+| setWhatsThis          | 	void setWhatsThis (  int column,const QString & whatsThis )  const | 设置指定列的“这是什么”提示文本                                                                                                                 |
+| sizeHint              | 	QSize sizeHint ( int column ) const                                | 返回指定列的提示尺寸                                                                                                                           |
+| sortChildren          | 	void sortChildren ( int column, bool ascorder = true )  const      | 对指定的下级项目进行排序                                                                                                                       |
+| statusTip             | 	QString statusTip (int column) const	                           | 返回指定列的状态栏提示文本                                                                                                                     |
+| takeChild             | 	treeItemDelegate * takeChild ( int index )  const                  | 取出指定序号的下级项目                                                                                                                         |
+| text                  | 	QString text (int column) const	                                   | 获取指定列的显示文本                                                                                                                           |
+| textAlignment         | 	int textAlignment ( int column ) const                             | 返回指定列的对齐方式                                                                                                                           |
+| textHAlignment        | 	int textHAlignment ( int column ) const                            | 返回指定列的水平对齐方式                                                                                                                       |
+| textList              | 	QStringList textList() const                                       | 返回所有列显示的文本                                                                                                                           |
+| textVAlignment        | 	int textVAlignment ( int column ) const                            | 返回指定列的垂直对齐方式                                                                                                                       |
+| toolTip               | 	QString toolTip (int column) const                                 | 返回指定列的工具提示文本                                                                                                                       |
+| whatsThis             | 	QString whatsThis (int column) const                               | 返回指定列的“这是什么”提示文本                                                                                                                 |
 
 
